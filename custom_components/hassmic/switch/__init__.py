@@ -7,12 +7,15 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 from .microphone import Microphone
+from .continue_conversation import ContinueConversationSwitch
+
 
 _LOGGER = logging.getLogger(__name__)
 
 # All of the sensor types in hassmic
 ALL_SWITCH_TYPES = [
     Microphone,
+    ContinueConversationSwitch,
 ]
 
 
