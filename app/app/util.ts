@@ -20,27 +20,29 @@ class AppUUIDManager_ {
           zcuuid = from_storage.toString();
         }
       } catch (e) {
-        new HMLogger().error(`Error getting UUID: ${e}`);
+        console.error(`Error getting UUID: ${e}`);
         fail(e);
       }
 
       if (!zcuuid) {
-        new HMLogger().debug("No zeroconf UUID found; generating one.");
+        console.debug("No zeroconf UUID found; generating one.");
         zcuuid = uuid.v4().toString();
-        new HMLogger().debug(`Generated UUID ${zcuuid}`);
+        console.debug(`Generated UUID ${zcuuid}`);
 
         try {
           await AsyncStorage.setItem(STORAGE_KEY_UUID, zcuuid);
         } catch (e) {
-          new HMLogger().error(`Error saving UUID: ${e}`);
+          console.error(`Error saving UUID: ${e}`);
           return;
         }
       }
+      console.debug(`UUID is ${zcuuid}`);
       resolve(zcuuid);
     })();
   });
 
   getUUID = async (): Promise<string> => {
+    console.log(this._uuid_setup_promise);
     return await this._uuid_setup_promise;
   };
 }
@@ -48,6 +50,8 @@ class AppUUIDManager_ {
 // wrapper around log features
 class HMLogger_ {
   private log_ = (severity: Log_Severity, msg: string) => {
+    // Remote debug logging disabled for now, since it causes issues.
+    /*
     let m = ClientMessage.create({
       msg: {
         oneofKind: "clientEvent",
@@ -63,6 +67,7 @@ class HMLogger_ {
       },
     });
     CheyenneSocket.sendMessage(m);
+    */
   };
 
   debug = (msg: string) => {

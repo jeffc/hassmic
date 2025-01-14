@@ -49,13 +49,13 @@ TEMPFILE=`mktemp`
 FILE=custom_components/hassmic/manifest.json
 npx node-jq \
   --arg version "$VERSION" \
-  '(.version)=$version' < $FILE > $TEMPFILE;
+  "(.version)=\$version" < $FILE > $TEMPFILE;
 
 if cmp -s $TEMPFILE $FILE
 then
-  mv $TEMPFILE $FILE;
-else
   rm $TEMPFILE
+else
+  mv $TEMPFILE $FILE;
 fi;
 
 popd

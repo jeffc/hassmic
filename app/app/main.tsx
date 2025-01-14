@@ -97,6 +97,7 @@ export default function Index() {
   useEffect(() => {
     CheyenneSocket.setConnectionStateCallback(setIsConnected);
     NetworkInfo.getIPV4Address().then(setLocalIP);
+    console.log("GETTING UUID AAAH");
     UUIDManager.getUUID().then(setUUID);
 
     // kill any existing instance of the background task (ie, task running even

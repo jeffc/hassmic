@@ -232,6 +232,7 @@ class ConnectionManager:
         except Exception as e:
             _LOGGER.error(e)
         finally:
+            _LOGGER.debug("Clearing send queue")
             try:
                 while self._outbox.get_nowait():
                     pass
