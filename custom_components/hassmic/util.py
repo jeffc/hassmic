@@ -5,6 +5,7 @@ import re
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo, Entity, generate_entity_id
+from homeassistant.components.switch import SwitchEntity
 
 from . import const
 
@@ -32,6 +33,7 @@ def InitializeEntity(
     )
     e.entity_id = generate_entity_id(entity_id_format, id_candidate, hass=hass)
     config_entry.runtime_data.register_entity(e)
+
 
 
 # vim: set ts=4 sw=4:
