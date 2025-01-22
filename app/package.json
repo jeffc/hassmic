@@ -21,6 +21,7 @@
     "@react-native-async-storage/async-storage": "^2.0.0",
     "@react-navigation/native": "^6.0.2",
     "@stardazed/streams-text-encoding": "^1.0.2",
+    "@types/node": "^22.10.7",
     "buffer": "^6.0.3",
     "expo": "~51.0.28",
     "expo-application": "^5.9.1",
@@ -54,6 +55,7 @@
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@eslint/js": "^9.9.1",
+    "@types/eventemitter3": "^1.2.0",
     "@types/jest": "^29.5.12",
     "@types/react": "~18.2.45",
     "@types/react-native-zeroconf": "^0.13.0",
