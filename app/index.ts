@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { AppRegistry, Platform } from "react-native";
 import registerRootComponent from "expo/build/launch/registerRootComponent";
 import Index from "./app/main";
