@@ -2,6 +2,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AppRegistry } from "react-native";
 import { Buffer } from "buffer";
 import { CheyenneSocket } from "./cheyenne";
+import { WyomingServer } from "./wyoming";
 import { PermissionsAndroid } from "react-native";
 import { STORAGE_KEY_RUN_BACKGROUND_TASK } from "./constants";
 import { ZeroconfManager } from "./zeroconf";
@@ -139,7 +140,11 @@ class BackgroundTaskManager_ {
     });
     // native event listeners
     CheyenneSocket.startServer();
-    HMLogger.info("Started server");
+    HMLogger.info("Started cheyenne server");
+
+    WyomingServer.startServer();
+    HMLogger.info("Started wyoming server");
+
     await ZeroconfManager.StartZeroconf();
     const ok = await PermissionsAndroid.check(
       PermissionsAndroid.PERMISSIONS.RECORD_AUDIO
