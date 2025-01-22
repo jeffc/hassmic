@@ -3,25 +3,16 @@ import TcpSocket from "react-native-tcp-socket";
 import { HMLogger } from "./util";
 import { APP_VERSION } from "./constants";
 
-interface WyomingInfoSection {
-  type?: string;
-  payload_length?: number;
-  [key: string]: any;
-}
-
 // Represents a wyoming protocol packet (JSON and optional payload)
 class WyomingPacket {
-  private _info: WyomingInfoSection = {};
+  private _type: string = "";
+  private _data: { [key: string]: any } = {};
   private _payload: Uint8Array = new Uint8Array();
 
   // Validates a packet. Logs a warning if invalid and returns false. Otherwise
   // returns true.
   validate: () => boolean = () => {
-    if (!this._info) {
-      HMLogger.warning("WyomingPacket missing info");
-      return false;
-    }
-    if (!this._info["type"]) {
+    if (!this._type) {
       HMLogger.warning("WyomingPacket missing type");
       return false;
     }
@@ -37,12 +28,12 @@ class WyomingPacket {
 
   // Set a property on the packet.
   setProp(prop: string, val: any) {
-    this._info[prop] = val;
+    this._data[prop] = val;
   }
 
   // Get a property on the packet.
   getProp(prop: string) {
-    return this._info[prop] || undefined;
+    return this._data[prop] || undefined;
   }
 
   // Set the payload and update the payload length.
@@ -52,32 +43,37 @@ class WyomingPacket {
     } else {
       this._payload = payload;
     }
-    this._info["payload_length"] = this._payload.length;
   }
 
   // Return the payload length, or zero if there is no payload.
   private getPayloadLength = () => {
-    return this._info?.["payload_length"] || 0;
+    return this._payload.length;
+  };
+
+  getDataLength = () => {
+    return JSON.stringify(this._data).length;
   };
 
   // Shortcut method for getting the type of this packet.
-  private getType = () => {
-    return this.getProp("type");
+  getType = () => {
+    return this._type;
   };
 
   // If this packet has any data in it, return it as a JSON string. Otherwise
   // return a placeholder.
   toString = () => {
-    if (!this._info) {
-      return "<empty>";
-    }
-    return JSON.stringify(this._info);
+    return JSON.stringify({ type: this._type, data: this._data });
   };
 
-  // Build from an info object.
-  constructor(fromObject: object) {
-    for (let [k, v] of Object.entries(fromObject)) {
-      this._info[k] = v;
+  // Construct a packet from a blob of data
+  constructor(fromData: any | undefined) {
+    if (fromData) {
+      this._type = fromData["type"] || "";
+      if ("data" in fromData) {
+        for (let [k, v] of Object.entries(fromData["data"])) {
+          this._data[k] = v;
+        }
+      }
     }
   }
 
@@ -89,8 +85,12 @@ class WyomingPacket {
     if (!this.validate()) {
       throw new Error("Not writing invalid wyoming packet");
     }
-    this._info["payload_length"] = this._payload.length;
-    let jsonstr = JSON.stringify(this._info);
+    let pl = this._payload.length;
+    let jsonstr = JSON.stringify({
+      type: this._type,
+      payload_length: pl,
+      data: this._data,
+    });
     let outBytes = new Uint8Array(jsonstr.length + this._payload.length + 1);
     let j = 0;
     for (let i = 0; i < jsonstr.length; i++) {
@@ -154,8 +154,10 @@ class RecvStateMachine {
       }
 
       // otherwise, try to parse the message
+      let pktobj: { [key: string]: any } = {};
       try {
-        pktout = new WyomingPacket(JSON.parse(jsonBytes.join("")));
+        pktobj = JSON.parse(jsonBytes.join(""));
+        pktout = new WyomingPacket(pktobj);
         jsonBytes = [];
       } catch (e) {
         HMLogger.error("Error parsing wyoming json message: " + e);
@@ -163,7 +165,7 @@ class RecvStateMachine {
       }
 
       // If there's data, we have to read it.
-      let data_bytes_remaining = pktout.getProp("data_length") || 0;
+      let data_bytes_remaining = pktobj["data_length"] || 0;
 
       while (data_bytes_remaining > 0) {
         if (idx == data.length) {
@@ -256,7 +258,7 @@ class WyomingServer_ {
       return;
     }
 
-    let ptype = p.getProp("type");
+    let ptype = p.getType();
     HMLogger.info(`Got wyoming packet type ${ptype}`);
 
     switch (ptype) {
@@ -264,29 +266,31 @@ class WyomingServer_ {
         HMLogger.info("Got wyoming `describe` request, responding with info");
         let p = new WyomingPacket({
           type: "info",
-          version: APP_VERSION,
-          asr: [],
-          tts: [],
-          handle: [],
-          intent: [],
-          wake: [],
-          satellite: {
-            name: "Hassmic Wyoming",
-            attribution: {
-              name: "",
-              url: "",
-            },
-            installed: true,
-            description: "Hassmic Wyoming",
+          data: {
             version: APP_VERSION,
-            area: null,
-            snd_format: null,
+            asr: [],
+            tts: [],
+            handle: [],
+            intent: [],
+            wake: [],
+            satellite: {
+              name: "Hassmic Wyoming",
+              attribution: {
+                name: "",
+                url: "",
+              },
+              installed: true,
+              description: "Hassmic Wyoming",
+              version: APP_VERSION,
+              area: null,
+              snd_format: null,
+            },
           },
         });
         p.writeToSocket(this._sock);
         break;
       case "ping":
-        HMLogger.info("Got wyoming `ping`, responding with pong");
+        // don't log ping/pong responses because they spam the console.
         new WyomingPacket({
           type: "pong",
         }).writeToSocket(this._sock);
