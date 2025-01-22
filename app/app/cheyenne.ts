@@ -67,8 +67,8 @@ class CheyenneServer {
             },
           })
         );
-      } catch (e) {
-        HMLogger.info(e);
+      } catch (e: any) {
+        HMLogger.info(e.toString());
       }
     }
   };
@@ -79,8 +79,8 @@ class CheyenneServer {
         let msg = ClientMessage.toBinary(m);
         let b64 = Buffer.from(msg).toString("base64");
         this._sock.write(b64 + "\n");
-      } catch (e) {
-        HMLogger.error(e);
+      } catch (e: any) {
+        HMLogger.error(e.toString());
       }
     }
   };
@@ -120,8 +120,8 @@ class CheyenneServer {
               },
             })
           );
-        } catch (e) {
-          HMLogger.info(e);
+        } catch (e: any) {
+          HMLogger.info(e.toString());
         }
         await new Promise((resolve) => setTimeout(resolve, 10 * 1e3));
       }
@@ -151,8 +151,14 @@ class CheyenneServer {
         this._setConnectionState(false);
       });
 
-      socket.on("data", (d) => {
-        this._handleIncomingData(d);
+      socket.on("data", (d: string | Buffer) => {
+        if (typeof d == "string") {
+          this._handleIncomingData(
+            Uint8Array.from(Array.from(d).map((l) => l.charCodeAt(0) || 0))
+          );
+        } else {
+          this._handleIncomingData(Uint8Array.from(d));
+        }
       });
 
       HMLogger.info(`Got connection`);
@@ -205,8 +211,8 @@ class CheyenneServer {
         default:
           HMLogger.warning(`Got unknown message type '${m.msg.oneofKind}'`);
       }
-    } catch (e) {
-      HMLogger.error(e);
+    } catch (e: any) {
+      HMLogger.error(e.toString());
     }
   };
 }

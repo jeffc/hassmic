@@ -22,7 +22,7 @@ class NativeManager_ {
   emitter = new NativeEventEmitter(BackgroundTaskModule);
 
   // use a promise to be able to flag when everything is initialized.
-  private setReady: (() => void) | null = null;
+  private setReady: () => void = () => {};
   private ready_: Promise<void> | null = null;
 
   constructor() {
@@ -35,10 +35,6 @@ class NativeManager_ {
       (nok) => HMLogger.debug(`Init not ok: ${nok}`)
     );
   }
-
-  getVolume = (p: MediaPlayerId) => {
-    return this.volumeLevels.get(p);
-  };
 
   private savedSettings_: SavedSettings = SavedSettings.create({});
   private writeSavedSettings_ = async () => {
