@@ -119,6 +119,13 @@ class PipelineManager:
         self._should_close = False
         while not self._should_close:
             try:
+                # Determines the startup stage based on the state of the continue_conversation switch
+                start_stage = (
+                    PipelineStage.STT
+                    if self._hass.data.get("pipeline_start_stage") == PipelineStage.STT
+                    else PipelineStage.WAKE_WORD
+                )
+
                 await assist_pipeline.async_pipeline_from_audio_stream(
                     hass=self._hass,
                     context=Context(),
@@ -132,8 +139,9 @@ class PipelineManager:
                         sample_rate=stt.AudioSampleRates.SAMPLERATE_16000,
                         channel=stt.AudioChannels.CHANNEL_MONO,
                     ),
-                    start_stage=PipelineStage.WAKE_WORD,
+                    start_stage=start_stage,
                     device_id=self._device.id,
+                    conversation_id="123456789",
                 )
 
                 _LOGGER.debug("Pipeline finished, starting over")
