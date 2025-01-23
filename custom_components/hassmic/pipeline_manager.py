@@ -112,13 +112,20 @@ class PipelineManager:
 
     async def _loop(self):
         """Run the managed pipeline."""
-
         _LOGGER.debug("Starting pipeline manager")
 
         self._running = True
         self._should_close = False
+
         while not self._should_close:
             try:
+                # Determină stagiul de pornire bazat pe starea switch-ului
+                start_stage = (
+                    PipelineStage.STT
+                    if self._hass.data.get("pipeline_start_stage") == PipelineStage.STT
+                    else PipelineStage.WAKE_WORD
+                )
+
                 await assist_pipeline.async_pipeline_from_audio_stream(
                     hass=self._hass,
                     context=Context(),
@@ -132,22 +139,14 @@ class PipelineManager:
                         sample_rate=stt.AudioSampleRates.SAMPLERATE_16000,
                         channel=stt.AudioChannels.CHANNEL_MONO,
                     ),
-                    start_stage=PipelineStage.WAKE_WORD,
+                    start_stage=start_stage,  # It uses dynamic logic for the starting stage
                     device_id=self._device.id,
+                    conversation_id="123456789",  # Or get this value from a dynamic source
                 )
-
-                _LOGGER.debug("Pipeline finished, starting over")
-            except WakeWordDetectionError as e:
-                if e.code == "wake-provider-missing":
-                    _LOGGER.warning(
-                        "Wakeword provider missing from pipeline.  Maybe not set up yet? Waiting and trying again."
-                    )
-                    await asyncio.sleep(1)
-                else:
-                    raise
-            except asyncio.CancelledError:
-                _LOGGER.debug("Pipeline manager thread cancelled, exiting")
+            except Exception as e:
+                _LOGGER.error(f"Error in pipeline manager loop: {e}")
                 self._should_close = True
+
                 break
 
             except Exception as e:
