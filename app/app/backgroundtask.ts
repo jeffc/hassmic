@@ -4,7 +4,7 @@ import { Buffer } from "buffer";
 import { CheyenneSocket } from "./cheyenne";
 import { WyomingServer } from "./wyoming";
 import { PermissionsAndroid } from "react-native";
-import { STORAGE_KEY_RUN_BACKGROUND_TASK } from "./constants";
+import { STORAGE_KEY_RUN_BACKGROUND_TASK, AUDIO_INFO } from "./constants";
 import { ZeroconfManager } from "./zeroconf";
 import { NativeManager } from "./nativemgr";
 import { ClientEvent, ClientMessage, ServerMessage } from "./proto/hassmic";
@@ -156,9 +156,9 @@ class BackgroundTaskManager_ {
     }
     HMLogger.info("permissions okay, starting stream");
     LiveAudioStream.init({
-      sampleRate: 16000,
-      channels: 1,
-      bitsPerSample: 16,
+      sampleRate: AUDIO_INFO.rate,
+      channels: AUDIO_INFO.channels,
+      bitsPerSample: AUDIO_INFO.width * 8,
       audioSource: 6,
       wavFile: "", // to make tsc happy; this isn't used anywhere
     });
@@ -170,7 +170,8 @@ class BackgroundTaskManager_ {
         return;
       }
       const chunk = Buffer.from(data, "base64");
-      CheyenneSocket.streamAudio(chunk);
+      //CheyenneSocket.streamAudio(chunk);
+      WyomingServer.sendAudioData(chunk);
     });
     LiveAudioStream.start();
     HMLogger.info("stream started");
