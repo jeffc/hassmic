@@ -1,7 +1,10 @@
 import Zeroconf from "react-native-zeroconf";
 
 import { HASSMIC_PORT, STORAGE_KEY_UUID } from "./constants";
-import { HMLogger, UUIDManager } from "./util";
+import { UUIDManager } from "./util";
+import { HMLogger } from "./logger";
+
+const Logger = new HMLogger("zeroconf.ts");
 
 class ZeroconfManager_ {
   zeroconf = new Zeroconf();
@@ -9,7 +12,7 @@ class ZeroconfManager_ {
   StartZeroconf = async () => {
     let zcuuid: string = await UUIDManager.getUUID();
 
-    HMLogger.debug(`Starting Zeroconf using UUID ${zcuuid}`);
+    Logger.debug(`Starting Zeroconf using UUID ${zcuuid}`);
     this.zeroconf.publishService(
       "hassmic",
       "tcp",
@@ -22,7 +25,7 @@ class ZeroconfManager_ {
   StopZeroconf = async () => {
     let zcuuid: string = await UUIDManager.getUUID();
 
-    HMLogger.debug(`Stopping Zeroconf using UUID ${zcuuid}`);
+    Logger.debug(`Stopping Zeroconf using UUID ${zcuuid}`);
     this.zeroconf.unpublishService(zcuuid);
   };
 }

@@ -8,11 +8,13 @@ import { STORAGE_KEY_RUN_BACKGROUND_TASK, AUDIO_INFO } from "./constants";
 import { ZeroconfManager } from "./zeroconf";
 import { NativeManager } from "./nativemgr";
 import { ClientEvent, ClientMessage, ServerMessage } from "./proto/hassmic";
-import { HMLogger } from "./util";
+import { HMLogger } from "./logger";
 
 // note - patched version from
 // https://github.com/jeffc/react-native-live-audio-stream
 import LiveAudioStream from "react-native-live-audio-stream";
+
+const Logger = new HMLogger("backgroundtask.ts");
 
 const sleep = (delay: number) =>
   new Promise((resolve) => setTimeout(resolve, delay));
@@ -70,13 +72,13 @@ class BackgroundTaskManager_ {
             en_str = from_storage?.toString();
           }
         } catch (e) {
-          HMLogger.error(`Error getting task enable state: ${e}`);
+          Logger.error(`Error getting task enable state: ${e}`);
           fail(e);
         }
 
         let en: boolean = en_str === "true";
         if (en_str === null) {
-          HMLogger.debug("No enable state found. Setting to false.");
+          Logger.debug("No enable state found. Setting to false.");
           en = false;
         }
 
@@ -109,7 +111,7 @@ class BackgroundTaskManager_ {
           enable ? "true" : "false"
         );
       } catch (e) {
-        HMLogger.error(`Error saving enable state: ${e}`);
+        Logger.error(`Error saving enable state: ${e}`);
       }
       this.isEnabled = new Promise<boolean>((resolve) => resolve(enable));
       this.enableStateCallback(enable);
@@ -119,7 +121,7 @@ class BackgroundTaskManager_ {
   // actually run the task
   run_fn = async (taskData: any) => {
     if (this.taskState == TaskState.RUNNING) {
-      HMLogger.error("Background task is already running; not starting again!");
+      Logger.error("Background task is already running; not starting again!");
       return;
     }
 
@@ -128,33 +130,33 @@ class BackgroundTaskManager_ {
     const shouldRun = await this.isEnabled;
 
     if (!shouldRun) {
-      HMLogger.info("Not running background task; is disabled");
+      Logger.info("Not running background task; is disabled");
       this.setState(TaskState.STOPPED);
       NativeManager.killService();
       return;
     }
 
-    HMLogger.info("Started background task");
+    Logger.info("Started background task");
     const shouldStop = new Promise<void>((resolve) => {
       this.stop_fn = resolve;
     });
     // native event listeners
     CheyenneSocket.startServer();
-    HMLogger.info("Started cheyenne server");
+    Logger.info("Started cheyenne server");
 
     WyomingServer.startServer();
-    HMLogger.info("Started wyoming server");
+    Logger.info("Started wyoming server");
 
     await ZeroconfManager.StartZeroconf();
     const ok = await PermissionsAndroid.check(
       PermissionsAndroid.PERMISSIONS.RECORD_AUDIO
     );
     if (!ok) {
-      HMLogger.error("no permission; bailing");
+      Logger.error("no permission; bailing");
       this.setState(TaskState.FAILED);
       return;
     }
-    HMLogger.info("permissions okay, starting stream");
+    Logger.info("permissions okay, starting stream");
     LiveAudioStream.init({
       sampleRate: AUDIO_INFO.rate,
       channels: AUDIO_INFO.channels,
@@ -166,7 +168,7 @@ class BackgroundTaskManager_ {
     // @ts-ignore: This error is some weird interaction between TS and Java
     LiveAudioStream.on("RNLiveAudioStream.data", (data) => {
       if (typeof data == "object") {
-        HMLogger.warning(`Can't process: ${JSON.stringify(data)}`);
+        Logger.warning(`Can't process: ${JSON.stringify(data)}`);
         return;
       }
       const chunk = Buffer.from(data, "base64");
@@ -174,12 +176,12 @@ class BackgroundTaskManager_ {
       WyomingServer.sendAudioData(chunk);
     });
     LiveAudioStream.start();
-    HMLogger.info("stream started");
+    Logger.info("stream started");
     this.setState(TaskState.RUNNING);
 
-    HMLogger.info("Background task running, awaiting stop signal");
+    Logger.info("Background task running, awaiting stop signal");
     await shouldStop;
-    HMLogger.info("Background task got stop signal, stopping");
+    Logger.info("Background task got stop signal, stopping");
     LiveAudioStream.stop();
     CheyenneSocket.stopServer();
     NativeManager.killService();
@@ -196,7 +198,7 @@ class BackgroundTaskManager_ {
     if (this.stop_fn) {
       this.stop_fn();
     } else {
-      HMLogger.error(
+      Logger.error(
         "Called stop() on background task, but it doesn't appear to be running"
       );
     }

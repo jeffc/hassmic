@@ -11,7 +11,6 @@ import {
 import { APP_VERSION } from "./constants";
 import { BackgroundTaskManager, TaskState } from "./backgroundtask";
 import { CheyenneSocket } from "./cheyenne";
-import { HASS_URL, HASS_KEY } from "./secrets";
 import { NetworkInfo } from "react-native-network-info";
 import { UUIDManager } from "./util";
 import { ZeroconfManager } from "./zeroconf";

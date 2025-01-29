@@ -8,7 +8,7 @@ import {
   CLIENT_EVENT_KEY,
   STORAGE_KEY_SAVED_SETTINGS_PROTO,
 } from "./constants";
-import { HMLogger } from "./util";
+import { HMLogger } from "./logger";
 
 import {
   ClientEvent,
@@ -17,6 +17,8 @@ import {
   SavedSettings,
   ServerMessage,
 } from "./proto/hassmic";
+
+const Logger = new HMLogger("nativemgr.ts");
 
 class NativeManager_ {
   emitter = new NativeEventEmitter(BackgroundTaskModule);
@@ -31,21 +33,21 @@ class NativeManager_ {
     });
     // run async init
     this.initialize_().then(
-      (ok) => HMLogger.debug("Init ok"),
-      (nok) => HMLogger.debug(`Init not ok: ${nok}`)
+      (ok) => Logger.debug("Init ok"),
+      (nok) => Logger.debug(`Init not ok: ${nok}`)
     );
   }
 
   private savedSettings_: SavedSettings = SavedSettings.create({});
   private writeSavedSettings_ = async () => {
-    HMLogger.debug("writing saved settings");
+    Logger.debug("writing saved settings");
     await AsyncStorage.setItem(
       STORAGE_KEY_SAVED_SETTINGS_PROTO,
       Buffer.from(SavedSettings.toBinary(this.savedSettings_)).toString(
         "base64"
       )
     );
-    HMLogger.debug("wrote");
+    Logger.debug("wrote");
   };
 
   getSavedSettings = () => {
@@ -64,23 +66,23 @@ class NativeManager_ {
         let bts = Buffer.from(b64, "base64");
         this.savedSettings_ = SavedSettings.fromBinary(bts);
       } catch (e) {
-        HMLogger.error(`Error loading saved settings: ${e}`);
+        Logger.error(`Error loading saved settings: ${e}`);
         ss = null;
       }
     }
     if (!ss) {
-      HMLogger.warn(`No saved settings found, creating defaults`);
+      Logger.warn(`No saved settings found, creating defaults`);
       this.savedSettings_ = SavedSettings.create({
         announceVolume: 1.0,
         playbackVolume: 1.0,
       });
     }
-    HMLogger.debug(SavedSettings.toJsonString(this.savedSettings_));
+    Logger.debug(SavedSettings.toJsonString(this.savedSettings_));
     await this.writeSavedSettings_();
 
     this.addClientEventListener(this.onClientEvent);
 
-    HMLogger.debug("Native manager is ready.");
+    Logger.debug("Native manager is ready.");
     this.setReady();
   };
 
@@ -91,14 +93,14 @@ class NativeManager_ {
   // Add a listener for ClientEvents sent by native code.
   addClientEventListener = (f: (ev: ClientEvent) => void) => {
     this.emitter.addListener(CLIENT_EVENT_KEY, (ev) => {
-      HMLogger.debug(`Proto-valued event: ${ev}`);
+      Logger.debug(`Proto-valued event: ${ev}`);
       try {
         let b64 = ev.toString().trim();
         let bts = Buffer.from(b64, "base64");
         let ce = ClientEvent.fromBinary(bts);
         f(ce);
       } catch (e) {
-        HMLogger.error(`Error in ClientEvent Listener: ${e}`);
+        Logger.error(`Error in ClientEvent Listener: ${e}`);
       }
     });
   };
@@ -125,28 +127,24 @@ class NativeManager_ {
 
   // What to do on ClientEvent receipt from native code
   private onClientEvent = (ce: ClientEvent) => {
-    HMLogger.info(ClientEvent.toJsonString(ce));
+    Logger.info(ClientEvent.toJsonString(ce));
     if (ce.event.oneofKind == "mediaPlayerVolumeChange") {
       const vl = ce.event.mediaPlayerVolumeChange;
       switch (vl.player) {
         case MediaPlayerId.ID_ANNOUNCE:
-          HMLogger.debug(
-            `Setting new volume level for announce to ${vl.volume}`
-          );
+          Logger.debug(`Setting new volume level for announce to ${vl.volume}`);
           this.savedSettings_.announceVolume = vl.volume;
           // save in the background
           this.writeSavedSettings_().then(() => {});
           break;
         case MediaPlayerId.ID_PLAYBACK:
-          HMLogger.debug(
-            `Setting new volume level for playback to ${vl.volume}`
-          );
+          Logger.debug(`Setting new volume level for playback to ${vl.volume}`);
           this.savedSettings_.playbackVolume = vl.volume;
           // save in the background
           this.writeSavedSettings_().then(() => {});
           break;
         default:
-          HMLogger.error(`Unknown player in event: ${vl.player}`);
+          Logger.error(`Unknown player in event: ${vl.player}`);
       }
     }
   };

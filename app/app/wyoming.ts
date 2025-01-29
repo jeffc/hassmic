@@ -1,7 +1,9 @@
 // exposes the microphone as a wyoming satellite
 import TcpSocket from "react-native-tcp-socket";
-import { HMLogger } from "./util";
+import { HMLogger } from "./logger";
 import { APP_VERSION, AUDIO_INFO } from "./constants";
+
+const Logger = new HMLogger("wyoming.ts");
 
 // Represents a wyoming protocol packet (JSON and optional payload)
 class WyomingPacket {
@@ -13,11 +15,11 @@ class WyomingPacket {
   // returns true.
   validate: () => boolean = () => {
     if (!this._type) {
-      HMLogger.warning("WyomingPacket missing type");
+      Logger.warning("WyomingPacket missing type");
       return false;
     }
     if (this.getPayloadLength() != this._payload.length) {
-      HMLogger.warning(
+      Logger.warning(
         `WyomingPacket payload length does not match stated length: ${this.getPayloadLength()} != ${this._payload.length}`
       );
       return false;
@@ -110,7 +112,7 @@ class WyomingPacket {
       }
       s.write(outBytes);
     } catch (e: any) {
-      HMLogger.error(`Error writing packet: ${e}`);
+      Logger.error(`Error writing packet: ${e}`);
     }
   };
 }
@@ -170,7 +172,7 @@ class RecvStateMachine {
         pktout = new WyomingPacket(pktobj);
         jsonBytes = [];
       } catch (e) {
-        HMLogger.error("Error parsing wyoming json message: " + e);
+        Logger.error("Error parsing wyoming json message: " + e);
         continue;
       }
 
@@ -199,7 +201,7 @@ class RecvStateMachine {
           }
           jsonBytes = [];
         } catch (e) {
-          HMLogger.error("Error parsing wyoming json data: " + e);
+          Logger.error("Error parsing wyoming json data: " + e);
           continue;
         }
       }
@@ -251,24 +253,24 @@ class WyomingServer_ {
 
   private _wyomingWrite(p: WyomingPacket) {
     if (!p.validate()) {
-      HMLogger.error("can't write invalid wyoming packet");
+      Logger.error("can't write invalid wyoming packet");
       return;
     }
     if (this._sock) {
       try {
         p.writeToSocket(this._sock);
       } catch (e) {
-        HMLogger.error(`Error writing to wyoming socket: ${e}`);
+        Logger.error(`Error writing to wyoming socket: ${e}`);
         return;
       }
     } else {
-      HMLogger.warning("Not writing wyomingpacket to closed socket");
+      Logger.warning("Not writing wyomingpacket to closed socket");
     }
   }
 
   private _onCompletePacket = (p: WyomingPacket) => {
     if (!p) {
-      HMLogger.error("Wyoming got null packet");
+      Logger.error("Wyoming got null packet");
       return;
     }
 
@@ -276,8 +278,8 @@ class WyomingServer_ {
     try {
       switch (ptype) {
         case "describe":
-          HMLogger.info("Got wyoming `describe` request, responding with info");
-          let p = new WyomingPacket({
+          Logger.info("Got wyoming `describe` request, responding with info");
+          let resp = new WyomingPacket({
             type: "info",
             data: {
               version: APP_VERSION,
@@ -300,12 +302,45 @@ class WyomingServer_ {
               },
             },
           });
-          this._wyomingWrite(p);
+          this._wyomingWrite(resp);
           break;
+
         case "run-satellite":
-          HMLogger.info("Starting satellite at server request");
+          Logger.info("Starting satellite at server request");
           this.runPipeline();
           break;
+
+        case "pause-satellite":
+          Logger.info("Stopping satellite at server request");
+          this.stopPipeline();
+          break;
+
+        case "detect":
+          Logger.info("Starting (on-server) wakeword detection...");
+          break;
+
+        case "detection":
+          Logger.info(
+            `Got on-server wakeword detection: "${p.getProp("name")}"`
+          );
+          break;
+
+        case "transcribe":
+          Logger.info("Starting transcription...");
+          break;
+
+        case "voice-started":
+          Logger.info("Starting voice processing...");
+          break;
+
+        case "voice-stopped":
+          Logger.info("Voice processing complete");
+          break;
+
+        case "transcript":
+          Logger.info(`Got transcript: "${p.getProp("text")}"`);
+          break;
+
         case "ping":
           // don't log ping/pong responses because they spam the console.
           this._wyomingWrite(
@@ -315,21 +350,27 @@ class WyomingServer_ {
           );
           break;
         default:
-          HMLogger.warning(`Unknown packet type: "${ptype}"`);
+          Logger.warning(`Unknown packet type: "${ptype}:"`);
+          JSON.stringify(JSON.parse(p.toString()), null, 2)
+            .split("\n")
+            .forEach((l) => {
+              Logger.warning(`\t${l}`);
+            });
+          break;
       }
     } catch (e: any) {
-      HMLogger.error(`Error processing incoming packet: ${e}`);
+      Logger.error(`Error processing incoming packet: ${e}`);
     }
   };
 
   // Send a chunk of pcm audio
   sendAudioData = (data: Uint8Array) => {
     if (!data || data.length == 0) {
-      HMLogger.warning("Not sending empty audio data");
+      Logger.warning("Not sending empty audio data");
       return;
     }
     if (!this._pipelineRunning) {
-      HMLogger.warning("Pipeline not running; not sending audio chunk");
+      Logger.warning("Pipeline not running; not sending audio chunk");
       return;
     }
     let pkt = new WyomingPacket({
@@ -344,7 +385,7 @@ class WyomingServer_ {
     try {
       this._wyomingWrite(pkt);
     } catch (e: any) {
-      HMLogger.error(`Error writing audio packet: ${e}`);
+      Logger.error(`Error writing audio packet: ${e}`);
     }
   };
 
@@ -366,35 +407,39 @@ class WyomingServer_ {
     try {
       this._wyomingWrite(pkt);
     } catch (e: any) {
-      HMLogger.error(`Error writing run-pipeline packet: ${e}`);
+      Logger.error(`Error writing run-pipeline packet: ${e}`);
       this._pipelineRunning = false;
     }
     this._pipelineRunning = true;
   };
 
+  stopPipeline = () => {
+    this._pipelineRunning = false;
+  };
+
   startServer = async () => {
     if (this._server) {
-      HMLogger.error("Error: wyoming startserver() called twice");
+      Logger.error("Error: wyoming startserver() called twice");
       return;
     }
 
     this._server = TcpSocket.createServer((socket: TcpSocket.Socket) => {
-      HMLogger.info(`Wyoming Got connection`);
+      Logger.info(`Wyoming Got connection`);
       if (!this._sock) {
         this._sock = socket;
         this._sock.setTimeout(60e3);
-        HMLogger.info("Wyoming all set up -- waiting");
+        Logger.info("Wyoming all set up -- waiting");
       } else {
-        HMLogger.warn("Wyoming already have a socket, dropping new connection");
+        Logger.warn("Wyoming already have a socket, dropping new connection");
         this._sock.destroy();
       }
 
       socket.on("error", (err: Error) => {
-        HMLogger.info(`Socket error: ${err}`);
+        Logger.info(`Socket error: ${err}`);
       });
 
       socket.on("close", (had_error: boolean) => {
-        HMLogger.info(`Closed connection (${had_error ? "had" : "no"} errors)`);
+        Logger.info(`Closed connection (${had_error ? "had" : "no"} errors)`);
         if (this._sock == socket) {
           this._sock = null;
         }
@@ -402,9 +447,9 @@ class WyomingServer_ {
       });
 
       socket.on("timeout", () => {
-        HMLogger.info("Socket timed out");
+        Logger.info("Socket timed out");
         if (this._sock) {
-          HMLogger.warning("Socket timed out; closing connection");
+          Logger.warning("Socket timed out; closing connection");
           this._sock.destroy();
           this._sock = null;
         }
