@@ -209,7 +209,7 @@ class RecvStateMachine {
       // If there was a payload, read in a similar way. The difference is that
       // this is simply raw bytes, not JSON, so we can just allocate an array to
       // hold it and not worry about converting to/from codepoints or JSON.
-      let payload_bytes = pktout.getProp("payload_length") || 0;
+      let payload_bytes = pktobj["payload_length"] || 0;
       let payload_idx = 0;
       let payload = new Uint8Array(payload_bytes);
 
@@ -298,7 +298,11 @@ class WyomingServer_ {
                 description: "Hassmic Wyoming",
                 version: APP_VERSION,
                 area: null,
-                snd_format: null,
+                snd_format: {
+                  channels: 2,
+                  rate: 44100,
+                  width: 1,
+                },
               },
             },
           });
@@ -395,7 +399,7 @@ class WyomingServer_ {
       type: "run-pipeline",
       data: {
         start_stage: "wake",
-        end_stage: "handle",
+        end_stage: "tts",
         restart_on_end: true,
         snd_format: {
           rate: AUDIO_INFO.rate,
