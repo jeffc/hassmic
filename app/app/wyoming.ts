@@ -2,6 +2,7 @@
 import TcpSocket from "react-native-tcp-socket";
 import { HMLogger } from "./logger";
 import { APP_VERSION, AUDIO_INFO } from "./constants";
+import { PCMPlayer } from "./pcm";
 
 const Logger = new HMLogger("wyoming.ts");
 
@@ -46,6 +47,11 @@ class WyomingPacket {
       this._payload = payload;
     }
   }
+
+  // Return the payload
+  getPayload = () => {
+    return this._payload;
+  };
 
   // Return the payload length, or zero if there is no payload.
   private getPayloadLength = () => {
@@ -128,18 +134,18 @@ class RecvStateMachine {
     this._handleCompletePacket = cb;
     // initialize the generator. Not sure why it needs an empty call to next()
     // before it works properly, but it does.
-    this._byteHandler.next();
+    this._byteHandler.next().then();
   }
 
   // This is the main point of interaction. Feeds bytes to the state machine.
-  handleBytes = (b: Uint8Array) => {
-    this._byteHandler.next(b);
+  handleBytes = async (b: Uint8Array) => {
+    await this._byteHandler.next(b);
   };
 
   // State machine, implemented as a generator function. The function consumes
   // bytes (fed in by next()) and emits Wyoming packets using the callback
   // passed in the constructor.
-  private _byteHandler = (function* (ethis) {
+  private _byteHandler = (async function* (ethis) {
     let idx = 0;
     let data = new Uint8Array();
     while (true) {
@@ -230,7 +236,7 @@ class RecvStateMachine {
 
       // Finally, emit the packet. ethis is bound to the RecvStateMachine
       // instance.
-      ethis._handleCompletePacket(pktout);
+      await ethis._handleCompletePacket(pktout);
     }
   })(this);
 }
@@ -240,15 +246,17 @@ class RecvStateMachine {
 class WyomingServer_ {
   private _server: TcpSocket.Server | null = null;
   private _sock: TcpSocket.Socket | null = null;
-  private _packetBuilder = new RecvStateMachine((p: WyomingPacket) =>
-    this._onCompletePacket(p)
+  private _packetBuilder = new RecvStateMachine(
+    async (p: WyomingPacket) => await this._onCompletePacket(p)
   );
+
+  private _activePCMStream: PCMPlayer | null = null;
 
   // Whether or not we've sent an audio-start command to the server
   private _pipelineRunning: boolean = false;
 
   private _handleIncomingData = async (d: Uint8Array) => {
-    this._packetBuilder.handleBytes(d);
+    await this._packetBuilder.handleBytes(d);
   };
 
   private _wyomingWrite(p: WyomingPacket) {
@@ -268,7 +276,7 @@ class WyomingServer_ {
     }
   }
 
-  private _onCompletePacket = (p: WyomingPacket) => {
+  private _onCompletePacket = async (p: WyomingPacket) => {
     if (!p) {
       Logger.error("Wyoming got null packet");
       return;
@@ -299,9 +307,9 @@ class WyomingServer_ {
                 version: APP_VERSION,
                 area: null,
                 snd_format: {
-                  channels: 2,
-                  rate: 44100,
-                  width: 1,
+                  channels: 1,
+                  rate: 16000,
+                  width: 2,
                 },
               },
             },
@@ -343,6 +351,41 @@ class WyomingServer_ {
 
         case "transcript":
           Logger.info(`Got transcript: "${p.getProp("text")}"`);
+          break;
+
+        case "synthesize":
+          Logger.info(`Synthesizing text "${p.getProp("text")}"`);
+          break;
+
+        case "audio-start":
+          Logger.info("Starting audio stream...");
+          this._activePCMStream = new PCMPlayer();
+          await this._activePCMStream.startAudioStream({
+            encoding: "16bit",
+            usage: "announce",
+            sampleRate: 16000,
+            channels: 1,
+            mode: "streaming",
+          });
+          break;
+
+        case "audio-chunk":
+          Logger.info("Playing audio chunk...");
+          if (this._activePCMStream) {
+            await this._activePCMStream.writeAudioStream(p.getPayload());
+          } else {
+            Logger.error("No active PCM stream!");
+          }
+          break;
+
+        case "audio-stop":
+          Logger.info("Audio done.");
+          if (this._activePCMStream) {
+            await this._activePCMStream.stopAudioStream();
+            //this._activePCMStream = null;
+          } else {
+            Logger.error("No active PCM Stream!");
+          }
           break;
 
         case "ping":
