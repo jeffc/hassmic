@@ -250,7 +250,7 @@ class WyomingServer_ {
     async (p: WyomingPacket) => await this._onCompletePacket(p)
   );
 
-  private _activePCMStream: PCMPlayer | null = null;
+  private _activePCMStream: number | null = null;
 
   // Whether or not we've sent an audio-start command to the server
   private _pipelineRunning: boolean = false;
@@ -359,20 +359,23 @@ class WyomingServer_ {
 
         case "audio-start":
           Logger.info("Starting audio stream...");
-          this._activePCMStream = new PCMPlayer();
-          await this._activePCMStream.startAudioStream({
+          this._activePCMStream = await PCMPlayer.startAudioStream({
             encoding: "16bit",
             usage: "announce",
             sampleRate: 16000,
             channels: 1,
             mode: "streaming",
           });
+          Logger.info(`Audio stream id: ${this._activePCMStream}`);
           break;
 
         case "audio-chunk":
           Logger.info("Playing audio chunk...");
           if (this._activePCMStream) {
-            await this._activePCMStream.writeAudioStream(p.getPayload());
+            await PCMPlayer.writeAudioStream(
+              this._activePCMStream,
+              p.getPayload()
+            );
           } else {
             Logger.error("No active PCM stream!");
           }
@@ -381,8 +384,8 @@ class WyomingServer_ {
         case "audio-stop":
           Logger.info("Audio done.");
           if (this._activePCMStream) {
-            await this._activePCMStream.stopAudioStream();
-            //this._activePCMStream = null;
+            await PCMPlayer.stopAudioStream(this._activePCMStream);
+            this._activePCMStream = null;
           } else {
             Logger.error("No active PCM Stream!");
           }

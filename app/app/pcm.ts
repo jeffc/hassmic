@@ -8,16 +8,14 @@ import { Buffer } from "buffer";
 
 const Logger = new HMLogger("pcm.ts");
 
-export class PCMPlayer {
+class PCMPlayer_ {
   // Based on examples at
   // https://github.com/clshortfuse/react-native-pcm-audio
-  private _pcmAudioSessionId = null;
-  startAudioStream = (pcmOptions: any) => {
-    return new Promise((resolve, reject) => {
+  startAudioStream = (pcmOptions: any): Promise<number> => {
+    return new Promise<number>((resolve, reject) => {
       var callback = (event: string, data: any) => {
         switch (event) {
           case "onSessionId":
-            this._pcmAudioSessionId = data;
             /* start playing audio immediately */
             Logger.info(`Got audio session id: ${data}`);
             resolve(data);
@@ -25,27 +23,32 @@ export class PCMPlayer {
         }
       };
       PcmAudio.build(pcmOptions, callback);
-    }).then(NativeModules.PcmAudio.play);
+    }).then((id: number): number => {
+      NativeModules.PcmAudio.play(id);
+      return id;
+    });
   };
 
-  writeAudioStream = async (samples: Uint8Array) => {
+  writeAudioStream = async (id: number, samples: Uint8Array) => {
     if (!samples) {
       Logger.error("Not writing null samples");
       return;
-    } else if (!this._pcmAudioSessionId) {
+    } else if (!id) {
       Logger.error("No audio session ID");
       return;
     }
     /* write pcm samples here */
     var base64Data = Buffer.from(samples).toString("base64");
-    await PcmAudio.write(this._pcmAudioSessionId, base64Data);
+    await PcmAudio.write(id, base64Data);
   };
 
-  stopAudioStream = async () => {
-    if (!this._pcmAudioSessionId) {
+  stopAudioStream = async (id: number) => {
+    if (!id) {
       Logger.info("no audio stream");
     }
-    PcmAudio.end(this._pcmAudioSessionId);
+    PcmAudio.end(id);
     //this._pcmAudioSessionId = null;
   };
 }
+
+export const PCMPlayer = new PCMPlayer_();
