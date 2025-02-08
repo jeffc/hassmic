@@ -1,0 +1,96 @@
+blueprint:
+  name: Viewassist Custom Responses
+  description: Automation for custom responses in Viewassist with selectable media content ID, media player, microphone, and custom wake words.
+  domain: automation
+  input:
+    trigger_entity:
+      name: Trigger Entity
+      description: Microphone entity sensor of satellite ex. sensor.viewassist_office_simple_state
+      selector:
+        entity:
+          domain: sensor
+    media_player:
+      name: Media Player
+      description: Select the media player to use
+      selector:
+        entity:
+          domain: media_player
+    microphone_switch:
+      name: Microphone Switch
+      description: Select the microphone switch to turn off and on
+      selector:
+        entity:
+          domain: switch
+    media_content_id:
+      name: Media Content ID
+      description: The media content ID to play (optional, with a default message)
+      default: "media-source://tts/edge_tts?message={{ ['how can I help you', 'yes, i`m listening', 'how can assist you'] | random }}&language=en-US-ChristopherNeural"
+      selector:
+        text: {}
+    custom_wake_words:
+      name: Custom Wake Words
+      description: Add custom wake words (e.g., 'ok nabu'). Add multiple values if needed.
+      default: ["ok nabu", "ok naboo", "okay naboo"]
+      selector:
+        object: {}
+    conversation_response:
+      name: Set Conversation Response
+      description: The response text for custom wake words
+      default: "say please"
+      selector:
+        text: {}
+
+trigger:
+  - platform: state
+    entity_id: !input "trigger_entity"
+    to: wake_word-detected
+    id: wake_word_detected
+  - platform: conversation
+    command: !input "custom_wake_words"
+    id: custom_wake_word_detected
+
+condition: []
+
+action:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: wake_word_detected
+        sequence:
+          - service: switch.turn_off
+            target:
+              entity_id: !input "microphone_switch"
+          - service: media_player.play_media
+            target:
+              entity_id: !input "media_player"
+            data:
+              media_content_id: !input "media_content_id"
+              media_content_type: provider
+              announce: true
+          - wait_for_trigger:
+              - platform: state
+                entity_id: !input "media_player"
+                to: idle
+            timeout:
+              hours: 0
+              minutes: 0
+              seconds: 1
+              milliseconds: 500
+          - service: switch.turn_on
+            target:
+              entity_id: !input "microphone_switch"
+      - conditions:
+          - condition: trigger
+            id: custom_wake_word_detected
+        sequence:
+          - service: media_player.play_media
+            target:
+              entity_id: !input "media_player"
+            data:
+              media_content_id: !input "media_content_id"
+              media_content_type: provider
+              announce: true
+          - set_conversation_response: !input "conversation_response"
+            enabled: true
+
+mode: single
