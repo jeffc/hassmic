@@ -20,6 +20,9 @@ class PCMPlayer_ {
             Logger.info(`Got audio session id: ${data}`);
             resolve(data);
             break;
+          case "onAudioDone":
+            Logger.info(`Audio session done: ${data}`);
+            break;
         }
       };
       PcmAudio.build(pcmOptions, callback);

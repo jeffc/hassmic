@@ -5,6 +5,7 @@ import { APP_VERSION, AUDIO_INFO } from "./constants";
 import { PCMPlayer } from "./pcm";
 
 const Logger = new HMLogger("wyoming.ts");
+type CallbackType<T> = ((s: T) => void) | null;
 
 // Represents a wyoming protocol packet (JSON and optional payload)
 class WyomingPacket {
@@ -250,6 +251,15 @@ class WyomingServer_ {
     async (p: WyomingPacket) => await this._onCompletePacket(p)
   );
 
+  // settable callback for connection state
+  private _connectionStateCallback: CallbackType<boolean> = null;
+  setConnectionStateCallback = (cb: CallbackType<boolean>) => {
+    this._connectionStateCallback = cb;
+  };
+  private _setConnectionState = (s: boolean) => {
+    this._connectionStateCallback?.(s);
+  };
+
   private _activePCMStream: number | null = null;
 
   // Whether or not we've sent an audio-start command to the server
@@ -478,6 +488,7 @@ class WyomingServer_ {
       if (!this._sock) {
         this._sock = socket;
         this._sock.setTimeout(60e3);
+        this._setConnectionState(true);
         Logger.info("Wyoming all set up -- waiting");
       } else {
         Logger.warn("Wyoming already have a socket, dropping new connection");
@@ -493,7 +504,7 @@ class WyomingServer_ {
         if (this._sock == socket) {
           this._sock = null;
         }
-        //this._setConnectionState(false);
+        this._setConnectionState(false);
       });
 
       socket.on("timeout", () => {
@@ -515,6 +526,16 @@ class WyomingServer_ {
         }
       });
     }).listen({ port: 10700, host: "0.0.0.0" });
+  };
+
+  stopServer = async () => {
+    Logger.info("stopping server...");
+    const p = new Promise<void>((resolve) => {
+      this._server?.close(() => resolve());
+    });
+    this._sock?.destroy();
+    await p;
+    Logger.info("Server stopped");
   };
 }
 

@@ -1,6 +1,7 @@
 import {
   Button,
   PermissionsAndroid,
+  Platform,
   SafeAreaView,
   StyleSheet,
   StatusBar,
@@ -13,6 +14,7 @@ import { BackgroundTaskManager, TaskState } from "./backgroundtask";
 import { CheyenneSocket } from "./cheyenne";
 import { NetworkInfo } from "react-native-network-info";
 import { UUIDManager } from "./util";
+import { WyomingServer } from "./wyoming";
 import { ZeroconfManager } from "./zeroconf";
 import { useState, useEffect } from "react";
 
@@ -30,11 +32,15 @@ const Separator = () => (
   />
 );
 
+const ANDROID_VERSION: number = +Platform.Version;
+
 export default function Index() {
   const [hasAudioPermission, setHasAudioPermission] = useState(false);
-  const [hasNotificationPermission, setHasNotificationPermission] =
-    useState(false);
-  const [isConnected, setIsConnected] = useState(false);
+  const [hasNotificationPermission, setHasNotificationPermission] = useState<
+    boolean | null
+  >(false);
+  const [isCheyenneConnected, setIsCheyenneConnected] = useState(false);
+  const [isWyomingConnected, setIsWyomingConnected] = useState(false);
   const [localIP, setLocalIP] = useState<string | null>("");
   const [isBackgroundTaskEnabled, setBackgroundTaskEnabled] = useState(false);
   const [backgroundTaskState, setBackgroundTaskState] = useState(
@@ -52,7 +58,12 @@ export default function Index() {
   };
 
   // check notification permission silently
-  const checkNotificationPermission = async (): Promise<boolean> => {
+  const checkNotificationPermission = async (): Promise<boolean | null> => {
+    if (ANDROID_VERSION < 33) {
+      // notification permission does not exist before API 33
+      setHasNotificationPermission(null);
+      return null;
+    }
     const notify_ok = await PermissionsAndroid.check(
       PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS
     );
@@ -68,11 +79,16 @@ export default function Index() {
     setHasAudioPermission(audio_ok == PermissionsAndroid.RESULTS.GRANTED);
     console.log(`Audio permission: ${audio_ok}`);
 
-    const notif_ok = await PermissionsAndroid.request(
-      PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS
-    );
+    const notif_ok =
+      ANDROID_VERSION < 33
+        ? null
+        : await PermissionsAndroid.request(
+            PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS
+          );
     setHasNotificationPermission(
-      notif_ok == PermissionsAndroid.RESULTS.GRANTED
+      ANDROID_VERSION < 33
+        ? null
+        : notif_ok == PermissionsAndroid.RESULTS.GRANTED
     );
     console.log(`Notify permission: ${notif_ok}`);
   };
@@ -94,9 +110,9 @@ export default function Index() {
   // useEffect(..., []) means this code will be called once on component mount
   // (or twice in dev mode, maybe?). Do the setup stuff here.
   useEffect(() => {
-    CheyenneSocket.setConnectionStateCallback(setIsConnected);
+    CheyenneSocket.setConnectionStateCallback(setIsCheyenneConnected);
+    WyomingServer.setConnectionStateCallback(setIsWyomingConnected);
     NetworkInfo.getIPV4Address().then(setLocalIP);
-    console.log("GETTING UUID AAAH");
     UUIDManager.getUUID().then(setUUID);
 
     // kill any existing instance of the background task (ie, task running even
@@ -182,13 +198,20 @@ export default function Index() {
           </Text>
           <Text>Local IP: {localIP}</Text>
           <Text>Device Unique ID: {uuid}</Text>
-          <Text>Connected: {isConnected ? "yes" : "no"}</Text>
+          <Text>Wyoming Connected: {isWyomingConnected ? "yes" : "no"}</Text>
+          <Text>
+            HassMic Integration Connected: {isCheyenneConnected ? "yes" : "no"}
+          </Text>
           <Text>
             Permission to record audio: {hasAudioPermission ? "yes" : "no"}
           </Text>
           <Text>
             Permission to show notification:{" "}
-            {hasNotificationPermission ? "yes" : "no"}
+            {hasNotificationPermission === null
+              ? "not required"
+              : hasNotificationPermission
+                ? "yes"
+                : "no"}
           </Text>
           <Text>Version {APP_VERSION}</Text>
         </>

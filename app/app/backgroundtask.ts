@@ -183,6 +183,7 @@ class BackgroundTaskManager_ {
     await shouldStop;
     Logger.info("Background task got stop signal, stopping");
     LiveAudioStream.stop();
+    WyomingServer.stopServer();
     CheyenneSocket.stopServer();
     NativeManager.killService();
     ZeroconfManager.StopZeroconf();
