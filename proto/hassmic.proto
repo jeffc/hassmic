@@ -8,10 +8,16 @@ option java_multiple_files = true;
 // Information saved and loaded between runs of the hassmic app
 message SavedSettings {
   // The last volume of the `announce` player
-  float announce_volume = 1;
+  optional float announce_volume = 1;
 
   // The last volume of the `playback` player
-  float playback_volume = 2;
+  optional float playback_volume = 2;
+
+  // Hassmic UUID
+  string hassmic_uuid = 3;
+
+  // Device name
+  string device_name = 4;
 }
 
 // Information that the client sends about itself

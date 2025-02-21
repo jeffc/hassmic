@@ -19,15 +19,27 @@ export interface SavedSettings {
     /**
      * The last volume of the `announce` player
      *
-     * @generated from protobuf field: float announce_volume = 1;
+     * @generated from protobuf field: optional float announce_volume = 1;
      */
-    announceVolume: number;
+    announceVolume?: number;
     /**
      * The last volume of the `playback` player
      *
-     * @generated from protobuf field: float playback_volume = 2;
+     * @generated from protobuf field: optional float playback_volume = 2;
      */
-    playbackVolume: number;
+    playbackVolume?: number;
+    /**
+     * Hassmic UUID
+     *
+     * @generated from protobuf field: string hassmic_uuid = 3;
+     */
+    hassmicUuid: string;
+    /**
+     * Device name
+     *
+     * @generated from protobuf field: string device_name = 4;
+     */
+    deviceName: string;
 }
 /**
  * Information that the client sends about itself
@@ -387,14 +399,16 @@ export enum MediaPlayerId {
 class SavedSettings$Type extends MessageType<SavedSettings> {
     constructor() {
         super("hassmic.SavedSettings", [
-            { no: 1, name: "announce_volume", kind: "scalar", T: 2 /*ScalarType.FLOAT*/ },
-            { no: 2, name: "playback_volume", kind: "scalar", T: 2 /*ScalarType.FLOAT*/ }
+            { no: 1, name: "announce_volume", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
+            { no: 2, name: "playback_volume", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
+            { no: 3, name: "hassmic_uuid", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 4, name: "device_name", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
         ]);
     }
     create(value?: PartialMessage<SavedSettings>): SavedSettings {
         const message = globalThis.Object.create((this.messagePrototype!));
-        message.announceVolume = 0;
-        message.playbackVolume = 0;
+        message.hassmicUuid = "";
+        message.deviceName = "";
         if (value !== undefined)
             reflectionMergePartial<SavedSettings>(this, message, value);
         return message;
@@ -404,11 +418,17 @@ class SavedSettings$Type extends MessageType<SavedSettings> {
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
             switch (fieldNo) {
-                case /* float announce_volume */ 1:
+                case /* optional float announce_volume */ 1:
                     message.announceVolume = reader.float();
                     break;
-                case /* float playback_volume */ 2:
+                case /* optional float playback_volume */ 2:
                     message.playbackVolume = reader.float();
+                    break;
+                case /* string hassmic_uuid */ 3:
+                    message.hassmicUuid = reader.string();
+                    break;
+                case /* string device_name */ 4:
+                    message.deviceName = reader.string();
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -422,12 +442,18 @@ class SavedSettings$Type extends MessageType<SavedSettings> {
         return message;
     }
     internalBinaryWrite(message: SavedSettings, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        /* float announce_volume = 1; */
-        if (message.announceVolume !== 0)
+        /* optional float announce_volume = 1; */
+        if (message.announceVolume !== undefined)
             writer.tag(1, WireType.Bit32).float(message.announceVolume);
-        /* float playback_volume = 2; */
-        if (message.playbackVolume !== 0)
+        /* optional float playback_volume = 2; */
+        if (message.playbackVolume !== undefined)
             writer.tag(2, WireType.Bit32).float(message.playbackVolume);
+        /* string hassmic_uuid = 3; */
+        if (message.hassmicUuid !== "")
+            writer.tag(3, WireType.LengthDelimited).string(message.hassmicUuid);
+        /* string device_name = 4; */
+        if (message.deviceName !== "")
+            writer.tag(4, WireType.LengthDelimited).string(message.deviceName);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

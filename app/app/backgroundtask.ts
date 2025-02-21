@@ -2,13 +2,14 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AppRegistry } from "react-native";
 import { Buffer } from "buffer";
 import { CheyenneSocket } from "./cheyenne";
-import { WyomingServer } from "./wyoming";
-import { PermissionsAndroid } from "react-native";
-import { STORAGE_KEY_RUN_BACKGROUND_TASK, AUDIO_INFO } from "./constants";
-import { ZeroconfManager } from "./zeroconf";
-import { NativeManager } from "./nativemgr";
 import { ClientEvent, ClientMessage, ServerMessage } from "./proto/hassmic";
 import { HMLogger } from "./logger";
+import { NativeManager } from "./nativemgr";
+import { PermissionsAndroid } from "react-native";
+import { Settings } from "./settings";
+import { STORAGE_KEY_RUN_BACKGROUND_TASK, AUDIO_INFO } from "./constants";
+import { WyomingServer } from "./wyoming";
+import { ZeroconfManager } from "./zeroconf";
 
 // note - patched version from
 // https://github.com/jeffc/react-native-live-audio-stream
@@ -126,6 +127,7 @@ class BackgroundTaskManager_ {
     }
 
     await NativeManager.waitForReady();
+    await Settings.waitForReady();
 
     const shouldRun = await this.isEnabled;
 
@@ -172,7 +174,6 @@ class BackgroundTaskManager_ {
         return;
       }
       const chunk = Buffer.from(data, "base64");
-      //CheyenneSocket.streamAudio(chunk);
       WyomingServer.sendAudioData(chunk);
     });
     LiveAudioStream.start();

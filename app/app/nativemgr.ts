@@ -9,7 +9,7 @@ import {
   STORAGE_KEY_SAVED_SETTINGS_PROTO,
 } from "./constants";
 import { HMLogger } from "./logger";
-
+import { Settings } from "./settings";
 import {
   ClientEvent,
   ClientMessage,
@@ -38,48 +38,8 @@ class NativeManager_ {
     );
   }
 
-  private savedSettings_: SavedSettings = SavedSettings.create({});
-  private writeSavedSettings_ = async () => {
-    Logger.debug("writing saved settings");
-    await AsyncStorage.setItem(
-      STORAGE_KEY_SAVED_SETTINGS_PROTO,
-      Buffer.from(SavedSettings.toBinary(this.savedSettings_)).toString(
-        "base64"
-      )
-    );
-    Logger.debug("wrote");
-  };
-
-  getSavedSettings = () => {
-    // make a deep copy of the saved settings structure and return it
-    let ssb64 = SavedSettings.toBinary(this.savedSettings_);
-    return SavedSettings.fromBinary(ssb64);
-  };
-
   // perform async initializiations
   private initialize_ = async () => {
-    // get the saved settings from storage
-    let ss = await AsyncStorage.getItem(STORAGE_KEY_SAVED_SETTINGS_PROTO);
-    if (ss) {
-      try {
-        let b64 = ss.toString().trim();
-        let bts = Buffer.from(b64, "base64");
-        this.savedSettings_ = SavedSettings.fromBinary(bts);
-      } catch (e) {
-        Logger.error(`Error loading saved settings: ${e}`);
-        ss = null;
-      }
-    }
-    if (!ss) {
-      Logger.warn(`No saved settings found, creating defaults`);
-      this.savedSettings_ = SavedSettings.create({
-        announceVolume: 1.0,
-        playbackVolume: 1.0,
-      });
-    }
-    Logger.debug(SavedSettings.toJsonString(this.savedSettings_));
-    await this.writeSavedSettings_();
-
     this.addClientEventListener(this.onClientEvent);
 
     Logger.debug("Native manager is ready.");
@@ -133,15 +93,11 @@ class NativeManager_ {
       switch (vl.player) {
         case MediaPlayerId.ID_ANNOUNCE:
           Logger.debug(`Setting new volume level for announce to ${vl.volume}`);
-          this.savedSettings_.announceVolume = vl.volume;
-          // save in the background
-          this.writeSavedSettings_().then(() => {});
+          Settings.setAnnounceVolume(vl.volume).then(() => {});
           break;
         case MediaPlayerId.ID_PLAYBACK:
           Logger.debug(`Setting new volume level for playback to ${vl.volume}`);
-          this.savedSettings_.playbackVolume = vl.volume;
-          // save in the background
-          this.writeSavedSettings_().then(() => {});
+          Settings.setPlaybackVolume(vl.volume).then(() => {});
           break;
         default:
           Logger.error(`Unknown player in event: ${vl.player}`);

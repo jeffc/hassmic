@@ -15,7 +15,20 @@ public interface SavedSettingsOrBuilder
    * The last volume of the `announce` player
    * </pre>
    *
-   * <code>float announce_volume = 1;</code>
+   * <code>optional float announce_volume = 1;</code>
+   *
+   * @return Whether the announceVolume field is set.
+   */
+  boolean hasAnnounceVolume();
+
+  /**
+   *
+   *
+   * <pre>
+   * The last volume of the `announce` player
+   * </pre>
+   *
+   * <code>optional float announce_volume = 1;</code>
    *
    * @return The announceVolume.
    */
@@ -28,9 +41,74 @@ public interface SavedSettingsOrBuilder
    * The last volume of the `playback` player
    * </pre>
    *
-   * <code>float playback_volume = 2;</code>
+   * <code>optional float playback_volume = 2;</code>
+   *
+   * @return Whether the playbackVolume field is set.
+   */
+  boolean hasPlaybackVolume();
+
+  /**
+   *
+   *
+   * <pre>
+   * The last volume of the `playback` player
+   * </pre>
+   *
+   * <code>optional float playback_volume = 2;</code>
    *
    * @return The playbackVolume.
    */
   float getPlaybackVolume();
+
+  /**
+   *
+   *
+   * <pre>
+   * Hassmic UUID
+   * </pre>
+   *
+   * <code>string hassmic_uuid = 3;</code>
+   *
+   * @return The hassmicUuid.
+   */
+  java.lang.String getHassmicUuid();
+
+  /**
+   *
+   *
+   * <pre>
+   * Hassmic UUID
+   * </pre>
+   *
+   * <code>string hassmic_uuid = 3;</code>
+   *
+   * @return The bytes for hassmicUuid.
+   */
+  com.google.protobuf.ByteString getHassmicUuidBytes();
+
+  /**
+   *
+   *
+   * <pre>
+   * Device name
+   * </pre>
+   *
+   * <code>string device_name = 4;</code>
+   *
+   * @return The deviceName.
+   */
+  java.lang.String getDeviceName();
+
+  /**
+   *
+   *
+   * <pre>
+   * Device name
+   * </pre>
+   *
+   * <code>string device_name = 4;</code>
+   *
+   * @return The bytes for deviceName.
+   */
+  com.google.protobuf.ByteString getDeviceNameBytes();
 }

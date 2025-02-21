@@ -2,6 +2,7 @@ import TcpSocket from "react-native-tcp-socket";
 import { APP_VERSION } from "./constants";
 import { Buffer } from "buffer";
 import { NativeManager } from "./nativemgr";
+import { Settings } from "./settings";
 import { UUIDManager } from "./util";
 import { HMLogger } from "./logger";
 
@@ -57,25 +58,6 @@ class CheyenneServer {
     });
   }
 
-  streamAudio = (streamData: Uint8Array) => {
-    if (this._sock && !this._mic_muted) {
-      try {
-        this.sendMessage(
-          ClientMessage.create({
-            msg: {
-              oneofKind: "audioData",
-              audioData: {
-                data: streamData,
-              },
-            },
-          })
-        );
-      } catch (e: any) {
-        Logger.info(e.toString());
-      }
-    }
-  };
-
   sendMessage = (m: ClientMessage) => {
     if (this._sock) {
       try {
@@ -104,7 +86,7 @@ class CheyenneServer {
       ClientMessage.create({
         msg: {
           oneofKind: "savedSettings",
-          savedSettings: NativeManager.getSavedSettings(),
+          savedSettings: Settings.getSavedSettings(),
         },
       })
     );

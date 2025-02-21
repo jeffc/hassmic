@@ -1,7 +1,7 @@
 // exposes the microphone as a wyoming satellite
 import TcpSocket from "react-native-tcp-socket";
 import { HMLogger } from "./logger";
-import { APP_VERSION, AUDIO_INFO } from "./constants";
+import { APP_VERSION, AUDIO_INFO, WYOMING_PORT } from "./constants";
 import { PCMPlayer } from "./pcm";
 
 const Logger = new HMLogger("wyoming.ts");
@@ -525,7 +525,7 @@ class WyomingServer_ {
           this._handleIncomingData(Uint8Array.from(d));
         }
       });
-    }).listen({ port: 10700, host: "0.0.0.0" });
+    }).listen({ port: WYOMING_PORT, host: "0.0.0.0" });
   };
 
   stopServer = async () => {

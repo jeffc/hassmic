@@ -16,7 +16,9 @@ import { NetworkInfo } from "react-native-network-info";
 import { UUIDManager } from "./util";
 import { WyomingServer } from "./wyoming";
 import { ZeroconfManager } from "./zeroconf";
+import { Settings } from "./settings";
 import { useState, useEffect } from "react";
+import { SavedSettings } from "./proto/hassmic";
 
 // note - patched version from
 // https://github.com/jeffc/react-native-live-audio-stream
@@ -107,13 +109,18 @@ export default function Index() {
     }
   };
 
+  const settingsUpdated = async (newSettings: SavedSettings) => {
+    setUUID(newSettings.hassmicUuid);
+  };
+
   // useEffect(..., []) means this code will be called once on component mount
   // (or twice in dev mode, maybe?). Do the setup stuff here.
   useEffect(() => {
     CheyenneSocket.setConnectionStateCallback(setIsCheyenneConnected);
     WyomingServer.setConnectionStateCallback(setIsWyomingConnected);
     NetworkInfo.getIPV4Address().then(setLocalIP);
-    UUIDManager.getUUID().then(setUUID);
+    //UUIDManager.getUUID().then(setUUID);
+    Settings.registerSettingsChangedCallback(settingsUpdated);
 
     // kill any existing instance of the background task (ie, task running even
     // though the app was killed)

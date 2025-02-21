@@ -3,7 +3,6 @@ import Zeroconf from "react-native-zeroconf";
 import uuid from "react-native-uuid";
 
 import { STORAGE_KEY_UUID } from "./constants";
-import { CheyenneSocket } from "./cheyenne";
 
 // Manages the app UUID in storage and sets it if it isn't set
 class AppUUIDManager_ {

@@ -50,7 +50,24 @@ class PCMPlayer_ {
       Logger.info("no audio stream");
     }
     PcmAudio.end(id);
-    //this._pcmAudioSessionId = null;
+  };
+
+  setGain = async (id: number, gain: number) => {
+    if (!id) {
+      Logger.info("no audio stream");
+    }
+    if (!(0 <= gain && gain <= 1)) {
+      Logger.error(`Invalid gain setting for stream ID ${id}: ${gain}`);
+      return;
+    }
+    PcmAudio.setGain(id, gain);
+  };
+
+  getGain = async (id: number) => {
+    if (!id) {
+      Logger.info("no audio stream");
+    }
+    return PcmAudio.getGain(id);
   };
 }
 
