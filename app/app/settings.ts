@@ -1,15 +1,12 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import Zeroconf from "react-native-zeroconf";
-import uuid from "react-native-uuid";
-import { Buffer } from "buffer";
-import { HMLogger } from "./logger";
-import {
-  STORAGE_KEY_SAVED_SETTINGS_PROTO,
-  STORAGE_KEY_UUID,
-} from "./constants";
-import { SavedSettings } from "./proto/hassmic";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import Zeroconf from 'react-native-zeroconf';
+import uuid from 'react-native-uuid';
+import {Buffer} from 'buffer';
+import {HMLogger} from './logger';
+import {STORAGE_KEY_SAVED_SETTINGS_PROTO, STORAGE_KEY_UUID} from './constants';
+import {SavedSettings} from './proto/hassmic';
 
-const Logger = new HMLogger("settings.ts");
+const Logger = new HMLogger('settings.ts');
 
 // Manages the app settings in storage
 class SavedSettingsManager_ {
@@ -19,16 +16,17 @@ class SavedSettingsManager_ {
   private setReady: () => void = () => {};
   private ready_: Promise<void> | null = null;
 
-  private settingsChangedCallbacks: Array<(s: SavedSettings) => void> = [];
+  private settingsChangedCallbacks: Array<(s: SavedSettings) => Promise<void>> =
+    [];
 
   constructor() {
-    this.ready_ = new Promise<void>((resolve) => {
+    this.ready_ = new Promise<void>(resolve => {
       this.setReady = resolve;
     });
     // run async init
     this.initialize_().then(
-      (ok) => Logger.debug("Init ok"),
-      (nok) => Logger.debug(`Init not ok: ${nok}`)
+      ok => Logger.debug('Init ok'),
+      nok => Logger.debug(`Init not ok: ${nok}`),
     );
   }
 
@@ -46,7 +44,7 @@ class SavedSettingsManager_ {
   // when settings are changed, these callbacks are invoked with a *copy* of the
   // new settings object.
   registerSettingsChangedCallback = (
-    cb: (s: SavedSettings) => Promise<void>
+    cb: (s: SavedSettings) => Promise<void>,
   ) => {
     this.settingsChangedCallbacks.push(cb);
   };
@@ -55,7 +53,7 @@ class SavedSettingsManager_ {
   private _settings_setup_promise = new Promise<SavedSettings>(
     (resolve, fail) => {
       (async () => {
-        let settings_b64: string = "";
+        let settings_b64: string = '';
         try {
           // keep the typechecker happy
           let from_storage: string | number[] | null =
@@ -70,7 +68,7 @@ class SavedSettingsManager_ {
 
         if (settings_b64) {
           try {
-            let bts = Buffer.from(settings_b64, "base64");
+            let bts = Buffer.from(settings_b64, 'base64');
             this.settings = SavedSettings.fromBinary(bts);
           } catch (e) {
             Logger.error(`Error loading saved settings: ${e}`);
@@ -80,38 +78,39 @@ class SavedSettingsManager_ {
         if (this.settings.announceVolume === undefined) {
           this.settings.announceVolume = 1.0;
           Logger.info(
-            `Setting previously-unset announceVolume to ${this.settings.announceVolume}`
+            `Setting previously-unset announceVolume to ${this.settings.announceVolume}`,
           );
         }
 
         if (this.settings.playbackVolume === undefined) {
           this.settings.playbackVolume = 1.0;
           Logger.info(
-            `Setting previously-unset announceVolume to ${this.settings.announceVolume}`
+            `Setting previously-unset announceVolume to ${this.settings.announceVolume}`,
           );
         }
 
-        if (this.settings.hassmicUuid == "") {
+        if (this.settings.hassmicUuid == '') {
           // check if uuid exists in old configuration format
-          let zcuuid = "";
-          let zc_old: string | number[] | null =
-            await AsyncStorage.getItem(STORAGE_KEY_UUID);
+          let zcuuid = '';
+          let zc_old: string | number[] | null = await AsyncStorage.getItem(
+            STORAGE_KEY_UUID,
+          );
           if (zc_old) {
             zcuuid = zc_old.toString();
             Logger.info(
-              `Migrated hassmic zeroconf uuid from old format to settingsproto format: ${zcuuid}`
+              `Migrated hassmic zeroconf uuid from old format to settingsproto format: ${zcuuid}`,
             );
             AsyncStorage.removeItem(
               STORAGE_KEY_UUID,
               (e: Error | null | undefined) => {
                 if (e) {
                   Logger.error(
-                    `Error removing old zeroconf uuid storage: ${e.toString()}`
+                    `Error removing old zeroconf uuid storage: ${e.toString()}`,
                   );
                 } else {
-                  Logger.info("Successfully removed old zeroconf uuid storage");
+                  Logger.info('Successfully removed old zeroconf uuid storage');
                 }
-              }
+              },
             );
           } else {
             zcuuid = uuid.v4().toString();
@@ -124,26 +123,26 @@ class SavedSettingsManager_ {
         Logger.debug(`UUID is ${this.settings.hassmicUuid}`);
         resolve(this.settings);
       })();
-    }
+    },
   );
 
   write = async (): Promise<boolean> => {
-    Logger.debug("Writing saved settings");
+    Logger.debug('Writing saved settings');
     try {
       await AsyncStorage.setItem(
         STORAGE_KEY_SAVED_SETTINGS_PROTO,
-        Buffer.from(SavedSettings.toBinary(this.settings)).toString("base64")
+        Buffer.from(SavedSettings.toBinary(this.settings)).toString('base64'),
       );
-      Logger.debug("wrote settings OK");
+      Logger.debug('wrote settings OK');
     } catch (e) {
       Logger.error(`Error saving settings: ${e}`);
       return false;
     }
     Logger.debug(
-      `Invoking ${this.settingsChangedCallbacks.length} settings changed callbacks`
+      `Invoking ${this.settingsChangedCallbacks.length} settings changed callbacks`,
     );
 
-    this.settingsChangedCallbacks.forEach(async (cb) => {
+    this.settingsChangedCallbacks.forEach(async cb => {
       try {
         let ss = this.getSavedSettings(); // get a copy
         await cb(ss);
@@ -158,6 +157,7 @@ class SavedSettingsManager_ {
   getSavedSettings = (): SavedSettings => {
     // make a deep copy of the saved settings structure and return it
     let ssb64 = SavedSettings.toBinary(this.settings);
+    Logger.debug(`Serialized saved settings: ${ssb64}`);
     return SavedSettings.fromBinary(ssb64);
   };
 
@@ -165,7 +165,7 @@ class SavedSettingsManager_ {
     await this.waitForReady();
     let out = this.settings.announceVolume;
     if (out === undefined) {
-      throw new Error("No announce volume set in settings!");
+      throw new Error('No announce volume set in settings!');
     }
     return out;
   };
@@ -174,7 +174,7 @@ class SavedSettingsManager_ {
     await this.waitForReady();
     if (newVol < 0 || newVol > 1.0) {
       Logger.warning(
-        `New announce volume out of range; not saving it: ${newVol}`
+        `New announce volume out of range; not saving it: ${newVol}`,
       );
       return;
     }
@@ -186,7 +186,7 @@ class SavedSettingsManager_ {
     await this.waitForReady();
     let out = this.settings.playbackVolume;
     if (out === undefined) {
-      throw new Error("No playback volume set in settings!");
+      throw new Error('No playback volume set in settings!');
     }
     return out;
   };
@@ -195,7 +195,7 @@ class SavedSettingsManager_ {
     await this.waitForReady();
     if (newVol < 0 || newVol > 1.0) {
       Logger.warning(
-        `New playback volume out of range; not saving it: ${newVol}`
+        `New playback volume out of range; not saving it: ${newVol}`,
       );
       return;
     }
@@ -207,7 +207,7 @@ class SavedSettingsManager_ {
     await this.waitForReady();
     let out = this.settings.deviceName;
     if (out === undefined) {
-      throw new Error("No device name set in settings!");
+      throw new Error('No device name set in settings!');
     }
     return out;
   };
@@ -221,8 +221,8 @@ class SavedSettingsManager_ {
   getHMUUID = async (): Promise<string> => {
     await this.waitForReady();
     let out = this.settings.hassmicUuid;
-    if (out == "") {
-      throw new Error("No UUID set in settings!");
+    if (out == '') {
+      throw new Error('No UUID set in settings!');
     }
     return out;
   };

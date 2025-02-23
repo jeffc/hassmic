@@ -1,43 +1,43 @@
 // @ts-nocheck
-import { AppRegistry, Platform } from "react-native";
-import registerRootComponent from "expo/build/launch/registerRootComponent";
-import Index from "./app/main";
-import { BackgroundTaskManager } from "./app/backgroundtask";
-import { NativeManager } from "./app/nativemgr";
+import {AppRegistry, Platform} from 'react-native';
+import Index from './app/main';
+import {BackgroundTaskManager} from './app/backgroundtask';
+import {NativeManager} from './app/nativemgr';
+import {name as appName} from './app.json';
 
-import TextEncoder from "react-native-fast-encoder";
+import TextEncoder from 'react-native-fast-encoder';
 
 // ---- begin textencoder polyfills ----
 // from https://gist.github.com/aretrace/bcb0777c2cfd2b0b1d9dcfb805fe2838
-if (Platform.OS !== "web") {
+if (Platform.OS !== 'web') {
   const setupPolyfills = async () => {
-    const { polyfillGlobal } = await import(
-      "react-native/Libraries/Utilities/PolyfillFunctions"
+    const {polyfillGlobal} = await import(
+      'react-native/Libraries/Utilities/PolyfillFunctions'
     );
-    const { ReadableStream, TransformStream } = await import(
-      "web-streams-polyfill/dist/ponyfill"
+    const {ReadableStream, TransformStream} = await import(
+      'web-streams-polyfill/dist/ponyfill'
     );
-    const { TextEncoderStream, TextDecoderStream } = await import(
-      "@stardazed/streams-text-encoding"
+    const {TextEncoderStream, TextDecoderStream} = await import(
+      '@stardazed/streams-text-encoding'
     );
-    const { fetch, Headers, Request, Response } = await import(
-      "react-native-fetch-api"
+    const {fetch, Headers, Request, Response} = await import(
+      'react-native-fetch-api'
     );
 
-    polyfillGlobal("TextDecoder", () => TextEncoder);
-    polyfillGlobal("ReadableStream", () => ReadableStream);
-    polyfillGlobal("TransformStream", () => TransformStream);
-    polyfillGlobal("TextEncoderStream", () => TextEncoderStream);
-    polyfillGlobal("TextDecoderStream", () => TextDecoderStream);
+    polyfillGlobal('TextDecoder', () => TextEncoder);
+    polyfillGlobal('ReadableStream', () => ReadableStream);
+    polyfillGlobal('TransformStream', () => TransformStream);
+    polyfillGlobal('TextEncoderStream', () => TextEncoderStream);
+    polyfillGlobal('TextDecoderStream', () => TextDecoderStream);
     polyfillGlobal(
-      "fetch",
+      'fetch',
       () =>
         (...args) =>
-          fetch(args[0], { ...args[1], reactNative: { textStreaming: true } })
+          fetch(args[0], {...args[1], reactNative: {textStreaming: true}}),
     );
-    polyfillGlobal("Headers", () => Headers);
-    polyfillGlobal("Request", () => Request);
-    polyfillGlobal("Response", () => Response);
+    polyfillGlobal('Headers', () => Headers);
+    polyfillGlobal('Request', () => Request);
+    polyfillGlobal('Response', () => Response);
   };
 
   setupPolyfills();
@@ -46,7 +46,7 @@ if (Platform.OS !== "web") {
 // ---- end textencoder polyfills ----
 
 AppRegistry.registerHeadlessTask(
-  "HassmicBackgroundTask",
-  () => BackgroundTaskManager.run_fn
+  'HassmicBackgroundTask',
+  () => BackgroundTaskManager.run_fn,
 );
-registerRootComponent(Index);
+AppRegistry.registerComponent(appName, () => Index);

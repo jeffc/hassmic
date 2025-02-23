@@ -96,7 +96,6 @@ public class BackgroundTaskModule extends ReactContextBaseJavaModule {
         this.reactContext, Severity.SEVERITY_DEBUG, "Successfully handled server message");
   }
 
-  @ReactMethod
   public static void logToServer(
       Context ctx, com.thejeffcooper.hassmic.proto.Log.Severity severity, String msg) {
     Log.d("HassmicBackgroundTaskModule", "Sending log to server: '" + msg + "'");

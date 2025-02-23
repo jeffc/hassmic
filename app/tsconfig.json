@@ -1,9 +1,8 @@
 {
-  "extends": "expo/tsconfig.base",
+  "extends": "@react-native/typescript-config/tsconfig.json",
   "compilerOptions": {
     "strict": true,
     "module": "ESNext",
-    "moduleResolution": "node",
     "esModuleInterop": true,
     "paths": {
       "@/*": ["./*"]
@@ -16,8 +15,6 @@
     "*.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".expo/types/**/*.ts",
-    "expo-env.d.ts",
     "declaration.d.ts"
   ],
   "lib": ["esnext", "dom"]
