@@ -131,8 +131,9 @@ message PlayAudio {
   string url = 2;
 }
 
-// The wrapper message that gets sent from the server to the client
-message ServerMessage {
+// The wrapper message that gets sent either from the server to the client or
+// used internally between layers in the client
+message HassmicCommand {
   oneof msg {
     // A command to play audio
     PlayAudio play_audio = 1;
@@ -149,4 +150,5 @@ message ServerMessage {
     // Play, pause, stop, etc
     MediaPlayerCommand command = 5;
   }
+  bool internal = 6;
 }

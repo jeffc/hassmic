@@ -77,11 +77,12 @@ class Player(MediaPlayerEntity):
 
         _LOGGER.info("Playing media: '%s'", media_id)
         self._hassmic.connection_manager.send_enqueue(
-            proto.ServerMessage(
+            proto.HassmicCommand(
                 play_audio=proto.PlayAudio(
                     announce=announce,
                     url=media_id,
-                )
+                ),
+                internal=False,
             )
         )
 
@@ -89,11 +90,12 @@ class Player(MediaPlayerEntity):
         """Send a play command"""
         _LOGGER.info("Playing")
         self._hassmic.connection_manager.send_enqueue(
-            proto.ServerMessage(
+            proto.HassmicCommand(
                 command=proto.MediaPlayerCommand(
                     id=proto.MediaPlayerId.ID_PLAYBACK,
                     command=proto.MediaPlayerCommandId.COMMAND_PLAY,
-                )
+                ),
+                internal=False,
             )
         )
 
@@ -101,11 +103,12 @@ class Player(MediaPlayerEntity):
         """Send a pause command"""
         _LOGGER.info("Pausing playback")
         self._hassmic.connection_manager.send_enqueue(
-            proto.ServerMessage(
+            proto.HassmicCommand(
                 command=proto.MediaPlayerCommand(
                     id=proto.MediaPlayerId.ID_PLAYBACK,
                     command=proto.MediaPlayerCommandId.COMMAND_PAUSE,
-                )
+                ),
+                internal=False,
             )
         )
 
@@ -113,11 +116,12 @@ class Player(MediaPlayerEntity):
         """Send a stop command"""
         _LOGGER.info("Stopping playback")
         self._hassmic.connection_manager.send_enqueue(
-            proto.ServerMessage(
+            proto.HassmicCommand(
                 command=proto.MediaPlayerCommand(
                     id=proto.MediaPlayerId.ID_PLAYBACK,
                     command=proto.MediaPlayerCommandId.COMMAND_STOP,
-                )
+                ),
+                internal=False,
             )
         )
 
@@ -206,10 +210,11 @@ class Player(MediaPlayerEntity):
 
         if vol is not None:
             _LOGGER.info("Setting playback volume to %f", vol)
-            sm = proto.ServerMessage(
+            sm = proto.HassmicCommand(
                 set_player_volume=proto.MediaPlayerVolume(
                     player=proto.MediaPlayerId.ID_PLAYBACK, volume=vol
-                )
+                ),
+                internal=False,
             )
             self._hassmic.connection_manager.send_enqueue(sm)
 
@@ -232,11 +237,12 @@ class Player(MediaPlayerEntity):
                 if path and urlbase:
                     _LOGGER.debug("Play URL: '%s'", urlbase + path)
                     self._hassmic.connection_manager.send_enqueue(
-                        proto.ServerMessage(
+                        proto.HassmicCommand(
                             play_audio=proto.PlayAudio(
                                 url=urlbase + path,
                                 announce=True,
-                            )
+                            ),
+                            internal=False,
                         )
                     )
                 else:

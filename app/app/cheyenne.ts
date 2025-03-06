@@ -13,7 +13,7 @@ import {
   ClientMessage,
   MediaPlayerId,
   Ping,
-  ServerMessage,
+  HassmicCommand,
 } from './proto/hassmic';
 
 const Logger = new HMLogger('cheyenne.ts');
@@ -46,7 +46,7 @@ class CheyenneServer {
   };
 
   constructor() {
-    NativeManager.addClientEventListener((ce: ClientEvent) => {
+    NativeManager.addClientEventListener(async (ce: ClientEvent) => {
       Logger.debug(`Sending ClientEvent: ${ce}`);
       let cm = ClientMessage.create({
         msg: {
@@ -163,7 +163,7 @@ class CheyenneServer {
         this.startPing();
         Logger.info('All set up -- waiting');
       } else {
-        Logger.warn('Already have a socket, dropping new connection');
+        Logger.warn('Cheyenne already has a socket, dropping new connection');
         socket.destroy();
       }
     }).listen({port: 11700, host: '0.0.0.0'});
@@ -182,19 +182,13 @@ class CheyenneServer {
   private _handleIncomingData = async (d: Uint8Array) => {
     Logger.debug(`Handling incoming data: ${d}`);
     try {
-      //let b64 = d.toString().trim();
-      //Logger.debug(`Trimmed bytes: ${b64}`);
-      //let bts = Buffer.from(b64, 'base64');
-      //Logger.debug(`Buffer: ${bts}`);
-      //let m = ServerMessage.fromBinary(bts);
-
       // compound statement does the following:
       //   1. Remove the last character in the incoming data (which should be a
       //      newline) using slice()
       //   2. Use Buffer.from(...).toString() to convert those bytes to a string
       //   3. Interpret that string back to bytes using base64 encoding
-      //   4. Make a ServerMessage from the resulting bytes
-      let m = ServerMessage.fromBinary(
+      //   4. Make a HassmicCommand from the resulting bytes
+      let m = HassmicCommand.fromBinary(
         Buffer.from(Buffer.from(d.slice(0, -1)).toString(), 'base64'),
       );
 
@@ -210,9 +204,9 @@ class CheyenneServer {
         case 'setPlayerVolume':
         case 'command':
           Logger.debug(
-            `Got "${m.msg.oneofKind}" ServerMessage; passing it to native code`,
+            `Got "${m.msg.oneofKind}" HassmicCommand; passing it to native code`,
           );
-          NativeManager.handleServerMessage(m);
+          NativeManager.handleHassmicCommand(m);
           break;
         default:
           Logger.warning(`Got unknown message type '${m.msg.oneofKind}'`);

@@ -510,7 +510,7 @@ class WyomingServer_ {
         this._setConnectionState(true);
         Logger.info('Wyoming all set up -- waiting');
       } else {
-        Logger.warn('Wyoming already have a socket, dropping new connection');
+        Logger.warn('Wyoming already has a socket, dropping new connection');
         socket.destroy();
       }
 

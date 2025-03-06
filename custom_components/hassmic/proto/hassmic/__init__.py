@@ -163,8 +163,11 @@ class PlayAudio(betterproto.Message):
 
 
 @dataclass(eq=False, repr=False)
-class ServerMessage(betterproto.Message):
-    """The wrapper message that gets sent from the server to the client"""
+class HassmicCommand(betterproto.Message):
+    """
+    The wrapper message that gets sent either from the server to the client or
+     used internally between layers in the client
+    """
 
     play_audio: "PlayAudio" = betterproto.message_field(1, group="msg")
     """A command to play audio"""
@@ -180,3 +183,5 @@ class ServerMessage(betterproto.Message):
 
     command: "MediaPlayerCommand" = betterproto.message_field(5, group="msg")
     """Play, pause, stop, etc"""
+
+    internal: bool = betterproto.bool_field(6)

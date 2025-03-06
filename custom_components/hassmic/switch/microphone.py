@@ -52,7 +52,7 @@ class Microphone(base.SwitchBase):
             "Sending signal to turn %s microphone", "on" if self._attr_is_on else "off"
         )
         self._hassmic.connection_manager.send_enqueue(
-            ServerMessage(set_mic_mute=not self._attr_is_on)
+            HassmicCommand(set_mic_mute=not self._attr_is_on, internal=False)
         )
 
 

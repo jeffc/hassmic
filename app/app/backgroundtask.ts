@@ -1,24 +1,23 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { AppRegistry } from "react-native";
-import { Buffer } from "buffer";
-import { CheyenneSocket } from "./cheyenne";
-import { ClientEvent, ClientMessage, ServerMessage } from "./proto/hassmic";
-import { HMLogger } from "./logger";
-import { NativeManager } from "./nativemgr";
-import { PermissionsAndroid } from "react-native";
-import { Settings } from "./settings";
-import { STORAGE_KEY_RUN_BACKGROUND_TASK, AUDIO_INFO } from "./constants";
-import { WyomingServer } from "./wyoming";
-import { ZeroconfManager } from "./zeroconf";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {AppRegistry} from 'react-native';
+import {Buffer} from 'buffer';
+import {CheyenneSocket} from './cheyenne';
+import {HMLogger} from './logger';
+import {NativeManager} from './nativemgr';
+import {PermissionsAndroid} from 'react-native';
+import {Settings} from './settings';
+import {STORAGE_KEY_RUN_BACKGROUND_TASK, AUDIO_INFO} from './constants';
+import {WyomingServer} from './wyoming';
+import {ZeroconfManager} from './zeroconf';
 
 // note - patched version from
 // https://github.com/jeffc/react-native-live-audio-stream
-import LiveAudioStream from "react-native-live-audio-stream";
+import LiveAudioStream from 'react-native-live-audio-stream';
 
-const Logger = new HMLogger("backgroundtask.ts");
+const Logger = new HMLogger('backgroundtask.ts');
 
 const sleep = (delay: number) =>
-  new Promise((resolve) => setTimeout(resolve, delay));
+  new Promise(resolve => setTimeout(resolve, delay));
 
 // Convenience type for a generic callback
 type CallbackType<T> = (s: T) => void;
@@ -64,7 +63,7 @@ class BackgroundTaskManager_ {
   private isEnabled: Promise<boolean> = new Promise<boolean>(
     (resolve, fail) => {
       (async () => {
-        let en_str: string = "";
+        let en_str: string = '';
         try {
           // keep the typechecker happy
           let from_storage: string | number[] | null =
@@ -77,15 +76,15 @@ class BackgroundTaskManager_ {
           fail(e);
         }
 
-        let en: boolean = en_str === "true";
+        let en: boolean = en_str === 'true';
         if (en_str === null) {
-          Logger.debug("No enable state found. Setting to false.");
+          Logger.debug('No enable state found. Setting to false.');
           en = false;
         }
 
         resolve(en);
       })();
-    }
+    },
   );
 
   // callback for when the enable state is changed or set
@@ -109,12 +108,12 @@ class BackgroundTaskManager_ {
       try {
         await AsyncStorage.setItem(
           STORAGE_KEY_RUN_BACKGROUND_TASK,
-          enable ? "true" : "false"
+          enable ? 'true' : 'false',
         );
       } catch (e) {
         Logger.error(`Error saving enable state: ${e}`);
       }
-      this.isEnabled = new Promise<boolean>((resolve) => resolve(enable));
+      this.isEnabled = new Promise<boolean>(resolve => resolve(enable));
       this.enableStateCallback(enable);
     })().then(() => {});
   };
@@ -122,7 +121,7 @@ class BackgroundTaskManager_ {
   // actually run the task
   run_fn = async (taskData: any) => {
     if (this.taskState == TaskState.RUNNING) {
-      Logger.error("Background task is already running; not starting again!");
+      Logger.error('Background task is already running; not starting again!');
       return;
     }
 
@@ -132,57 +131,57 @@ class BackgroundTaskManager_ {
     const shouldRun = await this.isEnabled;
 
     if (!shouldRun) {
-      Logger.info("Not running background task; is disabled");
+      Logger.info('Not running background task; is disabled');
       this.setState(TaskState.STOPPED);
       NativeManager.killService();
       return;
     }
 
-    Logger.info("Started background task");
-    const shouldStop = new Promise<void>((resolve) => {
+    Logger.info('Started background task');
+    const shouldStop = new Promise<void>(resolve => {
       this.stop_fn = resolve;
     });
     // native event listeners
     CheyenneSocket.startServer();
-    Logger.info("Started cheyenne server");
+    Logger.info('Started cheyenne server');
 
     WyomingServer.startServer();
-    Logger.info("Started wyoming server");
+    Logger.info('Started wyoming server');
 
     await ZeroconfManager.StartZeroconf();
     const ok = await PermissionsAndroid.check(
-      PermissionsAndroid.PERMISSIONS.RECORD_AUDIO
+      PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
     );
     if (!ok) {
-      Logger.error("no permission; bailing");
+      Logger.error('no permission; bailing');
       this.setState(TaskState.FAILED);
       return;
     }
-    Logger.info("permissions okay, starting stream");
+    Logger.info('permissions okay, starting stream');
     LiveAudioStream.init({
       sampleRate: AUDIO_INFO.rate,
       channels: AUDIO_INFO.channels,
       bitsPerSample: AUDIO_INFO.width * 8,
       audioSource: 6,
-      wavFile: "", // to make tsc happy; this isn't used anywhere
+      wavFile: '', // to make tsc happy; this isn't used anywhere
     });
 
     // @ts-ignore: This error is some weird interaction between TS and Java
-    LiveAudioStream.on("RNLiveAudioStream.data", (data) => {
-      if (typeof data == "object") {
+    LiveAudioStream.on('RNLiveAudioStream.data', data => {
+      if (typeof data == 'object') {
         Logger.warning(`Can't process: ${JSON.stringify(data)}`);
         return;
       }
-      const chunk = Buffer.from(data, "base64");
+      const chunk = Buffer.from(data, 'base64');
       WyomingServer.sendAudioData(chunk);
     });
     LiveAudioStream.start();
-    Logger.info("stream started");
+    Logger.info('stream started');
     this.setState(TaskState.RUNNING);
 
-    Logger.info("Background task running, awaiting stop signal");
+    Logger.info('Background task running, awaiting stop signal');
     await shouldStop;
-    Logger.info("Background task got stop signal, stopping");
+    Logger.info('Background task got stop signal, stopping');
     LiveAudioStream.stop();
     WyomingServer.stopServer();
     CheyenneSocket.stopServer();
@@ -201,7 +200,7 @@ class BackgroundTaskManager_ {
       this.stop_fn();
     } else {
       Logger.error(
-        "Called stop() on background task, but it doesn't appear to be running"
+        "Called stop() on background task, but it doesn't appear to be running",
       );
     }
   };

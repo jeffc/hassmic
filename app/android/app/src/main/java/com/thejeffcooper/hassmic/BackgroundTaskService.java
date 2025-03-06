@@ -30,8 +30,8 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.thejeffcooper.hassmic.proto.*;
 
 public class BackgroundTaskService extends Service {
-  public static final String PROTO_SERVERMESSAGE_ACTION =
-      "com.thejeffcooper.hassmic.INTENT_PROTO_SERVERMESSAGE";
+  public static final String PROTO_HASSMICCOMMAND_ACTION =
+      "com.thejeffcooper.hassmic.INTENT_PROTO_HASSMICCOMMAND";
   public static final String KEY_PROTO_DATA = "com.thejeffcooper.hassmic.KEY_PROTO_DATA";
 
   public static final String EVENT_PLAY_SOUND_START = "hassmic.SpeechStart";
@@ -221,7 +221,7 @@ public class BackgroundTaskService extends Service {
   @Override
   public void onCreate() {
     super.onCreate();
-    IntentFilter filter = new IntentFilter(PROTO_SERVERMESSAGE_ACTION);
+    IntentFilter filter = new IntentFilter(PROTO_HASSMICCOMMAND_ACTION);
     ContextCompat.registerReceiver(
         getApplicationContext(), brec, filter, ContextCompat.RECEIVER_EXPORTED);
     Log.d("HassmicBackgroundTaskService", "Registered receiver for " + brec.toString());
@@ -234,34 +234,34 @@ public class BackgroundTaskService extends Service {
         public void onReceive(Context context, Intent intent) {
           Log.d("HassmicBackgroundTaskService", "called onReceive()");
           String action = intent.getAction();
-          if (!action.equals(PROTO_SERVERMESSAGE_ACTION)) {
+          if (!action.equals(PROTO_HASSMICCOMMAND_ACTION)) {
             Log.w(
                 "HassmicBackgroundTaskService",
-                "Got action type " + action + ", which isn't " + PROTO_SERVERMESSAGE_ACTION);
+                "Got action type " + action + ", which isn't " + PROTO_HASSMICCOMMAND_ACTION);
             return;
           }
 
-          ServerMessage sm = null;
+          HassmicCommand hm = null;
           byte[] protodata = intent.getByteArrayExtra(KEY_PROTO_DATA);
 
           Log.d("HassmicBackgroundTaskService", "Parsing proto from intent");
           try {
-            sm = ServerMessage.parseFrom(protodata);
+            hm = HassmicCommand.parseFrom(protodata);
           } catch (InvalidProtocolBufferException e) {
             Log.e("HassmicBackgroundTaskService", "Failed to parse protobuf");
             return;
           }
           Log.d("HassmicBackgroundTaskService", "Proto parsed ok");
 
-          BackgroundTaskService.this.handleServerMessage(sm);
+          BackgroundTaskService.this.handleHassmicCommand(hm);
         }
       };
 
-  public void handleServerMessage(ServerMessage sm) {
-    switch (sm.getMsgCase()) {
+  public void handleHassmicCommand(HassmicCommand hm) {
+    switch (hm.getMsgCase()) {
       case PLAY_AUDIO:
         {
-          PlayAudio pa = sm.getPlayAudio();
+          PlayAudio pa = hm.getPlayAudio();
           boolean announce = pa.getAnnounce();
           String url = pa.getUrl();
 
@@ -306,8 +306,8 @@ public class BackgroundTaskService extends Service {
         Log.w("HassmicBackgroundTaskService", "set_device_volume is not currently implemented");
         break;
       case SET_PLAYER_VOLUME:
-        float newVolume = sm.getSetPlayerVolume().getVolume();
-        Player p = enumToPlayer(sm.getSetPlayerVolume().getPlayer());
+        float newVolume = hm.getSetPlayerVolume().getVolume();
+        Player p = enumToPlayer(hm.getSetPlayerVolume().getPlayer());
         if (p == null) {
           Log.e("HassmicBackgroundTaskService", "Can't determine player; not setting volume");
           break;
@@ -325,38 +325,38 @@ public class BackgroundTaskService extends Service {
         break;
       case SET_MIC_MUTE:
         {
-          String t = sm.getMsgCase().toString();
+          String t = hm.getMsgCase().toString();
           Log.e(
               "HassmicBackgroundTaskService",
-              "Got ServerMessage type '" + t + "' in native code, which shouldn't happen.");
+              "Got HassmicCommand type '" + t + "' in native code, which shouldn't happen.");
           break;
         }
       case COMMAND:
         {
-          Player pp = enumToPlayer(sm.getCommand().getId());
+          Player pp = enumToPlayer(hm.getCommand().getId());
           if (pp == null) {
             Log.e("HassmicBackgroundTaskService", "Got player command but no player ID set");
             break;
           }
-          MediaPlayerCommandId cmd = sm.getCommand().getCommand();
+          MediaPlayerCommandId cmd = hm.getCommand().getCommand();
 
           switch (cmd) {
             case COMMAND_PLAY:
               Log.d(
                   "HassMicBackgroundService",
-                  "Got play command for player " + sm.getCommand().getId().toString());
+                  "Got play command for player " + hm.getCommand().getId().toString());
               pp.play();
               break;
             case COMMAND_PAUSE:
               Log.d(
                   "HassMicBackgroundService",
-                  "Got pause command for player " + sm.getCommand().getId().toString());
+                  "Got pause command for player " + hm.getCommand().getId().toString());
               pp.pause();
               break;
             case COMMAND_STOP:
               Log.d(
                   "HassMicBackgroundService",
-                  "Got stop command for player " + sm.getCommand().getId().toString());
+                  "Got stop command for player " + hm.getCommand().getId().toString());
               pp.stop();
               break;
             default:
@@ -368,7 +368,7 @@ public class BackgroundTaskService extends Service {
       default:
         Log.e(
             "HassmicBackgroundTaskService",
-            "Got unknown ServerMessage type: " + sm.getMsgCase().getNumber());
+            "Got unknown HassmicCommand type: " + hm.getMsgCase().getNumber());
     }
   }
   ;

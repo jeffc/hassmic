@@ -161,7 +161,7 @@ class ConnectionManager:
             await asyncio.sleep(1)
         _LOGGER.debug("Stopping ping watchdog")
 
-    async def send(self, data: ServerMessage):
+    async def send(self, data: HassmicCommand):
         """Send some data over the socket, if connected."""
         if self._socket_writer:
             binmsg = bytes(data)
@@ -171,7 +171,7 @@ class ConnectionManager:
         else:
             _LOGGER.warning("Tried to write data to dead socket")
 
-    def send_enqueue(self, data: ServerMessage):
+    def send_enqueue(self, data: HassmicCommand):
         """Enqueue data to be sent synchronously."""
         self._outbox.put_nowait(data)
 

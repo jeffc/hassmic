@@ -85,15 +85,15 @@ public class BackgroundTaskModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void handleServerMessage(String servermessageBase64) {
-    byte[] smbytes = Base64.decode(servermessageBase64, Base64.DEFAULT);
-    Log.d("HassmicBackgroundTaskModule", "Handling server message");
+  public void handleHassmicCommand(String hassmicCommandBase64) {
+    byte[] hmbytes = Base64.decode(hassmicCommandBase64, Base64.DEFAULT);
+    Log.d("HassmicBackgroundTaskModule", "Handling hassmic command");
     Intent protoIntent =
-        new Intent(BackgroundTaskService.PROTO_SERVERMESSAGE_ACTION)
-            .putExtra(BackgroundTaskService.KEY_PROTO_DATA, smbytes);
+        new Intent(BackgroundTaskService.PROTO_HASSMICCOMMAND_ACTION)
+            .putExtra(BackgroundTaskService.KEY_PROTO_DATA, hmbytes);
     this.reactContext.sendBroadcast(protoIntent);
     this.logToServer(
-        this.reactContext, Severity.SEVERITY_DEBUG, "Successfully handled server message");
+        this.reactContext, Severity.SEVERITY_DEBUG, "Successfully handled hassmic command");
   }
 
   public static void logToServer(

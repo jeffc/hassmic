@@ -272,11 +272,12 @@ export interface PlayAudio {
     url: string;
 }
 /**
- * The wrapper message that gets sent from the server to the client
+ * The wrapper message that gets sent either from the server to the client or
+ * used internally between layers in the client
  *
- * @generated from protobuf message hassmic.ServerMessage
+ * @generated from protobuf message hassmic.HassmicCommand
  */
-export interface ServerMessage {
+export interface HassmicCommand {
     /**
      * @generated from protobuf oneof: msg
      */
@@ -323,6 +324,10 @@ export interface ServerMessage {
     } | {
         oneofKind: undefined;
     };
+    /**
+     * @generated from protobuf field: bool internal = 6;
+     */
+    internal: boolean;
 }
 /**
  * https://developer.android.com/reference/androidx/media3/common/Player.State
@@ -1084,24 +1089,26 @@ class PlayAudio$Type extends MessageType<PlayAudio> {
  */
 export const PlayAudio = new PlayAudio$Type();
 // @generated message type with reflection information, may provide speed optimized methods
-class ServerMessage$Type extends MessageType<ServerMessage> {
+class HassmicCommand$Type extends MessageType<HassmicCommand> {
     constructor() {
-        super("hassmic.ServerMessage", [
+        super("hassmic.HassmicCommand", [
             { no: 1, name: "play_audio", kind: "message", oneof: "msg", T: () => PlayAudio },
             { no: 2, name: "set_mic_mute", kind: "scalar", oneof: "msg", T: 8 /*ScalarType.BOOL*/ },
             { no: 3, name: "set_device_volume", kind: "message", oneof: "msg", T: () => DeviceVolume },
             { no: 4, name: "set_player_volume", kind: "message", oneof: "msg", T: () => MediaPlayerVolume },
-            { no: 5, name: "command", kind: "message", oneof: "msg", T: () => MediaPlayerCommand }
+            { no: 5, name: "command", kind: "message", oneof: "msg", T: () => MediaPlayerCommand },
+            { no: 6, name: "internal", kind: "scalar", T: 8 /*ScalarType.BOOL*/ }
         ]);
     }
-    create(value?: PartialMessage<ServerMessage>): ServerMessage {
+    create(value?: PartialMessage<HassmicCommand>): HassmicCommand {
         const message = globalThis.Object.create((this.messagePrototype!));
         message.msg = { oneofKind: undefined };
+        message.internal = false;
         if (value !== undefined)
-            reflectionMergePartial<ServerMessage>(this, message, value);
+            reflectionMergePartial<HassmicCommand>(this, message, value);
         return message;
     }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ServerMessage): ServerMessage {
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: HassmicCommand): HassmicCommand {
         let message = target ?? this.create(), end = reader.pos + length;
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
@@ -1136,6 +1143,9 @@ class ServerMessage$Type extends MessageType<ServerMessage> {
                         command: MediaPlayerCommand.internalBinaryRead(reader, reader.uint32(), options, (message.msg as any).command)
                     };
                     break;
+                case /* bool internal */ 6:
+                    message.internal = reader.bool();
+                    break;
                 default:
                     let u = options.readUnknownField;
                     if (u === "throw")
@@ -1147,7 +1157,7 @@ class ServerMessage$Type extends MessageType<ServerMessage> {
         }
         return message;
     }
-    internalBinaryWrite(message: ServerMessage, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+    internalBinaryWrite(message: HassmicCommand, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
         /* hassmic.PlayAudio play_audio = 1; */
         if (message.msg.oneofKind === "playAudio")
             PlayAudio.internalBinaryWrite(message.msg.playAudio, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
@@ -1163,6 +1173,9 @@ class ServerMessage$Type extends MessageType<ServerMessage> {
         /* hassmic.MediaPlayerCommand command = 5; */
         if (message.msg.oneofKind === "command")
             MediaPlayerCommand.internalBinaryWrite(message.msg.command, writer.tag(5, WireType.LengthDelimited).fork(), options).join();
+        /* bool internal = 6; */
+        if (message.internal !== false)
+            writer.tag(6, WireType.Varint).bool(message.internal);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -1170,6 +1183,6 @@ class ServerMessage$Type extends MessageType<ServerMessage> {
     }
 }
 /**
- * @generated MessageType for protobuf message hassmic.ServerMessage
+ * @generated MessageType for protobuf message hassmic.HassmicCommand
  */
-export const ServerMessage = new ServerMessage$Type();
+export const HassmicCommand = new HassmicCommand$Type();

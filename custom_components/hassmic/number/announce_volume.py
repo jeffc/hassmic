@@ -93,10 +93,11 @@ class AnnounceVolume(NumberEntity):
         """Send the various media player settings to the remote."""
         if vol is not None:
             _LOGGER.info("Sending announce volume %f", vol)
-            sm = proto.ServerMessage(
+            sm = proto.HassmicCommand(
                 set_player_volume=proto.MediaPlayerVolume(
                     player=proto.MediaPlayerId.ID_ANNOUNCE, volume=vol
-                )
+                ),
+                internal=False,
             )
             self._hassmic.connection_manager.send_enqueue(sm)
 
