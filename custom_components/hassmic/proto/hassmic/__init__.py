@@ -119,6 +119,13 @@ class MediaPlayerStateChange(betterproto.Message):
 
 
 @dataclass(eq=False, repr=False)
+class WyomingEvent(betterproto.Message):
+    """An event from the wyoming server"""
+
+    raw_json: str = betterproto.string_field(1)
+
+
+@dataclass(eq=False, repr=False)
 class ClientEvent(betterproto.Message):
     """Tell the server that a client event occurred"""
 
@@ -130,6 +137,7 @@ class ClientEvent(betterproto.Message):
     )
     device_volume_change: "DeviceVolume" = betterproto.message_field(3, group="event")
     log: "Log" = betterproto.message_field(4, group="event")
+    wyoming_event: "WyomingEvent" = betterproto.message_field(5, group="event")
 
 
 @dataclass(eq=False, repr=False)

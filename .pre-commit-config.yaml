@@ -5,7 +5,7 @@ repos:
         name: Sync version strings to VERSION file
         language: script
         entry: ./scripts/version_update.sh
-        files: 'VERSION'
+        files: "VERSION"
   - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
     rev: v2.14.0
     hooks:
@@ -25,6 +25,11 @@ repos:
   #          - --fix
   #      - id: ruff-format
   #        files: ^((homeassistant|pylint|script|tests)/.+)?[^/]+\.(py|pyi)$
+  - repo: https://github.com/pre-commit/mirrors-clang-format
+    rev: "v20.1.0" # Use the sha / tag you want to point at
+    hooks:
+      - id: clang-format
+        types: ["proto"]
   - repo: https://github.com/psf/black
     rev: 22.10.0
     hooks:

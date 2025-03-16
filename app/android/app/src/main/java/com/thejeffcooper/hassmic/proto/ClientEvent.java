@@ -27,6 +27,7 @@ public final class ClientEvent
     MEDIA_PLAYER_VOLUME_CHANGE(2),
     DEVICE_VOLUME_CHANGE(3),
     LOG(4),
+    WYOMING_EVENT(5),
     EVENT_NOT_SET(0);
     private final int value;
 
@@ -52,6 +53,8 @@ public final class ClientEvent
           return DEVICE_VOLUME_CHANGE;
         case 4:
           return LOG;
+        case 5:
+          return WYOMING_EVENT;
         case 0:
           return EVENT_NOT_SET;
         default:
@@ -263,6 +266,54 @@ public final class ClientEvent
   /** <code>.hassmic.Log log = 4;</code> */
   private void clearLog() {
     if (eventCase_ == 4) {
+      eventCase_ = 0;
+      event_ = null;
+    }
+  }
+
+  public static final int WYOMING_EVENT_FIELD_NUMBER = 5;
+
+  /** <code>.hassmic.WyomingEvent wyoming_event = 5;</code> */
+  @java.lang.Override
+  public boolean hasWyomingEvent() {
+    return eventCase_ == 5;
+  }
+
+  /** <code>.hassmic.WyomingEvent wyoming_event = 5;</code> */
+  @java.lang.Override
+  public com.thejeffcooper.hassmic.proto.WyomingEvent getWyomingEvent() {
+    if (eventCase_ == 5) {
+      return (com.thejeffcooper.hassmic.proto.WyomingEvent) event_;
+    }
+    return com.thejeffcooper.hassmic.proto.WyomingEvent.getDefaultInstance();
+  }
+
+  /** <code>.hassmic.WyomingEvent wyoming_event = 5;</code> */
+  private void setWyomingEvent(com.thejeffcooper.hassmic.proto.WyomingEvent value) {
+    value.getClass();
+    event_ = value;
+    eventCase_ = 5;
+  }
+
+  /** <code>.hassmic.WyomingEvent wyoming_event = 5;</code> */
+  private void mergeWyomingEvent(com.thejeffcooper.hassmic.proto.WyomingEvent value) {
+    value.getClass();
+    if (eventCase_ == 5
+        && event_ != com.thejeffcooper.hassmic.proto.WyomingEvent.getDefaultInstance()) {
+      event_ =
+          com.thejeffcooper.hassmic.proto.WyomingEvent.newBuilder(
+                  (com.thejeffcooper.hassmic.proto.WyomingEvent) event_)
+              .mergeFrom(value)
+              .buildPartial();
+    } else {
+      event_ = value;
+    }
+    eventCase_ = 5;
+  }
+
+  /** <code>.hassmic.WyomingEvent wyoming_event = 5;</code> */
+  private void clearWyomingEvent() {
+    if (eventCase_ == 5) {
       eventCase_ = 0;
       event_ = null;
     }
@@ -548,6 +599,47 @@ public final class ClientEvent
       return this;
     }
 
+    /** <code>.hassmic.WyomingEvent wyoming_event = 5;</code> */
+    @java.lang.Override
+    public boolean hasWyomingEvent() {
+      return instance.hasWyomingEvent();
+    }
+
+    /** <code>.hassmic.WyomingEvent wyoming_event = 5;</code> */
+    @java.lang.Override
+    public com.thejeffcooper.hassmic.proto.WyomingEvent getWyomingEvent() {
+      return instance.getWyomingEvent();
+    }
+
+    /** <code>.hassmic.WyomingEvent wyoming_event = 5;</code> */
+    public Builder setWyomingEvent(com.thejeffcooper.hassmic.proto.WyomingEvent value) {
+      copyOnWrite();
+      instance.setWyomingEvent(value);
+      return this;
+    }
+
+    /** <code>.hassmic.WyomingEvent wyoming_event = 5;</code> */
+    public Builder setWyomingEvent(
+        com.thejeffcooper.hassmic.proto.WyomingEvent.Builder builderForValue) {
+      copyOnWrite();
+      instance.setWyomingEvent(builderForValue.build());
+      return this;
+    }
+
+    /** <code>.hassmic.WyomingEvent wyoming_event = 5;</code> */
+    public Builder mergeWyomingEvent(com.thejeffcooper.hassmic.proto.WyomingEvent value) {
+      copyOnWrite();
+      instance.mergeWyomingEvent(value);
+      return this;
+    }
+
+    /** <code>.hassmic.WyomingEvent wyoming_event = 5;</code> */
+    public Builder clearWyomingEvent() {
+      copyOnWrite();
+      instance.clearWyomingEvent();
+      return this;
+    }
+
     // @@protoc_insertion_point(builder_scope:hassmic.ClientEvent)
   }
 
@@ -576,10 +668,11 @@ public final class ClientEvent
                 com.thejeffcooper.hassmic.proto.MediaPlayerVolume.class,
                 com.thejeffcooper.hassmic.proto.DeviceVolume.class,
                 com.thejeffcooper.hassmic.proto.Log.class,
+                com.thejeffcooper.hassmic.proto.WyomingEvent.class,
               };
           java.lang.String info =
-              "\u0000\u0004\u0001\u0000\u0001\u0004\u0004\u0000\u0000\u0000\u0001<\u0000\u0002<"
-                  + "\u0000\u0003<\u0000\u0004<\u0000";
+              "\u0000\u0005\u0001\u0000\u0001\u0005\u0005\u0000\u0000\u0000\u0001<\u0000\u0002<"
+                  + "\u0000\u0003<\u0000\u0004<\u0000\u0005<\u0000";
           return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through

@@ -4,7 +4,13 @@ import {HMLogger} from './logger';
 import {APP_VERSION, AUDIO_INFO, WYOMING_PORT} from './constants';
 import {Settings} from './settings';
 import {PCMPlayer} from './pcm';
-import {SavedSettings} from './proto/hassmic';
+import {
+  SavedSettings,
+  ClientMessage,
+  ClientEvent,
+  WyomingEvent,
+} from './proto/hassmic';
+import {CheyenneSocket} from './cheyenne';
 
 const Logger = new HMLogger('wyoming.ts');
 type CallbackType<T> = ((s: T) => void) | null;
@@ -312,6 +318,27 @@ class WyomingServer_ {
 
     let ptype = p.getType();
     try {
+      CheyenneSocket.sendMessage(
+        ClientMessage.create({
+          msg: {
+            oneofKind: 'clientEvent',
+            clientEvent: ClientEvent.create({
+              event: {
+                oneofKind: 'wyomingEvent',
+                wyomingEvent: WyomingEvent.create({
+                  rawJson: p.toString(),
+                }),
+              },
+            }),
+          },
+        }),
+      );
+    } catch (e) {
+      Logger.error(
+        `Error forwarding wyoming event to hassmic integration: ${e}`,
+      );
+    }
+    try {
       switch (ptype) {
         case 'describe':
           Logger.info('Got wyoming `describe` request, responding with info');
@@ -390,7 +417,7 @@ class WyomingServer_ {
           this._activePCMStream = await PCMPlayer.startAudioStream({
             encoding: '16bit',
             usage: 'announce',
-            sampleRate: 16000,
+            sampleRate: p.getProp('rate') || 16000,
             channels: 1,
             mode: 'streaming',
             gain: await Settings.getAnnounceVolume(),

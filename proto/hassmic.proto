@@ -29,12 +29,9 @@ message ClientInfo {
 }
 
 // A ping message
-message Ping {
-}
+message Ping {}
 
-message AudioData {
-  bytes data = 1;
-}
+message AudioData { bytes data = 1; }
 
 // https://developer.android.com/reference/androidx/media3/common/Player.State
 enum MediaPlayerState {
@@ -76,14 +73,209 @@ message MediaPlayerVolume {
 }
 
 // The device volume has changed
-message DeviceVolume {
-  float volume = 1;
-}
+message DeviceVolume { float volume = 1; }
 
 // A media player has changed state
 message MediaPlayerStateChange {
   MediaPlayerId player = 1;
   MediaPlayerState new_state = 2;
+}
+
+// An event from the wyoming server
+// event definitions are captured from the wyoming project source
+//
+// up to date info messages are here, not the main page -
+// https://github.com/rhasspy/wyoming/blob/master/wyoming/info.py
+message WyomingEvent {
+  // The raw json of the message
+  string raw_json = 1;
+  bytes payload = 2;
+
+  message Attribution {
+    string name = 1;
+    string url = 2;
+  }
+
+  // generic model message, used in a few different contexts
+  message AudioChunk {
+    int64 rate = 1;
+    int64 width = 2;
+    int64 channels = 3;
+  };
+
+  message AudioStart {
+    int64 rate = 1;
+    int64 width = 2;
+    int64 channels = 3;
+  };
+
+  message AudioStop {};
+
+  message Describe {};
+
+  message Detect { repeated string names = 1; };
+
+  message Detection {
+    string name = 1;
+    int64 timestamp = 2;
+    string speaker = 3;
+  };
+
+  message Info {
+    message AsrProgram {
+      Message AsrModel {
+        string name = 1;
+        repeated string languages = 2;
+        Attribution attribution = 3;
+        bool installed = 4;
+        string description = 5;
+        string version = 6;
+      }
+      repeated AsrModel models = 1;
+    }
+    repeated AsrProgram asr = 1;
+
+    message TtsProgram {
+      Message TtsVoice {
+        string name = 1;
+        repeated string languages = 2;
+        Attribution attribution = 3;
+        bool installed = 4;
+        string description = 5;
+        string version = 6;
+        message TtsVoiceSpeaker { string name = 1; }
+        repeated TtsVoiceSpeaker speakers = 2;
+      }
+      repeated TtsVoice voices = 1;
+    }
+    repeated TtsProgram tts = 2;
+
+    message HandleProgram {
+      Message HandleModel {
+        string name = 1;
+        repeated string languages = 2;
+        Attribution attribution = 3;
+        bool installed = 4;
+        string description = 5;
+        string version = 6;
+      }
+      repeated HandleModel models = 1;
+    }
+    repeated HandleProgram handle = 3;
+
+    message IntentProgram {
+      Message IntentModel {
+        string name = 1;
+        repeated string languages = 2;
+        Attribution attribution = 3;
+        bool installed = 4;
+        string description = 5;
+        string version = 6;
+      }
+      repeated IntentModel models = 1;
+    }
+    repeated IntentProgram intent = 4;
+
+    message WakeProgram {
+      Message WakeModel {
+        string name = 1;
+        repeated string languages = 2;
+        Attribution attribution = 3;
+        bool installed = 4;
+        string description = 5;
+        string version = 6;
+        string phrase = 7;
+      }
+      repeated WakeModel models = 1;
+    }
+    repeated WakeProgram wake = 5;
+
+    message AudioFormat {
+      int64 rate = 1;
+      int64 width = 2;
+      int64 channels = 3;
+    }
+    j
+
+        message MicProgram {
+      Message MicModel {
+        string name = 1;
+        repeated string languages = 2;
+        Attribution attribution = 3;
+        bool installed = 4;
+        string description = 5;
+        string version = 6;
+        AudioFormat mic_format = 7;
+      }
+      repeated MicModel models = 1;
+    }
+    repeated MicProgram mic = 6;
+
+    message SndProgram {
+      Message SndModel {
+        string name = 1;
+        repeated string languages = 2;
+        Attribution attribution = 3;
+        bool installed = 4;
+        string description = 5;
+        string version = 6;
+        AudioFormat snd_format = 7;
+      }
+      repeated SndModel models = 1;
+    }
+    repeated SndProgram snd = 7;
+
+    Message Satellite {
+      string name = 1;
+      repeated string languages = 2;
+      Attribution attribution = 3;
+      bool installed = 4;
+      string description = 5;
+      string version = 6;
+      string area = 7;
+      bool has_vad = 8;
+      repeated string active_wake_words = 9;
+      int64 max_active_wake_words = 10;
+      bool supports_trigger = 11;
+    }
+    Satellite satellite = 8;
+  };
+
+  message PauseSatellite {};
+  message Ping {};
+  message Pong {};
+  message RunSatellite {};
+
+  message Transcribe {
+    string name = 1;
+    string language = 2;
+    map<string, string> context = 3;
+  };
+  message VoiceStarted { int64 timestamp = 1; };
+  message VoiceStopped { int64 timestamp = 1; };
+  message Other {};
+
+  oneof event {
+    Describe describe = 3;
+    Info info = 4;
+    Ping ping = 5;
+    Pong pong = 6;
+
+    AudioChunk audio_chunk = 7;
+    AudioStart audio_start = 8;
+    AudioStop audio_stop = 9;
+    Detect detect = 10;
+    Detection detection = 11;
+
+    RunSatellite run_satellite = 12;
+    PauseSatellite pause_satellite = 13;
+
+    Transcribe transcribe = 14;
+    VoiceStarted voice_started = 15;
+    VoiceStopped voice_stopped = 16;
+
+    Other other = 17;
+  }
 }
 
 // Tell the server that a client event occurred
@@ -93,6 +285,7 @@ message ClientEvent {
     MediaPlayerVolume media_player_volume_change = 2;
     DeviceVolume device_volume_change = 3;
     Log log = 4;
+    WyomingEvent wyoming_event = 5;
   }
 }
 
@@ -110,13 +303,12 @@ message Log {
   Severity severity = 2;
 }
 
-
 // The wrapper message that actually gets sent to the server
 message ClientMessage {
   oneof msg {
     Ping ping = 1;
     ClientInfo client_info = 2;
-    AudioData audio_data = 3;
+    AudioData audio_data = 3; // deprecated!
     ClientEvent client_event = 4;
     SavedSettings saved_settings = 5;
   }

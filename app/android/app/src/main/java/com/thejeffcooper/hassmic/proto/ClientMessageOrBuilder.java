@@ -37,6 +37,12 @@ public interface ClientMessageOrBuilder
   com.thejeffcooper.hassmic.proto.ClientInfo getClientInfo();
 
   /**
+   *
+   *
+   * <pre>
+   * deprecated!
+   * </pre>
+   *
    * <code>.hassmic.AudioData audio_data = 3;</code>
    *
    * @return Whether the audioData field is set.
@@ -44,6 +50,12 @@ public interface ClientMessageOrBuilder
   boolean hasAudioData();
 
   /**
+   *
+   *
+   * <pre>
+   * deprecated!
+   * </pre>
+   *
    * <code>.hassmic.AudioData audio_data = 3;</code>
    *
    * @return The audioData.

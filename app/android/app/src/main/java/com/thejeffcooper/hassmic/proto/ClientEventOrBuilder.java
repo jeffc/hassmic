@@ -64,5 +64,19 @@ public interface ClientEventOrBuilder
    */
   com.thejeffcooper.hassmic.proto.Log getLog();
 
+  /**
+   * <code>.hassmic.WyomingEvent wyoming_event = 5;</code>
+   *
+   * @return Whether the wyomingEvent field is set.
+   */
+  boolean hasWyomingEvent();
+
+  /**
+   * <code>.hassmic.WyomingEvent wyoming_event = 5;</code>
+   *
+   * @return The wyomingEvent.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent getWyomingEvent();
+
   public com.thejeffcooper.hassmic.proto.ClientEvent.EventCase getEventCase();
 }

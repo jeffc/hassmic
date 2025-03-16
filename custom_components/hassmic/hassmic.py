@@ -8,10 +8,6 @@ import enum
 import json
 import logging
 
-from homeassistant.components.assist_pipeline.pipeline import (
-    PipelineEvent,
-    PipelineEventType,
-)
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.device_registry import DeviceEntry
@@ -19,7 +15,6 @@ from homeassistant.helpers.entity import Entity
 
 from .connection_manager import ConnectionManager
 from .exceptions import BadHassMicClientInfoException, BadMessageException
-from .pipeline_manager import PipelineManager
 
 from .proto.hassmic import *
 
@@ -81,28 +76,11 @@ class HassMic:
             connection_state_callback=self._handle_connection_state_change,
         )
 
-        self._pipeline_manager = PipelineManager(
-            hass, entry, self._device, self._pipeline_event_callback
-        )
-
         self._connection_manager.run()
-        self._pipeline_manager.run()
 
     def register_entity(self, ent: Entity):
         """Add an entity to the list of entities generated for this hassmic."""
         self._entities.append(ent)
-
-    def _pipeline_event_callback(self, event: PipelineEvent):
-        """Update states in response to pipeline event.
-
-        This function also handles dispatching the media URL.
-        """
-        _LOGGER.debug("Got pipeline event: %s", repr(event))
-
-        for e in self._entities:
-            hpe = getattr(e, "handle_pipeline_event", None)
-            if hpe is not None and callable(hpe):
-                e.handle_pipeline_event(event)
 
     def _handle_connection_state_change(self, new_state: bool):
         """Handle a state change from the connection manager."""
@@ -115,20 +93,33 @@ class HassMic:
     def _handle_client_event(self, event: ClientEvent):
         """Handle a client event from the device."""
         (which, val) = betterproto.which_one_of(event, "event")
-        if which == "log":
-            logstr = val.log_text
-            lg = logging.getLogger(f"{__spec__.parent}.{self._host}")
-            match val.severity:
-                case LogSeverity.SEVERITY_DEBUG:
-                    lg.debug(logstr)
-                case LogSeverity.SEVERITY_INFO:
-                    lg.info(logstr)
-                case LogSeverity.SEVERITY_WARNING:
-                    lg.warning(logstr)
-                case LogSeverity.SEVERITY_ERROR:
-                    lg.error(logstr)
-                case _:
-                    lg.error("[SEVERITY NOT SET]" + logstr)
+        match which:
+            case "log":
+                logstr = val.log_text
+                lg = logging.getLogger(f"{__spec__.parent}.{self._host}")
+                match val.severity:
+                    case LogSeverity.SEVERITY_DEBUG:
+                        lg.debug(logstr)
+                    case LogSeverity.SEVERITY_INFO:
+                        lg.info(logstr)
+                    case LogSeverity.SEVERITY_WARNING:
+                        lg.warning(logstr)
+                    case LogSeverity.SEVERITY_ERROR:
+                        lg.error(logstr)
+                    case _:
+                        lg.error("[SEVERITY NOT SET]" + logstr)
+
+            case "wyoming_event":
+                try:
+                    wraw = json.loads(val.raw_json)
+                    if wraw["type"] != "ping" and wraw["type"] != "audio-chunk":
+                        lg = logging.getLogger(f"{__spec__.parent}.{self._host}")
+                        lg.info(f"Wyoming event: {val.raw_json}")
+                except Exception as e:
+                    _LOGGER.warning(f"Error logging wyoming event: {e}")
+
+            case _:
+                pass
 
         for e in self._entities:
             hce = getattr(e, "handle_client_event", None)
@@ -144,9 +135,7 @@ class HassMic:
 
     async def stop(self):
         """Shut down instance."""
-        await asyncio.gather(
-            self._connection_manager.close(), self._pipeline_manager.close()
-        )
+        await asyncio.gather(self._connection_manager.close())
 
     async def handle_incoming_message(self, reader) -> ClientInfo:
         """Wrap recv_message and dispatches recieved messages appropriately."""
@@ -160,7 +149,7 @@ class HassMic:
         (which, val) = betterproto.which_one_of(m, "msg")
         match which:
             case "audio_data":
-                self._pipeline_manager.enqueue_chunk(val.data)
+                _LOGGER.warning("Got audio_data, which is no longer supported!")
 
             case "client_info":
                 _LOGGER.debug("Got client info: %s", repr(val))

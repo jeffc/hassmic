@@ -173,13 +173,29 @@ public final class ClientMessage
 
   public static final int AUDIO_DATA_FIELD_NUMBER = 3;
 
-  /** <code>.hassmic.AudioData audio_data = 3;</code> */
+  /**
+   *
+   *
+   * <pre>
+   * deprecated!
+   * </pre>
+   *
+   * <code>.hassmic.AudioData audio_data = 3;</code>
+   */
   @java.lang.Override
   public boolean hasAudioData() {
     return msgCase_ == 3;
   }
 
-  /** <code>.hassmic.AudioData audio_data = 3;</code> */
+  /**
+   *
+   *
+   * <pre>
+   * deprecated!
+   * </pre>
+   *
+   * <code>.hassmic.AudioData audio_data = 3;</code>
+   */
   @java.lang.Override
   public com.thejeffcooper.hassmic.proto.AudioData getAudioData() {
     if (msgCase_ == 3) {
@@ -188,14 +204,30 @@ public final class ClientMessage
     return com.thejeffcooper.hassmic.proto.AudioData.getDefaultInstance();
   }
 
-  /** <code>.hassmic.AudioData audio_data = 3;</code> */
+  /**
+   *
+   *
+   * <pre>
+   * deprecated!
+   * </pre>
+   *
+   * <code>.hassmic.AudioData audio_data = 3;</code>
+   */
   private void setAudioData(com.thejeffcooper.hassmic.proto.AudioData value) {
     value.getClass();
     msg_ = value;
     msgCase_ = 3;
   }
 
-  /** <code>.hassmic.AudioData audio_data = 3;</code> */
+  /**
+   *
+   *
+   * <pre>
+   * deprecated!
+   * </pre>
+   *
+   * <code>.hassmic.AudioData audio_data = 3;</code>
+   */
   private void mergeAudioData(com.thejeffcooper.hassmic.proto.AudioData value) {
     value.getClass();
     if (msgCase_ == 3 && msg_ != com.thejeffcooper.hassmic.proto.AudioData.getDefaultInstance()) {
@@ -210,7 +242,15 @@ public final class ClientMessage
     msgCase_ = 3;
   }
 
-  /** <code>.hassmic.AudioData audio_data = 3;</code> */
+  /**
+   *
+   *
+   * <pre>
+   * deprecated!
+   * </pre>
+   *
+   * <code>.hassmic.AudioData audio_data = 3;</code>
+   */
   private void clearAudioData() {
     if (msgCase_ == 3) {
       msgCase_ = 0;
@@ -507,40 +547,88 @@ public final class ClientMessage
       return this;
     }
 
-    /** <code>.hassmic.AudioData audio_data = 3;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * deprecated!
+     * </pre>
+     *
+     * <code>.hassmic.AudioData audio_data = 3;</code>
+     */
     @java.lang.Override
     public boolean hasAudioData() {
       return instance.hasAudioData();
     }
 
-    /** <code>.hassmic.AudioData audio_data = 3;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * deprecated!
+     * </pre>
+     *
+     * <code>.hassmic.AudioData audio_data = 3;</code>
+     */
     @java.lang.Override
     public com.thejeffcooper.hassmic.proto.AudioData getAudioData() {
       return instance.getAudioData();
     }
 
-    /** <code>.hassmic.AudioData audio_data = 3;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * deprecated!
+     * </pre>
+     *
+     * <code>.hassmic.AudioData audio_data = 3;</code>
+     */
     public Builder setAudioData(com.thejeffcooper.hassmic.proto.AudioData value) {
       copyOnWrite();
       instance.setAudioData(value);
       return this;
     }
 
-    /** <code>.hassmic.AudioData audio_data = 3;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * deprecated!
+     * </pre>
+     *
+     * <code>.hassmic.AudioData audio_data = 3;</code>
+     */
     public Builder setAudioData(com.thejeffcooper.hassmic.proto.AudioData.Builder builderForValue) {
       copyOnWrite();
       instance.setAudioData(builderForValue.build());
       return this;
     }
 
-    /** <code>.hassmic.AudioData audio_data = 3;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * deprecated!
+     * </pre>
+     *
+     * <code>.hassmic.AudioData audio_data = 3;</code>
+     */
     public Builder mergeAudioData(com.thejeffcooper.hassmic.proto.AudioData value) {
       copyOnWrite();
       instance.mergeAudioData(value);
       return this;
     }
 
-    /** <code>.hassmic.AudioData audio_data = 3;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * deprecated!
+     * </pre>
+     *
+     * <code>.hassmic.AudioData audio_data = 3;</code>
+     */
     public Builder clearAudioData() {
       copyOnWrite();
       instance.clearAudioData();

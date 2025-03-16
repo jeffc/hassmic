@@ -133,6 +133,17 @@ export interface MediaPlayerStateChange {
     newState: MediaPlayerState;
 }
 /**
+ * An event from the wyoming server
+ *
+ * @generated from protobuf message hassmic.WyomingEvent
+ */
+export interface WyomingEvent {
+    /**
+     * @generated from protobuf field: string raw_json = 1;
+     */
+    rawJson: string;
+}
+/**
  * Tell the server that a client event occurred
  *
  * @generated from protobuf message hassmic.ClientEvent
@@ -165,6 +176,12 @@ export interface ClientEvent {
          * @generated from protobuf field: hassmic.Log log = 4;
          */
         log: Log;
+    } | {
+        oneofKind: "wyomingEvent";
+        /**
+         * @generated from protobuf field: hassmic.WyomingEvent wyoming_event = 5;
+         */
+        wyomingEvent: WyomingEvent;
     } | {
         oneofKind: undefined;
     };
@@ -235,7 +252,7 @@ export interface ClientMessage {
         /**
          * @generated from protobuf field: hassmic.AudioData audio_data = 3;
          */
-        audioData: AudioData;
+        audioData: AudioData; // deprecated!
     } | {
         oneofKind: "clientEvent";
         /**
@@ -809,13 +826,61 @@ class MediaPlayerStateChange$Type extends MessageType<MediaPlayerStateChange> {
  */
 export const MediaPlayerStateChange = new MediaPlayerStateChange$Type();
 // @generated message type with reflection information, may provide speed optimized methods
+class WyomingEvent$Type extends MessageType<WyomingEvent> {
+    constructor() {
+        super("hassmic.WyomingEvent", [
+            { no: 1, name: "raw_json", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+        ]);
+    }
+    create(value?: PartialMessage<WyomingEvent>): WyomingEvent {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.rawJson = "";
+        if (value !== undefined)
+            reflectionMergePartial<WyomingEvent>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent): WyomingEvent {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string raw_json */ 1:
+                    message.rawJson = reader.string();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: WyomingEvent, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string raw_json = 1; */
+        if (message.rawJson !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.rawJson);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hassmic.WyomingEvent
+ */
+export const WyomingEvent = new WyomingEvent$Type();
+// @generated message type with reflection information, may provide speed optimized methods
 class ClientEvent$Type extends MessageType<ClientEvent> {
     constructor() {
         super("hassmic.ClientEvent", [
             { no: 1, name: "media_player_state_change", kind: "message", oneof: "event", T: () => MediaPlayerStateChange },
             { no: 2, name: "media_player_volume_change", kind: "message", oneof: "event", T: () => MediaPlayerVolume },
             { no: 3, name: "device_volume_change", kind: "message", oneof: "event", T: () => DeviceVolume },
-            { no: 4, name: "log", kind: "message", oneof: "event", T: () => Log }
+            { no: 4, name: "log", kind: "message", oneof: "event", T: () => Log },
+            { no: 5, name: "wyoming_event", kind: "message", oneof: "event", T: () => WyomingEvent }
         ]);
     }
     create(value?: PartialMessage<ClientEvent>): ClientEvent {
@@ -854,6 +919,12 @@ class ClientEvent$Type extends MessageType<ClientEvent> {
                         log: Log.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).log)
                     };
                     break;
+                case /* hassmic.WyomingEvent wyoming_event */ 5:
+                    message.event = {
+                        oneofKind: "wyomingEvent",
+                        wyomingEvent: WyomingEvent.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).wyomingEvent)
+                    };
+                    break;
                 default:
                     let u = options.readUnknownField;
                     if (u === "throw")
@@ -878,6 +949,9 @@ class ClientEvent$Type extends MessageType<ClientEvent> {
         /* hassmic.Log log = 4; */
         if (message.event.oneofKind === "log")
             Log.internalBinaryWrite(message.event.log, writer.tag(4, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent wyoming_event = 5; */
+        if (message.event.oneofKind === "wyomingEvent")
+            WyomingEvent.internalBinaryWrite(message.event.wyomingEvent, writer.tag(5, WireType.LengthDelimited).fork(), options).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
