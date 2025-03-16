@@ -4,42 +4,58 @@
 package com.thejeffcooper.hassmic.proto;
 
 /**
- *
- *
  * <pre>
  * https://developer.android.com/reference/androidx/media3/common/Player.State
  * </pre>
  *
  * Protobuf enum {@code hassmic.MediaPlayerState}
  */
-public enum MediaPlayerState implements com.google.protobuf.Internal.EnumLite {
-  /** <code>STATE_UNKNOWN = 0;</code> */
+public enum MediaPlayerState
+    implements com.google.protobuf.Internal.EnumLite {
+  /**
+   * <code>STATE_UNKNOWN = 0;</code>
+   */
   STATE_UNKNOWN(0),
-  /** <code>STATE_IDLE = 1;</code> */
+  /**
+   * <code>STATE_IDLE = 1;</code>
+   */
   STATE_IDLE(1),
-  /** <code>STATE_BUFFERING = 2;</code> */
+  /**
+   * <code>STATE_BUFFERING = 2;</code>
+   */
   STATE_BUFFERING(2),
-  /** <code>STATE_PLAYING = 3;</code> */
+  /**
+   * <code>STATE_PLAYING = 3;</code>
+   */
   STATE_PLAYING(3),
-  /** <code>STATE_PAUSED = 4;</code> */
+  /**
+   * <code>STATE_PAUSED = 4;</code>
+   */
   STATE_PAUSED(4),
   UNRECOGNIZED(-1),
   ;
 
-  /** <code>STATE_UNKNOWN = 0;</code> */
+  /**
+   * <code>STATE_UNKNOWN = 0;</code>
+   */
   public static final int STATE_UNKNOWN_VALUE = 0;
-
-  /** <code>STATE_IDLE = 1;</code> */
+  /**
+   * <code>STATE_IDLE = 1;</code>
+   */
   public static final int STATE_IDLE_VALUE = 1;
-
-  /** <code>STATE_BUFFERING = 2;</code> */
+  /**
+   * <code>STATE_BUFFERING = 2;</code>
+   */
   public static final int STATE_BUFFERING_VALUE = 2;
-
-  /** <code>STATE_PLAYING = 3;</code> */
+  /**
+   * <code>STATE_PLAYING = 3;</code>
+   */
   public static final int STATE_PLAYING_VALUE = 3;
-
-  /** <code>STATE_PAUSED = 4;</code> */
+  /**
+   * <code>STATE_PAUSED = 4;</code>
+   */
   public static final int STATE_PAUSED_VALUE = 4;
+
 
   @java.lang.Override
   public final int getNumber() {
@@ -62,48 +78,41 @@ public enum MediaPlayerState implements com.google.protobuf.Internal.EnumLite {
 
   public static MediaPlayerState forNumber(int value) {
     switch (value) {
-      case 0:
-        return STATE_UNKNOWN;
-      case 1:
-        return STATE_IDLE;
-      case 2:
-        return STATE_BUFFERING;
-      case 3:
-        return STATE_PLAYING;
-      case 4:
-        return STATE_PAUSED;
-      default:
-        return null;
+      case 0: return STATE_UNKNOWN;
+      case 1: return STATE_IDLE;
+      case 2: return STATE_BUFFERING;
+      case 3: return STATE_PLAYING;
+      case 4: return STATE_PAUSED;
+      default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<MediaPlayerState> internalGetValueMap() {
+  public static com.google.protobuf.Internal.EnumLiteMap<MediaPlayerState>
+      internalGetValueMap() {
     return internalValueMap;
   }
+  private static final com.google.protobuf.Internal.EnumLiteMap<
+      MediaPlayerState> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<MediaPlayerState>() {
+          @java.lang.Override
+          public MediaPlayerState findValueByNumber(int number) {
+            return MediaPlayerState.forNumber(number);
+          }
+        };
 
-  private static final com.google.protobuf.Internal.EnumLiteMap<MediaPlayerState> internalValueMap =
-      new com.google.protobuf.Internal.EnumLiteMap<MediaPlayerState>() {
-        @java.lang.Override
-        public MediaPlayerState findValueByNumber(int number) {
-          return MediaPlayerState.forNumber(number);
-        }
-      };
-
-  public static com.google.protobuf.Internal.EnumVerifier internalGetVerifier() {
+  public static com.google.protobuf.Internal.EnumVerifier 
+      internalGetVerifier() {
     return MediaPlayerStateVerifier.INSTANCE;
   }
 
-  private static final class MediaPlayerStateVerifier
-      implements com.google.protobuf.Internal.EnumVerifier {
-    static final com.google.protobuf.Internal.EnumVerifier INSTANCE =
-        new MediaPlayerStateVerifier();
-
-    @java.lang.Override
-    public boolean isInRange(int number) {
-      return MediaPlayerState.forNumber(number) != null;
-    }
-  }
-  ;
+  private static final class MediaPlayerStateVerifier implements 
+       com.google.protobuf.Internal.EnumVerifier { 
+          static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new MediaPlayerStateVerifier();
+          @java.lang.Override
+          public boolean isInRange(int number) {
+            return MediaPlayerState.forNumber(number) != null;
+          }
+        };
 
   private final int value;
 
@@ -113,3 +122,4 @@ public enum MediaPlayerState implements com.google.protobuf.Internal.EnumLite {
 
   // @@protoc_insertion_point(enum_scope:hassmic.MediaPlayerState)
 }
+

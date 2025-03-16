@@ -3,47 +3,37 @@
 
 package com.thejeffcooper.hassmic.proto;
 
-public interface PlayAudioOrBuilder
-    extends
+public interface PlayAudioOrBuilder extends
     // @@protoc_insertion_point(interface_extends:hassmic.PlayAudio)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
-   *
-   *
    * <pre>
    * Whether this should be an announcement or not
    * </pre>
    *
    * <code>bool announce = 1;</code>
-   *
    * @return The announce.
    */
   boolean getAnnounce();
 
   /**
-   *
-   *
    * <pre>
    * The url to play
    * </pre>
    *
    * <code>string url = 2;</code>
-   *
    * @return The url.
    */
   java.lang.String getUrl();
-
   /**
-   *
-   *
    * <pre>
    * The url to play
    * </pre>
    *
    * <code>string url = 2;</code>
-   *
    * @return The bytes for url.
    */
-  com.google.protobuf.ByteString getUrlBytes();
+  com.google.protobuf.ByteString
+      getUrlBytes();
 }

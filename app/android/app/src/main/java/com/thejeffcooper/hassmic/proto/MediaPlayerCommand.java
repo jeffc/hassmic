@@ -4,65 +4,56 @@
 package com.thejeffcooper.hassmic.proto;
 
 /**
- *
- *
  * <pre>
  * A command paired with a player
  * </pre>
  *
  * Protobuf type {@code hassmic.MediaPlayerCommand}
  */
-public final class MediaPlayerCommand
-    extends com.google.protobuf.GeneratedMessageLite<MediaPlayerCommand, MediaPlayerCommand.Builder>
-    implements
+public  final class MediaPlayerCommand extends
+    com.google.protobuf.GeneratedMessageLite<
+        MediaPlayerCommand, MediaPlayerCommand.Builder> implements
     // @@protoc_insertion_point(message_implements:hassmic.MediaPlayerCommand)
     MediaPlayerCommandOrBuilder {
-  private MediaPlayerCommand() {}
-
+  private MediaPlayerCommand() {
+  }
   public static final int ID_FIELD_NUMBER = 1;
   private int id_;
-
   /**
    * <code>.hassmic.MediaPlayerId id = 1;</code>
-   *
    * @return The enum numeric value on the wire for id.
    */
   @java.lang.Override
   public int getIdValue() {
     return id_;
   }
-
   /**
    * <code>.hassmic.MediaPlayerId id = 1;</code>
-   *
    * @return The id.
    */
   @java.lang.Override
   public com.thejeffcooper.hassmic.proto.MediaPlayerId getId() {
-    com.thejeffcooper.hassmic.proto.MediaPlayerId result =
-        com.thejeffcooper.hassmic.proto.MediaPlayerId.forNumber(id_);
+    com.thejeffcooper.hassmic.proto.MediaPlayerId result = com.thejeffcooper.hassmic.proto.MediaPlayerId.forNumber(id_);
     return result == null ? com.thejeffcooper.hassmic.proto.MediaPlayerId.UNRECOGNIZED : result;
   }
-
   /**
    * <code>.hassmic.MediaPlayerId id = 1;</code>
-   *
    * @param value The enum numeric value on the wire for id to set.
    */
   private void setIdValue(int value) {
-    id_ = value;
+      id_ = value;
   }
-
   /**
    * <code>.hassmic.MediaPlayerId id = 1;</code>
-   *
    * @param value The id to set.
    */
   private void setId(com.thejeffcooper.hassmic.proto.MediaPlayerId value) {
     id_ = value.getNumber();
-  }
 
-  /** <code>.hassmic.MediaPlayerId id = 1;</code> */
+  }
+  /**
+   * <code>.hassmic.MediaPlayerId id = 1;</code>
+   */
   private void clearId() {
 
     id_ = 0;
@@ -70,73 +61,65 @@ public final class MediaPlayerCommand
 
   public static final int COMMAND_FIELD_NUMBER = 2;
   private int command_;
-
   /**
    * <code>.hassmic.MediaPlayerCommandId command = 2;</code>
-   *
    * @return The enum numeric value on the wire for command.
    */
   @java.lang.Override
   public int getCommandValue() {
     return command_;
   }
-
   /**
    * <code>.hassmic.MediaPlayerCommandId command = 2;</code>
-   *
    * @return The command.
    */
   @java.lang.Override
   public com.thejeffcooper.hassmic.proto.MediaPlayerCommandId getCommand() {
-    com.thejeffcooper.hassmic.proto.MediaPlayerCommandId result =
-        com.thejeffcooper.hassmic.proto.MediaPlayerCommandId.forNumber(command_);
-    return result == null
-        ? com.thejeffcooper.hassmic.proto.MediaPlayerCommandId.UNRECOGNIZED
-        : result;
+    com.thejeffcooper.hassmic.proto.MediaPlayerCommandId result = com.thejeffcooper.hassmic.proto.MediaPlayerCommandId.forNumber(command_);
+    return result == null ? com.thejeffcooper.hassmic.proto.MediaPlayerCommandId.UNRECOGNIZED : result;
   }
-
   /**
    * <code>.hassmic.MediaPlayerCommandId command = 2;</code>
-   *
    * @param value The enum numeric value on the wire for command to set.
    */
   private void setCommandValue(int value) {
-    command_ = value;
+      command_ = value;
   }
-
   /**
    * <code>.hassmic.MediaPlayerCommandId command = 2;</code>
-   *
    * @param value The command to set.
    */
   private void setCommand(com.thejeffcooper.hassmic.proto.MediaPlayerCommandId value) {
     command_ = value.getNumber();
-  }
 
-  /** <code>.hassmic.MediaPlayerCommandId command = 2;</code> */
+  }
+  /**
+   * <code>.hassmic.MediaPlayerCommandId command = 2;</code>
+   */
   private void clearCommand() {
 
     command_ = 0;
   }
 
   public static com.thejeffcooper.hassmic.proto.MediaPlayerCommand parseFrom(
-      java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+      java.nio.ByteBuffer data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static com.thejeffcooper.hassmic.proto.MediaPlayerCommand parseFrom(
-      java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.nio.ByteBuffer data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.MediaPlayerCommand parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static com.thejeffcooper.hassmic.proto.MediaPlayerCommand parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -144,47 +127,46 @@ public final class MediaPlayerCommand
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.MediaPlayerCommand parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static com.thejeffcooper.hassmic.proto.MediaPlayerCommand parseFrom(
-      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
-  public static com.thejeffcooper.hassmic.proto.MediaPlayerCommand parseFrom(
-      java.io.InputStream input) throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+  public static com.thejeffcooper.hassmic.proto.MediaPlayerCommand parseFrom(java.io.InputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static com.thejeffcooper.hassmic.proto.MediaPlayerCommand parseFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
-  public static com.thejeffcooper.hassmic.proto.MediaPlayerCommand parseDelimitedFrom(
-      java.io.InputStream input) throws java.io.IOException {
+  public static com.thejeffcooper.hassmic.proto.MediaPlayerCommand parseDelimitedFrom(java.io.InputStream input)
+      throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
-
   public static com.thejeffcooper.hassmic.proto.MediaPlayerCommand parseDelimitedFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.MediaPlayerCommand parseFrom(
-      com.google.protobuf.CodedInputStream input) throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+      com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static com.thejeffcooper.hassmic.proto.MediaPlayerCommand parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -196,24 +178,20 @@ public final class MediaPlayerCommand
   public static Builder newBuilder() {
     return (Builder) DEFAULT_INSTANCE.createBuilder();
   }
-
   public static Builder newBuilder(com.thejeffcooper.hassmic.proto.MediaPlayerCommand prototype) {
     return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
   }
 
   /**
-   *
-   *
    * <pre>
    * A command paired with a player
    * </pre>
    *
    * Protobuf type {@code hassmic.MediaPlayerCommand}
    */
-  public static final class Builder
-      extends com.google.protobuf.GeneratedMessageLite.Builder<
-          com.thejeffcooper.hassmic.proto.MediaPlayerCommand, Builder>
-      implements
+  public static final class Builder extends
+      com.google.protobuf.GeneratedMessageLite.Builder<
+        com.thejeffcooper.hassmic.proto.MediaPlayerCommand, Builder> implements
       // @@protoc_insertion_point(builder_implements:hassmic.MediaPlayerCommand)
       com.thejeffcooper.hassmic.proto.MediaPlayerCommandOrBuilder {
     // Construct using com.thejeffcooper.hassmic.proto.MediaPlayerCommand.newBuilder()
@@ -221,19 +199,17 @@ public final class MediaPlayerCommand
       super(DEFAULT_INSTANCE);
     }
 
+
     /**
      * <code>.hassmic.MediaPlayerId id = 1;</code>
-     *
      * @return The enum numeric value on the wire for id.
      */
     @java.lang.Override
     public int getIdValue() {
       return instance.getIdValue();
     }
-
     /**
      * <code>.hassmic.MediaPlayerId id = 1;</code>
-     *
      * @param value The id to set.
      * @return This builder for chaining.
      */
@@ -242,20 +218,16 @@ public final class MediaPlayerCommand
       instance.setIdValue(value);
       return this;
     }
-
     /**
      * <code>.hassmic.MediaPlayerId id = 1;</code>
-     *
      * @return The id.
      */
     @java.lang.Override
     public com.thejeffcooper.hassmic.proto.MediaPlayerId getId() {
       return instance.getId();
     }
-
     /**
      * <code>.hassmic.MediaPlayerId id = 1;</code>
-     *
      * @param value The enum numeric value on the wire for id to set.
      * @return This builder for chaining.
      */
@@ -264,10 +236,8 @@ public final class MediaPlayerCommand
       instance.setId(value);
       return this;
     }
-
     /**
      * <code>.hassmic.MediaPlayerId id = 1;</code>
-     *
      * @return This builder for chaining.
      */
     public Builder clearId() {
@@ -278,17 +248,14 @@ public final class MediaPlayerCommand
 
     /**
      * <code>.hassmic.MediaPlayerCommandId command = 2;</code>
-     *
      * @return The enum numeric value on the wire for command.
      */
     @java.lang.Override
     public int getCommandValue() {
       return instance.getCommandValue();
     }
-
     /**
      * <code>.hassmic.MediaPlayerCommandId command = 2;</code>
-     *
      * @param value The command to set.
      * @return This builder for chaining.
      */
@@ -297,20 +264,16 @@ public final class MediaPlayerCommand
       instance.setCommandValue(value);
       return this;
     }
-
     /**
      * <code>.hassmic.MediaPlayerCommandId command = 2;</code>
-     *
      * @return The command.
      */
     @java.lang.Override
     public com.thejeffcooper.hassmic.proto.MediaPlayerCommandId getCommand() {
       return instance.getCommand();
     }
-
     /**
      * <code>.hassmic.MediaPlayerCommandId command = 2;</code>
-     *
      * @param value The enum numeric value on the wire for command to set.
      * @return This builder for chaining.
      */
@@ -319,10 +282,8 @@ public final class MediaPlayerCommand
       instance.setCommand(value);
       return this;
     }
-
     /**
      * <code>.hassmic.MediaPlayerCommandId command = 2;</code>
-     *
      * @return This builder for chaining.
      */
     public Builder clearCommand() {
@@ -333,76 +294,66 @@ public final class MediaPlayerCommand
 
     // @@protoc_insertion_point(builder_scope:hassmic.MediaPlayerCommand)
   }
-
   @java.lang.Override
   @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
   protected final java.lang.Object dynamicMethod(
       com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-      java.lang.Object arg0,
-      java.lang.Object arg1) {
+      java.lang.Object arg0, java.lang.Object arg1) {
     switch (method) {
-      case NEW_MUTABLE_INSTANCE:
-        {
-          return new com.thejeffcooper.hassmic.proto.MediaPlayerCommand();
-        }
-      case NEW_BUILDER:
-        {
-          return new Builder();
-        }
-      case BUILD_MESSAGE_INFO:
-        {
-          java.lang.Object[] objects =
-              new java.lang.Object[] {
-                "id_", "command_",
-              };
+      case NEW_MUTABLE_INSTANCE: {
+        return new com.thejeffcooper.hassmic.proto.MediaPlayerCommand();
+      }
+      case NEW_BUILDER: {
+        return new Builder();
+      }
+      case BUILD_MESSAGE_INFO: {
+          java.lang.Object[] objects = new java.lang.Object[] {
+            "id_",
+            "command_",
+          };
           java.lang.String info =
               "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u0001\f\u0002\f";
           return newMessageInfo(DEFAULT_INSTANCE, info, objects);
-        }
-        // fall through
-      case GET_DEFAULT_INSTANCE:
-        {
-          return DEFAULT_INSTANCE;
-        }
-      case GET_PARSER:
-        {
-          com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.MediaPlayerCommand> parser =
-              PARSER;
-          if (parser == null) {
-            synchronized (com.thejeffcooper.hassmic.proto.MediaPlayerCommand.class) {
-              parser = PARSER;
-              if (parser == null) {
-                parser =
-                    new DefaultInstanceBasedParser<
-                        com.thejeffcooper.hassmic.proto.MediaPlayerCommand>(DEFAULT_INSTANCE);
-                PARSER = parser;
-              }
+      }
+      // fall through
+      case GET_DEFAULT_INSTANCE: {
+        return DEFAULT_INSTANCE;
+      }
+      case GET_PARSER: {
+        com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.MediaPlayerCommand> parser = PARSER;
+        if (parser == null) {
+          synchronized (com.thejeffcooper.hassmic.proto.MediaPlayerCommand.class) {
+            parser = PARSER;
+            if (parser == null) {
+              parser =
+                  new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.MediaPlayerCommand>(
+                      DEFAULT_INSTANCE);
+              PARSER = parser;
             }
           }
-          return parser;
         }
-      case GET_MEMOIZED_IS_INITIALIZED:
-        {
-          return (byte) 1;
-        }
-      case SET_MEMOIZED_IS_INITIALIZED:
-        {
-          return null;
-        }
+        return parser;
+    }
+    case GET_MEMOIZED_IS_INITIALIZED: {
+      return (byte) 1;
+    }
+    case SET_MEMOIZED_IS_INITIALIZED: {
+      return null;
+    }
     }
     throw new UnsupportedOperationException();
   }
 
+
   // @@protoc_insertion_point(class_scope:hassmic.MediaPlayerCommand)
   private static final com.thejeffcooper.hassmic.proto.MediaPlayerCommand DEFAULT_INSTANCE;
-
   static {
     MediaPlayerCommand defaultInstance = new MediaPlayerCommand();
     // New instances are implicitly immutable so no need to make
     // immutable.
     DEFAULT_INSTANCE = defaultInstance;
     com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
-        MediaPlayerCommand.class, defaultInstance);
+      MediaPlayerCommand.class, defaultInstance);
   }
 
   public static com.thejeffcooper.hassmic.proto.MediaPlayerCommand getDefaultInstance() {
@@ -415,3 +366,4 @@ public final class MediaPlayerCommand
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
+

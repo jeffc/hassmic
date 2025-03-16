@@ -4,7 +4,11 @@
 # This file has been @generated
 
 from dataclasses import dataclass
-from typing import Optional
+from typing import (
+    Dict,
+    List,
+    Optional,
+)
 
 import betterproto
 
@@ -120,9 +124,283 @@ class MediaPlayerStateChange(betterproto.Message):
 
 @dataclass(eq=False, repr=False)
 class WyomingEvent(betterproto.Message):
-    """An event from the wyoming server"""
+    """
+    An event from the wyoming server
+     event definitions are captured from the wyoming project source
+
+     up to date info messages are here, not the main page -
+     https://github.com/rhasspy/wyoming/blob/master/wyoming/info.py
+    """
 
     raw_json: str = betterproto.string_field(1)
+    """The raw json of the message"""
+
+    payload: bytes = betterproto.bytes_field(2)
+    describe: "WyomingEventDescribe" = betterproto.message_field(3, group="event")
+    info: "WyomingEventInfo" = betterproto.message_field(4, group="event")
+    ping: "WyomingEventPing" = betterproto.message_field(5, group="event")
+    pong: "WyomingEventPong" = betterproto.message_field(6, group="event")
+    audio_chunk: "WyomingEventAudioChunk" = betterproto.message_field(7, group="event")
+    audio_start: "WyomingEventAudioStart" = betterproto.message_field(8, group="event")
+    audio_stop: "WyomingEventAudioStop" = betterproto.message_field(9, group="event")
+    detect: "WyomingEventDetect" = betterproto.message_field(10, group="event")
+    detection: "WyomingEventDetection" = betterproto.message_field(11, group="event")
+    run_satellite: "WyomingEventRunSatellite" = betterproto.message_field(
+        12, group="event"
+    )
+    pause_satellite: "WyomingEventPauseSatellite" = betterproto.message_field(
+        13, group="event"
+    )
+    transcribe: "WyomingEventTranscribe" = betterproto.message_field(14, group="event")
+    voice_started: "WyomingEventVoiceStarted" = betterproto.message_field(
+        15, group="event"
+    )
+    voice_stopped: "WyomingEventVoiceStopped" = betterproto.message_field(
+        16, group="event"
+    )
+    other: "WyomingEventOther" = betterproto.message_field(17, group="event")
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventAttribution(betterproto.Message):
+    name: str = betterproto.string_field(1)
+    url: str = betterproto.string_field(2)
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventAudioChunk(betterproto.Message):
+    """generic model message, used in a few different contexts"""
+
+    rate: int = betterproto.int64_field(1)
+    width: int = betterproto.int64_field(2)
+    channels: int = betterproto.int64_field(3)
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventAudioStart(betterproto.Message):
+    rate: int = betterproto.int64_field(1)
+    width: int = betterproto.int64_field(2)
+    channels: int = betterproto.int64_field(3)
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventAudioStop(betterproto.Message):
+    pass
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventDescribe(betterproto.Message):
+    pass
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventDetect(betterproto.Message):
+    names: List[str] = betterproto.string_field(1)
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventDetection(betterproto.Message):
+    name: str = betterproto.string_field(1)
+    timestamp: int = betterproto.int64_field(2)
+    speaker: str = betterproto.string_field(3)
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventInfo(betterproto.Message):
+    asr: List["WyomingEventInfoAsrProgram"] = betterproto.message_field(1)
+    tts: List["WyomingEventInfoTtsProgram"] = betterproto.message_field(2)
+    handle: List["WyomingEventInfoHandleProgram"] = betterproto.message_field(3)
+    intent: List["WyomingEventInfoIntentProgram"] = betterproto.message_field(4)
+    wake: List["WyomingEventInfoWakeProgram"] = betterproto.message_field(5)
+    mic: List["WyomingEventInfoMicProgram"] = betterproto.message_field(6)
+    snd: List["WyomingEventInfoSndProgram"] = betterproto.message_field(7)
+    satellite: "WyomingEventInfoSatellite" = betterproto.message_field(8)
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventInfoAsrProgram(betterproto.Message):
+    models: List["WyomingEventInfoAsrProgramAsrModel"] = betterproto.message_field(1)
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventInfoAsrProgramAsrModel(betterproto.Message):
+    name: str = betterproto.string_field(1)
+    languages: List[str] = betterproto.string_field(2)
+    attribution: "WyomingEventAttribution" = betterproto.message_field(3)
+    installed: bool = betterproto.bool_field(4)
+    description: str = betterproto.string_field(5)
+    version: str = betterproto.string_field(6)
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventInfoTtsProgram(betterproto.Message):
+    voices: List["WyomingEventInfoTtsProgramTtsVoice"] = betterproto.message_field(1)
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventInfoTtsProgramTtsVoice(betterproto.Message):
+    name: str = betterproto.string_field(1)
+    languages: List[str] = betterproto.string_field(2)
+    attribution: "WyomingEventAttribution" = betterproto.message_field(3)
+    installed: bool = betterproto.bool_field(4)
+    description: str = betterproto.string_field(5)
+    version: str = betterproto.string_field(6)
+    speakers: List["WyomingEventInfoTtsProgramTtsVoiceTtsVoiceSpeaker"] = (
+        betterproto.message_field(7)
+    )
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventInfoTtsProgramTtsVoiceTtsVoiceSpeaker(betterproto.Message):
+    name: str = betterproto.string_field(1)
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventInfoHandleProgram(betterproto.Message):
+    models: List["WyomingEventInfoHandleProgramHandleModel"] = (
+        betterproto.message_field(1)
+    )
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventInfoHandleProgramHandleModel(betterproto.Message):
+    name: str = betterproto.string_field(1)
+    languages: List[str] = betterproto.string_field(2)
+    attribution: "WyomingEventAttribution" = betterproto.message_field(3)
+    installed: bool = betterproto.bool_field(4)
+    description: str = betterproto.string_field(5)
+    version: str = betterproto.string_field(6)
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventInfoIntentProgram(betterproto.Message):
+    models: List["WyomingEventInfoIntentProgramIntentModel"] = (
+        betterproto.message_field(1)
+    )
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventInfoIntentProgramIntentModel(betterproto.Message):
+    name: str = betterproto.string_field(1)
+    languages: List[str] = betterproto.string_field(2)
+    attribution: "WyomingEventAttribution" = betterproto.message_field(3)
+    installed: bool = betterproto.bool_field(4)
+    description: str = betterproto.string_field(5)
+    version: str = betterproto.string_field(6)
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventInfoWakeProgram(betterproto.Message):
+    models: List["WyomingEventInfoWakeProgramWakeModel"] = betterproto.message_field(1)
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventInfoWakeProgramWakeModel(betterproto.Message):
+    name: str = betterproto.string_field(1)
+    languages: List[str] = betterproto.string_field(2)
+    attribution: "WyomingEventAttribution" = betterproto.message_field(3)
+    installed: bool = betterproto.bool_field(4)
+    description: str = betterproto.string_field(5)
+    version: str = betterproto.string_field(6)
+    phrase: str = betterproto.string_field(7)
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventInfoAudioFormat(betterproto.Message):
+    rate: int = betterproto.int64_field(1)
+    width: int = betterproto.int64_field(2)
+    channels: int = betterproto.int64_field(3)
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventInfoMicProgram(betterproto.Message):
+    models: List["WyomingEventInfoMicProgramMicModel"] = betterproto.message_field(1)
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventInfoMicProgramMicModel(betterproto.Message):
+    name: str = betterproto.string_field(1)
+    languages: List[str] = betterproto.string_field(2)
+    attribution: "WyomingEventAttribution" = betterproto.message_field(3)
+    installed: bool = betterproto.bool_field(4)
+    description: str = betterproto.string_field(5)
+    version: str = betterproto.string_field(6)
+    mic_format: "WyomingEventInfoAudioFormat" = betterproto.message_field(7)
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventInfoSndProgram(betterproto.Message):
+    models: List["WyomingEventInfoSndProgramSndModel"] = betterproto.message_field(1)
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventInfoSndProgramSndModel(betterproto.Message):
+    name: str = betterproto.string_field(1)
+    languages: List[str] = betterproto.string_field(2)
+    attribution: "WyomingEventAttribution" = betterproto.message_field(3)
+    installed: bool = betterproto.bool_field(4)
+    description: str = betterproto.string_field(5)
+    version: str = betterproto.string_field(6)
+    snd_format: "WyomingEventInfoAudioFormat" = betterproto.message_field(7)
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventInfoSatellite(betterproto.Message):
+    name: str = betterproto.string_field(1)
+    languages: List[str] = betterproto.string_field(2)
+    attribution: "WyomingEventAttribution" = betterproto.message_field(3)
+    installed: bool = betterproto.bool_field(4)
+    description: str = betterproto.string_field(5)
+    version: str = betterproto.string_field(6)
+    area: str = betterproto.string_field(7)
+    has_vad: bool = betterproto.bool_field(8)
+    active_wake_words: List[str] = betterproto.string_field(9)
+    max_active_wake_words: int = betterproto.int64_field(10)
+    supports_trigger: bool = betterproto.bool_field(11)
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventPauseSatellite(betterproto.Message):
+    pass
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventPing(betterproto.Message):
+    pass
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventPong(betterproto.Message):
+    pass
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventRunSatellite(betterproto.Message):
+    pass
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventTranscribe(betterproto.Message):
+    name: str = betterproto.string_field(1)
+    language: str = betterproto.string_field(2)
+    context: Dict[str, str] = betterproto.map_field(
+        3, betterproto.TYPE_STRING, betterproto.TYPE_STRING
+    )
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventVoiceStarted(betterproto.Message):
+    timestamp: int = betterproto.int64_field(1)
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventVoiceStopped(betterproto.Message):
+    timestamp: int = betterproto.int64_field(1)
+
+
+@dataclass(eq=False, repr=False)
+class WyomingEventOther(betterproto.Message):
+    pass
 
 
 @dataclass(eq=False, repr=False)
@@ -149,7 +427,7 @@ class Log(betterproto.Message):
 
 
 @dataclass(eq=False, repr=False)
-class ClientMessage(betterproto.Message):
+class Clientmessage(betterproto.Message):
     """The wrapper message that actually gets sent to the server"""
 
     ping: "Ping" = betterproto.message_field(1, group="msg")

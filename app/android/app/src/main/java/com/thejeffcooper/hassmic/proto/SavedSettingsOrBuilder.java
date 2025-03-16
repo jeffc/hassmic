@@ -3,112 +3,85 @@
 
 package com.thejeffcooper.hassmic.proto;
 
-public interface SavedSettingsOrBuilder
-    extends
+public interface SavedSettingsOrBuilder extends
     // @@protoc_insertion_point(interface_extends:hassmic.SavedSettings)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
-   *
-   *
    * <pre>
    * The last volume of the `announce` player
    * </pre>
    *
    * <code>optional float announce_volume = 1;</code>
-   *
    * @return Whether the announceVolume field is set.
    */
   boolean hasAnnounceVolume();
-
   /**
-   *
-   *
    * <pre>
    * The last volume of the `announce` player
    * </pre>
    *
    * <code>optional float announce_volume = 1;</code>
-   *
    * @return The announceVolume.
    */
   float getAnnounceVolume();
 
   /**
-   *
-   *
    * <pre>
    * The last volume of the `playback` player
    * </pre>
    *
    * <code>optional float playback_volume = 2;</code>
-   *
    * @return Whether the playbackVolume field is set.
    */
   boolean hasPlaybackVolume();
-
   /**
-   *
-   *
    * <pre>
    * The last volume of the `playback` player
    * </pre>
    *
    * <code>optional float playback_volume = 2;</code>
-   *
    * @return The playbackVolume.
    */
   float getPlaybackVolume();
 
   /**
-   *
-   *
    * <pre>
    * Hassmic UUID
    * </pre>
    *
    * <code>string hassmic_uuid = 3;</code>
-   *
    * @return The hassmicUuid.
    */
   java.lang.String getHassmicUuid();
-
   /**
-   *
-   *
    * <pre>
    * Hassmic UUID
    * </pre>
    *
    * <code>string hassmic_uuid = 3;</code>
-   *
    * @return The bytes for hassmicUuid.
    */
-  com.google.protobuf.ByteString getHassmicUuidBytes();
+  com.google.protobuf.ByteString
+      getHassmicUuidBytes();
 
   /**
-   *
-   *
    * <pre>
    * Device name
    * </pre>
    *
    * <code>string device_name = 4;</code>
-   *
    * @return The deviceName.
    */
   java.lang.String getDeviceName();
-
   /**
-   *
-   *
    * <pre>
    * Device name
    * </pre>
    *
    * <code>string device_name = 4;</code>
-   *
    * @return The bytes for deviceName.
    */
-  com.google.protobuf.ByteString getDeviceNameBytes();
+  com.google.protobuf.ByteString
+      getDeviceNameBytes();
 }

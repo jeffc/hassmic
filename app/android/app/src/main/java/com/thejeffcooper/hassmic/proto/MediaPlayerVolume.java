@@ -4,65 +4,56 @@
 package com.thejeffcooper.hassmic.proto;
 
 /**
- *
- *
  * <pre>
  * A media player has changed volume
  * </pre>
  *
  * Protobuf type {@code hassmic.MediaPlayerVolume}
  */
-public final class MediaPlayerVolume
-    extends com.google.protobuf.GeneratedMessageLite<MediaPlayerVolume, MediaPlayerVolume.Builder>
-    implements
+public  final class MediaPlayerVolume extends
+    com.google.protobuf.GeneratedMessageLite<
+        MediaPlayerVolume, MediaPlayerVolume.Builder> implements
     // @@protoc_insertion_point(message_implements:hassmic.MediaPlayerVolume)
     MediaPlayerVolumeOrBuilder {
-  private MediaPlayerVolume() {}
-
+  private MediaPlayerVolume() {
+  }
   public static final int PLAYER_FIELD_NUMBER = 1;
   private int player_;
-
   /**
    * <code>.hassmic.MediaPlayerId player = 1;</code>
-   *
    * @return The enum numeric value on the wire for player.
    */
   @java.lang.Override
   public int getPlayerValue() {
     return player_;
   }
-
   /**
    * <code>.hassmic.MediaPlayerId player = 1;</code>
-   *
    * @return The player.
    */
   @java.lang.Override
   public com.thejeffcooper.hassmic.proto.MediaPlayerId getPlayer() {
-    com.thejeffcooper.hassmic.proto.MediaPlayerId result =
-        com.thejeffcooper.hassmic.proto.MediaPlayerId.forNumber(player_);
+    com.thejeffcooper.hassmic.proto.MediaPlayerId result = com.thejeffcooper.hassmic.proto.MediaPlayerId.forNumber(player_);
     return result == null ? com.thejeffcooper.hassmic.proto.MediaPlayerId.UNRECOGNIZED : result;
   }
-
   /**
    * <code>.hassmic.MediaPlayerId player = 1;</code>
-   *
    * @param value The enum numeric value on the wire for player to set.
    */
   private void setPlayerValue(int value) {
-    player_ = value;
+      player_ = value;
   }
-
   /**
    * <code>.hassmic.MediaPlayerId player = 1;</code>
-   *
    * @param value The player to set.
    */
   private void setPlayer(com.thejeffcooper.hassmic.proto.MediaPlayerId value) {
     player_ = value.getNumber();
-  }
 
-  /** <code>.hassmic.MediaPlayerId player = 1;</code> */
+  }
+  /**
+   * <code>.hassmic.MediaPlayerId player = 1;</code>
+   */
   private void clearPlayer() {
 
     player_ = 0;
@@ -70,51 +61,49 @@ public final class MediaPlayerVolume
 
   public static final int VOLUME_FIELD_NUMBER = 2;
   private float volume_;
-
   /**
    * <code>float volume = 2;</code>
-   *
    * @return The volume.
    */
   @java.lang.Override
   public float getVolume() {
     return volume_;
   }
-
   /**
    * <code>float volume = 2;</code>
-   *
    * @param value The volume to set.
    */
   private void setVolume(float value) {
-
+    
     volume_ = value;
   }
-
-  /** <code>float volume = 2;</code> */
+  /**
+   * <code>float volume = 2;</code>
+   */
   private void clearVolume() {
 
     volume_ = 0F;
   }
 
   public static com.thejeffcooper.hassmic.proto.MediaPlayerVolume parseFrom(
-      java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+      java.nio.ByteBuffer data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static com.thejeffcooper.hassmic.proto.MediaPlayerVolume parseFrom(
-      java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.nio.ByteBuffer data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.MediaPlayerVolume parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static com.thejeffcooper.hassmic.proto.MediaPlayerVolume parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -122,47 +111,46 @@ public final class MediaPlayerVolume
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.MediaPlayerVolume parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static com.thejeffcooper.hassmic.proto.MediaPlayerVolume parseFrom(
-      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
-  public static com.thejeffcooper.hassmic.proto.MediaPlayerVolume parseFrom(
-      java.io.InputStream input) throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+  public static com.thejeffcooper.hassmic.proto.MediaPlayerVolume parseFrom(java.io.InputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static com.thejeffcooper.hassmic.proto.MediaPlayerVolume parseFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
-  public static com.thejeffcooper.hassmic.proto.MediaPlayerVolume parseDelimitedFrom(
-      java.io.InputStream input) throws java.io.IOException {
+  public static com.thejeffcooper.hassmic.proto.MediaPlayerVolume parseDelimitedFrom(java.io.InputStream input)
+      throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
-
   public static com.thejeffcooper.hassmic.proto.MediaPlayerVolume parseDelimitedFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.MediaPlayerVolume parseFrom(
-      com.google.protobuf.CodedInputStream input) throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+      com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static com.thejeffcooper.hassmic.proto.MediaPlayerVolume parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -174,24 +162,20 @@ public final class MediaPlayerVolume
   public static Builder newBuilder() {
     return (Builder) DEFAULT_INSTANCE.createBuilder();
   }
-
   public static Builder newBuilder(com.thejeffcooper.hassmic.proto.MediaPlayerVolume prototype) {
     return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
   }
 
   /**
-   *
-   *
    * <pre>
    * A media player has changed volume
    * </pre>
    *
    * Protobuf type {@code hassmic.MediaPlayerVolume}
    */
-  public static final class Builder
-      extends com.google.protobuf.GeneratedMessageLite.Builder<
-          com.thejeffcooper.hassmic.proto.MediaPlayerVolume, Builder>
-      implements
+  public static final class Builder extends
+      com.google.protobuf.GeneratedMessageLite.Builder<
+        com.thejeffcooper.hassmic.proto.MediaPlayerVolume, Builder> implements
       // @@protoc_insertion_point(builder_implements:hassmic.MediaPlayerVolume)
       com.thejeffcooper.hassmic.proto.MediaPlayerVolumeOrBuilder {
     // Construct using com.thejeffcooper.hassmic.proto.MediaPlayerVolume.newBuilder()
@@ -199,19 +183,17 @@ public final class MediaPlayerVolume
       super(DEFAULT_INSTANCE);
     }
 
+
     /**
      * <code>.hassmic.MediaPlayerId player = 1;</code>
-     *
      * @return The enum numeric value on the wire for player.
      */
     @java.lang.Override
     public int getPlayerValue() {
       return instance.getPlayerValue();
     }
-
     /**
      * <code>.hassmic.MediaPlayerId player = 1;</code>
-     *
      * @param value The player to set.
      * @return This builder for chaining.
      */
@@ -220,20 +202,16 @@ public final class MediaPlayerVolume
       instance.setPlayerValue(value);
       return this;
     }
-
     /**
      * <code>.hassmic.MediaPlayerId player = 1;</code>
-     *
      * @return The player.
      */
     @java.lang.Override
     public com.thejeffcooper.hassmic.proto.MediaPlayerId getPlayer() {
       return instance.getPlayer();
     }
-
     /**
      * <code>.hassmic.MediaPlayerId player = 1;</code>
-     *
      * @param value The enum numeric value on the wire for player to set.
      * @return This builder for chaining.
      */
@@ -242,10 +220,8 @@ public final class MediaPlayerVolume
       instance.setPlayer(value);
       return this;
     }
-
     /**
      * <code>.hassmic.MediaPlayerId player = 1;</code>
-     *
      * @return This builder for chaining.
      */
     public Builder clearPlayer() {
@@ -256,17 +232,14 @@ public final class MediaPlayerVolume
 
     /**
      * <code>float volume = 2;</code>
-     *
      * @return The volume.
      */
     @java.lang.Override
     public float getVolume() {
       return instance.getVolume();
     }
-
     /**
      * <code>float volume = 2;</code>
-     *
      * @param value The volume to set.
      * @return This builder for chaining.
      */
@@ -275,10 +248,8 @@ public final class MediaPlayerVolume
       instance.setVolume(value);
       return this;
     }
-
     /**
      * <code>float volume = 2;</code>
-     *
      * @return This builder for chaining.
      */
     public Builder clearVolume() {
@@ -289,77 +260,67 @@ public final class MediaPlayerVolume
 
     // @@protoc_insertion_point(builder_scope:hassmic.MediaPlayerVolume)
   }
-
   @java.lang.Override
   @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
   protected final java.lang.Object dynamicMethod(
       com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-      java.lang.Object arg0,
-      java.lang.Object arg1) {
+      java.lang.Object arg0, java.lang.Object arg1) {
     switch (method) {
-      case NEW_MUTABLE_INSTANCE:
-        {
-          return new com.thejeffcooper.hassmic.proto.MediaPlayerVolume();
-        }
-      case NEW_BUILDER:
-        {
-          return new Builder();
-        }
-      case BUILD_MESSAGE_INFO:
-        {
-          java.lang.Object[] objects =
-              new java.lang.Object[] {
-                "player_", "volume_",
-              };
+      case NEW_MUTABLE_INSTANCE: {
+        return new com.thejeffcooper.hassmic.proto.MediaPlayerVolume();
+      }
+      case NEW_BUILDER: {
+        return new Builder();
+      }
+      case BUILD_MESSAGE_INFO: {
+          java.lang.Object[] objects = new java.lang.Object[] {
+            "player_",
+            "volume_",
+          };
           java.lang.String info =
-              "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u0001\f\u0002\u0001"
-                  + "";
+              "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u0001\f\u0002\u0001" +
+              "";
           return newMessageInfo(DEFAULT_INSTANCE, info, objects);
-        }
-        // fall through
-      case GET_DEFAULT_INSTANCE:
-        {
-          return DEFAULT_INSTANCE;
-        }
-      case GET_PARSER:
-        {
-          com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.MediaPlayerVolume> parser =
-              PARSER;
-          if (parser == null) {
-            synchronized (com.thejeffcooper.hassmic.proto.MediaPlayerVolume.class) {
-              parser = PARSER;
-              if (parser == null) {
-                parser =
-                    new DefaultInstanceBasedParser<
-                        com.thejeffcooper.hassmic.proto.MediaPlayerVolume>(DEFAULT_INSTANCE);
-                PARSER = parser;
-              }
+      }
+      // fall through
+      case GET_DEFAULT_INSTANCE: {
+        return DEFAULT_INSTANCE;
+      }
+      case GET_PARSER: {
+        com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.MediaPlayerVolume> parser = PARSER;
+        if (parser == null) {
+          synchronized (com.thejeffcooper.hassmic.proto.MediaPlayerVolume.class) {
+            parser = PARSER;
+            if (parser == null) {
+              parser =
+                  new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.MediaPlayerVolume>(
+                      DEFAULT_INSTANCE);
+              PARSER = parser;
             }
           }
-          return parser;
         }
-      case GET_MEMOIZED_IS_INITIALIZED:
-        {
-          return (byte) 1;
-        }
-      case SET_MEMOIZED_IS_INITIALIZED:
-        {
-          return null;
-        }
+        return parser;
+    }
+    case GET_MEMOIZED_IS_INITIALIZED: {
+      return (byte) 1;
+    }
+    case SET_MEMOIZED_IS_INITIALIZED: {
+      return null;
+    }
     }
     throw new UnsupportedOperationException();
   }
 
+
   // @@protoc_insertion_point(class_scope:hassmic.MediaPlayerVolume)
   private static final com.thejeffcooper.hassmic.proto.MediaPlayerVolume DEFAULT_INSTANCE;
-
   static {
     MediaPlayerVolume defaultInstance = new MediaPlayerVolume();
     // New instances are implicitly immutable so no need to make
     // immutable.
     DEFAULT_INSTANCE = defaultInstance;
     com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
-        MediaPlayerVolume.class, defaultInstance);
+      MediaPlayerVolume.class, defaultInstance);
   }
 
   public static com.thejeffcooper.hassmic.proto.MediaPlayerVolume getDefaultInstance() {
@@ -372,3 +333,4 @@ public final class MediaPlayerVolume
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
+

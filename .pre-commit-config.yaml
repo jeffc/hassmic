@@ -6,17 +6,24 @@ repos:
         language: script
         entry: ./scripts/version_update.sh
         files: "VERSION"
+      - id: generate-protos
+        name: Compile Protos
+        language: script
+        entry: ./scripts/proto_regen.sh
   - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
     rev: v2.14.0
     hooks:
       - id: pretty-format-java
         args: [--autofix]
+        exclude: ".*proto/.*.java"
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v2.3.0
     hooks:
       - id: check-yaml
       - id: end-of-file-fixer
+        exclude: ".*proto/.*.java"
       - id: trailing-whitespace
+        exclude: ".*proto/.*.java"
   #  - repo: https://github.com/astral-sh/ruff-pre-commit
   #    rev: v0.6.4
   #    hooks:
@@ -29,9 +36,11 @@ repos:
     rev: "v20.1.0" # Use the sha / tag you want to point at
     hooks:
       - id: clang-format
+        name: Format .proto files
         types: ["proto"]
   - repo: https://github.com/psf/black
     rev: 22.10.0
     hooks:
       - id: black
         name: "Python formatter (black)"
+        exclude: ".*proto/.*"

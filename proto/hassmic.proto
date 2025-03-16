@@ -123,7 +123,7 @@ message WyomingEvent {
 
   message Info {
     message AsrProgram {
-      Message AsrModel {
+      message AsrModel {
         string name = 1;
         repeated string languages = 2;
         Attribution attribution = 3;
@@ -136,7 +136,7 @@ message WyomingEvent {
     repeated AsrProgram asr = 1;
 
     message TtsProgram {
-      Message TtsVoice {
+      message TtsVoice {
         string name = 1;
         repeated string languages = 2;
         Attribution attribution = 3;
@@ -144,14 +144,14 @@ message WyomingEvent {
         string description = 5;
         string version = 6;
         message TtsVoiceSpeaker { string name = 1; }
-        repeated TtsVoiceSpeaker speakers = 2;
+        repeated TtsVoiceSpeaker speakers = 7;
       }
       repeated TtsVoice voices = 1;
     }
     repeated TtsProgram tts = 2;
 
     message HandleProgram {
-      Message HandleModel {
+      message HandleModel {
         string name = 1;
         repeated string languages = 2;
         Attribution attribution = 3;
@@ -164,7 +164,7 @@ message WyomingEvent {
     repeated HandleProgram handle = 3;
 
     message IntentProgram {
-      Message IntentModel {
+      message IntentModel {
         string name = 1;
         repeated string languages = 2;
         Attribution attribution = 3;
@@ -177,7 +177,7 @@ message WyomingEvent {
     repeated IntentProgram intent = 4;
 
     message WakeProgram {
-      Message WakeModel {
+      message WakeModel {
         string name = 1;
         repeated string languages = 2;
         Attribution attribution = 3;
@@ -195,10 +195,9 @@ message WyomingEvent {
       int64 width = 2;
       int64 channels = 3;
     }
-    j
 
-        message MicProgram {
-      Message MicModel {
+    message MicProgram {
+      message MicModel {
         string name = 1;
         repeated string languages = 2;
         Attribution attribution = 3;
@@ -212,7 +211,7 @@ message WyomingEvent {
     repeated MicProgram mic = 6;
 
     message SndProgram {
-      Message SndModel {
+      message SndModel {
         string name = 1;
         repeated string languages = 2;
         Attribution attribution = 3;
@@ -225,7 +224,7 @@ message WyomingEvent {
     }
     repeated SndProgram snd = 7;
 
-    Message Satellite {
+    message Satellite {
       string name = 1;
       repeated string languages = 2;
       Attribution attribution = 3;
@@ -304,7 +303,7 @@ message Log {
 }
 
 // The wrapper message that actually gets sent to the server
-message ClientMessage {
+message Clientmessage {
   oneof msg {
     Ping ping = 1;
     ClientInfo client_info = 2;

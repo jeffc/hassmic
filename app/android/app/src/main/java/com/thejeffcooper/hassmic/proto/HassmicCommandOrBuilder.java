@@ -3,144 +3,107 @@
 
 package com.thejeffcooper.hassmic.proto;
 
-public interface HassmicCommandOrBuilder
-    extends
+public interface HassmicCommandOrBuilder extends
     // @@protoc_insertion_point(interface_extends:hassmic.HassmicCommand)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
-   *
-   *
    * <pre>
    * A command to play audio
    * </pre>
    *
    * <code>.hassmic.PlayAudio play_audio = 1;</code>
-   *
    * @return Whether the playAudio field is set.
    */
   boolean hasPlayAudio();
-
   /**
-   *
-   *
    * <pre>
    * A command to play audio
    * </pre>
    *
    * <code>.hassmic.PlayAudio play_audio = 1;</code>
-   *
    * @return The playAudio.
    */
   com.thejeffcooper.hassmic.proto.PlayAudio getPlayAudio();
 
   /**
-   *
-   *
    * <pre>
    * Set whether the mic should be muted
    * </pre>
    *
    * <code>bool set_mic_mute = 2;</code>
-   *
    * @return Whether the setMicMute field is set.
    */
   boolean hasSetMicMute();
-
   /**
-   *
-   *
    * <pre>
    * Set whether the mic should be muted
    * </pre>
    *
    * <code>bool set_mic_mute = 2;</code>
-   *
    * @return The setMicMute.
    */
   boolean getSetMicMute();
 
   /**
-   *
-   *
    * <pre>
    * Set the volume of the device
    * </pre>
    *
    * <code>.hassmic.DeviceVolume set_device_volume = 3;</code>
-   *
    * @return Whether the setDeviceVolume field is set.
    */
   boolean hasSetDeviceVolume();
-
   /**
-   *
-   *
    * <pre>
    * Set the volume of the device
    * </pre>
    *
    * <code>.hassmic.DeviceVolume set_device_volume = 3;</code>
-   *
    * @return The setDeviceVolume.
    */
   com.thejeffcooper.hassmic.proto.DeviceVolume getSetDeviceVolume();
 
   /**
-   *
-   *
    * <pre>
    * Set the volume of a player
    * </pre>
    *
    * <code>.hassmic.MediaPlayerVolume set_player_volume = 4;</code>
-   *
    * @return Whether the setPlayerVolume field is set.
    */
   boolean hasSetPlayerVolume();
-
   /**
-   *
-   *
    * <pre>
    * Set the volume of a player
    * </pre>
    *
    * <code>.hassmic.MediaPlayerVolume set_player_volume = 4;</code>
-   *
    * @return The setPlayerVolume.
    */
   com.thejeffcooper.hassmic.proto.MediaPlayerVolume getSetPlayerVolume();
 
   /**
-   *
-   *
    * <pre>
    * Play, pause, stop, etc
    * </pre>
    *
    * <code>.hassmic.MediaPlayerCommand command = 5;</code>
-   *
    * @return Whether the command field is set.
    */
   boolean hasCommand();
-
   /**
-   *
-   *
    * <pre>
    * Play, pause, stop, etc
    * </pre>
    *
    * <code>.hassmic.MediaPlayerCommand command = 5;</code>
-   *
    * @return The command.
    */
   com.thejeffcooper.hassmic.proto.MediaPlayerCommand getCommand();
 
   /**
    * <code>bool internal = 6;</code>
-   *
    * @return The internal.
    */
   boolean getInternal();

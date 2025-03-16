@@ -4,79 +4,61 @@
 package com.thejeffcooper.hassmic.proto;
 
 /**
- *
- *
  * <pre>
  * Information saved and loaded between runs of the hassmic app
  * </pre>
  *
  * Protobuf type {@code hassmic.SavedSettings}
  */
-public final class SavedSettings
-    extends com.google.protobuf.GeneratedMessageLite<SavedSettings, SavedSettings.Builder>
-    implements
+public  final class SavedSettings extends
+    com.google.protobuf.GeneratedMessageLite<
+        SavedSettings, SavedSettings.Builder> implements
     // @@protoc_insertion_point(message_implements:hassmic.SavedSettings)
     SavedSettingsOrBuilder {
   private SavedSettings() {
     hassmicUuid_ = "";
     deviceName_ = "";
   }
-
   private int bitField0_;
   public static final int ANNOUNCE_VOLUME_FIELD_NUMBER = 1;
   private float announceVolume_;
-
   /**
-   *
-   *
    * <pre>
    * The last volume of the `announce` player
    * </pre>
    *
    * <code>optional float announce_volume = 1;</code>
-   *
    * @return Whether the announceVolume field is set.
    */
   @java.lang.Override
   public boolean hasAnnounceVolume() {
     return ((bitField0_ & 0x00000001) != 0);
   }
-
   /**
-   *
-   *
    * <pre>
    * The last volume of the `announce` player
    * </pre>
    *
    * <code>optional float announce_volume = 1;</code>
-   *
    * @return The announceVolume.
    */
   @java.lang.Override
   public float getAnnounceVolume() {
     return announceVolume_;
   }
-
   /**
-   *
-   *
    * <pre>
    * The last volume of the `announce` player
    * </pre>
    *
    * <code>optional float announce_volume = 1;</code>
-   *
    * @param value The announceVolume to set.
    */
   private void setAnnounceVolume(float value) {
     bitField0_ |= 0x00000001;
     announceVolume_ = value;
   }
-
   /**
-   *
-   *
    * <pre>
    * The last volume of the `announce` player
    * </pre>
@@ -90,58 +72,43 @@ public final class SavedSettings
 
   public static final int PLAYBACK_VOLUME_FIELD_NUMBER = 2;
   private float playbackVolume_;
-
   /**
-   *
-   *
    * <pre>
    * The last volume of the `playback` player
    * </pre>
    *
    * <code>optional float playback_volume = 2;</code>
-   *
    * @return Whether the playbackVolume field is set.
    */
   @java.lang.Override
   public boolean hasPlaybackVolume() {
     return ((bitField0_ & 0x00000002) != 0);
   }
-
   /**
-   *
-   *
    * <pre>
    * The last volume of the `playback` player
    * </pre>
    *
    * <code>optional float playback_volume = 2;</code>
-   *
    * @return The playbackVolume.
    */
   @java.lang.Override
   public float getPlaybackVolume() {
     return playbackVolume_;
   }
-
   /**
-   *
-   *
    * <pre>
    * The last volume of the `playback` player
    * </pre>
    *
    * <code>optional float playback_volume = 2;</code>
-   *
    * @param value The playbackVolume to set.
    */
   private void setPlaybackVolume(float value) {
     bitField0_ |= 0x00000002;
     playbackVolume_ = value;
   }
-
   /**
-   *
-   *
    * <pre>
    * The last volume of the `playback` player
    * </pre>
@@ -155,59 +122,46 @@ public final class SavedSettings
 
   public static final int HASSMIC_UUID_FIELD_NUMBER = 3;
   private java.lang.String hassmicUuid_;
-
   /**
-   *
-   *
    * <pre>
    * Hassmic UUID
    * </pre>
    *
    * <code>string hassmic_uuid = 3;</code>
-   *
    * @return The hassmicUuid.
    */
   @java.lang.Override
   public java.lang.String getHassmicUuid() {
     return hassmicUuid_;
   }
-
   /**
-   *
-   *
    * <pre>
    * Hassmic UUID
    * </pre>
    *
    * <code>string hassmic_uuid = 3;</code>
-   *
    * @return The bytes for hassmicUuid.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString getHassmicUuidBytes() {
+  public com.google.protobuf.ByteString
+      getHassmicUuidBytes() {
     return com.google.protobuf.ByteString.copyFromUtf8(hassmicUuid_);
   }
-
   /**
-   *
-   *
    * <pre>
    * Hassmic UUID
    * </pre>
    *
    * <code>string hassmic_uuid = 3;</code>
-   *
    * @param value The hassmicUuid to set.
    */
-  private void setHassmicUuid(java.lang.String value) {
+  private void setHassmicUuid(
+      java.lang.String value) {
     java.lang.Class<?> valueClass = value.getClass();
-
+  
     hassmicUuid_ = value;
   }
-
   /**
-   *
-   *
    * <pre>
    * Hassmic UUID
    * </pre>
@@ -218,78 +172,63 @@ public final class SavedSettings
 
     hassmicUuid_ = getDefaultInstance().getHassmicUuid();
   }
-
   /**
-   *
-   *
    * <pre>
    * Hassmic UUID
    * </pre>
    *
    * <code>string hassmic_uuid = 3;</code>
-   *
    * @param value The bytes for hassmicUuid to set.
    */
-  private void setHassmicUuidBytes(com.google.protobuf.ByteString value) {
+  private void setHassmicUuidBytes(
+      com.google.protobuf.ByteString value) {
     checkByteStringIsUtf8(value);
     hassmicUuid_ = value.toStringUtf8();
+
   }
 
   public static final int DEVICE_NAME_FIELD_NUMBER = 4;
   private java.lang.String deviceName_;
-
   /**
-   *
-   *
    * <pre>
    * Device name
    * </pre>
    *
    * <code>string device_name = 4;</code>
-   *
    * @return The deviceName.
    */
   @java.lang.Override
   public java.lang.String getDeviceName() {
     return deviceName_;
   }
-
   /**
-   *
-   *
    * <pre>
    * Device name
    * </pre>
    *
    * <code>string device_name = 4;</code>
-   *
    * @return The bytes for deviceName.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString getDeviceNameBytes() {
+  public com.google.protobuf.ByteString
+      getDeviceNameBytes() {
     return com.google.protobuf.ByteString.copyFromUtf8(deviceName_);
   }
-
   /**
-   *
-   *
    * <pre>
    * Device name
    * </pre>
    *
    * <code>string device_name = 4;</code>
-   *
    * @param value The deviceName to set.
    */
-  private void setDeviceName(java.lang.String value) {
+  private void setDeviceName(
+      java.lang.String value) {
     java.lang.Class<?> valueClass = value.getClass();
-
+  
     deviceName_ = value;
   }
-
   /**
-   *
-   *
    * <pre>
    * Device name
    * </pre>
@@ -300,41 +239,40 @@ public final class SavedSettings
 
     deviceName_ = getDefaultInstance().getDeviceName();
   }
-
   /**
-   *
-   *
    * <pre>
    * Device name
    * </pre>
    *
    * <code>string device_name = 4;</code>
-   *
    * @param value The bytes for deviceName to set.
    */
-  private void setDeviceNameBytes(com.google.protobuf.ByteString value) {
+  private void setDeviceNameBytes(
+      com.google.protobuf.ByteString value) {
     checkByteStringIsUtf8(value);
     deviceName_ = value.toStringUtf8();
-  }
 
-  public static com.thejeffcooper.hassmic.proto.SavedSettings parseFrom(java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
 
   public static com.thejeffcooper.hassmic.proto.SavedSettings parseFrom(
-      java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.nio.ByteBuffer data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
+  }
+  public static com.thejeffcooper.hassmic.proto.SavedSettings parseFrom(
+      java.nio.ByteBuffer data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.SavedSettings parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static com.thejeffcooper.hassmic.proto.SavedSettings parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -342,47 +280,46 @@ public final class SavedSettings
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.SavedSettings parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static com.thejeffcooper.hassmic.proto.SavedSettings parseFrom(
-      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.SavedSettings parseFrom(java.io.InputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static com.thejeffcooper.hassmic.proto.SavedSettings parseFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
-  public static com.thejeffcooper.hassmic.proto.SavedSettings parseDelimitedFrom(
-      java.io.InputStream input) throws java.io.IOException {
+  public static com.thejeffcooper.hassmic.proto.SavedSettings parseDelimitedFrom(java.io.InputStream input)
+      throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
-
   public static com.thejeffcooper.hassmic.proto.SavedSettings parseDelimitedFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.SavedSettings parseFrom(
-      com.google.protobuf.CodedInputStream input) throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+      com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static com.thejeffcooper.hassmic.proto.SavedSettings parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -394,24 +331,20 @@ public final class SavedSettings
   public static Builder newBuilder() {
     return (Builder) DEFAULT_INSTANCE.createBuilder();
   }
-
   public static Builder newBuilder(com.thejeffcooper.hassmic.proto.SavedSettings prototype) {
     return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
   }
 
   /**
-   *
-   *
    * <pre>
    * Information saved and loaded between runs of the hassmic app
    * </pre>
    *
    * Protobuf type {@code hassmic.SavedSettings}
    */
-  public static final class Builder
-      extends com.google.protobuf.GeneratedMessageLite.Builder<
-          com.thejeffcooper.hassmic.proto.SavedSettings, Builder>
-      implements
+  public static final class Builder extends
+      com.google.protobuf.GeneratedMessageLite.Builder<
+        com.thejeffcooper.hassmic.proto.SavedSettings, Builder> implements
       // @@protoc_insertion_point(builder_implements:hassmic.SavedSettings)
       com.thejeffcooper.hassmic.proto.SavedSettingsOrBuilder {
     // Construct using com.thejeffcooper.hassmic.proto.SavedSettings.newBuilder()
@@ -419,47 +352,37 @@ public final class SavedSettings
       super(DEFAULT_INSTANCE);
     }
 
+
     /**
-     *
-     *
      * <pre>
      * The last volume of the `announce` player
      * </pre>
      *
      * <code>optional float announce_volume = 1;</code>
-     *
      * @return Whether the announceVolume field is set.
      */
     @java.lang.Override
     public boolean hasAnnounceVolume() {
       return instance.hasAnnounceVolume();
     }
-
     /**
-     *
-     *
      * <pre>
      * The last volume of the `announce` player
      * </pre>
      *
      * <code>optional float announce_volume = 1;</code>
-     *
      * @return The announceVolume.
      */
     @java.lang.Override
     public float getAnnounceVolume() {
       return instance.getAnnounceVolume();
     }
-
     /**
-     *
-     *
      * <pre>
      * The last volume of the `announce` player
      * </pre>
      *
      * <code>optional float announce_volume = 1;</code>
-     *
      * @param value The announceVolume to set.
      * @return This builder for chaining.
      */
@@ -468,16 +391,12 @@ public final class SavedSettings
       instance.setAnnounceVolume(value);
       return this;
     }
-
     /**
-     *
-     *
      * <pre>
      * The last volume of the `announce` player
      * </pre>
      *
      * <code>optional float announce_volume = 1;</code>
-     *
      * @return This builder for chaining.
      */
     public Builder clearAnnounceVolume() {
@@ -487,46 +406,35 @@ public final class SavedSettings
     }
 
     /**
-     *
-     *
      * <pre>
      * The last volume of the `playback` player
      * </pre>
      *
      * <code>optional float playback_volume = 2;</code>
-     *
      * @return Whether the playbackVolume field is set.
      */
     @java.lang.Override
     public boolean hasPlaybackVolume() {
       return instance.hasPlaybackVolume();
     }
-
     /**
-     *
-     *
      * <pre>
      * The last volume of the `playback` player
      * </pre>
      *
      * <code>optional float playback_volume = 2;</code>
-     *
      * @return The playbackVolume.
      */
     @java.lang.Override
     public float getPlaybackVolume() {
       return instance.getPlaybackVolume();
     }
-
     /**
-     *
-     *
      * <pre>
      * The last volume of the `playback` player
      * </pre>
      *
      * <code>optional float playback_volume = 2;</code>
-     *
      * @param value The playbackVolume to set.
      * @return This builder for chaining.
      */
@@ -535,16 +443,12 @@ public final class SavedSettings
       instance.setPlaybackVolume(value);
       return this;
     }
-
     /**
-     *
-     *
      * <pre>
      * The last volume of the `playback` player
      * </pre>
      *
      * <code>optional float playback_volume = 2;</code>
-     *
      * @return This builder for chaining.
      */
     public Builder clearPlaybackVolume() {
@@ -554,64 +458,51 @@ public final class SavedSettings
     }
 
     /**
-     *
-     *
      * <pre>
      * Hassmic UUID
      * </pre>
      *
      * <code>string hassmic_uuid = 3;</code>
-     *
      * @return The hassmicUuid.
      */
     @java.lang.Override
     public java.lang.String getHassmicUuid() {
       return instance.getHassmicUuid();
     }
-
     /**
-     *
-     *
      * <pre>
      * Hassmic UUID
      * </pre>
      *
      * <code>string hassmic_uuid = 3;</code>
-     *
      * @return The bytes for hassmicUuid.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString getHassmicUuidBytes() {
+    public com.google.protobuf.ByteString
+        getHassmicUuidBytes() {
       return instance.getHassmicUuidBytes();
     }
-
     /**
-     *
-     *
      * <pre>
      * Hassmic UUID
      * </pre>
      *
      * <code>string hassmic_uuid = 3;</code>
-     *
      * @param value The hassmicUuid to set.
      * @return This builder for chaining.
      */
-    public Builder setHassmicUuid(java.lang.String value) {
+    public Builder setHassmicUuid(
+        java.lang.String value) {
       copyOnWrite();
       instance.setHassmicUuid(value);
       return this;
     }
-
     /**
-     *
-     *
      * <pre>
      * Hassmic UUID
      * </pre>
      *
      * <code>string hassmic_uuid = 3;</code>
-     *
      * @return This builder for chaining.
      */
     public Builder clearHassmicUuid() {
@@ -619,84 +510,68 @@ public final class SavedSettings
       instance.clearHassmicUuid();
       return this;
     }
-
     /**
-     *
-     *
      * <pre>
      * Hassmic UUID
      * </pre>
      *
      * <code>string hassmic_uuid = 3;</code>
-     *
      * @param value The bytes for hassmicUuid to set.
      * @return This builder for chaining.
      */
-    public Builder setHassmicUuidBytes(com.google.protobuf.ByteString value) {
+    public Builder setHassmicUuidBytes(
+        com.google.protobuf.ByteString value) {
       copyOnWrite();
       instance.setHassmicUuidBytes(value);
       return this;
     }
 
     /**
-     *
-     *
      * <pre>
      * Device name
      * </pre>
      *
      * <code>string device_name = 4;</code>
-     *
      * @return The deviceName.
      */
     @java.lang.Override
     public java.lang.String getDeviceName() {
       return instance.getDeviceName();
     }
-
     /**
-     *
-     *
      * <pre>
      * Device name
      * </pre>
      *
      * <code>string device_name = 4;</code>
-     *
      * @return The bytes for deviceName.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString getDeviceNameBytes() {
+    public com.google.protobuf.ByteString
+        getDeviceNameBytes() {
       return instance.getDeviceNameBytes();
     }
-
     /**
-     *
-     *
      * <pre>
      * Device name
      * </pre>
      *
      * <code>string device_name = 4;</code>
-     *
      * @param value The deviceName to set.
      * @return This builder for chaining.
      */
-    public Builder setDeviceName(java.lang.String value) {
+    public Builder setDeviceName(
+        java.lang.String value) {
       copyOnWrite();
       instance.setDeviceName(value);
       return this;
     }
-
     /**
-     *
-     *
      * <pre>
      * Device name
      * </pre>
      *
      * <code>string device_name = 4;</code>
-     *
      * @return This builder for chaining.
      */
     public Builder clearDeviceName() {
@@ -704,20 +579,17 @@ public final class SavedSettings
       instance.clearDeviceName();
       return this;
     }
-
     /**
-     *
-     *
      * <pre>
      * Device name
      * </pre>
      *
      * <code>string device_name = 4;</code>
-     *
      * @param value The bytes for deviceName to set.
      * @return This builder for chaining.
      */
-    public Builder setDeviceNameBytes(com.google.protobuf.ByteString value) {
+    public Builder setDeviceNameBytes(
+        com.google.protobuf.ByteString value) {
       copyOnWrite();
       instance.setDeviceNameBytes(value);
       return this;
@@ -725,76 +597,70 @@ public final class SavedSettings
 
     // @@protoc_insertion_point(builder_scope:hassmic.SavedSettings)
   }
-
   @java.lang.Override
   @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
   protected final java.lang.Object dynamicMethod(
       com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-      java.lang.Object arg0,
-      java.lang.Object arg1) {
+      java.lang.Object arg0, java.lang.Object arg1) {
     switch (method) {
-      case NEW_MUTABLE_INSTANCE:
-        {
-          return new com.thejeffcooper.hassmic.proto.SavedSettings();
-        }
-      case NEW_BUILDER:
-        {
-          return new Builder();
-        }
-      case BUILD_MESSAGE_INFO:
-        {
-          java.lang.Object[] objects =
-              new java.lang.Object[] {
-                "bitField0_", "announceVolume_", "playbackVolume_", "hassmicUuid_", "deviceName_",
-              };
+      case NEW_MUTABLE_INSTANCE: {
+        return new com.thejeffcooper.hassmic.proto.SavedSettings();
+      }
+      case NEW_BUILDER: {
+        return new Builder();
+      }
+      case BUILD_MESSAGE_INFO: {
+          java.lang.Object[] objects = new java.lang.Object[] {
+            "bitField0_",
+            "announceVolume_",
+            "playbackVolume_",
+            "hassmicUuid_",
+            "deviceName_",
+          };
           java.lang.String info =
-              "\u0000\u0004\u0000\u0001\u0001\u0004\u0004\u0000\u0000\u0000\u0001\u1001\u0000\u0002"
-                  + "\u1001\u0001\u0003\u0208\u0004\u0208";
+              "\u0000\u0004\u0000\u0001\u0001\u0004\u0004\u0000\u0000\u0000\u0001\u1001\u0000\u0002" +
+              "\u1001\u0001\u0003\u0208\u0004\u0208";
           return newMessageInfo(DEFAULT_INSTANCE, info, objects);
-        }
-        // fall through
-      case GET_DEFAULT_INSTANCE:
-        {
-          return DEFAULT_INSTANCE;
-        }
-      case GET_PARSER:
-        {
-          com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.SavedSettings> parser = PARSER;
-          if (parser == null) {
-            synchronized (com.thejeffcooper.hassmic.proto.SavedSettings.class) {
-              parser = PARSER;
-              if (parser == null) {
-                parser =
-                    new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.SavedSettings>(
-                        DEFAULT_INSTANCE);
-                PARSER = parser;
-              }
+      }
+      // fall through
+      case GET_DEFAULT_INSTANCE: {
+        return DEFAULT_INSTANCE;
+      }
+      case GET_PARSER: {
+        com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.SavedSettings> parser = PARSER;
+        if (parser == null) {
+          synchronized (com.thejeffcooper.hassmic.proto.SavedSettings.class) {
+            parser = PARSER;
+            if (parser == null) {
+              parser =
+                  new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.SavedSettings>(
+                      DEFAULT_INSTANCE);
+              PARSER = parser;
             }
           }
-          return parser;
         }
-      case GET_MEMOIZED_IS_INITIALIZED:
-        {
-          return (byte) 1;
-        }
-      case SET_MEMOIZED_IS_INITIALIZED:
-        {
-          return null;
-        }
+        return parser;
+    }
+    case GET_MEMOIZED_IS_INITIALIZED: {
+      return (byte) 1;
+    }
+    case SET_MEMOIZED_IS_INITIALIZED: {
+      return null;
+    }
     }
     throw new UnsupportedOperationException();
   }
 
+
   // @@protoc_insertion_point(class_scope:hassmic.SavedSettings)
   private static final com.thejeffcooper.hassmic.proto.SavedSettings DEFAULT_INSTANCE;
-
   static {
     SavedSettings defaultInstance = new SavedSettings();
     // New instances are implicitly immutable so no need to make
     // immutable.
     DEFAULT_INSTANCE = defaultInstance;
     com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
-        SavedSettings.class, defaultInstance);
+      SavedSettings.class, defaultInstance);
   }
 
   public static com.thejeffcooper.hassmic.proto.SavedSettings getDefaultInstance() {
@@ -807,3 +673,4 @@ public final class SavedSettings
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
+

@@ -4,51 +4,69 @@
 package com.thejeffcooper.hassmic.proto;
 
 /**
- *
- *
  * <pre>
  * A log message passed from the client to the server
  * </pre>
  *
  * Protobuf type {@code hassmic.Log}
  */
-public final class Log extends com.google.protobuf.GeneratedMessageLite<Log, Log.Builder>
-    implements
+public  final class Log extends
+    com.google.protobuf.GeneratedMessageLite<
+        Log, Log.Builder> implements
     // @@protoc_insertion_point(message_implements:hassmic.Log)
     LogOrBuilder {
   private Log() {
     logText_ = "";
   }
-
-  /** Protobuf enum {@code hassmic.Log.Severity} */
-  public enum Severity implements com.google.protobuf.Internal.EnumLite {
-    /** <code>SEVERITY_UNKNOWN = 0;</code> */
+  /**
+   * Protobuf enum {@code hassmic.Log.Severity}
+   */
+  public enum Severity
+      implements com.google.protobuf.Internal.EnumLite {
+    /**
+     * <code>SEVERITY_UNKNOWN = 0;</code>
+     */
     SEVERITY_UNKNOWN(0),
-    /** <code>SEVERITY_DEBUG = 1;</code> */
+    /**
+     * <code>SEVERITY_DEBUG = 1;</code>
+     */
     SEVERITY_DEBUG(1),
-    /** <code>SEVERITY_INFO = 2;</code> */
+    /**
+     * <code>SEVERITY_INFO = 2;</code>
+     */
     SEVERITY_INFO(2),
-    /** <code>SEVERITY_WARNING = 3;</code> */
+    /**
+     * <code>SEVERITY_WARNING = 3;</code>
+     */
     SEVERITY_WARNING(3),
-    /** <code>SEVERITY_ERROR = 4;</code> */
+    /**
+     * <code>SEVERITY_ERROR = 4;</code>
+     */
     SEVERITY_ERROR(4),
     UNRECOGNIZED(-1),
     ;
 
-    /** <code>SEVERITY_UNKNOWN = 0;</code> */
+    /**
+     * <code>SEVERITY_UNKNOWN = 0;</code>
+     */
     public static final int SEVERITY_UNKNOWN_VALUE = 0;
-
-    /** <code>SEVERITY_DEBUG = 1;</code> */
+    /**
+     * <code>SEVERITY_DEBUG = 1;</code>
+     */
     public static final int SEVERITY_DEBUG_VALUE = 1;
-
-    /** <code>SEVERITY_INFO = 2;</code> */
+    /**
+     * <code>SEVERITY_INFO = 2;</code>
+     */
     public static final int SEVERITY_INFO_VALUE = 2;
-
-    /** <code>SEVERITY_WARNING = 3;</code> */
+    /**
+     * <code>SEVERITY_WARNING = 3;</code>
+     */
     public static final int SEVERITY_WARNING_VALUE = 3;
-
-    /** <code>SEVERITY_ERROR = 4;</code> */
+    /**
+     * <code>SEVERITY_ERROR = 4;</code>
+     */
     public static final int SEVERITY_ERROR_VALUE = 4;
+
 
     @java.lang.Override
     public final int getNumber() {
@@ -71,47 +89,41 @@ public final class Log extends com.google.protobuf.GeneratedMessageLite<Log, Log
 
     public static Severity forNumber(int value) {
       switch (value) {
-        case 0:
-          return SEVERITY_UNKNOWN;
-        case 1:
-          return SEVERITY_DEBUG;
-        case 2:
-          return SEVERITY_INFO;
-        case 3:
-          return SEVERITY_WARNING;
-        case 4:
-          return SEVERITY_ERROR;
-        default:
-          return null;
+        case 0: return SEVERITY_UNKNOWN;
+        case 1: return SEVERITY_DEBUG;
+        case 2: return SEVERITY_INFO;
+        case 3: return SEVERITY_WARNING;
+        case 4: return SEVERITY_ERROR;
+        default: return null;
       }
     }
 
-    public static com.google.protobuf.Internal.EnumLiteMap<Severity> internalGetValueMap() {
+    public static com.google.protobuf.Internal.EnumLiteMap<Severity>
+        internalGetValueMap() {
       return internalValueMap;
     }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        Severity> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<Severity>() {
+            @java.lang.Override
+            public Severity findValueByNumber(int number) {
+              return Severity.forNumber(number);
+            }
+          };
 
-    private static final com.google.protobuf.Internal.EnumLiteMap<Severity> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<Severity>() {
-          @java.lang.Override
-          public Severity findValueByNumber(int number) {
-            return Severity.forNumber(number);
-          }
-        };
-
-    public static com.google.protobuf.Internal.EnumVerifier internalGetVerifier() {
+    public static com.google.protobuf.Internal.EnumVerifier 
+        internalGetVerifier() {
       return SeverityVerifier.INSTANCE;
     }
 
-    private static final class SeverityVerifier
-        implements com.google.protobuf.Internal.EnumVerifier {
-      static final com.google.protobuf.Internal.EnumVerifier INSTANCE = new SeverityVerifier();
-
-      @java.lang.Override
-      public boolean isInRange(int number) {
-        return Severity.forNumber(number) != null;
-      }
-    }
-    ;
+    private static final class SeverityVerifier implements 
+         com.google.protobuf.Internal.EnumVerifier { 
+            static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new SeverityVerifier();
+            @java.lang.Override
+            public boolean isInRange(int number) {
+              return Severity.forNumber(number) != null;
+            }
+          };
 
     private final int value;
 
@@ -124,120 +136,112 @@ public final class Log extends com.google.protobuf.GeneratedMessageLite<Log, Log
 
   public static final int LOG_TEXT_FIELD_NUMBER = 1;
   private java.lang.String logText_;
-
   /**
    * <code>string log_text = 1;</code>
-   *
    * @return The logText.
    */
   @java.lang.Override
   public java.lang.String getLogText() {
     return logText_;
   }
-
   /**
    * <code>string log_text = 1;</code>
-   *
    * @return The bytes for logText.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString getLogTextBytes() {
+  public com.google.protobuf.ByteString
+      getLogTextBytes() {
     return com.google.protobuf.ByteString.copyFromUtf8(logText_);
   }
-
   /**
    * <code>string log_text = 1;</code>
-   *
    * @param value The logText to set.
    */
-  private void setLogText(java.lang.String value) {
+  private void setLogText(
+      java.lang.String value) {
     java.lang.Class<?> valueClass = value.getClass();
-
+  
     logText_ = value;
   }
-
-  /** <code>string log_text = 1;</code> */
+  /**
+   * <code>string log_text = 1;</code>
+   */
   private void clearLogText() {
 
     logText_ = getDefaultInstance().getLogText();
   }
-
   /**
    * <code>string log_text = 1;</code>
-   *
    * @param value The bytes for logText to set.
    */
-  private void setLogTextBytes(com.google.protobuf.ByteString value) {
+  private void setLogTextBytes(
+      com.google.protobuf.ByteString value) {
     checkByteStringIsUtf8(value);
     logText_ = value.toStringUtf8();
+
   }
 
   public static final int SEVERITY_FIELD_NUMBER = 2;
   private int severity_;
-
   /**
    * <code>.hassmic.Log.Severity severity = 2;</code>
-   *
    * @return The enum numeric value on the wire for severity.
    */
   @java.lang.Override
   public int getSeverityValue() {
     return severity_;
   }
-
   /**
    * <code>.hassmic.Log.Severity severity = 2;</code>
-   *
    * @return The severity.
    */
   @java.lang.Override
   public com.thejeffcooper.hassmic.proto.Log.Severity getSeverity() {
-    com.thejeffcooper.hassmic.proto.Log.Severity result =
-        com.thejeffcooper.hassmic.proto.Log.Severity.forNumber(severity_);
+    com.thejeffcooper.hassmic.proto.Log.Severity result = com.thejeffcooper.hassmic.proto.Log.Severity.forNumber(severity_);
     return result == null ? com.thejeffcooper.hassmic.proto.Log.Severity.UNRECOGNIZED : result;
   }
-
   /**
    * <code>.hassmic.Log.Severity severity = 2;</code>
-   *
    * @param value The enum numeric value on the wire for severity to set.
    */
   private void setSeverityValue(int value) {
-    severity_ = value;
+      severity_ = value;
   }
-
   /**
    * <code>.hassmic.Log.Severity severity = 2;</code>
-   *
    * @param value The severity to set.
    */
   private void setSeverity(com.thejeffcooper.hassmic.proto.Log.Severity value) {
     severity_ = value.getNumber();
-  }
 
-  /** <code>.hassmic.Log.Severity severity = 2;</code> */
+  }
+  /**
+   * <code>.hassmic.Log.Severity severity = 2;</code>
+   */
   private void clearSeverity() {
 
     severity_ = 0;
   }
 
-  public static com.thejeffcooper.hassmic.proto.Log parseFrom(java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
-  }
-
   public static com.thejeffcooper.hassmic.proto.Log parseFrom(
-      java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.nio.ByteBuffer data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
+  }
+  public static com.thejeffcooper.hassmic.proto.Log parseFrom(
+      java.nio.ByteBuffer data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
-  public static com.thejeffcooper.hassmic.proto.Log parseFrom(com.google.protobuf.ByteString data)
+  public static com.thejeffcooper.hassmic.proto.Log parseFrom(
+      com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static com.thejeffcooper.hassmic.proto.Log parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -245,47 +249,46 @@ public final class Log extends com.google.protobuf.GeneratedMessageLite<Log, Log
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.Log parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static com.thejeffcooper.hassmic.proto.Log parseFrom(
-      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.Log parseFrom(java.io.InputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static com.thejeffcooper.hassmic.proto.Log parseFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.Log parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
-
   public static com.thejeffcooper.hassmic.proto.Log parseDelimitedFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.Log parseFrom(
-      com.google.protobuf.CodedInputStream input) throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+      com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static com.thejeffcooper.hassmic.proto.Log parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -297,24 +300,20 @@ public final class Log extends com.google.protobuf.GeneratedMessageLite<Log, Log
   public static Builder newBuilder() {
     return (Builder) DEFAULT_INSTANCE.createBuilder();
   }
-
   public static Builder newBuilder(com.thejeffcooper.hassmic.proto.Log prototype) {
     return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
   }
 
   /**
-   *
-   *
    * <pre>
    * A log message passed from the client to the server
    * </pre>
    *
    * Protobuf type {@code hassmic.Log}
    */
-  public static final class Builder
-      extends com.google.protobuf.GeneratedMessageLite.Builder<
-          com.thejeffcooper.hassmic.proto.Log, Builder>
-      implements
+  public static final class Builder extends
+      com.google.protobuf.GeneratedMessageLite.Builder<
+        com.thejeffcooper.hassmic.proto.Log, Builder> implements
       // @@protoc_insertion_point(builder_implements:hassmic.Log)
       com.thejeffcooper.hassmic.proto.LogOrBuilder {
     // Construct using com.thejeffcooper.hassmic.proto.Log.newBuilder()
@@ -322,41 +321,37 @@ public final class Log extends com.google.protobuf.GeneratedMessageLite<Log, Log
       super(DEFAULT_INSTANCE);
     }
 
+
     /**
      * <code>string log_text = 1;</code>
-     *
      * @return The logText.
      */
     @java.lang.Override
     public java.lang.String getLogText() {
       return instance.getLogText();
     }
-
     /**
      * <code>string log_text = 1;</code>
-     *
      * @return The bytes for logText.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString getLogTextBytes() {
+    public com.google.protobuf.ByteString
+        getLogTextBytes() {
       return instance.getLogTextBytes();
     }
-
     /**
      * <code>string log_text = 1;</code>
-     *
      * @param value The logText to set.
      * @return This builder for chaining.
      */
-    public Builder setLogText(java.lang.String value) {
+    public Builder setLogText(
+        java.lang.String value) {
       copyOnWrite();
       instance.setLogText(value);
       return this;
     }
-
     /**
      * <code>string log_text = 1;</code>
-     *
      * @return This builder for chaining.
      */
     public Builder clearLogText() {
@@ -364,14 +359,13 @@ public final class Log extends com.google.protobuf.GeneratedMessageLite<Log, Log
       instance.clearLogText();
       return this;
     }
-
     /**
      * <code>string log_text = 1;</code>
-     *
      * @param value The bytes for logText to set.
      * @return This builder for chaining.
      */
-    public Builder setLogTextBytes(com.google.protobuf.ByteString value) {
+    public Builder setLogTextBytes(
+        com.google.protobuf.ByteString value) {
       copyOnWrite();
       instance.setLogTextBytes(value);
       return this;
@@ -379,17 +373,14 @@ public final class Log extends com.google.protobuf.GeneratedMessageLite<Log, Log
 
     /**
      * <code>.hassmic.Log.Severity severity = 2;</code>
-     *
      * @return The enum numeric value on the wire for severity.
      */
     @java.lang.Override
     public int getSeverityValue() {
       return instance.getSeverityValue();
     }
-
     /**
      * <code>.hassmic.Log.Severity severity = 2;</code>
-     *
      * @param value The severity to set.
      * @return This builder for chaining.
      */
@@ -398,20 +389,16 @@ public final class Log extends com.google.protobuf.GeneratedMessageLite<Log, Log
       instance.setSeverityValue(value);
       return this;
     }
-
     /**
      * <code>.hassmic.Log.Severity severity = 2;</code>
-     *
      * @return The severity.
      */
     @java.lang.Override
     public com.thejeffcooper.hassmic.proto.Log.Severity getSeverity() {
       return instance.getSeverity();
     }
-
     /**
      * <code>.hassmic.Log.Severity severity = 2;</code>
-     *
      * @param value The enum numeric value on the wire for severity to set.
      * @return This builder for chaining.
      */
@@ -420,10 +407,8 @@ public final class Log extends com.google.protobuf.GeneratedMessageLite<Log, Log
       instance.setSeverity(value);
       return this;
     }
-
     /**
      * <code>.hassmic.Log.Severity severity = 2;</code>
-     *
      * @return This builder for chaining.
      */
     public Builder clearSeverity() {
@@ -434,75 +419,67 @@ public final class Log extends com.google.protobuf.GeneratedMessageLite<Log, Log
 
     // @@protoc_insertion_point(builder_scope:hassmic.Log)
   }
-
   @java.lang.Override
   @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
   protected final java.lang.Object dynamicMethod(
       com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-      java.lang.Object arg0,
-      java.lang.Object arg1) {
+      java.lang.Object arg0, java.lang.Object arg1) {
     switch (method) {
-      case NEW_MUTABLE_INSTANCE:
-        {
-          return new com.thejeffcooper.hassmic.proto.Log();
-        }
-      case NEW_BUILDER:
-        {
-          return new Builder();
-        }
-      case BUILD_MESSAGE_INFO:
-        {
-          java.lang.Object[] objects =
-              new java.lang.Object[] {
-                "logText_", "severity_",
-              };
+      case NEW_MUTABLE_INSTANCE: {
+        return new com.thejeffcooper.hassmic.proto.Log();
+      }
+      case NEW_BUILDER: {
+        return new Builder();
+      }
+      case BUILD_MESSAGE_INFO: {
+          java.lang.Object[] objects = new java.lang.Object[] {
+            "logText_",
+            "severity_",
+          };
           java.lang.String info =
-              "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u0001\u0208\u0002\f"
-                  + "";
+              "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u0001\u0208\u0002\f" +
+              "";
           return newMessageInfo(DEFAULT_INSTANCE, info, objects);
-        }
-        // fall through
-      case GET_DEFAULT_INSTANCE:
-        {
-          return DEFAULT_INSTANCE;
-        }
-      case GET_PARSER:
-        {
-          com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.Log> parser = PARSER;
-          if (parser == null) {
-            synchronized (com.thejeffcooper.hassmic.proto.Log.class) {
-              parser = PARSER;
-              if (parser == null) {
-                parser =
-                    new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.Log>(
-                        DEFAULT_INSTANCE);
-                PARSER = parser;
-              }
+      }
+      // fall through
+      case GET_DEFAULT_INSTANCE: {
+        return DEFAULT_INSTANCE;
+      }
+      case GET_PARSER: {
+        com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.Log> parser = PARSER;
+        if (parser == null) {
+          synchronized (com.thejeffcooper.hassmic.proto.Log.class) {
+            parser = PARSER;
+            if (parser == null) {
+              parser =
+                  new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.Log>(
+                      DEFAULT_INSTANCE);
+              PARSER = parser;
             }
           }
-          return parser;
         }
-      case GET_MEMOIZED_IS_INITIALIZED:
-        {
-          return (byte) 1;
-        }
-      case SET_MEMOIZED_IS_INITIALIZED:
-        {
-          return null;
-        }
+        return parser;
+    }
+    case GET_MEMOIZED_IS_INITIALIZED: {
+      return (byte) 1;
+    }
+    case SET_MEMOIZED_IS_INITIALIZED: {
+      return null;
+    }
     }
     throw new UnsupportedOperationException();
   }
 
+
   // @@protoc_insertion_point(class_scope:hassmic.Log)
   private static final com.thejeffcooper.hassmic.proto.Log DEFAULT_INSTANCE;
-
   static {
     Log defaultInstance = new Log();
     // New instances are implicitly immutable so no need to make
     // immutable.
     DEFAULT_INSTANCE = defaultInstance;
-    com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(Log.class, defaultInstance);
+    com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+      Log.class, defaultInstance);
   }
 
   public static com.thejeffcooper.hassmic.proto.Log getDefaultInstance() {
@@ -515,3 +492,4 @@ public final class Log extends com.google.protobuf.GeneratedMessageLite<Log, Log
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
+

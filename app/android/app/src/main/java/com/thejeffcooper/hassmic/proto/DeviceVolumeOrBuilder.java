@@ -3,14 +3,12 @@
 
 package com.thejeffcooper.hassmic.proto;
 
-public interface DeviceVolumeOrBuilder
-    extends
+public interface DeviceVolumeOrBuilder extends
     // @@protoc_insertion_point(interface_extends:hassmic.DeviceVolume)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
    * <code>float volume = 1;</code>
-   *
    * @return The volume.
    */
   float getVolume();

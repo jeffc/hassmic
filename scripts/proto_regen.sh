@@ -26,9 +26,9 @@ npm install
 
 echo "Deleting old generated files"
 
-rm -r app/app/proto/*
-rm -r custom_components/hassmic/proto/*
-rm -r app/android/app/src/main/java/com/thejeffcooper/hassmic/proto/*
+rm -r app/app/proto/* || true
+rm -r custom_components/hassmic/proto/* || true
+rm -r app/android/app/src/main/java/com/thejeffcooper/hassmic/proto/* || true
 
 
 echo "Regenerating sources from protos"

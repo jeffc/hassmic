@@ -3,35 +3,28 @@
 
 package com.thejeffcooper.hassmic.proto;
 
-public interface MediaPlayerCommandOrBuilder
-    extends
+public interface MediaPlayerCommandOrBuilder extends
     // @@protoc_insertion_point(interface_extends:hassmic.MediaPlayerCommand)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
    * <code>.hassmic.MediaPlayerId id = 1;</code>
-   *
    * @return The enum numeric value on the wire for id.
    */
   int getIdValue();
-
   /**
    * <code>.hassmic.MediaPlayerId id = 1;</code>
-   *
    * @return The id.
    */
   com.thejeffcooper.hassmic.proto.MediaPlayerId getId();
 
   /**
    * <code>.hassmic.MediaPlayerCommandId command = 2;</code>
-   *
    * @return The enum numeric value on the wire for command.
    */
   int getCommandValue();
-
   /**
    * <code>.hassmic.MediaPlayerCommandId command = 2;</code>
-   *
    * @return The command.
    */
   com.thejeffcooper.hassmic.proto.MediaPlayerCommandId getCommand();

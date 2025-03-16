@@ -5,8 +5,9 @@ package com.thejeffcooper.hassmic.proto;
 
 public final class Hassmic {
   private Hassmic() {}
-
-  public static void registerAllExtensions(com.google.protobuf.ExtensionRegistryLite registry) {}
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistryLite registry) {
+  }
 
   static {
   }

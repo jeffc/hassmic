@@ -3,7 +3,7 @@
 
 package com.thejeffcooper.hassmic.proto;
 
-public interface PingOrBuilder
-    extends
+public interface PingOrBuilder extends
     // @@protoc_insertion_point(interface_extends:hassmic.Ping)
-    com.google.protobuf.MessageLiteOrBuilder {}
+    com.google.protobuf.MessageLiteOrBuilder {
+}

@@ -3,28 +3,23 @@
 
 package com.thejeffcooper.hassmic.proto;
 
-public interface MediaPlayerVolumeOrBuilder
-    extends
+public interface MediaPlayerVolumeOrBuilder extends
     // @@protoc_insertion_point(interface_extends:hassmic.MediaPlayerVolume)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
    * <code>.hassmic.MediaPlayerId player = 1;</code>
-   *
    * @return The enum numeric value on the wire for player.
    */
   int getPlayerValue();
-
   /**
    * <code>.hassmic.MediaPlayerId player = 1;</code>
-   *
    * @return The player.
    */
   com.thejeffcooper.hassmic.proto.MediaPlayerId getPlayer();
 
   /**
    * <code>float volume = 2;</code>
-   *
    * @return The volume.
    */
   float getVolume();

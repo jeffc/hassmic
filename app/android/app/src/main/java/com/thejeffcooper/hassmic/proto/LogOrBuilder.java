@@ -3,35 +3,29 @@
 
 package com.thejeffcooper.hassmic.proto;
 
-public interface LogOrBuilder
-    extends
+public interface LogOrBuilder extends
     // @@protoc_insertion_point(interface_extends:hassmic.Log)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
    * <code>string log_text = 1;</code>
-   *
    * @return The logText.
    */
   java.lang.String getLogText();
-
   /**
    * <code>string log_text = 1;</code>
-   *
    * @return The bytes for logText.
    */
-  com.google.protobuf.ByteString getLogTextBytes();
+  com.google.protobuf.ByteString
+      getLogTextBytes();
 
   /**
    * <code>.hassmic.Log.Severity severity = 2;</code>
-   *
    * @return The enum numeric value on the wire for severity.
    */
   int getSeverityValue();
-
   /**
    * <code>.hassmic.Log.Severity severity = 2;</code>
-   *
    * @return The severity.
    */
   com.thejeffcooper.hassmic.proto.Log.Severity getSeverity();

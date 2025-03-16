@@ -3,35 +3,28 @@
 
 package com.thejeffcooper.hassmic.proto;
 
-public interface MediaPlayerStateChangeOrBuilder
-    extends
+public interface MediaPlayerStateChangeOrBuilder extends
     // @@protoc_insertion_point(interface_extends:hassmic.MediaPlayerStateChange)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
    * <code>.hassmic.MediaPlayerId player = 1;</code>
-   *
    * @return The enum numeric value on the wire for player.
    */
   int getPlayerValue();
-
   /**
    * <code>.hassmic.MediaPlayerId player = 1;</code>
-   *
    * @return The player.
    */
   com.thejeffcooper.hassmic.proto.MediaPlayerId getPlayer();
 
   /**
    * <code>.hassmic.MediaPlayerState new_state = 2;</code>
-   *
    * @return The enum numeric value on the wire for newState.
    */
   int getNewStateValue();
-
   /**
    * <code>.hassmic.MediaPlayerState new_state = 2;</code>
-   *
    * @return The newState.
    */
   com.thejeffcooper.hassmic.proto.MediaPlayerState getNewState();

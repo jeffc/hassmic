@@ -4,8 +4,6 @@
 package com.thejeffcooper.hassmic.proto;
 
 /**
- *
- *
  * <pre>
  * The wrapper message that gets sent either from the server to the client or
  * used internally between layers in the client
@@ -13,16 +11,15 @@ package com.thejeffcooper.hassmic.proto;
  *
  * Protobuf type {@code hassmic.HassmicCommand}
  */
-public final class HassmicCommand
-    extends com.google.protobuf.GeneratedMessageLite<HassmicCommand, HassmicCommand.Builder>
-    implements
+public  final class HassmicCommand extends
+    com.google.protobuf.GeneratedMessageLite<
+        HassmicCommand, HassmicCommand.Builder> implements
     // @@protoc_insertion_point(message_implements:hassmic.HassmicCommand)
     HassmicCommandOrBuilder {
-  private HassmicCommand() {}
-
+  private HassmicCommand() {
+  }
   private int msgCase_ = 0;
   private java.lang.Object msg_;
-
   public enum MsgCase {
     PLAY_AUDIO(1),
     SET_MIC_MUTE(2),
@@ -31,11 +28,9 @@ public final class HassmicCommand
     COMMAND(5),
     MSG_NOT_SET(0);
     private final int value;
-
     private MsgCase(int value) {
       this.value = value;
     }
-
     /**
      * @deprecated Use {@link #forNumber(int)} instead.
      */
@@ -46,31 +41,25 @@ public final class HassmicCommand
 
     public static MsgCase forNumber(int value) {
       switch (value) {
-        case 1:
-          return PLAY_AUDIO;
-        case 2:
-          return SET_MIC_MUTE;
-        case 3:
-          return SET_DEVICE_VOLUME;
-        case 4:
-          return SET_PLAYER_VOLUME;
-        case 5:
-          return COMMAND;
-        case 0:
-          return MSG_NOT_SET;
-        default:
-          return null;
+        case 1: return PLAY_AUDIO;
+        case 2: return SET_MIC_MUTE;
+        case 3: return SET_DEVICE_VOLUME;
+        case 4: return SET_PLAYER_VOLUME;
+        case 5: return COMMAND;
+        case 0: return MSG_NOT_SET;
+        default: return null;
       }
     }
-
     public int getNumber() {
       return this.value;
     }
   };
 
   @java.lang.Override
-  public MsgCase getMsgCase() {
-    return MsgCase.forNumber(msgCase_);
+  public MsgCase
+  getMsgCase() {
+    return MsgCase.forNumber(
+        msgCase_);
   }
 
   private void clearMsg() {
@@ -79,10 +68,7 @@ public final class HassmicCommand
   }
 
   public static final int PLAY_AUDIO_FIELD_NUMBER = 1;
-
   /**
-   *
-   *
    * <pre>
    * A command to play audio
    * </pre>
@@ -93,10 +79,7 @@ public final class HassmicCommand
   public boolean hasPlayAudio() {
     return msgCase_ == 1;
   }
-
   /**
-   *
-   *
    * <pre>
    * A command to play audio
    * </pre>
@@ -106,14 +89,11 @@ public final class HassmicCommand
   @java.lang.Override
   public com.thejeffcooper.hassmic.proto.PlayAudio getPlayAudio() {
     if (msgCase_ == 1) {
-      return (com.thejeffcooper.hassmic.proto.PlayAudio) msg_;
+       return (com.thejeffcooper.hassmic.proto.PlayAudio) msg_;
     }
     return com.thejeffcooper.hassmic.proto.PlayAudio.getDefaultInstance();
   }
-
   /**
-   *
-   *
    * <pre>
    * A command to play audio
    * </pre>
@@ -122,13 +102,10 @@ public final class HassmicCommand
    */
   private void setPlayAudio(com.thejeffcooper.hassmic.proto.PlayAudio value) {
     value.getClass();
-    msg_ = value;
+  msg_ = value;
     msgCase_ = 1;
   }
-
   /**
-   *
-   *
    * <pre>
    * A command to play audio
    * </pre>
@@ -137,21 +114,16 @@ public final class HassmicCommand
    */
   private void mergePlayAudio(com.thejeffcooper.hassmic.proto.PlayAudio value) {
     value.getClass();
-    if (msgCase_ == 1 && msg_ != com.thejeffcooper.hassmic.proto.PlayAudio.getDefaultInstance()) {
-      msg_ =
-          com.thejeffcooper.hassmic.proto.PlayAudio.newBuilder(
-                  (com.thejeffcooper.hassmic.proto.PlayAudio) msg_)
-              .mergeFrom(value)
-              .buildPartial();
+  if (msgCase_ == 1 &&
+        msg_ != com.thejeffcooper.hassmic.proto.PlayAudio.getDefaultInstance()) {
+      msg_ = com.thejeffcooper.hassmic.proto.PlayAudio.newBuilder((com.thejeffcooper.hassmic.proto.PlayAudio) msg_)
+          .mergeFrom(value).buildPartial();
     } else {
       msg_ = value;
     }
     msgCase_ = 1;
   }
-
   /**
-   *
-   *
    * <pre>
    * A command to play audio
    * </pre>
@@ -166,32 +138,24 @@ public final class HassmicCommand
   }
 
   public static final int SET_MIC_MUTE_FIELD_NUMBER = 2;
-
   /**
-   *
-   *
    * <pre>
    * Set whether the mic should be muted
    * </pre>
    *
    * <code>bool set_mic_mute = 2;</code>
-   *
    * @return Whether the setMicMute field is set.
    */
   @java.lang.Override
   public boolean hasSetMicMute() {
     return msgCase_ == 2;
   }
-
   /**
-   *
-   *
    * <pre>
    * Set whether the mic should be muted
    * </pre>
    *
    * <code>bool set_mic_mute = 2;</code>
-   *
    * @return The setMicMute.
    */
   @java.lang.Override
@@ -201,26 +165,19 @@ public final class HassmicCommand
     }
     return false;
   }
-
   /**
-   *
-   *
    * <pre>
    * Set whether the mic should be muted
    * </pre>
    *
    * <code>bool set_mic_mute = 2;</code>
-   *
    * @param value The setMicMute to set.
    */
   private void setSetMicMute(boolean value) {
     msgCase_ = 2;
     msg_ = value;
   }
-
   /**
-   *
-   *
    * <pre>
    * Set whether the mic should be muted
    * </pre>
@@ -235,10 +192,7 @@ public final class HassmicCommand
   }
 
   public static final int SET_DEVICE_VOLUME_FIELD_NUMBER = 3;
-
   /**
-   *
-   *
    * <pre>
    * Set the volume of the device
    * </pre>
@@ -249,10 +203,7 @@ public final class HassmicCommand
   public boolean hasSetDeviceVolume() {
     return msgCase_ == 3;
   }
-
   /**
-   *
-   *
    * <pre>
    * Set the volume of the device
    * </pre>
@@ -262,14 +213,11 @@ public final class HassmicCommand
   @java.lang.Override
   public com.thejeffcooper.hassmic.proto.DeviceVolume getSetDeviceVolume() {
     if (msgCase_ == 3) {
-      return (com.thejeffcooper.hassmic.proto.DeviceVolume) msg_;
+       return (com.thejeffcooper.hassmic.proto.DeviceVolume) msg_;
     }
     return com.thejeffcooper.hassmic.proto.DeviceVolume.getDefaultInstance();
   }
-
   /**
-   *
-   *
    * <pre>
    * Set the volume of the device
    * </pre>
@@ -278,13 +226,10 @@ public final class HassmicCommand
    */
   private void setSetDeviceVolume(com.thejeffcooper.hassmic.proto.DeviceVolume value) {
     value.getClass();
-    msg_ = value;
+  msg_ = value;
     msgCase_ = 3;
   }
-
   /**
-   *
-   *
    * <pre>
    * Set the volume of the device
    * </pre>
@@ -293,22 +238,16 @@ public final class HassmicCommand
    */
   private void mergeSetDeviceVolume(com.thejeffcooper.hassmic.proto.DeviceVolume value) {
     value.getClass();
-    if (msgCase_ == 3
-        && msg_ != com.thejeffcooper.hassmic.proto.DeviceVolume.getDefaultInstance()) {
-      msg_ =
-          com.thejeffcooper.hassmic.proto.DeviceVolume.newBuilder(
-                  (com.thejeffcooper.hassmic.proto.DeviceVolume) msg_)
-              .mergeFrom(value)
-              .buildPartial();
+  if (msgCase_ == 3 &&
+        msg_ != com.thejeffcooper.hassmic.proto.DeviceVolume.getDefaultInstance()) {
+      msg_ = com.thejeffcooper.hassmic.proto.DeviceVolume.newBuilder((com.thejeffcooper.hassmic.proto.DeviceVolume) msg_)
+          .mergeFrom(value).buildPartial();
     } else {
       msg_ = value;
     }
     msgCase_ = 3;
   }
-
   /**
-   *
-   *
    * <pre>
    * Set the volume of the device
    * </pre>
@@ -323,10 +262,7 @@ public final class HassmicCommand
   }
 
   public static final int SET_PLAYER_VOLUME_FIELD_NUMBER = 4;
-
   /**
-   *
-   *
    * <pre>
    * Set the volume of a player
    * </pre>
@@ -337,10 +273,7 @@ public final class HassmicCommand
   public boolean hasSetPlayerVolume() {
     return msgCase_ == 4;
   }
-
   /**
-   *
-   *
    * <pre>
    * Set the volume of a player
    * </pre>
@@ -350,14 +283,11 @@ public final class HassmicCommand
   @java.lang.Override
   public com.thejeffcooper.hassmic.proto.MediaPlayerVolume getSetPlayerVolume() {
     if (msgCase_ == 4) {
-      return (com.thejeffcooper.hassmic.proto.MediaPlayerVolume) msg_;
+       return (com.thejeffcooper.hassmic.proto.MediaPlayerVolume) msg_;
     }
     return com.thejeffcooper.hassmic.proto.MediaPlayerVolume.getDefaultInstance();
   }
-
   /**
-   *
-   *
    * <pre>
    * Set the volume of a player
    * </pre>
@@ -366,13 +296,10 @@ public final class HassmicCommand
    */
   private void setSetPlayerVolume(com.thejeffcooper.hassmic.proto.MediaPlayerVolume value) {
     value.getClass();
-    msg_ = value;
+  msg_ = value;
     msgCase_ = 4;
   }
-
   /**
-   *
-   *
    * <pre>
    * Set the volume of a player
    * </pre>
@@ -381,22 +308,16 @@ public final class HassmicCommand
    */
   private void mergeSetPlayerVolume(com.thejeffcooper.hassmic.proto.MediaPlayerVolume value) {
     value.getClass();
-    if (msgCase_ == 4
-        && msg_ != com.thejeffcooper.hassmic.proto.MediaPlayerVolume.getDefaultInstance()) {
-      msg_ =
-          com.thejeffcooper.hassmic.proto.MediaPlayerVolume.newBuilder(
-                  (com.thejeffcooper.hassmic.proto.MediaPlayerVolume) msg_)
-              .mergeFrom(value)
-              .buildPartial();
+  if (msgCase_ == 4 &&
+        msg_ != com.thejeffcooper.hassmic.proto.MediaPlayerVolume.getDefaultInstance()) {
+      msg_ = com.thejeffcooper.hassmic.proto.MediaPlayerVolume.newBuilder((com.thejeffcooper.hassmic.proto.MediaPlayerVolume) msg_)
+          .mergeFrom(value).buildPartial();
     } else {
       msg_ = value;
     }
     msgCase_ = 4;
   }
-
   /**
-   *
-   *
    * <pre>
    * Set the volume of a player
    * </pre>
@@ -411,10 +332,7 @@ public final class HassmicCommand
   }
 
   public static final int COMMAND_FIELD_NUMBER = 5;
-
   /**
-   *
-   *
    * <pre>
    * Play, pause, stop, etc
    * </pre>
@@ -425,10 +343,7 @@ public final class HassmicCommand
   public boolean hasCommand() {
     return msgCase_ == 5;
   }
-
   /**
-   *
-   *
    * <pre>
    * Play, pause, stop, etc
    * </pre>
@@ -438,14 +353,11 @@ public final class HassmicCommand
   @java.lang.Override
   public com.thejeffcooper.hassmic.proto.MediaPlayerCommand getCommand() {
     if (msgCase_ == 5) {
-      return (com.thejeffcooper.hassmic.proto.MediaPlayerCommand) msg_;
+       return (com.thejeffcooper.hassmic.proto.MediaPlayerCommand) msg_;
     }
     return com.thejeffcooper.hassmic.proto.MediaPlayerCommand.getDefaultInstance();
   }
-
   /**
-   *
-   *
    * <pre>
    * Play, pause, stop, etc
    * </pre>
@@ -454,13 +366,10 @@ public final class HassmicCommand
    */
   private void setCommand(com.thejeffcooper.hassmic.proto.MediaPlayerCommand value) {
     value.getClass();
-    msg_ = value;
+  msg_ = value;
     msgCase_ = 5;
   }
-
   /**
-   *
-   *
    * <pre>
    * Play, pause, stop, etc
    * </pre>
@@ -469,22 +378,16 @@ public final class HassmicCommand
    */
   private void mergeCommand(com.thejeffcooper.hassmic.proto.MediaPlayerCommand value) {
     value.getClass();
-    if (msgCase_ == 5
-        && msg_ != com.thejeffcooper.hassmic.proto.MediaPlayerCommand.getDefaultInstance()) {
-      msg_ =
-          com.thejeffcooper.hassmic.proto.MediaPlayerCommand.newBuilder(
-                  (com.thejeffcooper.hassmic.proto.MediaPlayerCommand) msg_)
-              .mergeFrom(value)
-              .buildPartial();
+  if (msgCase_ == 5 &&
+        msg_ != com.thejeffcooper.hassmic.proto.MediaPlayerCommand.getDefaultInstance()) {
+      msg_ = com.thejeffcooper.hassmic.proto.MediaPlayerCommand.newBuilder((com.thejeffcooper.hassmic.proto.MediaPlayerCommand) msg_)
+          .mergeFrom(value).buildPartial();
     } else {
       msg_ = value;
     }
     msgCase_ = 5;
   }
-
   /**
-   *
-   *
    * <pre>
    * Play, pause, stop, etc
    * </pre>
@@ -500,51 +403,49 @@ public final class HassmicCommand
 
   public static final int INTERNAL_FIELD_NUMBER = 6;
   private boolean internal_;
-
   /**
    * <code>bool internal = 6;</code>
-   *
    * @return The internal.
    */
   @java.lang.Override
   public boolean getInternal() {
     return internal_;
   }
-
   /**
    * <code>bool internal = 6;</code>
-   *
    * @param value The internal to set.
    */
   private void setInternal(boolean value) {
-
+    
     internal_ = value;
   }
-
-  /** <code>bool internal = 6;</code> */
+  /**
+   * <code>bool internal = 6;</code>
+   */
   private void clearInternal() {
 
     internal_ = false;
   }
 
-  public static com.thejeffcooper.hassmic.proto.HassmicCommand parseFrom(java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
-  }
-
   public static com.thejeffcooper.hassmic.proto.HassmicCommand parseFrom(
-      java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.nio.ByteBuffer data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
+  }
+  public static com.thejeffcooper.hassmic.proto.HassmicCommand parseFrom(
+      java.nio.ByteBuffer data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.HassmicCommand parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static com.thejeffcooper.hassmic.proto.HassmicCommand parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -552,47 +453,46 @@ public final class HassmicCommand
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.HassmicCommand parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static com.thejeffcooper.hassmic.proto.HassmicCommand parseFrom(
-      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.HassmicCommand parseFrom(java.io.InputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static com.thejeffcooper.hassmic.proto.HassmicCommand parseFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
-  public static com.thejeffcooper.hassmic.proto.HassmicCommand parseDelimitedFrom(
-      java.io.InputStream input) throws java.io.IOException {
+  public static com.thejeffcooper.hassmic.proto.HassmicCommand parseDelimitedFrom(java.io.InputStream input)
+      throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
-
   public static com.thejeffcooper.hassmic.proto.HassmicCommand parseDelimitedFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.HassmicCommand parseFrom(
-      com.google.protobuf.CodedInputStream input) throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+      com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static com.thejeffcooper.hassmic.proto.HassmicCommand parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -604,14 +504,11 @@ public final class HassmicCommand
   public static Builder newBuilder() {
     return (Builder) DEFAULT_INSTANCE.createBuilder();
   }
-
   public static Builder newBuilder(com.thejeffcooper.hassmic.proto.HassmicCommand prototype) {
     return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
   }
 
   /**
-   *
-   *
    * <pre>
    * The wrapper message that gets sent either from the server to the client or
    * used internally between layers in the client
@@ -619,10 +516,9 @@ public final class HassmicCommand
    *
    * Protobuf type {@code hassmic.HassmicCommand}
    */
-  public static final class Builder
-      extends com.google.protobuf.GeneratedMessageLite.Builder<
-          com.thejeffcooper.hassmic.proto.HassmicCommand, Builder>
-      implements
+  public static final class Builder extends
+      com.google.protobuf.GeneratedMessageLite.Builder<
+        com.thejeffcooper.hassmic.proto.HassmicCommand, Builder> implements
       // @@protoc_insertion_point(builder_implements:hassmic.HassmicCommand)
       com.thejeffcooper.hassmic.proto.HassmicCommandOrBuilder {
     // Construct using com.thejeffcooper.hassmic.proto.HassmicCommand.newBuilder()
@@ -631,7 +527,8 @@ public final class HassmicCommand
     }
 
     @java.lang.Override
-    public MsgCase getMsgCase() {
+    public MsgCase
+        getMsgCase() {
       return instance.getMsgCase();
     }
 
@@ -641,9 +538,8 @@ public final class HassmicCommand
       return this;
     }
 
+
     /**
-     *
-     *
      * <pre>
      * A command to play audio
      * </pre>
@@ -654,10 +550,7 @@ public final class HassmicCommand
     public boolean hasPlayAudio() {
       return instance.hasPlayAudio();
     }
-
     /**
-     *
-     *
      * <pre>
      * A command to play audio
      * </pre>
@@ -668,10 +561,7 @@ public final class HassmicCommand
     public com.thejeffcooper.hassmic.proto.PlayAudio getPlayAudio() {
       return instance.getPlayAudio();
     }
-
     /**
-     *
-     *
      * <pre>
      * A command to play audio
      * </pre>
@@ -683,25 +573,20 @@ public final class HassmicCommand
       instance.setPlayAudio(value);
       return this;
     }
-
     /**
-     *
-     *
      * <pre>
      * A command to play audio
      * </pre>
      *
      * <code>.hassmic.PlayAudio play_audio = 1;</code>
      */
-    public Builder setPlayAudio(com.thejeffcooper.hassmic.proto.PlayAudio.Builder builderForValue) {
+    public Builder setPlayAudio(
+        com.thejeffcooper.hassmic.proto.PlayAudio.Builder builderForValue) {
       copyOnWrite();
       instance.setPlayAudio(builderForValue.build());
       return this;
     }
-
     /**
-     *
-     *
      * <pre>
      * A command to play audio
      * </pre>
@@ -713,10 +598,7 @@ public final class HassmicCommand
       instance.mergePlayAudio(value);
       return this;
     }
-
     /**
-     *
-     *
      * <pre>
      * A command to play audio
      * </pre>
@@ -730,46 +612,35 @@ public final class HassmicCommand
     }
 
     /**
-     *
-     *
      * <pre>
      * Set whether the mic should be muted
      * </pre>
      *
      * <code>bool set_mic_mute = 2;</code>
-     *
      * @return Whether the setMicMute field is set.
      */
     @java.lang.Override
     public boolean hasSetMicMute() {
       return instance.hasSetMicMute();
     }
-
     /**
-     *
-     *
      * <pre>
      * Set whether the mic should be muted
      * </pre>
      *
      * <code>bool set_mic_mute = 2;</code>
-     *
      * @return The setMicMute.
      */
     @java.lang.Override
     public boolean getSetMicMute() {
       return instance.getSetMicMute();
     }
-
     /**
-     *
-     *
      * <pre>
      * Set whether the mic should be muted
      * </pre>
      *
      * <code>bool set_mic_mute = 2;</code>
-     *
      * @param value The setMicMute to set.
      * @return This builder for chaining.
      */
@@ -778,16 +649,12 @@ public final class HassmicCommand
       instance.setSetMicMute(value);
       return this;
     }
-
     /**
-     *
-     *
      * <pre>
      * Set whether the mic should be muted
      * </pre>
      *
      * <code>bool set_mic_mute = 2;</code>
-     *
      * @return This builder for chaining.
      */
     public Builder clearSetMicMute() {
@@ -797,8 +664,6 @@ public final class HassmicCommand
     }
 
     /**
-     *
-     *
      * <pre>
      * Set the volume of the device
      * </pre>
@@ -809,10 +674,7 @@ public final class HassmicCommand
     public boolean hasSetDeviceVolume() {
       return instance.hasSetDeviceVolume();
     }
-
     /**
-     *
-     *
      * <pre>
      * Set the volume of the device
      * </pre>
@@ -823,10 +685,7 @@ public final class HassmicCommand
     public com.thejeffcooper.hassmic.proto.DeviceVolume getSetDeviceVolume() {
       return instance.getSetDeviceVolume();
     }
-
     /**
-     *
-     *
      * <pre>
      * Set the volume of the device
      * </pre>
@@ -838,10 +697,7 @@ public final class HassmicCommand
       instance.setSetDeviceVolume(value);
       return this;
     }
-
     /**
-     *
-     *
      * <pre>
      * Set the volume of the device
      * </pre>
@@ -854,10 +710,7 @@ public final class HassmicCommand
       instance.setSetDeviceVolume(builderForValue.build());
       return this;
     }
-
     /**
-     *
-     *
      * <pre>
      * Set the volume of the device
      * </pre>
@@ -869,10 +722,7 @@ public final class HassmicCommand
       instance.mergeSetDeviceVolume(value);
       return this;
     }
-
     /**
-     *
-     *
      * <pre>
      * Set the volume of the device
      * </pre>
@@ -886,8 +736,6 @@ public final class HassmicCommand
     }
 
     /**
-     *
-     *
      * <pre>
      * Set the volume of a player
      * </pre>
@@ -898,10 +746,7 @@ public final class HassmicCommand
     public boolean hasSetPlayerVolume() {
       return instance.hasSetPlayerVolume();
     }
-
     /**
-     *
-     *
      * <pre>
      * Set the volume of a player
      * </pre>
@@ -912,10 +757,7 @@ public final class HassmicCommand
     public com.thejeffcooper.hassmic.proto.MediaPlayerVolume getSetPlayerVolume() {
       return instance.getSetPlayerVolume();
     }
-
     /**
-     *
-     *
      * <pre>
      * Set the volume of a player
      * </pre>
@@ -927,10 +769,7 @@ public final class HassmicCommand
       instance.setSetPlayerVolume(value);
       return this;
     }
-
     /**
-     *
-     *
      * <pre>
      * Set the volume of a player
      * </pre>
@@ -943,10 +782,7 @@ public final class HassmicCommand
       instance.setSetPlayerVolume(builderForValue.build());
       return this;
     }
-
     /**
-     *
-     *
      * <pre>
      * Set the volume of a player
      * </pre>
@@ -958,10 +794,7 @@ public final class HassmicCommand
       instance.mergeSetPlayerVolume(value);
       return this;
     }
-
     /**
-     *
-     *
      * <pre>
      * Set the volume of a player
      * </pre>
@@ -975,8 +808,6 @@ public final class HassmicCommand
     }
 
     /**
-     *
-     *
      * <pre>
      * Play, pause, stop, etc
      * </pre>
@@ -987,10 +818,7 @@ public final class HassmicCommand
     public boolean hasCommand() {
       return instance.hasCommand();
     }
-
     /**
-     *
-     *
      * <pre>
      * Play, pause, stop, etc
      * </pre>
@@ -1001,10 +829,7 @@ public final class HassmicCommand
     public com.thejeffcooper.hassmic.proto.MediaPlayerCommand getCommand() {
       return instance.getCommand();
     }
-
     /**
-     *
-     *
      * <pre>
      * Play, pause, stop, etc
      * </pre>
@@ -1016,10 +841,7 @@ public final class HassmicCommand
       instance.setCommand(value);
       return this;
     }
-
     /**
-     *
-     *
      * <pre>
      * Play, pause, stop, etc
      * </pre>
@@ -1032,10 +854,7 @@ public final class HassmicCommand
       instance.setCommand(builderForValue.build());
       return this;
     }
-
     /**
-     *
-     *
      * <pre>
      * Play, pause, stop, etc
      * </pre>
@@ -1047,10 +866,7 @@ public final class HassmicCommand
       instance.mergeCommand(value);
       return this;
     }
-
     /**
-     *
-     *
      * <pre>
      * Play, pause, stop, etc
      * </pre>
@@ -1065,17 +881,14 @@ public final class HassmicCommand
 
     /**
      * <code>bool internal = 6;</code>
-     *
      * @return The internal.
      */
     @java.lang.Override
     public boolean getInternal() {
       return instance.getInternal();
     }
-
     /**
      * <code>bool internal = 6;</code>
-     *
      * @param value The internal to set.
      * @return This builder for chaining.
      */
@@ -1084,10 +897,8 @@ public final class HassmicCommand
       instance.setInternal(value);
       return this;
     }
-
     /**
      * <code>bool internal = 6;</code>
-     *
      * @return This builder for chaining.
      */
     public Builder clearInternal() {
@@ -1098,83 +909,72 @@ public final class HassmicCommand
 
     // @@protoc_insertion_point(builder_scope:hassmic.HassmicCommand)
   }
-
   @java.lang.Override
   @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
   protected final java.lang.Object dynamicMethod(
       com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-      java.lang.Object arg0,
-      java.lang.Object arg1) {
+      java.lang.Object arg0, java.lang.Object arg1) {
     switch (method) {
-      case NEW_MUTABLE_INSTANCE:
-        {
-          return new com.thejeffcooper.hassmic.proto.HassmicCommand();
-        }
-      case NEW_BUILDER:
-        {
-          return new Builder();
-        }
-      case BUILD_MESSAGE_INFO:
-        {
-          java.lang.Object[] objects =
-              new java.lang.Object[] {
-                "msg_",
-                "msgCase_",
-                com.thejeffcooper.hassmic.proto.PlayAudio.class,
-                com.thejeffcooper.hassmic.proto.DeviceVolume.class,
-                com.thejeffcooper.hassmic.proto.MediaPlayerVolume.class,
-                com.thejeffcooper.hassmic.proto.MediaPlayerCommand.class,
-                "internal_",
-              };
+      case NEW_MUTABLE_INSTANCE: {
+        return new com.thejeffcooper.hassmic.proto.HassmicCommand();
+      }
+      case NEW_BUILDER: {
+        return new Builder();
+      }
+      case BUILD_MESSAGE_INFO: {
+          java.lang.Object[] objects = new java.lang.Object[] {
+            "msg_",
+            "msgCase_",
+            com.thejeffcooper.hassmic.proto.PlayAudio.class,
+            com.thejeffcooper.hassmic.proto.DeviceVolume.class,
+            com.thejeffcooper.hassmic.proto.MediaPlayerVolume.class,
+            com.thejeffcooper.hassmic.proto.MediaPlayerCommand.class,
+            "internal_",
+          };
           java.lang.String info =
-              "\u0000\u0006\u0001\u0000\u0001\u0006\u0006\u0000\u0000\u0000\u0001<\u0000\u0002:"
-                  + "\u0000\u0003<\u0000\u0004<\u0000\u0005<\u0000\u0006\u0007";
+              "\u0000\u0006\u0001\u0000\u0001\u0006\u0006\u0000\u0000\u0000\u0001<\u0000\u0002:" +
+              "\u0000\u0003<\u0000\u0004<\u0000\u0005<\u0000\u0006\u0007";
           return newMessageInfo(DEFAULT_INSTANCE, info, objects);
-        }
-        // fall through
-      case GET_DEFAULT_INSTANCE:
-        {
-          return DEFAULT_INSTANCE;
-        }
-      case GET_PARSER:
-        {
-          com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.HassmicCommand> parser =
-              PARSER;
-          if (parser == null) {
-            synchronized (com.thejeffcooper.hassmic.proto.HassmicCommand.class) {
-              parser = PARSER;
-              if (parser == null) {
-                parser =
-                    new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.HassmicCommand>(
-                        DEFAULT_INSTANCE);
-                PARSER = parser;
-              }
+      }
+      // fall through
+      case GET_DEFAULT_INSTANCE: {
+        return DEFAULT_INSTANCE;
+      }
+      case GET_PARSER: {
+        com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.HassmicCommand> parser = PARSER;
+        if (parser == null) {
+          synchronized (com.thejeffcooper.hassmic.proto.HassmicCommand.class) {
+            parser = PARSER;
+            if (parser == null) {
+              parser =
+                  new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.HassmicCommand>(
+                      DEFAULT_INSTANCE);
+              PARSER = parser;
             }
           }
-          return parser;
         }
-      case GET_MEMOIZED_IS_INITIALIZED:
-        {
-          return (byte) 1;
-        }
-      case SET_MEMOIZED_IS_INITIALIZED:
-        {
-          return null;
-        }
+        return parser;
+    }
+    case GET_MEMOIZED_IS_INITIALIZED: {
+      return (byte) 1;
+    }
+    case SET_MEMOIZED_IS_INITIALIZED: {
+      return null;
+    }
     }
     throw new UnsupportedOperationException();
   }
 
+
   // @@protoc_insertion_point(class_scope:hassmic.HassmicCommand)
   private static final com.thejeffcooper.hassmic.proto.HassmicCommand DEFAULT_INSTANCE;
-
   static {
     HassmicCommand defaultInstance = new HassmicCommand();
     // New instances are implicitly immutable so no need to make
     // immutable.
     DEFAULT_INSTANCE = defaultInstance;
     com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
-        HassmicCommand.class, defaultInstance);
+      HassmicCommand.class, defaultInstance);
   }
 
   public static com.thejeffcooper.hassmic.proto.HassmicCommand getDefaultInstance() {
@@ -1187,3 +987,4 @@ public final class HassmicCommand
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
+

@@ -3,22 +3,200 @@
 
 package com.thejeffcooper.hassmic.proto;
 
-public interface WyomingEventOrBuilder
-    extends
+public interface WyomingEventOrBuilder extends
     // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
-   * <code>string raw_json = 1;</code>
+   * <pre>
+   * The raw json of the message
+   * </pre>
    *
+   * <code>string raw_json = 1;</code>
    * @return The rawJson.
    */
   java.lang.String getRawJson();
-
   /**
-   * <code>string raw_json = 1;</code>
+   * <pre>
+   * The raw json of the message
+   * </pre>
    *
+   * <code>string raw_json = 1;</code>
    * @return The bytes for rawJson.
    */
-  com.google.protobuf.ByteString getRawJsonBytes();
+  com.google.protobuf.ByteString
+      getRawJsonBytes();
+
+  /**
+   * <code>bytes payload = 2;</code>
+   * @return The payload.
+   */
+  com.google.protobuf.ByteString getPayload();
+
+  /**
+   * <code>.hassmic.WyomingEvent.Describe describe = 3;</code>
+   * @return Whether the describe field is set.
+   */
+  boolean hasDescribe();
+  /**
+   * <code>.hassmic.WyomingEvent.Describe describe = 3;</code>
+   * @return The describe.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.Describe getDescribe();
+
+  /**
+   * <code>.hassmic.WyomingEvent.Info info = 4;</code>
+   * @return Whether the info field is set.
+   */
+  boolean hasInfo();
+  /**
+   * <code>.hassmic.WyomingEvent.Info info = 4;</code>
+   * @return The info.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.Info getInfo();
+
+  /**
+   * <code>.hassmic.WyomingEvent.Ping ping = 5;</code>
+   * @return Whether the ping field is set.
+   */
+  boolean hasPing();
+  /**
+   * <code>.hassmic.WyomingEvent.Ping ping = 5;</code>
+   * @return The ping.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.Ping getPing();
+
+  /**
+   * <code>.hassmic.WyomingEvent.Pong pong = 6;</code>
+   * @return Whether the pong field is set.
+   */
+  boolean hasPong();
+  /**
+   * <code>.hassmic.WyomingEvent.Pong pong = 6;</code>
+   * @return The pong.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.Pong getPong();
+
+  /**
+   * <code>.hassmic.WyomingEvent.AudioChunk audio_chunk = 7;</code>
+   * @return Whether the audioChunk field is set.
+   */
+  boolean hasAudioChunk();
+  /**
+   * <code>.hassmic.WyomingEvent.AudioChunk audio_chunk = 7;</code>
+   * @return The audioChunk.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk getAudioChunk();
+
+  /**
+   * <code>.hassmic.WyomingEvent.AudioStart audio_start = 8;</code>
+   * @return Whether the audioStart field is set.
+   */
+  boolean hasAudioStart();
+  /**
+   * <code>.hassmic.WyomingEvent.AudioStart audio_start = 8;</code>
+   * @return The audioStart.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart getAudioStart();
+
+  /**
+   * <code>.hassmic.WyomingEvent.AudioStop audio_stop = 9;</code>
+   * @return Whether the audioStop field is set.
+   */
+  boolean hasAudioStop();
+  /**
+   * <code>.hassmic.WyomingEvent.AudioStop audio_stop = 9;</code>
+   * @return The audioStop.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop getAudioStop();
+
+  /**
+   * <code>.hassmic.WyomingEvent.Detect detect = 10;</code>
+   * @return Whether the detect field is set.
+   */
+  boolean hasDetect();
+  /**
+   * <code>.hassmic.WyomingEvent.Detect detect = 10;</code>
+   * @return The detect.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.Detect getDetect();
+
+  /**
+   * <code>.hassmic.WyomingEvent.Detection detection = 11;</code>
+   * @return Whether the detection field is set.
+   */
+  boolean hasDetection();
+  /**
+   * <code>.hassmic.WyomingEvent.Detection detection = 11;</code>
+   * @return The detection.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.Detection getDetection();
+
+  /**
+   * <code>.hassmic.WyomingEvent.RunSatellite run_satellite = 12;</code>
+   * @return Whether the runSatellite field is set.
+   */
+  boolean hasRunSatellite();
+  /**
+   * <code>.hassmic.WyomingEvent.RunSatellite run_satellite = 12;</code>
+   * @return The runSatellite.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite getRunSatellite();
+
+  /**
+   * <code>.hassmic.WyomingEvent.PauseSatellite pause_satellite = 13;</code>
+   * @return Whether the pauseSatellite field is set.
+   */
+  boolean hasPauseSatellite();
+  /**
+   * <code>.hassmic.WyomingEvent.PauseSatellite pause_satellite = 13;</code>
+   * @return The pauseSatellite.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite getPauseSatellite();
+
+  /**
+   * <code>.hassmic.WyomingEvent.Transcribe transcribe = 14;</code>
+   * @return Whether the transcribe field is set.
+   */
+  boolean hasTranscribe();
+  /**
+   * <code>.hassmic.WyomingEvent.Transcribe transcribe = 14;</code>
+   * @return The transcribe.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe getTranscribe();
+
+  /**
+   * <code>.hassmic.WyomingEvent.VoiceStarted voice_started = 15;</code>
+   * @return Whether the voiceStarted field is set.
+   */
+  boolean hasVoiceStarted();
+  /**
+   * <code>.hassmic.WyomingEvent.VoiceStarted voice_started = 15;</code>
+   * @return The voiceStarted.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted getVoiceStarted();
+
+  /**
+   * <code>.hassmic.WyomingEvent.VoiceStopped voice_stopped = 16;</code>
+   * @return Whether the voiceStopped field is set.
+   */
+  boolean hasVoiceStopped();
+  /**
+   * <code>.hassmic.WyomingEvent.VoiceStopped voice_stopped = 16;</code>
+   * @return The voiceStopped.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped getVoiceStopped();
+
+  /**
+   * <code>.hassmic.WyomingEvent.Other other = 17;</code>
+   * @return Whether the other field is set.
+   */
+  boolean hasOther();
+  /**
+   * <code>.hassmic.WyomingEvent.Other other = 17;</code>
+   * @return The other.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.Other getOther();
+
+  public com.thejeffcooper.hassmic.proto.WyomingEvent.EventCase getEventCase();
 }

@@ -4,91 +4,18709 @@
 package com.thejeffcooper.hassmic.proto;
 
 /**
- *
- *
  * <pre>
  * An event from the wyoming server
+ * event definitions are captured from the wyoming project source
+ *
+ * up to date info messages are here, not the main page -
+ * https://github.com/rhasspy/wyoming/blob/master/wyoming/info.py
  * </pre>
  *
  * Protobuf type {@code hassmic.WyomingEvent}
  */
-public final class WyomingEvent
-    extends com.google.protobuf.GeneratedMessageLite<WyomingEvent, WyomingEvent.Builder>
-    implements
+public  final class WyomingEvent extends
+    com.google.protobuf.GeneratedMessageLite<
+        WyomingEvent, WyomingEvent.Builder> implements
     // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent)
     WyomingEventOrBuilder {
   private WyomingEvent() {
     rawJson_ = "";
+    payload_ = com.google.protobuf.ByteString.EMPTY;
+  }
+  public interface AttributionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Attribution)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>string name = 1;</code>
+     * @return The name.
+     */
+    java.lang.String getName();
+    /**
+     * <code>string name = 1;</code>
+     * @return The bytes for name.
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>string url = 2;</code>
+     * @return The url.
+     */
+    java.lang.String getUrl();
+    /**
+     * <code>string url = 2;</code>
+     * @return The bytes for url.
+     */
+    com.google.protobuf.ByteString
+        getUrlBytes();
+  }
+  /**
+   * Protobuf type {@code hassmic.WyomingEvent.Attribution}
+   */
+  public  static final class Attribution extends
+      com.google.protobuf.GeneratedMessageLite<
+          Attribution, Attribution.Builder> implements
+      // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Attribution)
+      AttributionOrBuilder {
+    private Attribution() {
+      name_ = "";
+      url_ = "";
+    }
+    public static final int NAME_FIELD_NUMBER = 1;
+    private java.lang.String name_;
+    /**
+     * <code>string name = 1;</code>
+     * @return The name.
+     */
+    @java.lang.Override
+    public java.lang.String getName() {
+      return name_;
+    }
+    /**
+     * <code>string name = 1;</code>
+     * @return The bytes for name.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(name_);
+    }
+    /**
+     * <code>string name = 1;</code>
+     * @param value The name to set.
+     */
+    private void setName(
+        java.lang.String value) {
+      java.lang.Class<?> valueClass = value.getClass();
+  
+      name_ = value;
+    }
+    /**
+     * <code>string name = 1;</code>
+     */
+    private void clearName() {
+
+      name_ = getDefaultInstance().getName();
+    }
+    /**
+     * <code>string name = 1;</code>
+     * @param value The bytes for name to set.
+     */
+    private void setNameBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      name_ = value.toStringUtf8();
+
+    }
+
+    public static final int URL_FIELD_NUMBER = 2;
+    private java.lang.String url_;
+    /**
+     * <code>string url = 2;</code>
+     * @return The url.
+     */
+    @java.lang.Override
+    public java.lang.String getUrl() {
+      return url_;
+    }
+    /**
+     * <code>string url = 2;</code>
+     * @return The bytes for url.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUrlBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(url_);
+    }
+    /**
+     * <code>string url = 2;</code>
+     * @param value The url to set.
+     */
+    private void setUrl(
+        java.lang.String value) {
+      java.lang.Class<?> valueClass = value.getClass();
+  
+      url_ = value;
+    }
+    /**
+     * <code>string url = 2;</code>
+     */
+    private void clearUrl() {
+
+      url_ = getDefaultInstance().getUrl();
+    }
+    /**
+     * <code>string url = 2;</code>
+     * @param value The bytes for url to set.
+     */
+    private void setUrlBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      url_ = value.toStringUtf8();
+
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code hassmic.WyomingEvent.Attribution}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution, Builder> implements
+        // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Attribution)
+        com.thejeffcooper.hassmic.proto.WyomingEvent.AttributionOrBuilder {
+      // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>string name = 1;</code>
+       * @return The name.
+       */
+      @java.lang.Override
+      public java.lang.String getName() {
+        return instance.getName();
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @return The bytes for name.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        return instance.getNameBytes();
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setName(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setName(value);
+        return this;
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearName() {
+        copyOnWrite();
+        instance.clearName();
+        return this;
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setNameBytes(value);
+        return this;
+      }
+
+      /**
+       * <code>string url = 2;</code>
+       * @return The url.
+       */
+      @java.lang.Override
+      public java.lang.String getUrl() {
+        return instance.getUrl();
+      }
+      /**
+       * <code>string url = 2;</code>
+       * @return The bytes for url.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getUrlBytes() {
+        return instance.getUrlBytes();
+      }
+      /**
+       * <code>string url = 2;</code>
+       * @param value The url to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUrl(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setUrl(value);
+        return this;
+      }
+      /**
+       * <code>string url = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUrl() {
+        copyOnWrite();
+        instance.clearUrl();
+        return this;
+      }
+      /**
+       * <code>string url = 2;</code>
+       * @param value The bytes for url to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUrlBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setUrlBytes(value);
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Attribution)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "name_",
+              "url_",
+            };
+            java.lang.String info =
+                "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u0001\u0208\u0002\u0208" +
+                "";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution> parser = PARSER;
+          if (parser == null) {
+            synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Attribution)
+    private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution DEFAULT_INSTANCE;
+    static {
+      Attribution defaultInstance = new Attribution();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        Attribution.class, defaultInstance);
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<Attribution> PARSER;
+
+    public static com.google.protobuf.Parser<Attribution> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface AudioChunkOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.AudioChunk)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>int64 rate = 1;</code>
+     * @return The rate.
+     */
+    long getRate();
+
+    /**
+     * <code>int64 width = 2;</code>
+     * @return The width.
+     */
+    long getWidth();
+
+    /**
+     * <code>int64 channels = 3;</code>
+     * @return The channels.
+     */
+    long getChannels();
+  }
+  /**
+   * <pre>
+   * generic model message, used in a few different contexts
+   * </pre>
+   *
+   * Protobuf type {@code hassmic.WyomingEvent.AudioChunk}
+   */
+  public  static final class AudioChunk extends
+      com.google.protobuf.GeneratedMessageLite<
+          AudioChunk, AudioChunk.Builder> implements
+      // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.AudioChunk)
+      AudioChunkOrBuilder {
+    private AudioChunk() {
+    }
+    public static final int RATE_FIELD_NUMBER = 1;
+    private long rate_;
+    /**
+     * <code>int64 rate = 1;</code>
+     * @return The rate.
+     */
+    @java.lang.Override
+    public long getRate() {
+      return rate_;
+    }
+    /**
+     * <code>int64 rate = 1;</code>
+     * @param value The rate to set.
+     */
+    private void setRate(long value) {
+      
+      rate_ = value;
+    }
+    /**
+     * <code>int64 rate = 1;</code>
+     */
+    private void clearRate() {
+
+      rate_ = 0L;
+    }
+
+    public static final int WIDTH_FIELD_NUMBER = 2;
+    private long width_;
+    /**
+     * <code>int64 width = 2;</code>
+     * @return The width.
+     */
+    @java.lang.Override
+    public long getWidth() {
+      return width_;
+    }
+    /**
+     * <code>int64 width = 2;</code>
+     * @param value The width to set.
+     */
+    private void setWidth(long value) {
+      
+      width_ = value;
+    }
+    /**
+     * <code>int64 width = 2;</code>
+     */
+    private void clearWidth() {
+
+      width_ = 0L;
+    }
+
+    public static final int CHANNELS_FIELD_NUMBER = 3;
+    private long channels_;
+    /**
+     * <code>int64 channels = 3;</code>
+     * @return The channels.
+     */
+    @java.lang.Override
+    public long getChannels() {
+      return channels_;
+    }
+    /**
+     * <code>int64 channels = 3;</code>
+     * @param value The channels to set.
+     */
+    private void setChannels(long value) {
+      
+      channels_ = value;
+    }
+    /**
+     * <code>int64 channels = 3;</code>
+     */
+    private void clearChannels() {
+
+      channels_ = 0L;
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * <pre>
+     * generic model message, used in a few different contexts
+     * </pre>
+     *
+     * Protobuf type {@code hassmic.WyomingEvent.AudioChunk}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk, Builder> implements
+        // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.AudioChunk)
+        com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunkOrBuilder {
+      // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>int64 rate = 1;</code>
+       * @return The rate.
+       */
+      @java.lang.Override
+      public long getRate() {
+        return instance.getRate();
+      }
+      /**
+       * <code>int64 rate = 1;</code>
+       * @param value The rate to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRate(long value) {
+        copyOnWrite();
+        instance.setRate(value);
+        return this;
+      }
+      /**
+       * <code>int64 rate = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRate() {
+        copyOnWrite();
+        instance.clearRate();
+        return this;
+      }
+
+      /**
+       * <code>int64 width = 2;</code>
+       * @return The width.
+       */
+      @java.lang.Override
+      public long getWidth() {
+        return instance.getWidth();
+      }
+      /**
+       * <code>int64 width = 2;</code>
+       * @param value The width to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWidth(long value) {
+        copyOnWrite();
+        instance.setWidth(value);
+        return this;
+      }
+      /**
+       * <code>int64 width = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWidth() {
+        copyOnWrite();
+        instance.clearWidth();
+        return this;
+      }
+
+      /**
+       * <code>int64 channels = 3;</code>
+       * @return The channels.
+       */
+      @java.lang.Override
+      public long getChannels() {
+        return instance.getChannels();
+      }
+      /**
+       * <code>int64 channels = 3;</code>
+       * @param value The channels to set.
+       * @return This builder for chaining.
+       */
+      public Builder setChannels(long value) {
+        copyOnWrite();
+        instance.setChannels(value);
+        return this;
+      }
+      /**
+       * <code>int64 channels = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearChannels() {
+        copyOnWrite();
+        instance.clearChannels();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.AudioChunk)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "rate_",
+              "width_",
+              "channels_",
+            };
+            java.lang.String info =
+                "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0000\u0000\u0001\u0002\u0002\u0002" +
+                "\u0003\u0002";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk> parser = PARSER;
+          if (parser == null) {
+            synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.AudioChunk)
+    private static final com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk DEFAULT_INSTANCE;
+    static {
+      AudioChunk defaultInstance = new AudioChunk();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        AudioChunk.class, defaultInstance);
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<AudioChunk> PARSER;
+
+    public static com.google.protobuf.Parser<AudioChunk> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface AudioStartOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.AudioStart)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>int64 rate = 1;</code>
+     * @return The rate.
+     */
+    long getRate();
+
+    /**
+     * <code>int64 width = 2;</code>
+     * @return The width.
+     */
+    long getWidth();
+
+    /**
+     * <code>int64 channels = 3;</code>
+     * @return The channels.
+     */
+    long getChannels();
+  }
+  /**
+   * Protobuf type {@code hassmic.WyomingEvent.AudioStart}
+   */
+  public  static final class AudioStart extends
+      com.google.protobuf.GeneratedMessageLite<
+          AudioStart, AudioStart.Builder> implements
+      // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.AudioStart)
+      AudioStartOrBuilder {
+    private AudioStart() {
+    }
+    public static final int RATE_FIELD_NUMBER = 1;
+    private long rate_;
+    /**
+     * <code>int64 rate = 1;</code>
+     * @return The rate.
+     */
+    @java.lang.Override
+    public long getRate() {
+      return rate_;
+    }
+    /**
+     * <code>int64 rate = 1;</code>
+     * @param value The rate to set.
+     */
+    private void setRate(long value) {
+      
+      rate_ = value;
+    }
+    /**
+     * <code>int64 rate = 1;</code>
+     */
+    private void clearRate() {
+
+      rate_ = 0L;
+    }
+
+    public static final int WIDTH_FIELD_NUMBER = 2;
+    private long width_;
+    /**
+     * <code>int64 width = 2;</code>
+     * @return The width.
+     */
+    @java.lang.Override
+    public long getWidth() {
+      return width_;
+    }
+    /**
+     * <code>int64 width = 2;</code>
+     * @param value The width to set.
+     */
+    private void setWidth(long value) {
+      
+      width_ = value;
+    }
+    /**
+     * <code>int64 width = 2;</code>
+     */
+    private void clearWidth() {
+
+      width_ = 0L;
+    }
+
+    public static final int CHANNELS_FIELD_NUMBER = 3;
+    private long channels_;
+    /**
+     * <code>int64 channels = 3;</code>
+     * @return The channels.
+     */
+    @java.lang.Override
+    public long getChannels() {
+      return channels_;
+    }
+    /**
+     * <code>int64 channels = 3;</code>
+     * @param value The channels to set.
+     */
+    private void setChannels(long value) {
+      
+      channels_ = value;
+    }
+    /**
+     * <code>int64 channels = 3;</code>
+     */
+    private void clearChannels() {
+
+      channels_ = 0L;
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code hassmic.WyomingEvent.AudioStart}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart, Builder> implements
+        // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.AudioStart)
+        com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStartOrBuilder {
+      // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>int64 rate = 1;</code>
+       * @return The rate.
+       */
+      @java.lang.Override
+      public long getRate() {
+        return instance.getRate();
+      }
+      /**
+       * <code>int64 rate = 1;</code>
+       * @param value The rate to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRate(long value) {
+        copyOnWrite();
+        instance.setRate(value);
+        return this;
+      }
+      /**
+       * <code>int64 rate = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRate() {
+        copyOnWrite();
+        instance.clearRate();
+        return this;
+      }
+
+      /**
+       * <code>int64 width = 2;</code>
+       * @return The width.
+       */
+      @java.lang.Override
+      public long getWidth() {
+        return instance.getWidth();
+      }
+      /**
+       * <code>int64 width = 2;</code>
+       * @param value The width to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWidth(long value) {
+        copyOnWrite();
+        instance.setWidth(value);
+        return this;
+      }
+      /**
+       * <code>int64 width = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWidth() {
+        copyOnWrite();
+        instance.clearWidth();
+        return this;
+      }
+
+      /**
+       * <code>int64 channels = 3;</code>
+       * @return The channels.
+       */
+      @java.lang.Override
+      public long getChannels() {
+        return instance.getChannels();
+      }
+      /**
+       * <code>int64 channels = 3;</code>
+       * @param value The channels to set.
+       * @return This builder for chaining.
+       */
+      public Builder setChannels(long value) {
+        copyOnWrite();
+        instance.setChannels(value);
+        return this;
+      }
+      /**
+       * <code>int64 channels = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearChannels() {
+        copyOnWrite();
+        instance.clearChannels();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.AudioStart)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "rate_",
+              "width_",
+              "channels_",
+            };
+            java.lang.String info =
+                "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0000\u0000\u0001\u0002\u0002\u0002" +
+                "\u0003\u0002";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart> parser = PARSER;
+          if (parser == null) {
+            synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.AudioStart)
+    private static final com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart DEFAULT_INSTANCE;
+    static {
+      AudioStart defaultInstance = new AudioStart();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        AudioStart.class, defaultInstance);
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<AudioStart> PARSER;
+
+    public static com.google.protobuf.Parser<AudioStart> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface AudioStopOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.AudioStop)
+      com.google.protobuf.MessageLiteOrBuilder {
+  }
+  /**
+   * Protobuf type {@code hassmic.WyomingEvent.AudioStop}
+   */
+  public  static final class AudioStop extends
+      com.google.protobuf.GeneratedMessageLite<
+          AudioStop, AudioStop.Builder> implements
+      // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.AudioStop)
+      AudioStopOrBuilder {
+    private AudioStop() {
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code hassmic.WyomingEvent.AudioStop}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop, Builder> implements
+        // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.AudioStop)
+        com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStopOrBuilder {
+      // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.AudioStop)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = null;java.lang.String info =
+                "\u0000\u0000";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop> parser = PARSER;
+          if (parser == null) {
+            synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.AudioStop)
+    private static final com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop DEFAULT_INSTANCE;
+    static {
+      AudioStop defaultInstance = new AudioStop();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        AudioStop.class, defaultInstance);
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<AudioStop> PARSER;
+
+    public static com.google.protobuf.Parser<AudioStop> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface DescribeOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Describe)
+      com.google.protobuf.MessageLiteOrBuilder {
+  }
+  /**
+   * Protobuf type {@code hassmic.WyomingEvent.Describe}
+   */
+  public  static final class Describe extends
+      com.google.protobuf.GeneratedMessageLite<
+          Describe, Describe.Builder> implements
+      // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Describe)
+      DescribeOrBuilder {
+    private Describe() {
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Describe parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Describe parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Describe parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Describe parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Describe parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Describe parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Describe parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Describe parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Describe parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Describe parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Describe parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Describe parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Describe prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code hassmic.WyomingEvent.Describe}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Describe, Builder> implements
+        // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Describe)
+        com.thejeffcooper.hassmic.proto.WyomingEvent.DescribeOrBuilder {
+      // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Describe.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Describe)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new com.thejeffcooper.hassmic.proto.WyomingEvent.Describe();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = null;java.lang.String info =
+                "\u0000\u0000";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Describe> parser = PARSER;
+          if (parser == null) {
+            synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Describe.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Describe>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Describe)
+    private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Describe DEFAULT_INSTANCE;
+    static {
+      Describe defaultInstance = new Describe();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        Describe.class, defaultInstance);
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Describe getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<Describe> PARSER;
+
+    public static com.google.protobuf.Parser<Describe> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface DetectOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Detect)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>repeated string names = 1;</code>
+     * @return A list containing the names.
+     */
+    java.util.List<java.lang.String>
+        getNamesList();
+    /**
+     * <code>repeated string names = 1;</code>
+     * @return The count of names.
+     */
+    int getNamesCount();
+    /**
+     * <code>repeated string names = 1;</code>
+     * @param index The index of the element to return.
+     * @return The names at the given index.
+     */
+    java.lang.String getNames(int index);
+    /**
+     * <code>repeated string names = 1;</code>
+     * @param index The index of the element to return.
+     * @return The names at the given index.
+     */
+    com.google.protobuf.ByteString
+        getNamesBytes(int index);
+  }
+  /**
+   * Protobuf type {@code hassmic.WyomingEvent.Detect}
+   */
+  public  static final class Detect extends
+      com.google.protobuf.GeneratedMessageLite<
+          Detect, Detect.Builder> implements
+      // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Detect)
+      DetectOrBuilder {
+    private Detect() {
+      names_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+    }
+    public static final int NAMES_FIELD_NUMBER = 1;
+    private com.google.protobuf.Internal.ProtobufList<java.lang.String> names_;
+    /**
+     * <code>repeated string names = 1;</code>
+     * @return A list containing the names.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.String> getNamesList() {
+      return names_;
+    }
+    /**
+     * <code>repeated string names = 1;</code>
+     * @return The count of names.
+     */
+    @java.lang.Override
+    public int getNamesCount() {
+      return names_.size();
+    }
+    /**
+     * <code>repeated string names = 1;</code>
+     * @param index The index of the element to return.
+     * @return The names at the given index.
+     */
+    @java.lang.Override
+    public java.lang.String getNames(int index) {
+      return names_.get(index);
+    }
+    /**
+     * <code>repeated string names = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the names at the given index.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNamesBytes(int index) {
+      return com.google.protobuf.ByteString.copyFromUtf8(
+          names_.get(index));
+    }
+    private void ensureNamesIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<java.lang.String> tmp =
+          names_;  if (!tmp.isModifiable()) {
+        names_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
+    /**
+     * <code>repeated string names = 1;</code>
+     * @param index The index to set the value at.
+     * @param value The names to set.
+     */
+    private void setNames(
+        int index, java.lang.String value) {
+      java.lang.Class<?> valueClass = value.getClass();
+  ensureNamesIsMutable();
+      names_.set(index, value);
+    }
+    /**
+     * <code>repeated string names = 1;</code>
+     * @param value The names to add.
+     */
+    private void addNames(
+        java.lang.String value) {
+      java.lang.Class<?> valueClass = value.getClass();
+  ensureNamesIsMutable();
+      names_.add(value);
+    }
+    /**
+     * <code>repeated string names = 1;</code>
+     * @param values The names to add.
+     */
+    private void addAllNames(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureNamesIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, names_);
+    }
+    /**
+     * <code>repeated string names = 1;</code>
+     */
+    private void clearNames() {
+      names_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+    }
+    /**
+     * <code>repeated string names = 1;</code>
+     * @param value The bytes of the names to add.
+     */
+    private void addNamesBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      ensureNamesIsMutable();
+      names_.add(value.toStringUtf8());
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detect parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detect parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detect parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detect parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detect parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detect parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detect parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detect parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detect parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detect parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detect parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detect parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Detect prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code hassmic.WyomingEvent.Detect}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Detect, Builder> implements
+        // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Detect)
+        com.thejeffcooper.hassmic.proto.WyomingEvent.DetectOrBuilder {
+      // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Detect.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>repeated string names = 1;</code>
+       * @return A list containing the names.
+       */
+      @java.lang.Override
+      public java.util.List<java.lang.String>
+          getNamesList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getNamesList());
+      }
+      /**
+       * <code>repeated string names = 1;</code>
+       * @return The count of names.
+       */
+      @java.lang.Override
+      public int getNamesCount() {
+        return instance.getNamesCount();
+      }
+      /**
+       * <code>repeated string names = 1;</code>
+       * @param index The index of the element to return.
+       * @return The names at the given index.
+       */
+      @java.lang.Override
+      public java.lang.String getNames(int index) {
+        return instance.getNames(index);
+      }
+      /**
+       * <code>repeated string names = 1;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the names at the given index.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getNamesBytes(int index) {
+        return instance.getNamesBytes(index);
+      }
+      /**
+       * <code>repeated string names = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The names to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNames(
+          int index, java.lang.String value) {
+        copyOnWrite();
+        instance.setNames(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated string names = 1;</code>
+       * @param value The names to add.
+       * @return This builder for chaining.
+       */
+      public Builder addNames(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.addNames(value);
+        return this;
+      }
+      /**
+       * <code>repeated string names = 1;</code>
+       * @param values The names to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllNames(
+          java.lang.Iterable<java.lang.String> values) {
+        copyOnWrite();
+        instance.addAllNames(values);
+        return this;
+      }
+      /**
+       * <code>repeated string names = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNames() {
+        copyOnWrite();
+        instance.clearNames();
+        return this;
+      }
+      /**
+       * <code>repeated string names = 1;</code>
+       * @param value The bytes of the names to add.
+       * @return This builder for chaining.
+       */
+      public Builder addNamesBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.addNamesBytes(value);
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Detect)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new com.thejeffcooper.hassmic.proto.WyomingEvent.Detect();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "names_",
+            };
+            java.lang.String info =
+                "\u0000\u0001\u0000\u0000\u0001\u0001\u0001\u0000\u0001\u0000\u0001\u021a";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Detect> parser = PARSER;
+          if (parser == null) {
+            synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Detect.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Detect>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Detect)
+    private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Detect DEFAULT_INSTANCE;
+    static {
+      Detect defaultInstance = new Detect();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        Detect.class, defaultInstance);
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detect getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<Detect> PARSER;
+
+    public static com.google.protobuf.Parser<Detect> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface DetectionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Detection)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>string name = 1;</code>
+     * @return The name.
+     */
+    java.lang.String getName();
+    /**
+     * <code>string name = 1;</code>
+     * @return The bytes for name.
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>int64 timestamp = 2;</code>
+     * @return The timestamp.
+     */
+    long getTimestamp();
+
+    /**
+     * <code>string speaker = 3;</code>
+     * @return The speaker.
+     */
+    java.lang.String getSpeaker();
+    /**
+     * <code>string speaker = 3;</code>
+     * @return The bytes for speaker.
+     */
+    com.google.protobuf.ByteString
+        getSpeakerBytes();
+  }
+  /**
+   * Protobuf type {@code hassmic.WyomingEvent.Detection}
+   */
+  public  static final class Detection extends
+      com.google.protobuf.GeneratedMessageLite<
+          Detection, Detection.Builder> implements
+      // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Detection)
+      DetectionOrBuilder {
+    private Detection() {
+      name_ = "";
+      speaker_ = "";
+    }
+    public static final int NAME_FIELD_NUMBER = 1;
+    private java.lang.String name_;
+    /**
+     * <code>string name = 1;</code>
+     * @return The name.
+     */
+    @java.lang.Override
+    public java.lang.String getName() {
+      return name_;
+    }
+    /**
+     * <code>string name = 1;</code>
+     * @return The bytes for name.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(name_);
+    }
+    /**
+     * <code>string name = 1;</code>
+     * @param value The name to set.
+     */
+    private void setName(
+        java.lang.String value) {
+      java.lang.Class<?> valueClass = value.getClass();
+  
+      name_ = value;
+    }
+    /**
+     * <code>string name = 1;</code>
+     */
+    private void clearName() {
+
+      name_ = getDefaultInstance().getName();
+    }
+    /**
+     * <code>string name = 1;</code>
+     * @param value The bytes for name to set.
+     */
+    private void setNameBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      name_ = value.toStringUtf8();
+
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 2;
+    private long timestamp_;
+    /**
+     * <code>int64 timestamp = 2;</code>
+     * @return The timestamp.
+     */
+    @java.lang.Override
+    public long getTimestamp() {
+      return timestamp_;
+    }
+    /**
+     * <code>int64 timestamp = 2;</code>
+     * @param value The timestamp to set.
+     */
+    private void setTimestamp(long value) {
+      
+      timestamp_ = value;
+    }
+    /**
+     * <code>int64 timestamp = 2;</code>
+     */
+    private void clearTimestamp() {
+
+      timestamp_ = 0L;
+    }
+
+    public static final int SPEAKER_FIELD_NUMBER = 3;
+    private java.lang.String speaker_;
+    /**
+     * <code>string speaker = 3;</code>
+     * @return The speaker.
+     */
+    @java.lang.Override
+    public java.lang.String getSpeaker() {
+      return speaker_;
+    }
+    /**
+     * <code>string speaker = 3;</code>
+     * @return The bytes for speaker.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSpeakerBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(speaker_);
+    }
+    /**
+     * <code>string speaker = 3;</code>
+     * @param value The speaker to set.
+     */
+    private void setSpeaker(
+        java.lang.String value) {
+      java.lang.Class<?> valueClass = value.getClass();
+  
+      speaker_ = value;
+    }
+    /**
+     * <code>string speaker = 3;</code>
+     */
+    private void clearSpeaker() {
+
+      speaker_ = getDefaultInstance().getSpeaker();
+    }
+    /**
+     * <code>string speaker = 3;</code>
+     * @param value The bytes for speaker to set.
+     */
+    private void setSpeakerBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      speaker_ = value.toStringUtf8();
+
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detection parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detection parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detection parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detection parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detection parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detection parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detection parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detection parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detection parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detection parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detection parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detection parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Detection prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code hassmic.WyomingEvent.Detection}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Detection, Builder> implements
+        // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Detection)
+        com.thejeffcooper.hassmic.proto.WyomingEvent.DetectionOrBuilder {
+      // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Detection.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>string name = 1;</code>
+       * @return The name.
+       */
+      @java.lang.Override
+      public java.lang.String getName() {
+        return instance.getName();
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @return The bytes for name.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        return instance.getNameBytes();
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setName(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setName(value);
+        return this;
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearName() {
+        copyOnWrite();
+        instance.clearName();
+        return this;
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setNameBytes(value);
+        return this;
+      }
+
+      /**
+       * <code>int64 timestamp = 2;</code>
+       * @return The timestamp.
+       */
+      @java.lang.Override
+      public long getTimestamp() {
+        return instance.getTimestamp();
+      }
+      /**
+       * <code>int64 timestamp = 2;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimestamp(long value) {
+        copyOnWrite();
+        instance.setTimestamp(value);
+        return this;
+      }
+      /**
+       * <code>int64 timestamp = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimestamp() {
+        copyOnWrite();
+        instance.clearTimestamp();
+        return this;
+      }
+
+      /**
+       * <code>string speaker = 3;</code>
+       * @return The speaker.
+       */
+      @java.lang.Override
+      public java.lang.String getSpeaker() {
+        return instance.getSpeaker();
+      }
+      /**
+       * <code>string speaker = 3;</code>
+       * @return The bytes for speaker.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getSpeakerBytes() {
+        return instance.getSpeakerBytes();
+      }
+      /**
+       * <code>string speaker = 3;</code>
+       * @param value The speaker to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSpeaker(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setSpeaker(value);
+        return this;
+      }
+      /**
+       * <code>string speaker = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSpeaker() {
+        copyOnWrite();
+        instance.clearSpeaker();
+        return this;
+      }
+      /**
+       * <code>string speaker = 3;</code>
+       * @param value The bytes for speaker to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSpeakerBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setSpeakerBytes(value);
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Detection)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new com.thejeffcooper.hassmic.proto.WyomingEvent.Detection();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "name_",
+              "timestamp_",
+              "speaker_",
+            };
+            java.lang.String info =
+                "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0000\u0000\u0001\u0208\u0002\u0002" +
+                "\u0003\u0208";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Detection> parser = PARSER;
+          if (parser == null) {
+            synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Detection.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Detection>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Detection)
+    private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Detection DEFAULT_INSTANCE;
+    static {
+      Detection defaultInstance = new Detection();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        Detection.class, defaultInstance);
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Detection getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<Detection> PARSER;
+
+    public static com.google.protobuf.Parser<Detection> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface InfoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Info)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+     */
+    java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram> 
+        getAsrList();
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+     */
+    com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram getAsr(int index);
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+     */
+    int getAsrCount();
+
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+     */
+    java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram> 
+        getTtsList();
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+     */
+    com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram getTts(int index);
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+     */
+    int getTtsCount();
+
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+     */
+    java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram> 
+        getHandleList();
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+     */
+    com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram getHandle(int index);
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+     */
+    int getHandleCount();
+
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+     */
+    java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram> 
+        getIntentList();
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+     */
+    com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram getIntent(int index);
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+     */
+    int getIntentCount();
+
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+     */
+    java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram> 
+        getWakeList();
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+     */
+    com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram getWake(int index);
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+     */
+    int getWakeCount();
+
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+     */
+    java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram> 
+        getMicList();
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+     */
+    com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram getMic(int index);
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+     */
+    int getMicCount();
+
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+     */
+    java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram> 
+        getSndList();
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+     */
+    com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram getSnd(int index);
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+     */
+    int getSndCount();
+
+    /**
+     * <code>.hassmic.WyomingEvent.Info.Satellite satellite = 8;</code>
+     * @return Whether the satellite field is set.
+     */
+    boolean hasSatellite();
+    /**
+     * <code>.hassmic.WyomingEvent.Info.Satellite satellite = 8;</code>
+     * @return The satellite.
+     */
+    com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite getSatellite();
+  }
+  /**
+   * Protobuf type {@code hassmic.WyomingEvent.Info}
+   */
+  public  static final class Info extends
+      com.google.protobuf.GeneratedMessageLite<
+          Info, Info.Builder> implements
+      // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Info)
+      InfoOrBuilder {
+    private Info() {
+      asr_ = emptyProtobufList();
+      tts_ = emptyProtobufList();
+      handle_ = emptyProtobufList();
+      intent_ = emptyProtobufList();
+      wake_ = emptyProtobufList();
+      mic_ = emptyProtobufList();
+      snd_ = emptyProtobufList();
+    }
+    public interface AsrProgramOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Info.AsrProgram)
+        com.google.protobuf.MessageLiteOrBuilder {
+
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+       */
+      java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel> 
+          getModelsList();
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+       */
+      com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel getModels(int index);
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+       */
+      int getModelsCount();
+    }
+    /**
+     * Protobuf type {@code hassmic.WyomingEvent.Info.AsrProgram}
+     */
+    public  static final class AsrProgram extends
+        com.google.protobuf.GeneratedMessageLite<
+            AsrProgram, AsrProgram.Builder> implements
+        // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Info.AsrProgram)
+        AsrProgramOrBuilder {
+      private AsrProgram() {
+        models_ = emptyProtobufList();
+      }
+      public interface AsrModelOrBuilder extends
+          // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Info.AsrProgram.AsrModel)
+          com.google.protobuf.MessageLiteOrBuilder {
+
+        /**
+         * <code>string name = 1;</code>
+         * @return The name.
+         */
+        java.lang.String getName();
+        /**
+         * <code>string name = 1;</code>
+         * @return The bytes for name.
+         */
+        com.google.protobuf.ByteString
+            getNameBytes();
+
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return A list containing the languages.
+         */
+        java.util.List<java.lang.String>
+            getLanguagesList();
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return The count of languages.
+         */
+        int getLanguagesCount();
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the element to return.
+         * @return The languages at the given index.
+         */
+        java.lang.String getLanguages(int index);
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the element to return.
+         * @return The languages at the given index.
+         */
+        com.google.protobuf.ByteString
+            getLanguagesBytes(int index);
+
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         * @return Whether the attribution field is set.
+         */
+        boolean hasAttribution();
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         * @return The attribution.
+         */
+        com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getAttribution();
+
+        /**
+         * <code>bool installed = 4;</code>
+         * @return The installed.
+         */
+        boolean getInstalled();
+
+        /**
+         * <code>string description = 5;</code>
+         * @return The description.
+         */
+        java.lang.String getDescription();
+        /**
+         * <code>string description = 5;</code>
+         * @return The bytes for description.
+         */
+        com.google.protobuf.ByteString
+            getDescriptionBytes();
+
+        /**
+         * <code>string version = 6;</code>
+         * @return The version.
+         */
+        java.lang.String getVersion();
+        /**
+         * <code>string version = 6;</code>
+         * @return The bytes for version.
+         */
+        com.google.protobuf.ByteString
+            getVersionBytes();
+      }
+      /**
+       * Protobuf type {@code hassmic.WyomingEvent.Info.AsrProgram.AsrModel}
+       */
+      public  static final class AsrModel extends
+          com.google.protobuf.GeneratedMessageLite<
+              AsrModel, AsrModel.Builder> implements
+          // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Info.AsrProgram.AsrModel)
+          AsrModelOrBuilder {
+        private AsrModel() {
+          name_ = "";
+          languages_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+          description_ = "";
+          version_ = "";
+        }
+        public static final int NAME_FIELD_NUMBER = 1;
+        private java.lang.String name_;
+        /**
+         * <code>string name = 1;</code>
+         * @return The name.
+         */
+        @java.lang.Override
+        public java.lang.String getName() {
+          return name_;
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @return The bytes for name.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getNameBytes() {
+          return com.google.protobuf.ByteString.copyFromUtf8(name_);
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @param value The name to set.
+         */
+        private void setName(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  
+          name_ = value;
+        }
+        /**
+         * <code>string name = 1;</code>
+         */
+        private void clearName() {
+
+          name_ = getDefaultInstance().getName();
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @param value The bytes for name to set.
+         */
+        private void setNameBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          name_ = value.toStringUtf8();
+
+        }
+
+        public static final int LANGUAGES_FIELD_NUMBER = 2;
+        private com.google.protobuf.Internal.ProtobufList<java.lang.String> languages_;
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return A list containing the languages.
+         */
+        @java.lang.Override
+        public java.util.List<java.lang.String> getLanguagesList() {
+          return languages_;
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return The count of languages.
+         */
+        @java.lang.Override
+        public int getLanguagesCount() {
+          return languages_.size();
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the element to return.
+         * @return The languages at the given index.
+         */
+        @java.lang.Override
+        public java.lang.String getLanguages(int index) {
+          return languages_.get(index);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the value to return.
+         * @return The bytes of the languages at the given index.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getLanguagesBytes(int index) {
+          return com.google.protobuf.ByteString.copyFromUtf8(
+              languages_.get(index));
+        }
+        private void ensureLanguagesIsMutable() {
+          com.google.protobuf.Internal.ProtobufList<java.lang.String> tmp =
+              languages_;  if (!tmp.isModifiable()) {
+            languages_ =
+                com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+           }
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index to set the value at.
+         * @param value The languages to set.
+         */
+        private void setLanguages(
+            int index, java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  ensureLanguagesIsMutable();
+          languages_.set(index, value);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param value The languages to add.
+         */
+        private void addLanguages(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  ensureLanguagesIsMutable();
+          languages_.add(value);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param values The languages to add.
+         */
+        private void addAllLanguages(
+            java.lang.Iterable<java.lang.String> values) {
+          ensureLanguagesIsMutable();
+          com.google.protobuf.AbstractMessageLite.addAll(
+              values, languages_);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         */
+        private void clearLanguages() {
+          languages_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param value The bytes of the languages to add.
+         */
+        private void addLanguagesBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          ensureLanguagesIsMutable();
+          languages_.add(value.toStringUtf8());
+        }
+
+        public static final int ATTRIBUTION_FIELD_NUMBER = 3;
+        private com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution attribution_;
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        @java.lang.Override
+        public boolean hasAttribution() {
+          return attribution_ != null;
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        @java.lang.Override
+        public com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getAttribution() {
+          return attribution_ == null ? com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.getDefaultInstance() : attribution_;
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        private void setAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+          value.getClass();
+  attribution_ = value;
+
+          }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        @java.lang.SuppressWarnings({"ReferenceEquality"})
+        private void mergeAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+          value.getClass();
+  if (attribution_ != null &&
+              attribution_ != com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.getDefaultInstance()) {
+            attribution_ =
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.newBuilder(attribution_).mergeFrom(value).buildPartial();
+          } else {
+            attribution_ = value;
+          }
+
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        private void clearAttribution() {  attribution_ = null;
+
+        }
+
+        public static final int INSTALLED_FIELD_NUMBER = 4;
+        private boolean installed_;
+        /**
+         * <code>bool installed = 4;</code>
+         * @return The installed.
+         */
+        @java.lang.Override
+        public boolean getInstalled() {
+          return installed_;
+        }
+        /**
+         * <code>bool installed = 4;</code>
+         * @param value The installed to set.
+         */
+        private void setInstalled(boolean value) {
+          
+          installed_ = value;
+        }
+        /**
+         * <code>bool installed = 4;</code>
+         */
+        private void clearInstalled() {
+
+          installed_ = false;
+        }
+
+        public static final int DESCRIPTION_FIELD_NUMBER = 5;
+        private java.lang.String description_;
+        /**
+         * <code>string description = 5;</code>
+         * @return The description.
+         */
+        @java.lang.Override
+        public java.lang.String getDescription() {
+          return description_;
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @return The bytes for description.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getDescriptionBytes() {
+          return com.google.protobuf.ByteString.copyFromUtf8(description_);
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @param value The description to set.
+         */
+        private void setDescription(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  
+          description_ = value;
+        }
+        /**
+         * <code>string description = 5;</code>
+         */
+        private void clearDescription() {
+
+          description_ = getDefaultInstance().getDescription();
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @param value The bytes for description to set.
+         */
+        private void setDescriptionBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          description_ = value.toStringUtf8();
+
+        }
+
+        public static final int VERSION_FIELD_NUMBER = 6;
+        private java.lang.String version_;
+        /**
+         * <code>string version = 6;</code>
+         * @return The version.
+         */
+        @java.lang.Override
+        public java.lang.String getVersion() {
+          return version_;
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @return The bytes for version.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getVersionBytes() {
+          return com.google.protobuf.ByteString.copyFromUtf8(version_);
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @param value The version to set.
+         */
+        private void setVersion(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  
+          version_ = value;
+        }
+        /**
+         * <code>string version = 6;</code>
+         */
+        private void clearVersion() {
+
+          version_ = getDefaultInstance().getVersion();
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @param value The bytes for version to set.
+         */
+        private void setVersionBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          version_ = value.toStringUtf8();
+
+        }
+
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+          return (Builder) DEFAULT_INSTANCE.createBuilder();
+        }
+        public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel prototype) {
+          return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+        }
+
+        /**
+         * Protobuf type {@code hassmic.WyomingEvent.Info.AsrProgram.AsrModel}
+         */
+        public static final class Builder extends
+            com.google.protobuf.GeneratedMessageLite.Builder<
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel, Builder> implements
+            // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Info.AsrProgram.AsrModel)
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModelOrBuilder {
+          // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel.newBuilder()
+          private Builder() {
+            super(DEFAULT_INSTANCE);
+          }
+
+
+          /**
+           * <code>string name = 1;</code>
+           * @return The name.
+           */
+          @java.lang.Override
+          public java.lang.String getName() {
+            return instance.getName();
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @return The bytes for name.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getNameBytes() {
+            return instance.getNameBytes();
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @param value The name to set.
+           * @return This builder for chaining.
+           */
+          public Builder setName(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.setName(value);
+            return this;
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearName() {
+            copyOnWrite();
+            instance.clearName();
+            return this;
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @param value The bytes for name to set.
+           * @return This builder for chaining.
+           */
+          public Builder setNameBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.setNameBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @return A list containing the languages.
+           */
+          @java.lang.Override
+          public java.util.List<java.lang.String>
+              getLanguagesList() {
+            return java.util.Collections.unmodifiableList(
+                instance.getLanguagesList());
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @return The count of languages.
+           */
+          @java.lang.Override
+          public int getLanguagesCount() {
+            return instance.getLanguagesCount();
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param index The index of the element to return.
+           * @return The languages at the given index.
+           */
+          @java.lang.Override
+          public java.lang.String getLanguages(int index) {
+            return instance.getLanguages(index);
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param index The index of the value to return.
+           * @return The bytes of the languages at the given index.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getLanguagesBytes(int index) {
+            return instance.getLanguagesBytes(index);
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param index The index to set the value at.
+           * @param value The languages to set.
+           * @return This builder for chaining.
+           */
+          public Builder setLanguages(
+              int index, java.lang.String value) {
+            copyOnWrite();
+            instance.setLanguages(index, value);
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param value The languages to add.
+           * @return This builder for chaining.
+           */
+          public Builder addLanguages(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.addLanguages(value);
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param values The languages to add.
+           * @return This builder for chaining.
+           */
+          public Builder addAllLanguages(
+              java.lang.Iterable<java.lang.String> values) {
+            copyOnWrite();
+            instance.addAllLanguages(values);
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearLanguages() {
+            copyOnWrite();
+            instance.clearLanguages();
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param value The bytes of the languages to add.
+           * @return This builder for chaining.
+           */
+          public Builder addLanguagesBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.addLanguagesBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          @java.lang.Override
+          public boolean hasAttribution() {
+            return instance.hasAttribution();
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          @java.lang.Override
+          public com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getAttribution() {
+            return instance.getAttribution();
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder setAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+            copyOnWrite();
+            instance.setAttribution(value);
+            return this;
+            }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder setAttribution(
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.Builder builderForValue) {
+            copyOnWrite();
+            instance.setAttribution(builderForValue.build());
+            return this;
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder mergeAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+            copyOnWrite();
+            instance.mergeAttribution(value);
+            return this;
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder clearAttribution() {  copyOnWrite();
+            instance.clearAttribution();
+            return this;
+          }
+
+          /**
+           * <code>bool installed = 4;</code>
+           * @return The installed.
+           */
+          @java.lang.Override
+          public boolean getInstalled() {
+            return instance.getInstalled();
+          }
+          /**
+           * <code>bool installed = 4;</code>
+           * @param value The installed to set.
+           * @return This builder for chaining.
+           */
+          public Builder setInstalled(boolean value) {
+            copyOnWrite();
+            instance.setInstalled(value);
+            return this;
+          }
+          /**
+           * <code>bool installed = 4;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearInstalled() {
+            copyOnWrite();
+            instance.clearInstalled();
+            return this;
+          }
+
+          /**
+           * <code>string description = 5;</code>
+           * @return The description.
+           */
+          @java.lang.Override
+          public java.lang.String getDescription() {
+            return instance.getDescription();
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @return The bytes for description.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getDescriptionBytes() {
+            return instance.getDescriptionBytes();
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @param value The description to set.
+           * @return This builder for chaining.
+           */
+          public Builder setDescription(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.setDescription(value);
+            return this;
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearDescription() {
+            copyOnWrite();
+            instance.clearDescription();
+            return this;
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @param value The bytes for description to set.
+           * @return This builder for chaining.
+           */
+          public Builder setDescriptionBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.setDescriptionBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>string version = 6;</code>
+           * @return The version.
+           */
+          @java.lang.Override
+          public java.lang.String getVersion() {
+            return instance.getVersion();
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @return The bytes for version.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getVersionBytes() {
+            return instance.getVersionBytes();
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @param value The version to set.
+           * @return This builder for chaining.
+           */
+          public Builder setVersion(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.setVersion(value);
+            return this;
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearVersion() {
+            copyOnWrite();
+            instance.clearVersion();
+            return this;
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @param value The bytes for version to set.
+           * @return This builder for chaining.
+           */
+          public Builder setVersionBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.setVersionBytes(value);
+            return this;
+          }
+
+          // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Info.AsrProgram.AsrModel)
+        }
+        @java.lang.Override
+        @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+        protected final java.lang.Object dynamicMethod(
+            com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+            java.lang.Object arg0, java.lang.Object arg1) {
+          switch (method) {
+            case NEW_MUTABLE_INSTANCE: {
+              return new com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel();
+            }
+            case NEW_BUILDER: {
+              return new Builder();
+            }
+            case BUILD_MESSAGE_INFO: {
+                java.lang.Object[] objects = new java.lang.Object[] {
+                  "name_",
+                  "languages_",
+                  "attribution_",
+                  "installed_",
+                  "description_",
+                  "version_",
+                };
+                java.lang.String info =
+                    "\u0000\u0006\u0000\u0000\u0001\u0006\u0006\u0000\u0001\u0000\u0001\u0208\u0002\u021a" +
+                    "\u0003\t\u0004\u0007\u0005\u0208\u0006\u0208";
+                return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+            }
+            // fall through
+            case GET_DEFAULT_INSTANCE: {
+              return DEFAULT_INSTANCE;
+            }
+            case GET_PARSER: {
+              com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel> parser = PARSER;
+              if (parser == null) {
+                synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel.class) {
+                  parser = PARSER;
+                  if (parser == null) {
+                    parser =
+                        new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel>(
+                            DEFAULT_INSTANCE);
+                    PARSER = parser;
+                  }
+                }
+              }
+              return parser;
+          }
+          case GET_MEMOIZED_IS_INITIALIZED: {
+            return (byte) 1;
+          }
+          case SET_MEMOIZED_IS_INITIALIZED: {
+            return null;
+          }
+          }
+          throw new UnsupportedOperationException();
+        }
+
+
+        // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Info.AsrProgram.AsrModel)
+        private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel DEFAULT_INSTANCE;
+        static {
+          AsrModel defaultInstance = new AsrModel();
+          // New instances are implicitly immutable so no need to make
+          // immutable.
+          DEFAULT_INSTANCE = defaultInstance;
+          com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+            AsrModel.class, defaultInstance);
+        }
+
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel getDefaultInstance() {
+          return DEFAULT_INSTANCE;
+        }
+
+        private static volatile com.google.protobuf.Parser<AsrModel> PARSER;
+
+        public static com.google.protobuf.Parser<AsrModel> parser() {
+          return DEFAULT_INSTANCE.getParserForType();
+        }
+      }
+
+      public static final int MODELS_FIELD_NUMBER = 1;
+      private com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel> models_;
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+       */
+      @java.lang.Override
+      public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel> getModelsList() {
+        return models_;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+       */
+      public java.util.List<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModelOrBuilder> 
+          getModelsOrBuilderList() {
+        return models_;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+       */
+      @java.lang.Override
+      public int getModelsCount() {
+        return models_.size();
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+       */
+      @java.lang.Override
+      public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel getModels(int index) {
+        return models_.get(index);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+       */
+      public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModelOrBuilder getModelsOrBuilder(
+          int index) {
+        return models_.get(index);
+      }
+      private void ensureModelsIsMutable() {
+        com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel> tmp = models_;
+        if (!tmp.isModifiable()) {
+          models_ =
+              com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+         }
+      }
+
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+       */
+      private void setModels(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel value) {
+        value.getClass();
+  ensureModelsIsMutable();
+        models_.set(index, value);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+       */
+      private void addModels(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel value) {
+        value.getClass();
+  ensureModelsIsMutable();
+        models_.add(value);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+       */
+      private void addModels(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel value) {
+        value.getClass();
+  ensureModelsIsMutable();
+        models_.add(index, value);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+       */
+      private void addAllModels(
+          java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel> values) {
+        ensureModelsIsMutable();
+        com.google.protobuf.AbstractMessageLite.addAll(
+            values, models_);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+       */
+      private void clearModels() {
+        models_ = emptyProtobufList();
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+       */
+      private void removeModels(int index) {
+        ensureModelsIsMutable();
+        models_.remove(index);
+      }
+
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+
+      public static Builder newBuilder() {
+        return (Builder) DEFAULT_INSTANCE.createBuilder();
+      }
+      public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram prototype) {
+        return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+      }
+
+      /**
+       * Protobuf type {@code hassmic.WyomingEvent.Info.AsrProgram}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageLite.Builder<
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram, Builder> implements
+          // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Info.AsrProgram)
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgramOrBuilder {
+        // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.newBuilder()
+        private Builder() {
+          super(DEFAULT_INSTANCE);
+        }
+
+
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+         */
+        @java.lang.Override
+        public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel> getModelsList() {
+          return java.util.Collections.unmodifiableList(
+              instance.getModelsList());
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+         */
+        @java.lang.Override
+        public int getModelsCount() {
+          return instance.getModelsCount();
+        }/**
+         * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+         */
+        @java.lang.Override
+        public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel getModels(int index) {
+          return instance.getModels(index);
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+         */
+        public Builder setModels(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel value) {
+          copyOnWrite();
+          instance.setModels(index, value);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+         */
+        public Builder setModels(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel.Builder builderForValue) {
+          copyOnWrite();
+          instance.setModels(index,
+              builderForValue.build());
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+         */
+        public Builder addModels(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel value) {
+          copyOnWrite();
+          instance.addModels(value);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+         */
+        public Builder addModels(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel value) {
+          copyOnWrite();
+          instance.addModels(index, value);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+         */
+        public Builder addModels(
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel.Builder builderForValue) {
+          copyOnWrite();
+          instance.addModels(builderForValue.build());
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+         */
+        public Builder addModels(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel.Builder builderForValue) {
+          copyOnWrite();
+          instance.addModels(index,
+              builderForValue.build());
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+         */
+        public Builder addAllModels(
+            java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel> values) {
+          copyOnWrite();
+          instance.addAllModels(values);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+         */
+        public Builder clearModels() {
+          copyOnWrite();
+          instance.clearModels();
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram.AsrModel models = 1;</code>
+         */
+        public Builder removeModels(int index) {
+          copyOnWrite();
+          instance.removeModels(index);
+          return this;
+        }
+
+        // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Info.AsrProgram)
+      }
+      @java.lang.Override
+      @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+      protected final java.lang.Object dynamicMethod(
+          com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+          java.lang.Object arg0, java.lang.Object arg1) {
+        switch (method) {
+          case NEW_MUTABLE_INSTANCE: {
+            return new com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram();
+          }
+          case NEW_BUILDER: {
+            return new Builder();
+          }
+          case BUILD_MESSAGE_INFO: {
+              java.lang.Object[] objects = new java.lang.Object[] {
+                "models_",
+                com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.AsrModel.class,
+              };
+              java.lang.String info =
+                  "\u0000\u0001\u0000\u0000\u0001\u0001\u0001\u0000\u0001\u0000\u0001\u001b";
+              return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+          }
+          // fall through
+          case GET_DEFAULT_INSTANCE: {
+            return DEFAULT_INSTANCE;
+          }
+          case GET_PARSER: {
+            com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram> parser = PARSER;
+            if (parser == null) {
+              synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.class) {
+                parser = PARSER;
+                if (parser == null) {
+                  parser =
+                      new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram>(
+                          DEFAULT_INSTANCE);
+                  PARSER = parser;
+                }
+              }
+            }
+            return parser;
+        }
+        case GET_MEMOIZED_IS_INITIALIZED: {
+          return (byte) 1;
+        }
+        case SET_MEMOIZED_IS_INITIALIZED: {
+          return null;
+        }
+        }
+        throw new UnsupportedOperationException();
+      }
+
+
+      // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Info.AsrProgram)
+      private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram DEFAULT_INSTANCE;
+      static {
+        AsrProgram defaultInstance = new AsrProgram();
+        // New instances are implicitly immutable so no need to make
+        // immutable.
+        DEFAULT_INSTANCE = defaultInstance;
+        com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+          AsrProgram.class, defaultInstance);
+      }
+
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static volatile com.google.protobuf.Parser<AsrProgram> PARSER;
+
+      public static com.google.protobuf.Parser<AsrProgram> parser() {
+        return DEFAULT_INSTANCE.getParserForType();
+      }
+    }
+
+    public interface TtsProgramOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Info.TtsProgram)
+        com.google.protobuf.MessageLiteOrBuilder {
+
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+       */
+      java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice> 
+          getVoicesList();
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+       */
+      com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice getVoices(int index);
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+       */
+      int getVoicesCount();
+    }
+    /**
+     * Protobuf type {@code hassmic.WyomingEvent.Info.TtsProgram}
+     */
+    public  static final class TtsProgram extends
+        com.google.protobuf.GeneratedMessageLite<
+            TtsProgram, TtsProgram.Builder> implements
+        // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Info.TtsProgram)
+        TtsProgramOrBuilder {
+      private TtsProgram() {
+        voices_ = emptyProtobufList();
+      }
+      public interface TtsVoiceOrBuilder extends
+          // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Info.TtsProgram.TtsVoice)
+          com.google.protobuf.MessageLiteOrBuilder {
+
+        /**
+         * <code>string name = 1;</code>
+         * @return The name.
+         */
+        java.lang.String getName();
+        /**
+         * <code>string name = 1;</code>
+         * @return The bytes for name.
+         */
+        com.google.protobuf.ByteString
+            getNameBytes();
+
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return A list containing the languages.
+         */
+        java.util.List<java.lang.String>
+            getLanguagesList();
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return The count of languages.
+         */
+        int getLanguagesCount();
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the element to return.
+         * @return The languages at the given index.
+         */
+        java.lang.String getLanguages(int index);
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the element to return.
+         * @return The languages at the given index.
+         */
+        com.google.protobuf.ByteString
+            getLanguagesBytes(int index);
+
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         * @return Whether the attribution field is set.
+         */
+        boolean hasAttribution();
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         * @return The attribution.
+         */
+        com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getAttribution();
+
+        /**
+         * <code>bool installed = 4;</code>
+         * @return The installed.
+         */
+        boolean getInstalled();
+
+        /**
+         * <code>string description = 5;</code>
+         * @return The description.
+         */
+        java.lang.String getDescription();
+        /**
+         * <code>string description = 5;</code>
+         * @return The bytes for description.
+         */
+        com.google.protobuf.ByteString
+            getDescriptionBytes();
+
+        /**
+         * <code>string version = 6;</code>
+         * @return The version.
+         */
+        java.lang.String getVersion();
+        /**
+         * <code>string version = 6;</code>
+         * @return The bytes for version.
+         */
+        com.google.protobuf.ByteString
+            getVersionBytes();
+
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+         */
+        java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker> 
+            getSpeakersList();
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+         */
+        com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker getSpeakers(int index);
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+         */
+        int getSpeakersCount();
+      }
+      /**
+       * Protobuf type {@code hassmic.WyomingEvent.Info.TtsProgram.TtsVoice}
+       */
+      public  static final class TtsVoice extends
+          com.google.protobuf.GeneratedMessageLite<
+              TtsVoice, TtsVoice.Builder> implements
+          // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Info.TtsProgram.TtsVoice)
+          TtsVoiceOrBuilder {
+        private TtsVoice() {
+          name_ = "";
+          languages_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+          description_ = "";
+          version_ = "";
+          speakers_ = emptyProtobufList();
+        }
+        public interface TtsVoiceSpeakerOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker)
+            com.google.protobuf.MessageLiteOrBuilder {
+
+          /**
+           * <code>string name = 1;</code>
+           * @return The name.
+           */
+          java.lang.String getName();
+          /**
+           * <code>string name = 1;</code>
+           * @return The bytes for name.
+           */
+          com.google.protobuf.ByteString
+              getNameBytes();
+        }
+        /**
+         * Protobuf type {@code hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker}
+         */
+        public  static final class TtsVoiceSpeaker extends
+            com.google.protobuf.GeneratedMessageLite<
+                TtsVoiceSpeaker, TtsVoiceSpeaker.Builder> implements
+            // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker)
+            TtsVoiceSpeakerOrBuilder {
+          private TtsVoiceSpeaker() {
+            name_ = "";
+          }
+          public static final int NAME_FIELD_NUMBER = 1;
+          private java.lang.String name_;
+          /**
+           * <code>string name = 1;</code>
+           * @return The name.
+           */
+          @java.lang.Override
+          public java.lang.String getName() {
+            return name_;
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @return The bytes for name.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getNameBytes() {
+            return com.google.protobuf.ByteString.copyFromUtf8(name_);
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @param value The name to set.
+           */
+          private void setName(
+              java.lang.String value) {
+            java.lang.Class<?> valueClass = value.getClass();
+  
+            name_ = value;
+          }
+          /**
+           * <code>string name = 1;</code>
+           */
+          private void clearName() {
+
+            name_ = getDefaultInstance().getName();
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @param value The bytes for name to set.
+           */
+          private void setNameBytes(
+              com.google.protobuf.ByteString value) {
+            checkByteStringIsUtf8(value);
+            name_ = value.toStringUtf8();
+
+          }
+
+          public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker parseFrom(
+              java.nio.ByteBuffer data)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                DEFAULT_INSTANCE, data);
+          }
+          public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker parseFrom(
+              java.nio.ByteBuffer data,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                DEFAULT_INSTANCE, data, extensionRegistry);
+          }
+          public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker parseFrom(
+              com.google.protobuf.ByteString data)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                DEFAULT_INSTANCE, data);
+          }
+          public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker parseFrom(
+              com.google.protobuf.ByteString data,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                DEFAULT_INSTANCE, data, extensionRegistry);
+          }
+          public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker parseFrom(byte[] data)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                DEFAULT_INSTANCE, data);
+          }
+          public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker parseFrom(
+              byte[] data,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                DEFAULT_INSTANCE, data, extensionRegistry);
+          }
+          public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker parseFrom(java.io.InputStream input)
+              throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                DEFAULT_INSTANCE, input);
+          }
+          public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker parseFrom(
+              java.io.InputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                DEFAULT_INSTANCE, input, extensionRegistry);
+          }
+          public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker parseDelimitedFrom(java.io.InputStream input)
+              throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+          }
+          public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker parseDelimitedFrom(
+              java.io.InputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+          }
+          public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker parseFrom(
+              com.google.protobuf.CodedInputStream input)
+              throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                DEFAULT_INSTANCE, input);
+          }
+          public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker parseFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                DEFAULT_INSTANCE, input, extensionRegistry);
+          }
+
+          public static Builder newBuilder() {
+            return (Builder) DEFAULT_INSTANCE.createBuilder();
+          }
+          public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker prototype) {
+            return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+          }
+
+          /**
+           * Protobuf type {@code hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker}
+           */
+          public static final class Builder extends
+              com.google.protobuf.GeneratedMessageLite.Builder<
+                com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker, Builder> implements
+              // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker)
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeakerOrBuilder {
+            // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker.newBuilder()
+            private Builder() {
+              super(DEFAULT_INSTANCE);
+            }
+
+
+            /**
+             * <code>string name = 1;</code>
+             * @return The name.
+             */
+            @java.lang.Override
+            public java.lang.String getName() {
+              return instance.getName();
+            }
+            /**
+             * <code>string name = 1;</code>
+             * @return The bytes for name.
+             */
+            @java.lang.Override
+            public com.google.protobuf.ByteString
+                getNameBytes() {
+              return instance.getNameBytes();
+            }
+            /**
+             * <code>string name = 1;</code>
+             * @param value The name to set.
+             * @return This builder for chaining.
+             */
+            public Builder setName(
+                java.lang.String value) {
+              copyOnWrite();
+              instance.setName(value);
+              return this;
+            }
+            /**
+             * <code>string name = 1;</code>
+             * @return This builder for chaining.
+             */
+            public Builder clearName() {
+              copyOnWrite();
+              instance.clearName();
+              return this;
+            }
+            /**
+             * <code>string name = 1;</code>
+             * @param value The bytes for name to set.
+             * @return This builder for chaining.
+             */
+            public Builder setNameBytes(
+                com.google.protobuf.ByteString value) {
+              copyOnWrite();
+              instance.setNameBytes(value);
+              return this;
+            }
+
+            // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker)
+          }
+          @java.lang.Override
+          @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+          protected final java.lang.Object dynamicMethod(
+              com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+              java.lang.Object arg0, java.lang.Object arg1) {
+            switch (method) {
+              case NEW_MUTABLE_INSTANCE: {
+                return new com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker();
+              }
+              case NEW_BUILDER: {
+                return new Builder();
+              }
+              case BUILD_MESSAGE_INFO: {
+                  java.lang.Object[] objects = new java.lang.Object[] {
+                    "name_",
+                  };
+                  java.lang.String info =
+                      "\u0000\u0001\u0000\u0000\u0001\u0001\u0001\u0000\u0000\u0000\u0001\u0208";
+                  return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+              }
+              // fall through
+              case GET_DEFAULT_INSTANCE: {
+                return DEFAULT_INSTANCE;
+              }
+              case GET_PARSER: {
+                com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker> parser = PARSER;
+                if (parser == null) {
+                  synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker.class) {
+                    parser = PARSER;
+                    if (parser == null) {
+                      parser =
+                          new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker>(
+                              DEFAULT_INSTANCE);
+                      PARSER = parser;
+                    }
+                  }
+                }
+                return parser;
+            }
+            case GET_MEMOIZED_IS_INITIALIZED: {
+              return (byte) 1;
+            }
+            case SET_MEMOIZED_IS_INITIALIZED: {
+              return null;
+            }
+            }
+            throw new UnsupportedOperationException();
+          }
+
+
+          // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker)
+          private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker DEFAULT_INSTANCE;
+          static {
+            TtsVoiceSpeaker defaultInstance = new TtsVoiceSpeaker();
+            // New instances are implicitly immutable so no need to make
+            // immutable.
+            DEFAULT_INSTANCE = defaultInstance;
+            com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+              TtsVoiceSpeaker.class, defaultInstance);
+          }
+
+          public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+          }
+
+          private static volatile com.google.protobuf.Parser<TtsVoiceSpeaker> PARSER;
+
+          public static com.google.protobuf.Parser<TtsVoiceSpeaker> parser() {
+            return DEFAULT_INSTANCE.getParserForType();
+          }
+        }
+
+        public static final int NAME_FIELD_NUMBER = 1;
+        private java.lang.String name_;
+        /**
+         * <code>string name = 1;</code>
+         * @return The name.
+         */
+        @java.lang.Override
+        public java.lang.String getName() {
+          return name_;
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @return The bytes for name.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getNameBytes() {
+          return com.google.protobuf.ByteString.copyFromUtf8(name_);
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @param value The name to set.
+         */
+        private void setName(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  
+          name_ = value;
+        }
+        /**
+         * <code>string name = 1;</code>
+         */
+        private void clearName() {
+
+          name_ = getDefaultInstance().getName();
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @param value The bytes for name to set.
+         */
+        private void setNameBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          name_ = value.toStringUtf8();
+
+        }
+
+        public static final int LANGUAGES_FIELD_NUMBER = 2;
+        private com.google.protobuf.Internal.ProtobufList<java.lang.String> languages_;
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return A list containing the languages.
+         */
+        @java.lang.Override
+        public java.util.List<java.lang.String> getLanguagesList() {
+          return languages_;
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return The count of languages.
+         */
+        @java.lang.Override
+        public int getLanguagesCount() {
+          return languages_.size();
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the element to return.
+         * @return The languages at the given index.
+         */
+        @java.lang.Override
+        public java.lang.String getLanguages(int index) {
+          return languages_.get(index);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the value to return.
+         * @return The bytes of the languages at the given index.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getLanguagesBytes(int index) {
+          return com.google.protobuf.ByteString.copyFromUtf8(
+              languages_.get(index));
+        }
+        private void ensureLanguagesIsMutable() {
+          com.google.protobuf.Internal.ProtobufList<java.lang.String> tmp =
+              languages_;  if (!tmp.isModifiable()) {
+            languages_ =
+                com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+           }
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index to set the value at.
+         * @param value The languages to set.
+         */
+        private void setLanguages(
+            int index, java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  ensureLanguagesIsMutable();
+          languages_.set(index, value);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param value The languages to add.
+         */
+        private void addLanguages(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  ensureLanguagesIsMutable();
+          languages_.add(value);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param values The languages to add.
+         */
+        private void addAllLanguages(
+            java.lang.Iterable<java.lang.String> values) {
+          ensureLanguagesIsMutable();
+          com.google.protobuf.AbstractMessageLite.addAll(
+              values, languages_);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         */
+        private void clearLanguages() {
+          languages_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param value The bytes of the languages to add.
+         */
+        private void addLanguagesBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          ensureLanguagesIsMutable();
+          languages_.add(value.toStringUtf8());
+        }
+
+        public static final int ATTRIBUTION_FIELD_NUMBER = 3;
+        private com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution attribution_;
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        @java.lang.Override
+        public boolean hasAttribution() {
+          return attribution_ != null;
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        @java.lang.Override
+        public com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getAttribution() {
+          return attribution_ == null ? com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.getDefaultInstance() : attribution_;
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        private void setAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+          value.getClass();
+  attribution_ = value;
+
+          }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        @java.lang.SuppressWarnings({"ReferenceEquality"})
+        private void mergeAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+          value.getClass();
+  if (attribution_ != null &&
+              attribution_ != com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.getDefaultInstance()) {
+            attribution_ =
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.newBuilder(attribution_).mergeFrom(value).buildPartial();
+          } else {
+            attribution_ = value;
+          }
+
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        private void clearAttribution() {  attribution_ = null;
+
+        }
+
+        public static final int INSTALLED_FIELD_NUMBER = 4;
+        private boolean installed_;
+        /**
+         * <code>bool installed = 4;</code>
+         * @return The installed.
+         */
+        @java.lang.Override
+        public boolean getInstalled() {
+          return installed_;
+        }
+        /**
+         * <code>bool installed = 4;</code>
+         * @param value The installed to set.
+         */
+        private void setInstalled(boolean value) {
+          
+          installed_ = value;
+        }
+        /**
+         * <code>bool installed = 4;</code>
+         */
+        private void clearInstalled() {
+
+          installed_ = false;
+        }
+
+        public static final int DESCRIPTION_FIELD_NUMBER = 5;
+        private java.lang.String description_;
+        /**
+         * <code>string description = 5;</code>
+         * @return The description.
+         */
+        @java.lang.Override
+        public java.lang.String getDescription() {
+          return description_;
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @return The bytes for description.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getDescriptionBytes() {
+          return com.google.protobuf.ByteString.copyFromUtf8(description_);
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @param value The description to set.
+         */
+        private void setDescription(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  
+          description_ = value;
+        }
+        /**
+         * <code>string description = 5;</code>
+         */
+        private void clearDescription() {
+
+          description_ = getDefaultInstance().getDescription();
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @param value The bytes for description to set.
+         */
+        private void setDescriptionBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          description_ = value.toStringUtf8();
+
+        }
+
+        public static final int VERSION_FIELD_NUMBER = 6;
+        private java.lang.String version_;
+        /**
+         * <code>string version = 6;</code>
+         * @return The version.
+         */
+        @java.lang.Override
+        public java.lang.String getVersion() {
+          return version_;
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @return The bytes for version.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getVersionBytes() {
+          return com.google.protobuf.ByteString.copyFromUtf8(version_);
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @param value The version to set.
+         */
+        private void setVersion(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  
+          version_ = value;
+        }
+        /**
+         * <code>string version = 6;</code>
+         */
+        private void clearVersion() {
+
+          version_ = getDefaultInstance().getVersion();
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @param value The bytes for version to set.
+         */
+        private void setVersionBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          version_ = value.toStringUtf8();
+
+        }
+
+        public static final int SPEAKERS_FIELD_NUMBER = 7;
+        private com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker> speakers_;
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+         */
+        @java.lang.Override
+        public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker> getSpeakersList() {
+          return speakers_;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+         */
+        public java.util.List<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeakerOrBuilder> 
+            getSpeakersOrBuilderList() {
+          return speakers_;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+         */
+        @java.lang.Override
+        public int getSpeakersCount() {
+          return speakers_.size();
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+         */
+        @java.lang.Override
+        public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker getSpeakers(int index) {
+          return speakers_.get(index);
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+         */
+        public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeakerOrBuilder getSpeakersOrBuilder(
+            int index) {
+          return speakers_.get(index);
+        }
+        private void ensureSpeakersIsMutable() {
+          com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker> tmp = speakers_;
+          if (!tmp.isModifiable()) {
+            speakers_ =
+                com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+           }
+        }
+
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+         */
+        private void setSpeakers(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker value) {
+          value.getClass();
+  ensureSpeakersIsMutable();
+          speakers_.set(index, value);
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+         */
+        private void addSpeakers(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker value) {
+          value.getClass();
+  ensureSpeakersIsMutable();
+          speakers_.add(value);
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+         */
+        private void addSpeakers(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker value) {
+          value.getClass();
+  ensureSpeakersIsMutable();
+          speakers_.add(index, value);
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+         */
+        private void addAllSpeakers(
+            java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker> values) {
+          ensureSpeakersIsMutable();
+          com.google.protobuf.AbstractMessageLite.addAll(
+              values, speakers_);
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+         */
+        private void clearSpeakers() {
+          speakers_ = emptyProtobufList();
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+         */
+        private void removeSpeakers(int index) {
+          ensureSpeakersIsMutable();
+          speakers_.remove(index);
+        }
+
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+          return (Builder) DEFAULT_INSTANCE.createBuilder();
+        }
+        public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice prototype) {
+          return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+        }
+
+        /**
+         * Protobuf type {@code hassmic.WyomingEvent.Info.TtsProgram.TtsVoice}
+         */
+        public static final class Builder extends
+            com.google.protobuf.GeneratedMessageLite.Builder<
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice, Builder> implements
+            // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Info.TtsProgram.TtsVoice)
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoiceOrBuilder {
+          // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.newBuilder()
+          private Builder() {
+            super(DEFAULT_INSTANCE);
+          }
+
+
+          /**
+           * <code>string name = 1;</code>
+           * @return The name.
+           */
+          @java.lang.Override
+          public java.lang.String getName() {
+            return instance.getName();
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @return The bytes for name.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getNameBytes() {
+            return instance.getNameBytes();
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @param value The name to set.
+           * @return This builder for chaining.
+           */
+          public Builder setName(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.setName(value);
+            return this;
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearName() {
+            copyOnWrite();
+            instance.clearName();
+            return this;
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @param value The bytes for name to set.
+           * @return This builder for chaining.
+           */
+          public Builder setNameBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.setNameBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @return A list containing the languages.
+           */
+          @java.lang.Override
+          public java.util.List<java.lang.String>
+              getLanguagesList() {
+            return java.util.Collections.unmodifiableList(
+                instance.getLanguagesList());
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @return The count of languages.
+           */
+          @java.lang.Override
+          public int getLanguagesCount() {
+            return instance.getLanguagesCount();
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param index The index of the element to return.
+           * @return The languages at the given index.
+           */
+          @java.lang.Override
+          public java.lang.String getLanguages(int index) {
+            return instance.getLanguages(index);
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param index The index of the value to return.
+           * @return The bytes of the languages at the given index.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getLanguagesBytes(int index) {
+            return instance.getLanguagesBytes(index);
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param index The index to set the value at.
+           * @param value The languages to set.
+           * @return This builder for chaining.
+           */
+          public Builder setLanguages(
+              int index, java.lang.String value) {
+            copyOnWrite();
+            instance.setLanguages(index, value);
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param value The languages to add.
+           * @return This builder for chaining.
+           */
+          public Builder addLanguages(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.addLanguages(value);
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param values The languages to add.
+           * @return This builder for chaining.
+           */
+          public Builder addAllLanguages(
+              java.lang.Iterable<java.lang.String> values) {
+            copyOnWrite();
+            instance.addAllLanguages(values);
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearLanguages() {
+            copyOnWrite();
+            instance.clearLanguages();
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param value The bytes of the languages to add.
+           * @return This builder for chaining.
+           */
+          public Builder addLanguagesBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.addLanguagesBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          @java.lang.Override
+          public boolean hasAttribution() {
+            return instance.hasAttribution();
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          @java.lang.Override
+          public com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getAttribution() {
+            return instance.getAttribution();
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder setAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+            copyOnWrite();
+            instance.setAttribution(value);
+            return this;
+            }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder setAttribution(
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.Builder builderForValue) {
+            copyOnWrite();
+            instance.setAttribution(builderForValue.build());
+            return this;
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder mergeAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+            copyOnWrite();
+            instance.mergeAttribution(value);
+            return this;
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder clearAttribution() {  copyOnWrite();
+            instance.clearAttribution();
+            return this;
+          }
+
+          /**
+           * <code>bool installed = 4;</code>
+           * @return The installed.
+           */
+          @java.lang.Override
+          public boolean getInstalled() {
+            return instance.getInstalled();
+          }
+          /**
+           * <code>bool installed = 4;</code>
+           * @param value The installed to set.
+           * @return This builder for chaining.
+           */
+          public Builder setInstalled(boolean value) {
+            copyOnWrite();
+            instance.setInstalled(value);
+            return this;
+          }
+          /**
+           * <code>bool installed = 4;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearInstalled() {
+            copyOnWrite();
+            instance.clearInstalled();
+            return this;
+          }
+
+          /**
+           * <code>string description = 5;</code>
+           * @return The description.
+           */
+          @java.lang.Override
+          public java.lang.String getDescription() {
+            return instance.getDescription();
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @return The bytes for description.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getDescriptionBytes() {
+            return instance.getDescriptionBytes();
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @param value The description to set.
+           * @return This builder for chaining.
+           */
+          public Builder setDescription(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.setDescription(value);
+            return this;
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearDescription() {
+            copyOnWrite();
+            instance.clearDescription();
+            return this;
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @param value The bytes for description to set.
+           * @return This builder for chaining.
+           */
+          public Builder setDescriptionBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.setDescriptionBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>string version = 6;</code>
+           * @return The version.
+           */
+          @java.lang.Override
+          public java.lang.String getVersion() {
+            return instance.getVersion();
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @return The bytes for version.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getVersionBytes() {
+            return instance.getVersionBytes();
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @param value The version to set.
+           * @return This builder for chaining.
+           */
+          public Builder setVersion(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.setVersion(value);
+            return this;
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearVersion() {
+            copyOnWrite();
+            instance.clearVersion();
+            return this;
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @param value The bytes for version to set.
+           * @return This builder for chaining.
+           */
+          public Builder setVersionBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.setVersionBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+           */
+          @java.lang.Override
+          public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker> getSpeakersList() {
+            return java.util.Collections.unmodifiableList(
+                instance.getSpeakersList());
+          }
+          /**
+           * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+           */
+          @java.lang.Override
+          public int getSpeakersCount() {
+            return instance.getSpeakersCount();
+          }/**
+           * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+           */
+          @java.lang.Override
+          public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker getSpeakers(int index) {
+            return instance.getSpeakers(index);
+          }
+          /**
+           * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+           */
+          public Builder setSpeakers(
+              int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker value) {
+            copyOnWrite();
+            instance.setSpeakers(index, value);
+            return this;
+          }
+          /**
+           * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+           */
+          public Builder setSpeakers(
+              int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker.Builder builderForValue) {
+            copyOnWrite();
+            instance.setSpeakers(index,
+                builderForValue.build());
+            return this;
+          }
+          /**
+           * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+           */
+          public Builder addSpeakers(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker value) {
+            copyOnWrite();
+            instance.addSpeakers(value);
+            return this;
+          }
+          /**
+           * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+           */
+          public Builder addSpeakers(
+              int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker value) {
+            copyOnWrite();
+            instance.addSpeakers(index, value);
+            return this;
+          }
+          /**
+           * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+           */
+          public Builder addSpeakers(
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker.Builder builderForValue) {
+            copyOnWrite();
+            instance.addSpeakers(builderForValue.build());
+            return this;
+          }
+          /**
+           * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+           */
+          public Builder addSpeakers(
+              int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker.Builder builderForValue) {
+            copyOnWrite();
+            instance.addSpeakers(index,
+                builderForValue.build());
+            return this;
+          }
+          /**
+           * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+           */
+          public Builder addAllSpeakers(
+              java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker> values) {
+            copyOnWrite();
+            instance.addAllSpeakers(values);
+            return this;
+          }
+          /**
+           * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+           */
+          public Builder clearSpeakers() {
+            copyOnWrite();
+            instance.clearSpeakers();
+            return this;
+          }
+          /**
+           * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker speakers = 7;</code>
+           */
+          public Builder removeSpeakers(int index) {
+            copyOnWrite();
+            instance.removeSpeakers(index);
+            return this;
+          }
+
+          // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Info.TtsProgram.TtsVoice)
+        }
+        @java.lang.Override
+        @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+        protected final java.lang.Object dynamicMethod(
+            com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+            java.lang.Object arg0, java.lang.Object arg1) {
+          switch (method) {
+            case NEW_MUTABLE_INSTANCE: {
+              return new com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice();
+            }
+            case NEW_BUILDER: {
+              return new Builder();
+            }
+            case BUILD_MESSAGE_INFO: {
+                java.lang.Object[] objects = new java.lang.Object[] {
+                  "name_",
+                  "languages_",
+                  "attribution_",
+                  "installed_",
+                  "description_",
+                  "version_",
+                  "speakers_",
+                  com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.TtsVoiceSpeaker.class,
+                };
+                java.lang.String info =
+                    "\u0000\u0007\u0000\u0000\u0001\u0007\u0007\u0000\u0002\u0000\u0001\u0208\u0002\u021a" +
+                    "\u0003\t\u0004\u0007\u0005\u0208\u0006\u0208\u0007\u001b";
+                return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+            }
+            // fall through
+            case GET_DEFAULT_INSTANCE: {
+              return DEFAULT_INSTANCE;
+            }
+            case GET_PARSER: {
+              com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice> parser = PARSER;
+              if (parser == null) {
+                synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.class) {
+                  parser = PARSER;
+                  if (parser == null) {
+                    parser =
+                        new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice>(
+                            DEFAULT_INSTANCE);
+                    PARSER = parser;
+                  }
+                }
+              }
+              return parser;
+          }
+          case GET_MEMOIZED_IS_INITIALIZED: {
+            return (byte) 1;
+          }
+          case SET_MEMOIZED_IS_INITIALIZED: {
+            return null;
+          }
+          }
+          throw new UnsupportedOperationException();
+        }
+
+
+        // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Info.TtsProgram.TtsVoice)
+        private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice DEFAULT_INSTANCE;
+        static {
+          TtsVoice defaultInstance = new TtsVoice();
+          // New instances are implicitly immutable so no need to make
+          // immutable.
+          DEFAULT_INSTANCE = defaultInstance;
+          com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+            TtsVoice.class, defaultInstance);
+        }
+
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice getDefaultInstance() {
+          return DEFAULT_INSTANCE;
+        }
+
+        private static volatile com.google.protobuf.Parser<TtsVoice> PARSER;
+
+        public static com.google.protobuf.Parser<TtsVoice> parser() {
+          return DEFAULT_INSTANCE.getParserForType();
+        }
+      }
+
+      public static final int VOICES_FIELD_NUMBER = 1;
+      private com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice> voices_;
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+       */
+      @java.lang.Override
+      public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice> getVoicesList() {
+        return voices_;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+       */
+      public java.util.List<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoiceOrBuilder> 
+          getVoicesOrBuilderList() {
+        return voices_;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+       */
+      @java.lang.Override
+      public int getVoicesCount() {
+        return voices_.size();
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+       */
+      @java.lang.Override
+      public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice getVoices(int index) {
+        return voices_.get(index);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+       */
+      public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoiceOrBuilder getVoicesOrBuilder(
+          int index) {
+        return voices_.get(index);
+      }
+      private void ensureVoicesIsMutable() {
+        com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice> tmp = voices_;
+        if (!tmp.isModifiable()) {
+          voices_ =
+              com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+         }
+      }
+
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+       */
+      private void setVoices(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice value) {
+        value.getClass();
+  ensureVoicesIsMutable();
+        voices_.set(index, value);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+       */
+      private void addVoices(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice value) {
+        value.getClass();
+  ensureVoicesIsMutable();
+        voices_.add(value);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+       */
+      private void addVoices(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice value) {
+        value.getClass();
+  ensureVoicesIsMutable();
+        voices_.add(index, value);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+       */
+      private void addAllVoices(
+          java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice> values) {
+        ensureVoicesIsMutable();
+        com.google.protobuf.AbstractMessageLite.addAll(
+            values, voices_);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+       */
+      private void clearVoices() {
+        voices_ = emptyProtobufList();
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+       */
+      private void removeVoices(int index) {
+        ensureVoicesIsMutable();
+        voices_.remove(index);
+      }
+
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+
+      public static Builder newBuilder() {
+        return (Builder) DEFAULT_INSTANCE.createBuilder();
+      }
+      public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram prototype) {
+        return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+      }
+
+      /**
+       * Protobuf type {@code hassmic.WyomingEvent.Info.TtsProgram}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageLite.Builder<
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram, Builder> implements
+          // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Info.TtsProgram)
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgramOrBuilder {
+        // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.newBuilder()
+        private Builder() {
+          super(DEFAULT_INSTANCE);
+        }
+
+
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+         */
+        @java.lang.Override
+        public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice> getVoicesList() {
+          return java.util.Collections.unmodifiableList(
+              instance.getVoicesList());
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+         */
+        @java.lang.Override
+        public int getVoicesCount() {
+          return instance.getVoicesCount();
+        }/**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+         */
+        @java.lang.Override
+        public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice getVoices(int index) {
+          return instance.getVoices(index);
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+         */
+        public Builder setVoices(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice value) {
+          copyOnWrite();
+          instance.setVoices(index, value);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+         */
+        public Builder setVoices(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.Builder builderForValue) {
+          copyOnWrite();
+          instance.setVoices(index,
+              builderForValue.build());
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+         */
+        public Builder addVoices(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice value) {
+          copyOnWrite();
+          instance.addVoices(value);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+         */
+        public Builder addVoices(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice value) {
+          copyOnWrite();
+          instance.addVoices(index, value);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+         */
+        public Builder addVoices(
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.Builder builderForValue) {
+          copyOnWrite();
+          instance.addVoices(builderForValue.build());
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+         */
+        public Builder addVoices(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.Builder builderForValue) {
+          copyOnWrite();
+          instance.addVoices(index,
+              builderForValue.build());
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+         */
+        public Builder addAllVoices(
+            java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice> values) {
+          copyOnWrite();
+          instance.addAllVoices(values);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+         */
+        public Builder clearVoices() {
+          copyOnWrite();
+          instance.clearVoices();
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram.TtsVoice voices = 1;</code>
+         */
+        public Builder removeVoices(int index) {
+          copyOnWrite();
+          instance.removeVoices(index);
+          return this;
+        }
+
+        // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Info.TtsProgram)
+      }
+      @java.lang.Override
+      @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+      protected final java.lang.Object dynamicMethod(
+          com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+          java.lang.Object arg0, java.lang.Object arg1) {
+        switch (method) {
+          case NEW_MUTABLE_INSTANCE: {
+            return new com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram();
+          }
+          case NEW_BUILDER: {
+            return new Builder();
+          }
+          case BUILD_MESSAGE_INFO: {
+              java.lang.Object[] objects = new java.lang.Object[] {
+                "voices_",
+                com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.TtsVoice.class,
+              };
+              java.lang.String info =
+                  "\u0000\u0001\u0000\u0000\u0001\u0001\u0001\u0000\u0001\u0000\u0001\u001b";
+              return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+          }
+          // fall through
+          case GET_DEFAULT_INSTANCE: {
+            return DEFAULT_INSTANCE;
+          }
+          case GET_PARSER: {
+            com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram> parser = PARSER;
+            if (parser == null) {
+              synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.class) {
+                parser = PARSER;
+                if (parser == null) {
+                  parser =
+                      new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram>(
+                          DEFAULT_INSTANCE);
+                  PARSER = parser;
+                }
+              }
+            }
+            return parser;
+        }
+        case GET_MEMOIZED_IS_INITIALIZED: {
+          return (byte) 1;
+        }
+        case SET_MEMOIZED_IS_INITIALIZED: {
+          return null;
+        }
+        }
+        throw new UnsupportedOperationException();
+      }
+
+
+      // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Info.TtsProgram)
+      private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram DEFAULT_INSTANCE;
+      static {
+        TtsProgram defaultInstance = new TtsProgram();
+        // New instances are implicitly immutable so no need to make
+        // immutable.
+        DEFAULT_INSTANCE = defaultInstance;
+        com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+          TtsProgram.class, defaultInstance);
+      }
+
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static volatile com.google.protobuf.Parser<TtsProgram> PARSER;
+
+      public static com.google.protobuf.Parser<TtsProgram> parser() {
+        return DEFAULT_INSTANCE.getParserForType();
+      }
+    }
+
+    public interface HandleProgramOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Info.HandleProgram)
+        com.google.protobuf.MessageLiteOrBuilder {
+
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+       */
+      java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel> 
+          getModelsList();
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+       */
+      com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel getModels(int index);
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+       */
+      int getModelsCount();
+    }
+    /**
+     * Protobuf type {@code hassmic.WyomingEvent.Info.HandleProgram}
+     */
+    public  static final class HandleProgram extends
+        com.google.protobuf.GeneratedMessageLite<
+            HandleProgram, HandleProgram.Builder> implements
+        // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Info.HandleProgram)
+        HandleProgramOrBuilder {
+      private HandleProgram() {
+        models_ = emptyProtobufList();
+      }
+      public interface HandleModelOrBuilder extends
+          // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Info.HandleProgram.HandleModel)
+          com.google.protobuf.MessageLiteOrBuilder {
+
+        /**
+         * <code>string name = 1;</code>
+         * @return The name.
+         */
+        java.lang.String getName();
+        /**
+         * <code>string name = 1;</code>
+         * @return The bytes for name.
+         */
+        com.google.protobuf.ByteString
+            getNameBytes();
+
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return A list containing the languages.
+         */
+        java.util.List<java.lang.String>
+            getLanguagesList();
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return The count of languages.
+         */
+        int getLanguagesCount();
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the element to return.
+         * @return The languages at the given index.
+         */
+        java.lang.String getLanguages(int index);
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the element to return.
+         * @return The languages at the given index.
+         */
+        com.google.protobuf.ByteString
+            getLanguagesBytes(int index);
+
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         * @return Whether the attribution field is set.
+         */
+        boolean hasAttribution();
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         * @return The attribution.
+         */
+        com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getAttribution();
+
+        /**
+         * <code>bool installed = 4;</code>
+         * @return The installed.
+         */
+        boolean getInstalled();
+
+        /**
+         * <code>string description = 5;</code>
+         * @return The description.
+         */
+        java.lang.String getDescription();
+        /**
+         * <code>string description = 5;</code>
+         * @return The bytes for description.
+         */
+        com.google.protobuf.ByteString
+            getDescriptionBytes();
+
+        /**
+         * <code>string version = 6;</code>
+         * @return The version.
+         */
+        java.lang.String getVersion();
+        /**
+         * <code>string version = 6;</code>
+         * @return The bytes for version.
+         */
+        com.google.protobuf.ByteString
+            getVersionBytes();
+      }
+      /**
+       * Protobuf type {@code hassmic.WyomingEvent.Info.HandleProgram.HandleModel}
+       */
+      public  static final class HandleModel extends
+          com.google.protobuf.GeneratedMessageLite<
+              HandleModel, HandleModel.Builder> implements
+          // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Info.HandleProgram.HandleModel)
+          HandleModelOrBuilder {
+        private HandleModel() {
+          name_ = "";
+          languages_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+          description_ = "";
+          version_ = "";
+        }
+        public static final int NAME_FIELD_NUMBER = 1;
+        private java.lang.String name_;
+        /**
+         * <code>string name = 1;</code>
+         * @return The name.
+         */
+        @java.lang.Override
+        public java.lang.String getName() {
+          return name_;
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @return The bytes for name.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getNameBytes() {
+          return com.google.protobuf.ByteString.copyFromUtf8(name_);
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @param value The name to set.
+         */
+        private void setName(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  
+          name_ = value;
+        }
+        /**
+         * <code>string name = 1;</code>
+         */
+        private void clearName() {
+
+          name_ = getDefaultInstance().getName();
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @param value The bytes for name to set.
+         */
+        private void setNameBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          name_ = value.toStringUtf8();
+
+        }
+
+        public static final int LANGUAGES_FIELD_NUMBER = 2;
+        private com.google.protobuf.Internal.ProtobufList<java.lang.String> languages_;
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return A list containing the languages.
+         */
+        @java.lang.Override
+        public java.util.List<java.lang.String> getLanguagesList() {
+          return languages_;
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return The count of languages.
+         */
+        @java.lang.Override
+        public int getLanguagesCount() {
+          return languages_.size();
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the element to return.
+         * @return The languages at the given index.
+         */
+        @java.lang.Override
+        public java.lang.String getLanguages(int index) {
+          return languages_.get(index);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the value to return.
+         * @return The bytes of the languages at the given index.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getLanguagesBytes(int index) {
+          return com.google.protobuf.ByteString.copyFromUtf8(
+              languages_.get(index));
+        }
+        private void ensureLanguagesIsMutable() {
+          com.google.protobuf.Internal.ProtobufList<java.lang.String> tmp =
+              languages_;  if (!tmp.isModifiable()) {
+            languages_ =
+                com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+           }
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index to set the value at.
+         * @param value The languages to set.
+         */
+        private void setLanguages(
+            int index, java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  ensureLanguagesIsMutable();
+          languages_.set(index, value);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param value The languages to add.
+         */
+        private void addLanguages(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  ensureLanguagesIsMutable();
+          languages_.add(value);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param values The languages to add.
+         */
+        private void addAllLanguages(
+            java.lang.Iterable<java.lang.String> values) {
+          ensureLanguagesIsMutable();
+          com.google.protobuf.AbstractMessageLite.addAll(
+              values, languages_);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         */
+        private void clearLanguages() {
+          languages_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param value The bytes of the languages to add.
+         */
+        private void addLanguagesBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          ensureLanguagesIsMutable();
+          languages_.add(value.toStringUtf8());
+        }
+
+        public static final int ATTRIBUTION_FIELD_NUMBER = 3;
+        private com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution attribution_;
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        @java.lang.Override
+        public boolean hasAttribution() {
+          return attribution_ != null;
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        @java.lang.Override
+        public com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getAttribution() {
+          return attribution_ == null ? com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.getDefaultInstance() : attribution_;
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        private void setAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+          value.getClass();
+  attribution_ = value;
+
+          }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        @java.lang.SuppressWarnings({"ReferenceEquality"})
+        private void mergeAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+          value.getClass();
+  if (attribution_ != null &&
+              attribution_ != com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.getDefaultInstance()) {
+            attribution_ =
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.newBuilder(attribution_).mergeFrom(value).buildPartial();
+          } else {
+            attribution_ = value;
+          }
+
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        private void clearAttribution() {  attribution_ = null;
+
+        }
+
+        public static final int INSTALLED_FIELD_NUMBER = 4;
+        private boolean installed_;
+        /**
+         * <code>bool installed = 4;</code>
+         * @return The installed.
+         */
+        @java.lang.Override
+        public boolean getInstalled() {
+          return installed_;
+        }
+        /**
+         * <code>bool installed = 4;</code>
+         * @param value The installed to set.
+         */
+        private void setInstalled(boolean value) {
+          
+          installed_ = value;
+        }
+        /**
+         * <code>bool installed = 4;</code>
+         */
+        private void clearInstalled() {
+
+          installed_ = false;
+        }
+
+        public static final int DESCRIPTION_FIELD_NUMBER = 5;
+        private java.lang.String description_;
+        /**
+         * <code>string description = 5;</code>
+         * @return The description.
+         */
+        @java.lang.Override
+        public java.lang.String getDescription() {
+          return description_;
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @return The bytes for description.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getDescriptionBytes() {
+          return com.google.protobuf.ByteString.copyFromUtf8(description_);
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @param value The description to set.
+         */
+        private void setDescription(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  
+          description_ = value;
+        }
+        /**
+         * <code>string description = 5;</code>
+         */
+        private void clearDescription() {
+
+          description_ = getDefaultInstance().getDescription();
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @param value The bytes for description to set.
+         */
+        private void setDescriptionBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          description_ = value.toStringUtf8();
+
+        }
+
+        public static final int VERSION_FIELD_NUMBER = 6;
+        private java.lang.String version_;
+        /**
+         * <code>string version = 6;</code>
+         * @return The version.
+         */
+        @java.lang.Override
+        public java.lang.String getVersion() {
+          return version_;
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @return The bytes for version.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getVersionBytes() {
+          return com.google.protobuf.ByteString.copyFromUtf8(version_);
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @param value The version to set.
+         */
+        private void setVersion(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  
+          version_ = value;
+        }
+        /**
+         * <code>string version = 6;</code>
+         */
+        private void clearVersion() {
+
+          version_ = getDefaultInstance().getVersion();
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @param value The bytes for version to set.
+         */
+        private void setVersionBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          version_ = value.toStringUtf8();
+
+        }
+
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+          return (Builder) DEFAULT_INSTANCE.createBuilder();
+        }
+        public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel prototype) {
+          return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+        }
+
+        /**
+         * Protobuf type {@code hassmic.WyomingEvent.Info.HandleProgram.HandleModel}
+         */
+        public static final class Builder extends
+            com.google.protobuf.GeneratedMessageLite.Builder<
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel, Builder> implements
+            // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Info.HandleProgram.HandleModel)
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModelOrBuilder {
+          // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel.newBuilder()
+          private Builder() {
+            super(DEFAULT_INSTANCE);
+          }
+
+
+          /**
+           * <code>string name = 1;</code>
+           * @return The name.
+           */
+          @java.lang.Override
+          public java.lang.String getName() {
+            return instance.getName();
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @return The bytes for name.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getNameBytes() {
+            return instance.getNameBytes();
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @param value The name to set.
+           * @return This builder for chaining.
+           */
+          public Builder setName(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.setName(value);
+            return this;
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearName() {
+            copyOnWrite();
+            instance.clearName();
+            return this;
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @param value The bytes for name to set.
+           * @return This builder for chaining.
+           */
+          public Builder setNameBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.setNameBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @return A list containing the languages.
+           */
+          @java.lang.Override
+          public java.util.List<java.lang.String>
+              getLanguagesList() {
+            return java.util.Collections.unmodifiableList(
+                instance.getLanguagesList());
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @return The count of languages.
+           */
+          @java.lang.Override
+          public int getLanguagesCount() {
+            return instance.getLanguagesCount();
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param index The index of the element to return.
+           * @return The languages at the given index.
+           */
+          @java.lang.Override
+          public java.lang.String getLanguages(int index) {
+            return instance.getLanguages(index);
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param index The index of the value to return.
+           * @return The bytes of the languages at the given index.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getLanguagesBytes(int index) {
+            return instance.getLanguagesBytes(index);
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param index The index to set the value at.
+           * @param value The languages to set.
+           * @return This builder for chaining.
+           */
+          public Builder setLanguages(
+              int index, java.lang.String value) {
+            copyOnWrite();
+            instance.setLanguages(index, value);
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param value The languages to add.
+           * @return This builder for chaining.
+           */
+          public Builder addLanguages(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.addLanguages(value);
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param values The languages to add.
+           * @return This builder for chaining.
+           */
+          public Builder addAllLanguages(
+              java.lang.Iterable<java.lang.String> values) {
+            copyOnWrite();
+            instance.addAllLanguages(values);
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearLanguages() {
+            copyOnWrite();
+            instance.clearLanguages();
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param value The bytes of the languages to add.
+           * @return This builder for chaining.
+           */
+          public Builder addLanguagesBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.addLanguagesBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          @java.lang.Override
+          public boolean hasAttribution() {
+            return instance.hasAttribution();
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          @java.lang.Override
+          public com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getAttribution() {
+            return instance.getAttribution();
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder setAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+            copyOnWrite();
+            instance.setAttribution(value);
+            return this;
+            }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder setAttribution(
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.Builder builderForValue) {
+            copyOnWrite();
+            instance.setAttribution(builderForValue.build());
+            return this;
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder mergeAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+            copyOnWrite();
+            instance.mergeAttribution(value);
+            return this;
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder clearAttribution() {  copyOnWrite();
+            instance.clearAttribution();
+            return this;
+          }
+
+          /**
+           * <code>bool installed = 4;</code>
+           * @return The installed.
+           */
+          @java.lang.Override
+          public boolean getInstalled() {
+            return instance.getInstalled();
+          }
+          /**
+           * <code>bool installed = 4;</code>
+           * @param value The installed to set.
+           * @return This builder for chaining.
+           */
+          public Builder setInstalled(boolean value) {
+            copyOnWrite();
+            instance.setInstalled(value);
+            return this;
+          }
+          /**
+           * <code>bool installed = 4;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearInstalled() {
+            copyOnWrite();
+            instance.clearInstalled();
+            return this;
+          }
+
+          /**
+           * <code>string description = 5;</code>
+           * @return The description.
+           */
+          @java.lang.Override
+          public java.lang.String getDescription() {
+            return instance.getDescription();
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @return The bytes for description.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getDescriptionBytes() {
+            return instance.getDescriptionBytes();
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @param value The description to set.
+           * @return This builder for chaining.
+           */
+          public Builder setDescription(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.setDescription(value);
+            return this;
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearDescription() {
+            copyOnWrite();
+            instance.clearDescription();
+            return this;
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @param value The bytes for description to set.
+           * @return This builder for chaining.
+           */
+          public Builder setDescriptionBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.setDescriptionBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>string version = 6;</code>
+           * @return The version.
+           */
+          @java.lang.Override
+          public java.lang.String getVersion() {
+            return instance.getVersion();
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @return The bytes for version.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getVersionBytes() {
+            return instance.getVersionBytes();
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @param value The version to set.
+           * @return This builder for chaining.
+           */
+          public Builder setVersion(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.setVersion(value);
+            return this;
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearVersion() {
+            copyOnWrite();
+            instance.clearVersion();
+            return this;
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @param value The bytes for version to set.
+           * @return This builder for chaining.
+           */
+          public Builder setVersionBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.setVersionBytes(value);
+            return this;
+          }
+
+          // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Info.HandleProgram.HandleModel)
+        }
+        @java.lang.Override
+        @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+        protected final java.lang.Object dynamicMethod(
+            com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+            java.lang.Object arg0, java.lang.Object arg1) {
+          switch (method) {
+            case NEW_MUTABLE_INSTANCE: {
+              return new com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel();
+            }
+            case NEW_BUILDER: {
+              return new Builder();
+            }
+            case BUILD_MESSAGE_INFO: {
+                java.lang.Object[] objects = new java.lang.Object[] {
+                  "name_",
+                  "languages_",
+                  "attribution_",
+                  "installed_",
+                  "description_",
+                  "version_",
+                };
+                java.lang.String info =
+                    "\u0000\u0006\u0000\u0000\u0001\u0006\u0006\u0000\u0001\u0000\u0001\u0208\u0002\u021a" +
+                    "\u0003\t\u0004\u0007\u0005\u0208\u0006\u0208";
+                return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+            }
+            // fall through
+            case GET_DEFAULT_INSTANCE: {
+              return DEFAULT_INSTANCE;
+            }
+            case GET_PARSER: {
+              com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel> parser = PARSER;
+              if (parser == null) {
+                synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel.class) {
+                  parser = PARSER;
+                  if (parser == null) {
+                    parser =
+                        new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel>(
+                            DEFAULT_INSTANCE);
+                    PARSER = parser;
+                  }
+                }
+              }
+              return parser;
+          }
+          case GET_MEMOIZED_IS_INITIALIZED: {
+            return (byte) 1;
+          }
+          case SET_MEMOIZED_IS_INITIALIZED: {
+            return null;
+          }
+          }
+          throw new UnsupportedOperationException();
+        }
+
+
+        // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Info.HandleProgram.HandleModel)
+        private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel DEFAULT_INSTANCE;
+        static {
+          HandleModel defaultInstance = new HandleModel();
+          // New instances are implicitly immutable so no need to make
+          // immutable.
+          DEFAULT_INSTANCE = defaultInstance;
+          com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+            HandleModel.class, defaultInstance);
+        }
+
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel getDefaultInstance() {
+          return DEFAULT_INSTANCE;
+        }
+
+        private static volatile com.google.protobuf.Parser<HandleModel> PARSER;
+
+        public static com.google.protobuf.Parser<HandleModel> parser() {
+          return DEFAULT_INSTANCE.getParserForType();
+        }
+      }
+
+      public static final int MODELS_FIELD_NUMBER = 1;
+      private com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel> models_;
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+       */
+      @java.lang.Override
+      public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel> getModelsList() {
+        return models_;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+       */
+      public java.util.List<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModelOrBuilder> 
+          getModelsOrBuilderList() {
+        return models_;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+       */
+      @java.lang.Override
+      public int getModelsCount() {
+        return models_.size();
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+       */
+      @java.lang.Override
+      public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel getModels(int index) {
+        return models_.get(index);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+       */
+      public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModelOrBuilder getModelsOrBuilder(
+          int index) {
+        return models_.get(index);
+      }
+      private void ensureModelsIsMutable() {
+        com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel> tmp = models_;
+        if (!tmp.isModifiable()) {
+          models_ =
+              com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+         }
+      }
+
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+       */
+      private void setModels(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel value) {
+        value.getClass();
+  ensureModelsIsMutable();
+        models_.set(index, value);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+       */
+      private void addModels(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel value) {
+        value.getClass();
+  ensureModelsIsMutable();
+        models_.add(value);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+       */
+      private void addModels(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel value) {
+        value.getClass();
+  ensureModelsIsMutable();
+        models_.add(index, value);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+       */
+      private void addAllModels(
+          java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel> values) {
+        ensureModelsIsMutable();
+        com.google.protobuf.AbstractMessageLite.addAll(
+            values, models_);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+       */
+      private void clearModels() {
+        models_ = emptyProtobufList();
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+       */
+      private void removeModels(int index) {
+        ensureModelsIsMutable();
+        models_.remove(index);
+      }
+
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+
+      public static Builder newBuilder() {
+        return (Builder) DEFAULT_INSTANCE.createBuilder();
+      }
+      public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram prototype) {
+        return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+      }
+
+      /**
+       * Protobuf type {@code hassmic.WyomingEvent.Info.HandleProgram}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageLite.Builder<
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram, Builder> implements
+          // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Info.HandleProgram)
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgramOrBuilder {
+        // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.newBuilder()
+        private Builder() {
+          super(DEFAULT_INSTANCE);
+        }
+
+
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+         */
+        @java.lang.Override
+        public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel> getModelsList() {
+          return java.util.Collections.unmodifiableList(
+              instance.getModelsList());
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+         */
+        @java.lang.Override
+        public int getModelsCount() {
+          return instance.getModelsCount();
+        }/**
+         * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+         */
+        @java.lang.Override
+        public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel getModels(int index) {
+          return instance.getModels(index);
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+         */
+        public Builder setModels(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel value) {
+          copyOnWrite();
+          instance.setModels(index, value);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+         */
+        public Builder setModels(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel.Builder builderForValue) {
+          copyOnWrite();
+          instance.setModels(index,
+              builderForValue.build());
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+         */
+        public Builder addModels(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel value) {
+          copyOnWrite();
+          instance.addModels(value);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+         */
+        public Builder addModels(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel value) {
+          copyOnWrite();
+          instance.addModels(index, value);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+         */
+        public Builder addModels(
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel.Builder builderForValue) {
+          copyOnWrite();
+          instance.addModels(builderForValue.build());
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+         */
+        public Builder addModels(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel.Builder builderForValue) {
+          copyOnWrite();
+          instance.addModels(index,
+              builderForValue.build());
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+         */
+        public Builder addAllModels(
+            java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel> values) {
+          copyOnWrite();
+          instance.addAllModels(values);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+         */
+        public Builder clearModels() {
+          copyOnWrite();
+          instance.clearModels();
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram.HandleModel models = 1;</code>
+         */
+        public Builder removeModels(int index) {
+          copyOnWrite();
+          instance.removeModels(index);
+          return this;
+        }
+
+        // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Info.HandleProgram)
+      }
+      @java.lang.Override
+      @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+      protected final java.lang.Object dynamicMethod(
+          com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+          java.lang.Object arg0, java.lang.Object arg1) {
+        switch (method) {
+          case NEW_MUTABLE_INSTANCE: {
+            return new com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram();
+          }
+          case NEW_BUILDER: {
+            return new Builder();
+          }
+          case BUILD_MESSAGE_INFO: {
+              java.lang.Object[] objects = new java.lang.Object[] {
+                "models_",
+                com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.HandleModel.class,
+              };
+              java.lang.String info =
+                  "\u0000\u0001\u0000\u0000\u0001\u0001\u0001\u0000\u0001\u0000\u0001\u001b";
+              return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+          }
+          // fall through
+          case GET_DEFAULT_INSTANCE: {
+            return DEFAULT_INSTANCE;
+          }
+          case GET_PARSER: {
+            com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram> parser = PARSER;
+            if (parser == null) {
+              synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.class) {
+                parser = PARSER;
+                if (parser == null) {
+                  parser =
+                      new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram>(
+                          DEFAULT_INSTANCE);
+                  PARSER = parser;
+                }
+              }
+            }
+            return parser;
+        }
+        case GET_MEMOIZED_IS_INITIALIZED: {
+          return (byte) 1;
+        }
+        case SET_MEMOIZED_IS_INITIALIZED: {
+          return null;
+        }
+        }
+        throw new UnsupportedOperationException();
+      }
+
+
+      // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Info.HandleProgram)
+      private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram DEFAULT_INSTANCE;
+      static {
+        HandleProgram defaultInstance = new HandleProgram();
+        // New instances are implicitly immutable so no need to make
+        // immutable.
+        DEFAULT_INSTANCE = defaultInstance;
+        com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+          HandleProgram.class, defaultInstance);
+      }
+
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static volatile com.google.protobuf.Parser<HandleProgram> PARSER;
+
+      public static com.google.protobuf.Parser<HandleProgram> parser() {
+        return DEFAULT_INSTANCE.getParserForType();
+      }
+    }
+
+    public interface IntentProgramOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Info.IntentProgram)
+        com.google.protobuf.MessageLiteOrBuilder {
+
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+       */
+      java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel> 
+          getModelsList();
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+       */
+      com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel getModels(int index);
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+       */
+      int getModelsCount();
+    }
+    /**
+     * Protobuf type {@code hassmic.WyomingEvent.Info.IntentProgram}
+     */
+    public  static final class IntentProgram extends
+        com.google.protobuf.GeneratedMessageLite<
+            IntentProgram, IntentProgram.Builder> implements
+        // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Info.IntentProgram)
+        IntentProgramOrBuilder {
+      private IntentProgram() {
+        models_ = emptyProtobufList();
+      }
+      public interface IntentModelOrBuilder extends
+          // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Info.IntentProgram.IntentModel)
+          com.google.protobuf.MessageLiteOrBuilder {
+
+        /**
+         * <code>string name = 1;</code>
+         * @return The name.
+         */
+        java.lang.String getName();
+        /**
+         * <code>string name = 1;</code>
+         * @return The bytes for name.
+         */
+        com.google.protobuf.ByteString
+            getNameBytes();
+
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return A list containing the languages.
+         */
+        java.util.List<java.lang.String>
+            getLanguagesList();
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return The count of languages.
+         */
+        int getLanguagesCount();
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the element to return.
+         * @return The languages at the given index.
+         */
+        java.lang.String getLanguages(int index);
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the element to return.
+         * @return The languages at the given index.
+         */
+        com.google.protobuf.ByteString
+            getLanguagesBytes(int index);
+
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         * @return Whether the attribution field is set.
+         */
+        boolean hasAttribution();
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         * @return The attribution.
+         */
+        com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getAttribution();
+
+        /**
+         * <code>bool installed = 4;</code>
+         * @return The installed.
+         */
+        boolean getInstalled();
+
+        /**
+         * <code>string description = 5;</code>
+         * @return The description.
+         */
+        java.lang.String getDescription();
+        /**
+         * <code>string description = 5;</code>
+         * @return The bytes for description.
+         */
+        com.google.protobuf.ByteString
+            getDescriptionBytes();
+
+        /**
+         * <code>string version = 6;</code>
+         * @return The version.
+         */
+        java.lang.String getVersion();
+        /**
+         * <code>string version = 6;</code>
+         * @return The bytes for version.
+         */
+        com.google.protobuf.ByteString
+            getVersionBytes();
+      }
+      /**
+       * Protobuf type {@code hassmic.WyomingEvent.Info.IntentProgram.IntentModel}
+       */
+      public  static final class IntentModel extends
+          com.google.protobuf.GeneratedMessageLite<
+              IntentModel, IntentModel.Builder> implements
+          // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Info.IntentProgram.IntentModel)
+          IntentModelOrBuilder {
+        private IntentModel() {
+          name_ = "";
+          languages_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+          description_ = "";
+          version_ = "";
+        }
+        public static final int NAME_FIELD_NUMBER = 1;
+        private java.lang.String name_;
+        /**
+         * <code>string name = 1;</code>
+         * @return The name.
+         */
+        @java.lang.Override
+        public java.lang.String getName() {
+          return name_;
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @return The bytes for name.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getNameBytes() {
+          return com.google.protobuf.ByteString.copyFromUtf8(name_);
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @param value The name to set.
+         */
+        private void setName(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  
+          name_ = value;
+        }
+        /**
+         * <code>string name = 1;</code>
+         */
+        private void clearName() {
+
+          name_ = getDefaultInstance().getName();
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @param value The bytes for name to set.
+         */
+        private void setNameBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          name_ = value.toStringUtf8();
+
+        }
+
+        public static final int LANGUAGES_FIELD_NUMBER = 2;
+        private com.google.protobuf.Internal.ProtobufList<java.lang.String> languages_;
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return A list containing the languages.
+         */
+        @java.lang.Override
+        public java.util.List<java.lang.String> getLanguagesList() {
+          return languages_;
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return The count of languages.
+         */
+        @java.lang.Override
+        public int getLanguagesCount() {
+          return languages_.size();
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the element to return.
+         * @return The languages at the given index.
+         */
+        @java.lang.Override
+        public java.lang.String getLanguages(int index) {
+          return languages_.get(index);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the value to return.
+         * @return The bytes of the languages at the given index.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getLanguagesBytes(int index) {
+          return com.google.protobuf.ByteString.copyFromUtf8(
+              languages_.get(index));
+        }
+        private void ensureLanguagesIsMutable() {
+          com.google.protobuf.Internal.ProtobufList<java.lang.String> tmp =
+              languages_;  if (!tmp.isModifiable()) {
+            languages_ =
+                com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+           }
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index to set the value at.
+         * @param value The languages to set.
+         */
+        private void setLanguages(
+            int index, java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  ensureLanguagesIsMutable();
+          languages_.set(index, value);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param value The languages to add.
+         */
+        private void addLanguages(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  ensureLanguagesIsMutable();
+          languages_.add(value);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param values The languages to add.
+         */
+        private void addAllLanguages(
+            java.lang.Iterable<java.lang.String> values) {
+          ensureLanguagesIsMutable();
+          com.google.protobuf.AbstractMessageLite.addAll(
+              values, languages_);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         */
+        private void clearLanguages() {
+          languages_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param value The bytes of the languages to add.
+         */
+        private void addLanguagesBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          ensureLanguagesIsMutable();
+          languages_.add(value.toStringUtf8());
+        }
+
+        public static final int ATTRIBUTION_FIELD_NUMBER = 3;
+        private com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution attribution_;
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        @java.lang.Override
+        public boolean hasAttribution() {
+          return attribution_ != null;
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        @java.lang.Override
+        public com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getAttribution() {
+          return attribution_ == null ? com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.getDefaultInstance() : attribution_;
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        private void setAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+          value.getClass();
+  attribution_ = value;
+
+          }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        @java.lang.SuppressWarnings({"ReferenceEquality"})
+        private void mergeAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+          value.getClass();
+  if (attribution_ != null &&
+              attribution_ != com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.getDefaultInstance()) {
+            attribution_ =
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.newBuilder(attribution_).mergeFrom(value).buildPartial();
+          } else {
+            attribution_ = value;
+          }
+
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        private void clearAttribution() {  attribution_ = null;
+
+        }
+
+        public static final int INSTALLED_FIELD_NUMBER = 4;
+        private boolean installed_;
+        /**
+         * <code>bool installed = 4;</code>
+         * @return The installed.
+         */
+        @java.lang.Override
+        public boolean getInstalled() {
+          return installed_;
+        }
+        /**
+         * <code>bool installed = 4;</code>
+         * @param value The installed to set.
+         */
+        private void setInstalled(boolean value) {
+          
+          installed_ = value;
+        }
+        /**
+         * <code>bool installed = 4;</code>
+         */
+        private void clearInstalled() {
+
+          installed_ = false;
+        }
+
+        public static final int DESCRIPTION_FIELD_NUMBER = 5;
+        private java.lang.String description_;
+        /**
+         * <code>string description = 5;</code>
+         * @return The description.
+         */
+        @java.lang.Override
+        public java.lang.String getDescription() {
+          return description_;
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @return The bytes for description.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getDescriptionBytes() {
+          return com.google.protobuf.ByteString.copyFromUtf8(description_);
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @param value The description to set.
+         */
+        private void setDescription(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  
+          description_ = value;
+        }
+        /**
+         * <code>string description = 5;</code>
+         */
+        private void clearDescription() {
+
+          description_ = getDefaultInstance().getDescription();
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @param value The bytes for description to set.
+         */
+        private void setDescriptionBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          description_ = value.toStringUtf8();
+
+        }
+
+        public static final int VERSION_FIELD_NUMBER = 6;
+        private java.lang.String version_;
+        /**
+         * <code>string version = 6;</code>
+         * @return The version.
+         */
+        @java.lang.Override
+        public java.lang.String getVersion() {
+          return version_;
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @return The bytes for version.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getVersionBytes() {
+          return com.google.protobuf.ByteString.copyFromUtf8(version_);
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @param value The version to set.
+         */
+        private void setVersion(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  
+          version_ = value;
+        }
+        /**
+         * <code>string version = 6;</code>
+         */
+        private void clearVersion() {
+
+          version_ = getDefaultInstance().getVersion();
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @param value The bytes for version to set.
+         */
+        private void setVersionBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          version_ = value.toStringUtf8();
+
+        }
+
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+          return (Builder) DEFAULT_INSTANCE.createBuilder();
+        }
+        public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel prototype) {
+          return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+        }
+
+        /**
+         * Protobuf type {@code hassmic.WyomingEvent.Info.IntentProgram.IntentModel}
+         */
+        public static final class Builder extends
+            com.google.protobuf.GeneratedMessageLite.Builder<
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel, Builder> implements
+            // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Info.IntentProgram.IntentModel)
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModelOrBuilder {
+          // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel.newBuilder()
+          private Builder() {
+            super(DEFAULT_INSTANCE);
+          }
+
+
+          /**
+           * <code>string name = 1;</code>
+           * @return The name.
+           */
+          @java.lang.Override
+          public java.lang.String getName() {
+            return instance.getName();
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @return The bytes for name.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getNameBytes() {
+            return instance.getNameBytes();
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @param value The name to set.
+           * @return This builder for chaining.
+           */
+          public Builder setName(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.setName(value);
+            return this;
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearName() {
+            copyOnWrite();
+            instance.clearName();
+            return this;
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @param value The bytes for name to set.
+           * @return This builder for chaining.
+           */
+          public Builder setNameBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.setNameBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @return A list containing the languages.
+           */
+          @java.lang.Override
+          public java.util.List<java.lang.String>
+              getLanguagesList() {
+            return java.util.Collections.unmodifiableList(
+                instance.getLanguagesList());
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @return The count of languages.
+           */
+          @java.lang.Override
+          public int getLanguagesCount() {
+            return instance.getLanguagesCount();
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param index The index of the element to return.
+           * @return The languages at the given index.
+           */
+          @java.lang.Override
+          public java.lang.String getLanguages(int index) {
+            return instance.getLanguages(index);
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param index The index of the value to return.
+           * @return The bytes of the languages at the given index.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getLanguagesBytes(int index) {
+            return instance.getLanguagesBytes(index);
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param index The index to set the value at.
+           * @param value The languages to set.
+           * @return This builder for chaining.
+           */
+          public Builder setLanguages(
+              int index, java.lang.String value) {
+            copyOnWrite();
+            instance.setLanguages(index, value);
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param value The languages to add.
+           * @return This builder for chaining.
+           */
+          public Builder addLanguages(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.addLanguages(value);
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param values The languages to add.
+           * @return This builder for chaining.
+           */
+          public Builder addAllLanguages(
+              java.lang.Iterable<java.lang.String> values) {
+            copyOnWrite();
+            instance.addAllLanguages(values);
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearLanguages() {
+            copyOnWrite();
+            instance.clearLanguages();
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param value The bytes of the languages to add.
+           * @return This builder for chaining.
+           */
+          public Builder addLanguagesBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.addLanguagesBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          @java.lang.Override
+          public boolean hasAttribution() {
+            return instance.hasAttribution();
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          @java.lang.Override
+          public com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getAttribution() {
+            return instance.getAttribution();
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder setAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+            copyOnWrite();
+            instance.setAttribution(value);
+            return this;
+            }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder setAttribution(
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.Builder builderForValue) {
+            copyOnWrite();
+            instance.setAttribution(builderForValue.build());
+            return this;
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder mergeAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+            copyOnWrite();
+            instance.mergeAttribution(value);
+            return this;
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder clearAttribution() {  copyOnWrite();
+            instance.clearAttribution();
+            return this;
+          }
+
+          /**
+           * <code>bool installed = 4;</code>
+           * @return The installed.
+           */
+          @java.lang.Override
+          public boolean getInstalled() {
+            return instance.getInstalled();
+          }
+          /**
+           * <code>bool installed = 4;</code>
+           * @param value The installed to set.
+           * @return This builder for chaining.
+           */
+          public Builder setInstalled(boolean value) {
+            copyOnWrite();
+            instance.setInstalled(value);
+            return this;
+          }
+          /**
+           * <code>bool installed = 4;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearInstalled() {
+            copyOnWrite();
+            instance.clearInstalled();
+            return this;
+          }
+
+          /**
+           * <code>string description = 5;</code>
+           * @return The description.
+           */
+          @java.lang.Override
+          public java.lang.String getDescription() {
+            return instance.getDescription();
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @return The bytes for description.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getDescriptionBytes() {
+            return instance.getDescriptionBytes();
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @param value The description to set.
+           * @return This builder for chaining.
+           */
+          public Builder setDescription(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.setDescription(value);
+            return this;
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearDescription() {
+            copyOnWrite();
+            instance.clearDescription();
+            return this;
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @param value The bytes for description to set.
+           * @return This builder for chaining.
+           */
+          public Builder setDescriptionBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.setDescriptionBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>string version = 6;</code>
+           * @return The version.
+           */
+          @java.lang.Override
+          public java.lang.String getVersion() {
+            return instance.getVersion();
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @return The bytes for version.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getVersionBytes() {
+            return instance.getVersionBytes();
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @param value The version to set.
+           * @return This builder for chaining.
+           */
+          public Builder setVersion(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.setVersion(value);
+            return this;
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearVersion() {
+            copyOnWrite();
+            instance.clearVersion();
+            return this;
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @param value The bytes for version to set.
+           * @return This builder for chaining.
+           */
+          public Builder setVersionBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.setVersionBytes(value);
+            return this;
+          }
+
+          // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Info.IntentProgram.IntentModel)
+        }
+        @java.lang.Override
+        @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+        protected final java.lang.Object dynamicMethod(
+            com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+            java.lang.Object arg0, java.lang.Object arg1) {
+          switch (method) {
+            case NEW_MUTABLE_INSTANCE: {
+              return new com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel();
+            }
+            case NEW_BUILDER: {
+              return new Builder();
+            }
+            case BUILD_MESSAGE_INFO: {
+                java.lang.Object[] objects = new java.lang.Object[] {
+                  "name_",
+                  "languages_",
+                  "attribution_",
+                  "installed_",
+                  "description_",
+                  "version_",
+                };
+                java.lang.String info =
+                    "\u0000\u0006\u0000\u0000\u0001\u0006\u0006\u0000\u0001\u0000\u0001\u0208\u0002\u021a" +
+                    "\u0003\t\u0004\u0007\u0005\u0208\u0006\u0208";
+                return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+            }
+            // fall through
+            case GET_DEFAULT_INSTANCE: {
+              return DEFAULT_INSTANCE;
+            }
+            case GET_PARSER: {
+              com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel> parser = PARSER;
+              if (parser == null) {
+                synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel.class) {
+                  parser = PARSER;
+                  if (parser == null) {
+                    parser =
+                        new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel>(
+                            DEFAULT_INSTANCE);
+                    PARSER = parser;
+                  }
+                }
+              }
+              return parser;
+          }
+          case GET_MEMOIZED_IS_INITIALIZED: {
+            return (byte) 1;
+          }
+          case SET_MEMOIZED_IS_INITIALIZED: {
+            return null;
+          }
+          }
+          throw new UnsupportedOperationException();
+        }
+
+
+        // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Info.IntentProgram.IntentModel)
+        private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel DEFAULT_INSTANCE;
+        static {
+          IntentModel defaultInstance = new IntentModel();
+          // New instances are implicitly immutable so no need to make
+          // immutable.
+          DEFAULT_INSTANCE = defaultInstance;
+          com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+            IntentModel.class, defaultInstance);
+        }
+
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel getDefaultInstance() {
+          return DEFAULT_INSTANCE;
+        }
+
+        private static volatile com.google.protobuf.Parser<IntentModel> PARSER;
+
+        public static com.google.protobuf.Parser<IntentModel> parser() {
+          return DEFAULT_INSTANCE.getParserForType();
+        }
+      }
+
+      public static final int MODELS_FIELD_NUMBER = 1;
+      private com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel> models_;
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+       */
+      @java.lang.Override
+      public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel> getModelsList() {
+        return models_;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+       */
+      public java.util.List<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModelOrBuilder> 
+          getModelsOrBuilderList() {
+        return models_;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+       */
+      @java.lang.Override
+      public int getModelsCount() {
+        return models_.size();
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+       */
+      @java.lang.Override
+      public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel getModels(int index) {
+        return models_.get(index);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+       */
+      public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModelOrBuilder getModelsOrBuilder(
+          int index) {
+        return models_.get(index);
+      }
+      private void ensureModelsIsMutable() {
+        com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel> tmp = models_;
+        if (!tmp.isModifiable()) {
+          models_ =
+              com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+         }
+      }
+
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+       */
+      private void setModels(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel value) {
+        value.getClass();
+  ensureModelsIsMutable();
+        models_.set(index, value);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+       */
+      private void addModels(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel value) {
+        value.getClass();
+  ensureModelsIsMutable();
+        models_.add(value);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+       */
+      private void addModels(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel value) {
+        value.getClass();
+  ensureModelsIsMutable();
+        models_.add(index, value);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+       */
+      private void addAllModels(
+          java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel> values) {
+        ensureModelsIsMutable();
+        com.google.protobuf.AbstractMessageLite.addAll(
+            values, models_);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+       */
+      private void clearModels() {
+        models_ = emptyProtobufList();
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+       */
+      private void removeModels(int index) {
+        ensureModelsIsMutable();
+        models_.remove(index);
+      }
+
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+
+      public static Builder newBuilder() {
+        return (Builder) DEFAULT_INSTANCE.createBuilder();
+      }
+      public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram prototype) {
+        return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+      }
+
+      /**
+       * Protobuf type {@code hassmic.WyomingEvent.Info.IntentProgram}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageLite.Builder<
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram, Builder> implements
+          // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Info.IntentProgram)
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgramOrBuilder {
+        // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.newBuilder()
+        private Builder() {
+          super(DEFAULT_INSTANCE);
+        }
+
+
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+         */
+        @java.lang.Override
+        public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel> getModelsList() {
+          return java.util.Collections.unmodifiableList(
+              instance.getModelsList());
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+         */
+        @java.lang.Override
+        public int getModelsCount() {
+          return instance.getModelsCount();
+        }/**
+         * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+         */
+        @java.lang.Override
+        public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel getModels(int index) {
+          return instance.getModels(index);
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+         */
+        public Builder setModels(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel value) {
+          copyOnWrite();
+          instance.setModels(index, value);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+         */
+        public Builder setModels(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel.Builder builderForValue) {
+          copyOnWrite();
+          instance.setModels(index,
+              builderForValue.build());
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+         */
+        public Builder addModels(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel value) {
+          copyOnWrite();
+          instance.addModels(value);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+         */
+        public Builder addModels(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel value) {
+          copyOnWrite();
+          instance.addModels(index, value);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+         */
+        public Builder addModels(
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel.Builder builderForValue) {
+          copyOnWrite();
+          instance.addModels(builderForValue.build());
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+         */
+        public Builder addModels(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel.Builder builderForValue) {
+          copyOnWrite();
+          instance.addModels(index,
+              builderForValue.build());
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+         */
+        public Builder addAllModels(
+            java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel> values) {
+          copyOnWrite();
+          instance.addAllModels(values);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+         */
+        public Builder clearModels() {
+          copyOnWrite();
+          instance.clearModels();
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram.IntentModel models = 1;</code>
+         */
+        public Builder removeModels(int index) {
+          copyOnWrite();
+          instance.removeModels(index);
+          return this;
+        }
+
+        // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Info.IntentProgram)
+      }
+      @java.lang.Override
+      @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+      protected final java.lang.Object dynamicMethod(
+          com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+          java.lang.Object arg0, java.lang.Object arg1) {
+        switch (method) {
+          case NEW_MUTABLE_INSTANCE: {
+            return new com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram();
+          }
+          case NEW_BUILDER: {
+            return new Builder();
+          }
+          case BUILD_MESSAGE_INFO: {
+              java.lang.Object[] objects = new java.lang.Object[] {
+                "models_",
+                com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.IntentModel.class,
+              };
+              java.lang.String info =
+                  "\u0000\u0001\u0000\u0000\u0001\u0001\u0001\u0000\u0001\u0000\u0001\u001b";
+              return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+          }
+          // fall through
+          case GET_DEFAULT_INSTANCE: {
+            return DEFAULT_INSTANCE;
+          }
+          case GET_PARSER: {
+            com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram> parser = PARSER;
+            if (parser == null) {
+              synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.class) {
+                parser = PARSER;
+                if (parser == null) {
+                  parser =
+                      new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram>(
+                          DEFAULT_INSTANCE);
+                  PARSER = parser;
+                }
+              }
+            }
+            return parser;
+        }
+        case GET_MEMOIZED_IS_INITIALIZED: {
+          return (byte) 1;
+        }
+        case SET_MEMOIZED_IS_INITIALIZED: {
+          return null;
+        }
+        }
+        throw new UnsupportedOperationException();
+      }
+
+
+      // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Info.IntentProgram)
+      private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram DEFAULT_INSTANCE;
+      static {
+        IntentProgram defaultInstance = new IntentProgram();
+        // New instances are implicitly immutable so no need to make
+        // immutable.
+        DEFAULT_INSTANCE = defaultInstance;
+        com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+          IntentProgram.class, defaultInstance);
+      }
+
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static volatile com.google.protobuf.Parser<IntentProgram> PARSER;
+
+      public static com.google.protobuf.Parser<IntentProgram> parser() {
+        return DEFAULT_INSTANCE.getParserForType();
+      }
+    }
+
+    public interface WakeProgramOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Info.WakeProgram)
+        com.google.protobuf.MessageLiteOrBuilder {
+
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+       */
+      java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel> 
+          getModelsList();
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+       */
+      com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel getModels(int index);
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+       */
+      int getModelsCount();
+    }
+    /**
+     * Protobuf type {@code hassmic.WyomingEvent.Info.WakeProgram}
+     */
+    public  static final class WakeProgram extends
+        com.google.protobuf.GeneratedMessageLite<
+            WakeProgram, WakeProgram.Builder> implements
+        // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Info.WakeProgram)
+        WakeProgramOrBuilder {
+      private WakeProgram() {
+        models_ = emptyProtobufList();
+      }
+      public interface WakeModelOrBuilder extends
+          // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Info.WakeProgram.WakeModel)
+          com.google.protobuf.MessageLiteOrBuilder {
+
+        /**
+         * <code>string name = 1;</code>
+         * @return The name.
+         */
+        java.lang.String getName();
+        /**
+         * <code>string name = 1;</code>
+         * @return The bytes for name.
+         */
+        com.google.protobuf.ByteString
+            getNameBytes();
+
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return A list containing the languages.
+         */
+        java.util.List<java.lang.String>
+            getLanguagesList();
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return The count of languages.
+         */
+        int getLanguagesCount();
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the element to return.
+         * @return The languages at the given index.
+         */
+        java.lang.String getLanguages(int index);
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the element to return.
+         * @return The languages at the given index.
+         */
+        com.google.protobuf.ByteString
+            getLanguagesBytes(int index);
+
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         * @return Whether the attribution field is set.
+         */
+        boolean hasAttribution();
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         * @return The attribution.
+         */
+        com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getAttribution();
+
+        /**
+         * <code>bool installed = 4;</code>
+         * @return The installed.
+         */
+        boolean getInstalled();
+
+        /**
+         * <code>string description = 5;</code>
+         * @return The description.
+         */
+        java.lang.String getDescription();
+        /**
+         * <code>string description = 5;</code>
+         * @return The bytes for description.
+         */
+        com.google.protobuf.ByteString
+            getDescriptionBytes();
+
+        /**
+         * <code>string version = 6;</code>
+         * @return The version.
+         */
+        java.lang.String getVersion();
+        /**
+         * <code>string version = 6;</code>
+         * @return The bytes for version.
+         */
+        com.google.protobuf.ByteString
+            getVersionBytes();
+
+        /**
+         * <code>string phrase = 7;</code>
+         * @return The phrase.
+         */
+        java.lang.String getPhrase();
+        /**
+         * <code>string phrase = 7;</code>
+         * @return The bytes for phrase.
+         */
+        com.google.protobuf.ByteString
+            getPhraseBytes();
+      }
+      /**
+       * Protobuf type {@code hassmic.WyomingEvent.Info.WakeProgram.WakeModel}
+       */
+      public  static final class WakeModel extends
+          com.google.protobuf.GeneratedMessageLite<
+              WakeModel, WakeModel.Builder> implements
+          // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Info.WakeProgram.WakeModel)
+          WakeModelOrBuilder {
+        private WakeModel() {
+          name_ = "";
+          languages_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+          description_ = "";
+          version_ = "";
+          phrase_ = "";
+        }
+        public static final int NAME_FIELD_NUMBER = 1;
+        private java.lang.String name_;
+        /**
+         * <code>string name = 1;</code>
+         * @return The name.
+         */
+        @java.lang.Override
+        public java.lang.String getName() {
+          return name_;
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @return The bytes for name.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getNameBytes() {
+          return com.google.protobuf.ByteString.copyFromUtf8(name_);
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @param value The name to set.
+         */
+        private void setName(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  
+          name_ = value;
+        }
+        /**
+         * <code>string name = 1;</code>
+         */
+        private void clearName() {
+
+          name_ = getDefaultInstance().getName();
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @param value The bytes for name to set.
+         */
+        private void setNameBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          name_ = value.toStringUtf8();
+
+        }
+
+        public static final int LANGUAGES_FIELD_NUMBER = 2;
+        private com.google.protobuf.Internal.ProtobufList<java.lang.String> languages_;
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return A list containing the languages.
+         */
+        @java.lang.Override
+        public java.util.List<java.lang.String> getLanguagesList() {
+          return languages_;
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return The count of languages.
+         */
+        @java.lang.Override
+        public int getLanguagesCount() {
+          return languages_.size();
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the element to return.
+         * @return The languages at the given index.
+         */
+        @java.lang.Override
+        public java.lang.String getLanguages(int index) {
+          return languages_.get(index);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the value to return.
+         * @return The bytes of the languages at the given index.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getLanguagesBytes(int index) {
+          return com.google.protobuf.ByteString.copyFromUtf8(
+              languages_.get(index));
+        }
+        private void ensureLanguagesIsMutable() {
+          com.google.protobuf.Internal.ProtobufList<java.lang.String> tmp =
+              languages_;  if (!tmp.isModifiable()) {
+            languages_ =
+                com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+           }
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index to set the value at.
+         * @param value The languages to set.
+         */
+        private void setLanguages(
+            int index, java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  ensureLanguagesIsMutable();
+          languages_.set(index, value);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param value The languages to add.
+         */
+        private void addLanguages(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  ensureLanguagesIsMutable();
+          languages_.add(value);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param values The languages to add.
+         */
+        private void addAllLanguages(
+            java.lang.Iterable<java.lang.String> values) {
+          ensureLanguagesIsMutable();
+          com.google.protobuf.AbstractMessageLite.addAll(
+              values, languages_);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         */
+        private void clearLanguages() {
+          languages_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param value The bytes of the languages to add.
+         */
+        private void addLanguagesBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          ensureLanguagesIsMutable();
+          languages_.add(value.toStringUtf8());
+        }
+
+        public static final int ATTRIBUTION_FIELD_NUMBER = 3;
+        private com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution attribution_;
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        @java.lang.Override
+        public boolean hasAttribution() {
+          return attribution_ != null;
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        @java.lang.Override
+        public com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getAttribution() {
+          return attribution_ == null ? com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.getDefaultInstance() : attribution_;
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        private void setAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+          value.getClass();
+  attribution_ = value;
+
+          }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        @java.lang.SuppressWarnings({"ReferenceEquality"})
+        private void mergeAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+          value.getClass();
+  if (attribution_ != null &&
+              attribution_ != com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.getDefaultInstance()) {
+            attribution_ =
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.newBuilder(attribution_).mergeFrom(value).buildPartial();
+          } else {
+            attribution_ = value;
+          }
+
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        private void clearAttribution() {  attribution_ = null;
+
+        }
+
+        public static final int INSTALLED_FIELD_NUMBER = 4;
+        private boolean installed_;
+        /**
+         * <code>bool installed = 4;</code>
+         * @return The installed.
+         */
+        @java.lang.Override
+        public boolean getInstalled() {
+          return installed_;
+        }
+        /**
+         * <code>bool installed = 4;</code>
+         * @param value The installed to set.
+         */
+        private void setInstalled(boolean value) {
+          
+          installed_ = value;
+        }
+        /**
+         * <code>bool installed = 4;</code>
+         */
+        private void clearInstalled() {
+
+          installed_ = false;
+        }
+
+        public static final int DESCRIPTION_FIELD_NUMBER = 5;
+        private java.lang.String description_;
+        /**
+         * <code>string description = 5;</code>
+         * @return The description.
+         */
+        @java.lang.Override
+        public java.lang.String getDescription() {
+          return description_;
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @return The bytes for description.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getDescriptionBytes() {
+          return com.google.protobuf.ByteString.copyFromUtf8(description_);
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @param value The description to set.
+         */
+        private void setDescription(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  
+          description_ = value;
+        }
+        /**
+         * <code>string description = 5;</code>
+         */
+        private void clearDescription() {
+
+          description_ = getDefaultInstance().getDescription();
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @param value The bytes for description to set.
+         */
+        private void setDescriptionBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          description_ = value.toStringUtf8();
+
+        }
+
+        public static final int VERSION_FIELD_NUMBER = 6;
+        private java.lang.String version_;
+        /**
+         * <code>string version = 6;</code>
+         * @return The version.
+         */
+        @java.lang.Override
+        public java.lang.String getVersion() {
+          return version_;
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @return The bytes for version.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getVersionBytes() {
+          return com.google.protobuf.ByteString.copyFromUtf8(version_);
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @param value The version to set.
+         */
+        private void setVersion(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  
+          version_ = value;
+        }
+        /**
+         * <code>string version = 6;</code>
+         */
+        private void clearVersion() {
+
+          version_ = getDefaultInstance().getVersion();
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @param value The bytes for version to set.
+         */
+        private void setVersionBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          version_ = value.toStringUtf8();
+
+        }
+
+        public static final int PHRASE_FIELD_NUMBER = 7;
+        private java.lang.String phrase_;
+        /**
+         * <code>string phrase = 7;</code>
+         * @return The phrase.
+         */
+        @java.lang.Override
+        public java.lang.String getPhrase() {
+          return phrase_;
+        }
+        /**
+         * <code>string phrase = 7;</code>
+         * @return The bytes for phrase.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getPhraseBytes() {
+          return com.google.protobuf.ByteString.copyFromUtf8(phrase_);
+        }
+        /**
+         * <code>string phrase = 7;</code>
+         * @param value The phrase to set.
+         */
+        private void setPhrase(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  
+          phrase_ = value;
+        }
+        /**
+         * <code>string phrase = 7;</code>
+         */
+        private void clearPhrase() {
+
+          phrase_ = getDefaultInstance().getPhrase();
+        }
+        /**
+         * <code>string phrase = 7;</code>
+         * @param value The bytes for phrase to set.
+         */
+        private void setPhraseBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          phrase_ = value.toStringUtf8();
+
+        }
+
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+          return (Builder) DEFAULT_INSTANCE.createBuilder();
+        }
+        public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel prototype) {
+          return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+        }
+
+        /**
+         * Protobuf type {@code hassmic.WyomingEvent.Info.WakeProgram.WakeModel}
+         */
+        public static final class Builder extends
+            com.google.protobuf.GeneratedMessageLite.Builder<
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel, Builder> implements
+            // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Info.WakeProgram.WakeModel)
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModelOrBuilder {
+          // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel.newBuilder()
+          private Builder() {
+            super(DEFAULT_INSTANCE);
+          }
+
+
+          /**
+           * <code>string name = 1;</code>
+           * @return The name.
+           */
+          @java.lang.Override
+          public java.lang.String getName() {
+            return instance.getName();
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @return The bytes for name.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getNameBytes() {
+            return instance.getNameBytes();
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @param value The name to set.
+           * @return This builder for chaining.
+           */
+          public Builder setName(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.setName(value);
+            return this;
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearName() {
+            copyOnWrite();
+            instance.clearName();
+            return this;
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @param value The bytes for name to set.
+           * @return This builder for chaining.
+           */
+          public Builder setNameBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.setNameBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @return A list containing the languages.
+           */
+          @java.lang.Override
+          public java.util.List<java.lang.String>
+              getLanguagesList() {
+            return java.util.Collections.unmodifiableList(
+                instance.getLanguagesList());
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @return The count of languages.
+           */
+          @java.lang.Override
+          public int getLanguagesCount() {
+            return instance.getLanguagesCount();
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param index The index of the element to return.
+           * @return The languages at the given index.
+           */
+          @java.lang.Override
+          public java.lang.String getLanguages(int index) {
+            return instance.getLanguages(index);
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param index The index of the value to return.
+           * @return The bytes of the languages at the given index.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getLanguagesBytes(int index) {
+            return instance.getLanguagesBytes(index);
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param index The index to set the value at.
+           * @param value The languages to set.
+           * @return This builder for chaining.
+           */
+          public Builder setLanguages(
+              int index, java.lang.String value) {
+            copyOnWrite();
+            instance.setLanguages(index, value);
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param value The languages to add.
+           * @return This builder for chaining.
+           */
+          public Builder addLanguages(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.addLanguages(value);
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param values The languages to add.
+           * @return This builder for chaining.
+           */
+          public Builder addAllLanguages(
+              java.lang.Iterable<java.lang.String> values) {
+            copyOnWrite();
+            instance.addAllLanguages(values);
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearLanguages() {
+            copyOnWrite();
+            instance.clearLanguages();
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param value The bytes of the languages to add.
+           * @return This builder for chaining.
+           */
+          public Builder addLanguagesBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.addLanguagesBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          @java.lang.Override
+          public boolean hasAttribution() {
+            return instance.hasAttribution();
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          @java.lang.Override
+          public com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getAttribution() {
+            return instance.getAttribution();
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder setAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+            copyOnWrite();
+            instance.setAttribution(value);
+            return this;
+            }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder setAttribution(
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.Builder builderForValue) {
+            copyOnWrite();
+            instance.setAttribution(builderForValue.build());
+            return this;
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder mergeAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+            copyOnWrite();
+            instance.mergeAttribution(value);
+            return this;
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder clearAttribution() {  copyOnWrite();
+            instance.clearAttribution();
+            return this;
+          }
+
+          /**
+           * <code>bool installed = 4;</code>
+           * @return The installed.
+           */
+          @java.lang.Override
+          public boolean getInstalled() {
+            return instance.getInstalled();
+          }
+          /**
+           * <code>bool installed = 4;</code>
+           * @param value The installed to set.
+           * @return This builder for chaining.
+           */
+          public Builder setInstalled(boolean value) {
+            copyOnWrite();
+            instance.setInstalled(value);
+            return this;
+          }
+          /**
+           * <code>bool installed = 4;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearInstalled() {
+            copyOnWrite();
+            instance.clearInstalled();
+            return this;
+          }
+
+          /**
+           * <code>string description = 5;</code>
+           * @return The description.
+           */
+          @java.lang.Override
+          public java.lang.String getDescription() {
+            return instance.getDescription();
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @return The bytes for description.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getDescriptionBytes() {
+            return instance.getDescriptionBytes();
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @param value The description to set.
+           * @return This builder for chaining.
+           */
+          public Builder setDescription(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.setDescription(value);
+            return this;
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearDescription() {
+            copyOnWrite();
+            instance.clearDescription();
+            return this;
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @param value The bytes for description to set.
+           * @return This builder for chaining.
+           */
+          public Builder setDescriptionBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.setDescriptionBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>string version = 6;</code>
+           * @return The version.
+           */
+          @java.lang.Override
+          public java.lang.String getVersion() {
+            return instance.getVersion();
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @return The bytes for version.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getVersionBytes() {
+            return instance.getVersionBytes();
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @param value The version to set.
+           * @return This builder for chaining.
+           */
+          public Builder setVersion(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.setVersion(value);
+            return this;
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearVersion() {
+            copyOnWrite();
+            instance.clearVersion();
+            return this;
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @param value The bytes for version to set.
+           * @return This builder for chaining.
+           */
+          public Builder setVersionBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.setVersionBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>string phrase = 7;</code>
+           * @return The phrase.
+           */
+          @java.lang.Override
+          public java.lang.String getPhrase() {
+            return instance.getPhrase();
+          }
+          /**
+           * <code>string phrase = 7;</code>
+           * @return The bytes for phrase.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getPhraseBytes() {
+            return instance.getPhraseBytes();
+          }
+          /**
+           * <code>string phrase = 7;</code>
+           * @param value The phrase to set.
+           * @return This builder for chaining.
+           */
+          public Builder setPhrase(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.setPhrase(value);
+            return this;
+          }
+          /**
+           * <code>string phrase = 7;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearPhrase() {
+            copyOnWrite();
+            instance.clearPhrase();
+            return this;
+          }
+          /**
+           * <code>string phrase = 7;</code>
+           * @param value The bytes for phrase to set.
+           * @return This builder for chaining.
+           */
+          public Builder setPhraseBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.setPhraseBytes(value);
+            return this;
+          }
+
+          // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Info.WakeProgram.WakeModel)
+        }
+        @java.lang.Override
+        @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+        protected final java.lang.Object dynamicMethod(
+            com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+            java.lang.Object arg0, java.lang.Object arg1) {
+          switch (method) {
+            case NEW_MUTABLE_INSTANCE: {
+              return new com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel();
+            }
+            case NEW_BUILDER: {
+              return new Builder();
+            }
+            case BUILD_MESSAGE_INFO: {
+                java.lang.Object[] objects = new java.lang.Object[] {
+                  "name_",
+                  "languages_",
+                  "attribution_",
+                  "installed_",
+                  "description_",
+                  "version_",
+                  "phrase_",
+                };
+                java.lang.String info =
+                    "\u0000\u0007\u0000\u0000\u0001\u0007\u0007\u0000\u0001\u0000\u0001\u0208\u0002\u021a" +
+                    "\u0003\t\u0004\u0007\u0005\u0208\u0006\u0208\u0007\u0208";
+                return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+            }
+            // fall through
+            case GET_DEFAULT_INSTANCE: {
+              return DEFAULT_INSTANCE;
+            }
+            case GET_PARSER: {
+              com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel> parser = PARSER;
+              if (parser == null) {
+                synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel.class) {
+                  parser = PARSER;
+                  if (parser == null) {
+                    parser =
+                        new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel>(
+                            DEFAULT_INSTANCE);
+                    PARSER = parser;
+                  }
+                }
+              }
+              return parser;
+          }
+          case GET_MEMOIZED_IS_INITIALIZED: {
+            return (byte) 1;
+          }
+          case SET_MEMOIZED_IS_INITIALIZED: {
+            return null;
+          }
+          }
+          throw new UnsupportedOperationException();
+        }
+
+
+        // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Info.WakeProgram.WakeModel)
+        private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel DEFAULT_INSTANCE;
+        static {
+          WakeModel defaultInstance = new WakeModel();
+          // New instances are implicitly immutable so no need to make
+          // immutable.
+          DEFAULT_INSTANCE = defaultInstance;
+          com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+            WakeModel.class, defaultInstance);
+        }
+
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel getDefaultInstance() {
+          return DEFAULT_INSTANCE;
+        }
+
+        private static volatile com.google.protobuf.Parser<WakeModel> PARSER;
+
+        public static com.google.protobuf.Parser<WakeModel> parser() {
+          return DEFAULT_INSTANCE.getParserForType();
+        }
+      }
+
+      public static final int MODELS_FIELD_NUMBER = 1;
+      private com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel> models_;
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+       */
+      @java.lang.Override
+      public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel> getModelsList() {
+        return models_;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+       */
+      public java.util.List<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModelOrBuilder> 
+          getModelsOrBuilderList() {
+        return models_;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+       */
+      @java.lang.Override
+      public int getModelsCount() {
+        return models_.size();
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+       */
+      @java.lang.Override
+      public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel getModels(int index) {
+        return models_.get(index);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+       */
+      public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModelOrBuilder getModelsOrBuilder(
+          int index) {
+        return models_.get(index);
+      }
+      private void ensureModelsIsMutable() {
+        com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel> tmp = models_;
+        if (!tmp.isModifiable()) {
+          models_ =
+              com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+         }
+      }
+
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+       */
+      private void setModels(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel value) {
+        value.getClass();
+  ensureModelsIsMutable();
+        models_.set(index, value);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+       */
+      private void addModels(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel value) {
+        value.getClass();
+  ensureModelsIsMutable();
+        models_.add(value);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+       */
+      private void addModels(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel value) {
+        value.getClass();
+  ensureModelsIsMutable();
+        models_.add(index, value);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+       */
+      private void addAllModels(
+          java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel> values) {
+        ensureModelsIsMutable();
+        com.google.protobuf.AbstractMessageLite.addAll(
+            values, models_);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+       */
+      private void clearModels() {
+        models_ = emptyProtobufList();
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+       */
+      private void removeModels(int index) {
+        ensureModelsIsMutable();
+        models_.remove(index);
+      }
+
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+
+      public static Builder newBuilder() {
+        return (Builder) DEFAULT_INSTANCE.createBuilder();
+      }
+      public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram prototype) {
+        return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+      }
+
+      /**
+       * Protobuf type {@code hassmic.WyomingEvent.Info.WakeProgram}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageLite.Builder<
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram, Builder> implements
+          // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Info.WakeProgram)
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgramOrBuilder {
+        // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.newBuilder()
+        private Builder() {
+          super(DEFAULT_INSTANCE);
+        }
+
+
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+         */
+        @java.lang.Override
+        public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel> getModelsList() {
+          return java.util.Collections.unmodifiableList(
+              instance.getModelsList());
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+         */
+        @java.lang.Override
+        public int getModelsCount() {
+          return instance.getModelsCount();
+        }/**
+         * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+         */
+        @java.lang.Override
+        public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel getModels(int index) {
+          return instance.getModels(index);
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+         */
+        public Builder setModels(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel value) {
+          copyOnWrite();
+          instance.setModels(index, value);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+         */
+        public Builder setModels(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel.Builder builderForValue) {
+          copyOnWrite();
+          instance.setModels(index,
+              builderForValue.build());
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+         */
+        public Builder addModels(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel value) {
+          copyOnWrite();
+          instance.addModels(value);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+         */
+        public Builder addModels(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel value) {
+          copyOnWrite();
+          instance.addModels(index, value);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+         */
+        public Builder addModels(
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel.Builder builderForValue) {
+          copyOnWrite();
+          instance.addModels(builderForValue.build());
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+         */
+        public Builder addModels(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel.Builder builderForValue) {
+          copyOnWrite();
+          instance.addModels(index,
+              builderForValue.build());
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+         */
+        public Builder addAllModels(
+            java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel> values) {
+          copyOnWrite();
+          instance.addAllModels(values);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+         */
+        public Builder clearModels() {
+          copyOnWrite();
+          instance.clearModels();
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram.WakeModel models = 1;</code>
+         */
+        public Builder removeModels(int index) {
+          copyOnWrite();
+          instance.removeModels(index);
+          return this;
+        }
+
+        // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Info.WakeProgram)
+      }
+      @java.lang.Override
+      @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+      protected final java.lang.Object dynamicMethod(
+          com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+          java.lang.Object arg0, java.lang.Object arg1) {
+        switch (method) {
+          case NEW_MUTABLE_INSTANCE: {
+            return new com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram();
+          }
+          case NEW_BUILDER: {
+            return new Builder();
+          }
+          case BUILD_MESSAGE_INFO: {
+              java.lang.Object[] objects = new java.lang.Object[] {
+                "models_",
+                com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.WakeModel.class,
+              };
+              java.lang.String info =
+                  "\u0000\u0001\u0000\u0000\u0001\u0001\u0001\u0000\u0001\u0000\u0001\u001b";
+              return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+          }
+          // fall through
+          case GET_DEFAULT_INSTANCE: {
+            return DEFAULT_INSTANCE;
+          }
+          case GET_PARSER: {
+            com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram> parser = PARSER;
+            if (parser == null) {
+              synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.class) {
+                parser = PARSER;
+                if (parser == null) {
+                  parser =
+                      new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram>(
+                          DEFAULT_INSTANCE);
+                  PARSER = parser;
+                }
+              }
+            }
+            return parser;
+        }
+        case GET_MEMOIZED_IS_INITIALIZED: {
+          return (byte) 1;
+        }
+        case SET_MEMOIZED_IS_INITIALIZED: {
+          return null;
+        }
+        }
+        throw new UnsupportedOperationException();
+      }
+
+
+      // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Info.WakeProgram)
+      private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram DEFAULT_INSTANCE;
+      static {
+        WakeProgram defaultInstance = new WakeProgram();
+        // New instances are implicitly immutable so no need to make
+        // immutable.
+        DEFAULT_INSTANCE = defaultInstance;
+        com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+          WakeProgram.class, defaultInstance);
+      }
+
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static volatile com.google.protobuf.Parser<WakeProgram> PARSER;
+
+      public static com.google.protobuf.Parser<WakeProgram> parser() {
+        return DEFAULT_INSTANCE.getParserForType();
+      }
+    }
+
+    public interface AudioFormatOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Info.AudioFormat)
+        com.google.protobuf.MessageLiteOrBuilder {
+
+      /**
+       * <code>int64 rate = 1;</code>
+       * @return The rate.
+       */
+      long getRate();
+
+      /**
+       * <code>int64 width = 2;</code>
+       * @return The width.
+       */
+      long getWidth();
+
+      /**
+       * <code>int64 channels = 3;</code>
+       * @return The channels.
+       */
+      long getChannels();
+    }
+    /**
+     * Protobuf type {@code hassmic.WyomingEvent.Info.AudioFormat}
+     */
+    public  static final class AudioFormat extends
+        com.google.protobuf.GeneratedMessageLite<
+            AudioFormat, AudioFormat.Builder> implements
+        // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Info.AudioFormat)
+        AudioFormatOrBuilder {
+      private AudioFormat() {
+      }
+      public static final int RATE_FIELD_NUMBER = 1;
+      private long rate_;
+      /**
+       * <code>int64 rate = 1;</code>
+       * @return The rate.
+       */
+      @java.lang.Override
+      public long getRate() {
+        return rate_;
+      }
+      /**
+       * <code>int64 rate = 1;</code>
+       * @param value The rate to set.
+       */
+      private void setRate(long value) {
+        
+        rate_ = value;
+      }
+      /**
+       * <code>int64 rate = 1;</code>
+       */
+      private void clearRate() {
+
+        rate_ = 0L;
+      }
+
+      public static final int WIDTH_FIELD_NUMBER = 2;
+      private long width_;
+      /**
+       * <code>int64 width = 2;</code>
+       * @return The width.
+       */
+      @java.lang.Override
+      public long getWidth() {
+        return width_;
+      }
+      /**
+       * <code>int64 width = 2;</code>
+       * @param value The width to set.
+       */
+      private void setWidth(long value) {
+        
+        width_ = value;
+      }
+      /**
+       * <code>int64 width = 2;</code>
+       */
+      private void clearWidth() {
+
+        width_ = 0L;
+      }
+
+      public static final int CHANNELS_FIELD_NUMBER = 3;
+      private long channels_;
+      /**
+       * <code>int64 channels = 3;</code>
+       * @return The channels.
+       */
+      @java.lang.Override
+      public long getChannels() {
+        return channels_;
+      }
+      /**
+       * <code>int64 channels = 3;</code>
+       * @param value The channels to set.
+       */
+      private void setChannels(long value) {
+        
+        channels_ = value;
+      }
+      /**
+       * <code>int64 channels = 3;</code>
+       */
+      private void clearChannels() {
+
+        channels_ = 0L;
+      }
+
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+
+      public static Builder newBuilder() {
+        return (Builder) DEFAULT_INSTANCE.createBuilder();
+      }
+      public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat prototype) {
+        return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+      }
+
+      /**
+       * Protobuf type {@code hassmic.WyomingEvent.Info.AudioFormat}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageLite.Builder<
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat, Builder> implements
+          // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Info.AudioFormat)
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormatOrBuilder {
+        // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat.newBuilder()
+        private Builder() {
+          super(DEFAULT_INSTANCE);
+        }
+
+
+        /**
+         * <code>int64 rate = 1;</code>
+         * @return The rate.
+         */
+        @java.lang.Override
+        public long getRate() {
+          return instance.getRate();
+        }
+        /**
+         * <code>int64 rate = 1;</code>
+         * @param value The rate to set.
+         * @return This builder for chaining.
+         */
+        public Builder setRate(long value) {
+          copyOnWrite();
+          instance.setRate(value);
+          return this;
+        }
+        /**
+         * <code>int64 rate = 1;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearRate() {
+          copyOnWrite();
+          instance.clearRate();
+          return this;
+        }
+
+        /**
+         * <code>int64 width = 2;</code>
+         * @return The width.
+         */
+        @java.lang.Override
+        public long getWidth() {
+          return instance.getWidth();
+        }
+        /**
+         * <code>int64 width = 2;</code>
+         * @param value The width to set.
+         * @return This builder for chaining.
+         */
+        public Builder setWidth(long value) {
+          copyOnWrite();
+          instance.setWidth(value);
+          return this;
+        }
+        /**
+         * <code>int64 width = 2;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearWidth() {
+          copyOnWrite();
+          instance.clearWidth();
+          return this;
+        }
+
+        /**
+         * <code>int64 channels = 3;</code>
+         * @return The channels.
+         */
+        @java.lang.Override
+        public long getChannels() {
+          return instance.getChannels();
+        }
+        /**
+         * <code>int64 channels = 3;</code>
+         * @param value The channels to set.
+         * @return This builder for chaining.
+         */
+        public Builder setChannels(long value) {
+          copyOnWrite();
+          instance.setChannels(value);
+          return this;
+        }
+        /**
+         * <code>int64 channels = 3;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearChannels() {
+          copyOnWrite();
+          instance.clearChannels();
+          return this;
+        }
+
+        // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Info.AudioFormat)
+      }
+      @java.lang.Override
+      @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+      protected final java.lang.Object dynamicMethod(
+          com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+          java.lang.Object arg0, java.lang.Object arg1) {
+        switch (method) {
+          case NEW_MUTABLE_INSTANCE: {
+            return new com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat();
+          }
+          case NEW_BUILDER: {
+            return new Builder();
+          }
+          case BUILD_MESSAGE_INFO: {
+              java.lang.Object[] objects = new java.lang.Object[] {
+                "rate_",
+                "width_",
+                "channels_",
+              };
+              java.lang.String info =
+                  "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0000\u0000\u0001\u0002\u0002\u0002" +
+                  "\u0003\u0002";
+              return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+          }
+          // fall through
+          case GET_DEFAULT_INSTANCE: {
+            return DEFAULT_INSTANCE;
+          }
+          case GET_PARSER: {
+            com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat> parser = PARSER;
+            if (parser == null) {
+              synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat.class) {
+                parser = PARSER;
+                if (parser == null) {
+                  parser =
+                      new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat>(
+                          DEFAULT_INSTANCE);
+                  PARSER = parser;
+                }
+              }
+            }
+            return parser;
+        }
+        case GET_MEMOIZED_IS_INITIALIZED: {
+          return (byte) 1;
+        }
+        case SET_MEMOIZED_IS_INITIALIZED: {
+          return null;
+        }
+        }
+        throw new UnsupportedOperationException();
+      }
+
+
+      // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Info.AudioFormat)
+      private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat DEFAULT_INSTANCE;
+      static {
+        AudioFormat defaultInstance = new AudioFormat();
+        // New instances are implicitly immutable so no need to make
+        // immutable.
+        DEFAULT_INSTANCE = defaultInstance;
+        com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+          AudioFormat.class, defaultInstance);
+      }
+
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static volatile com.google.protobuf.Parser<AudioFormat> PARSER;
+
+      public static com.google.protobuf.Parser<AudioFormat> parser() {
+        return DEFAULT_INSTANCE.getParserForType();
+      }
+    }
+
+    public interface MicProgramOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Info.MicProgram)
+        com.google.protobuf.MessageLiteOrBuilder {
+
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+       */
+      java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel> 
+          getModelsList();
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+       */
+      com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel getModels(int index);
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+       */
+      int getModelsCount();
+    }
+    /**
+     * Protobuf type {@code hassmic.WyomingEvent.Info.MicProgram}
+     */
+    public  static final class MicProgram extends
+        com.google.protobuf.GeneratedMessageLite<
+            MicProgram, MicProgram.Builder> implements
+        // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Info.MicProgram)
+        MicProgramOrBuilder {
+      private MicProgram() {
+        models_ = emptyProtobufList();
+      }
+      public interface MicModelOrBuilder extends
+          // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Info.MicProgram.MicModel)
+          com.google.protobuf.MessageLiteOrBuilder {
+
+        /**
+         * <code>string name = 1;</code>
+         * @return The name.
+         */
+        java.lang.String getName();
+        /**
+         * <code>string name = 1;</code>
+         * @return The bytes for name.
+         */
+        com.google.protobuf.ByteString
+            getNameBytes();
+
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return A list containing the languages.
+         */
+        java.util.List<java.lang.String>
+            getLanguagesList();
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return The count of languages.
+         */
+        int getLanguagesCount();
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the element to return.
+         * @return The languages at the given index.
+         */
+        java.lang.String getLanguages(int index);
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the element to return.
+         * @return The languages at the given index.
+         */
+        com.google.protobuf.ByteString
+            getLanguagesBytes(int index);
+
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         * @return Whether the attribution field is set.
+         */
+        boolean hasAttribution();
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         * @return The attribution.
+         */
+        com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getAttribution();
+
+        /**
+         * <code>bool installed = 4;</code>
+         * @return The installed.
+         */
+        boolean getInstalled();
+
+        /**
+         * <code>string description = 5;</code>
+         * @return The description.
+         */
+        java.lang.String getDescription();
+        /**
+         * <code>string description = 5;</code>
+         * @return The bytes for description.
+         */
+        com.google.protobuf.ByteString
+            getDescriptionBytes();
+
+        /**
+         * <code>string version = 6;</code>
+         * @return The version.
+         */
+        java.lang.String getVersion();
+        /**
+         * <code>string version = 6;</code>
+         * @return The bytes for version.
+         */
+        com.google.protobuf.ByteString
+            getVersionBytes();
+
+        /**
+         * <code>.hassmic.WyomingEvent.Info.AudioFormat mic_format = 7;</code>
+         * @return Whether the micFormat field is set.
+         */
+        boolean hasMicFormat();
+        /**
+         * <code>.hassmic.WyomingEvent.Info.AudioFormat mic_format = 7;</code>
+         * @return The micFormat.
+         */
+        com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat getMicFormat();
+      }
+      /**
+       * Protobuf type {@code hassmic.WyomingEvent.Info.MicProgram.MicModel}
+       */
+      public  static final class MicModel extends
+          com.google.protobuf.GeneratedMessageLite<
+              MicModel, MicModel.Builder> implements
+          // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Info.MicProgram.MicModel)
+          MicModelOrBuilder {
+        private MicModel() {
+          name_ = "";
+          languages_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+          description_ = "";
+          version_ = "";
+        }
+        public static final int NAME_FIELD_NUMBER = 1;
+        private java.lang.String name_;
+        /**
+         * <code>string name = 1;</code>
+         * @return The name.
+         */
+        @java.lang.Override
+        public java.lang.String getName() {
+          return name_;
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @return The bytes for name.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getNameBytes() {
+          return com.google.protobuf.ByteString.copyFromUtf8(name_);
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @param value The name to set.
+         */
+        private void setName(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  
+          name_ = value;
+        }
+        /**
+         * <code>string name = 1;</code>
+         */
+        private void clearName() {
+
+          name_ = getDefaultInstance().getName();
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @param value The bytes for name to set.
+         */
+        private void setNameBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          name_ = value.toStringUtf8();
+
+        }
+
+        public static final int LANGUAGES_FIELD_NUMBER = 2;
+        private com.google.protobuf.Internal.ProtobufList<java.lang.String> languages_;
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return A list containing the languages.
+         */
+        @java.lang.Override
+        public java.util.List<java.lang.String> getLanguagesList() {
+          return languages_;
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return The count of languages.
+         */
+        @java.lang.Override
+        public int getLanguagesCount() {
+          return languages_.size();
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the element to return.
+         * @return The languages at the given index.
+         */
+        @java.lang.Override
+        public java.lang.String getLanguages(int index) {
+          return languages_.get(index);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the value to return.
+         * @return The bytes of the languages at the given index.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getLanguagesBytes(int index) {
+          return com.google.protobuf.ByteString.copyFromUtf8(
+              languages_.get(index));
+        }
+        private void ensureLanguagesIsMutable() {
+          com.google.protobuf.Internal.ProtobufList<java.lang.String> tmp =
+              languages_;  if (!tmp.isModifiable()) {
+            languages_ =
+                com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+           }
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index to set the value at.
+         * @param value The languages to set.
+         */
+        private void setLanguages(
+            int index, java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  ensureLanguagesIsMutable();
+          languages_.set(index, value);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param value The languages to add.
+         */
+        private void addLanguages(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  ensureLanguagesIsMutable();
+          languages_.add(value);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param values The languages to add.
+         */
+        private void addAllLanguages(
+            java.lang.Iterable<java.lang.String> values) {
+          ensureLanguagesIsMutable();
+          com.google.protobuf.AbstractMessageLite.addAll(
+              values, languages_);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         */
+        private void clearLanguages() {
+          languages_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param value The bytes of the languages to add.
+         */
+        private void addLanguagesBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          ensureLanguagesIsMutable();
+          languages_.add(value.toStringUtf8());
+        }
+
+        public static final int ATTRIBUTION_FIELD_NUMBER = 3;
+        private com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution attribution_;
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        @java.lang.Override
+        public boolean hasAttribution() {
+          return attribution_ != null;
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        @java.lang.Override
+        public com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getAttribution() {
+          return attribution_ == null ? com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.getDefaultInstance() : attribution_;
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        private void setAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+          value.getClass();
+  attribution_ = value;
+
+          }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        @java.lang.SuppressWarnings({"ReferenceEquality"})
+        private void mergeAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+          value.getClass();
+  if (attribution_ != null &&
+              attribution_ != com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.getDefaultInstance()) {
+            attribution_ =
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.newBuilder(attribution_).mergeFrom(value).buildPartial();
+          } else {
+            attribution_ = value;
+          }
+
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        private void clearAttribution() {  attribution_ = null;
+
+        }
+
+        public static final int INSTALLED_FIELD_NUMBER = 4;
+        private boolean installed_;
+        /**
+         * <code>bool installed = 4;</code>
+         * @return The installed.
+         */
+        @java.lang.Override
+        public boolean getInstalled() {
+          return installed_;
+        }
+        /**
+         * <code>bool installed = 4;</code>
+         * @param value The installed to set.
+         */
+        private void setInstalled(boolean value) {
+          
+          installed_ = value;
+        }
+        /**
+         * <code>bool installed = 4;</code>
+         */
+        private void clearInstalled() {
+
+          installed_ = false;
+        }
+
+        public static final int DESCRIPTION_FIELD_NUMBER = 5;
+        private java.lang.String description_;
+        /**
+         * <code>string description = 5;</code>
+         * @return The description.
+         */
+        @java.lang.Override
+        public java.lang.String getDescription() {
+          return description_;
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @return The bytes for description.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getDescriptionBytes() {
+          return com.google.protobuf.ByteString.copyFromUtf8(description_);
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @param value The description to set.
+         */
+        private void setDescription(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  
+          description_ = value;
+        }
+        /**
+         * <code>string description = 5;</code>
+         */
+        private void clearDescription() {
+
+          description_ = getDefaultInstance().getDescription();
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @param value The bytes for description to set.
+         */
+        private void setDescriptionBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          description_ = value.toStringUtf8();
+
+        }
+
+        public static final int VERSION_FIELD_NUMBER = 6;
+        private java.lang.String version_;
+        /**
+         * <code>string version = 6;</code>
+         * @return The version.
+         */
+        @java.lang.Override
+        public java.lang.String getVersion() {
+          return version_;
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @return The bytes for version.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getVersionBytes() {
+          return com.google.protobuf.ByteString.copyFromUtf8(version_);
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @param value The version to set.
+         */
+        private void setVersion(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  
+          version_ = value;
+        }
+        /**
+         * <code>string version = 6;</code>
+         */
+        private void clearVersion() {
+
+          version_ = getDefaultInstance().getVersion();
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @param value The bytes for version to set.
+         */
+        private void setVersionBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          version_ = value.toStringUtf8();
+
+        }
+
+        public static final int MIC_FORMAT_FIELD_NUMBER = 7;
+        private com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat micFormat_;
+        /**
+         * <code>.hassmic.WyomingEvent.Info.AudioFormat mic_format = 7;</code>
+         */
+        @java.lang.Override
+        public boolean hasMicFormat() {
+          return micFormat_ != null;
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Info.AudioFormat mic_format = 7;</code>
+         */
+        @java.lang.Override
+        public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat getMicFormat() {
+          return micFormat_ == null ? com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat.getDefaultInstance() : micFormat_;
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Info.AudioFormat mic_format = 7;</code>
+         */
+        private void setMicFormat(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat value) {
+          value.getClass();
+  micFormat_ = value;
+
+          }
+        /**
+         * <code>.hassmic.WyomingEvent.Info.AudioFormat mic_format = 7;</code>
+         */
+        @java.lang.SuppressWarnings({"ReferenceEquality"})
+        private void mergeMicFormat(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat value) {
+          value.getClass();
+  if (micFormat_ != null &&
+              micFormat_ != com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat.getDefaultInstance()) {
+            micFormat_ =
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat.newBuilder(micFormat_).mergeFrom(value).buildPartial();
+          } else {
+            micFormat_ = value;
+          }
+
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Info.AudioFormat mic_format = 7;</code>
+         */
+        private void clearMicFormat() {  micFormat_ = null;
+
+        }
+
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+          return (Builder) DEFAULT_INSTANCE.createBuilder();
+        }
+        public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel prototype) {
+          return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+        }
+
+        /**
+         * Protobuf type {@code hassmic.WyomingEvent.Info.MicProgram.MicModel}
+         */
+        public static final class Builder extends
+            com.google.protobuf.GeneratedMessageLite.Builder<
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel, Builder> implements
+            // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Info.MicProgram.MicModel)
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModelOrBuilder {
+          // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel.newBuilder()
+          private Builder() {
+            super(DEFAULT_INSTANCE);
+          }
+
+
+          /**
+           * <code>string name = 1;</code>
+           * @return The name.
+           */
+          @java.lang.Override
+          public java.lang.String getName() {
+            return instance.getName();
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @return The bytes for name.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getNameBytes() {
+            return instance.getNameBytes();
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @param value The name to set.
+           * @return This builder for chaining.
+           */
+          public Builder setName(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.setName(value);
+            return this;
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearName() {
+            copyOnWrite();
+            instance.clearName();
+            return this;
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @param value The bytes for name to set.
+           * @return This builder for chaining.
+           */
+          public Builder setNameBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.setNameBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @return A list containing the languages.
+           */
+          @java.lang.Override
+          public java.util.List<java.lang.String>
+              getLanguagesList() {
+            return java.util.Collections.unmodifiableList(
+                instance.getLanguagesList());
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @return The count of languages.
+           */
+          @java.lang.Override
+          public int getLanguagesCount() {
+            return instance.getLanguagesCount();
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param index The index of the element to return.
+           * @return The languages at the given index.
+           */
+          @java.lang.Override
+          public java.lang.String getLanguages(int index) {
+            return instance.getLanguages(index);
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param index The index of the value to return.
+           * @return The bytes of the languages at the given index.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getLanguagesBytes(int index) {
+            return instance.getLanguagesBytes(index);
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param index The index to set the value at.
+           * @param value The languages to set.
+           * @return This builder for chaining.
+           */
+          public Builder setLanguages(
+              int index, java.lang.String value) {
+            copyOnWrite();
+            instance.setLanguages(index, value);
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param value The languages to add.
+           * @return This builder for chaining.
+           */
+          public Builder addLanguages(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.addLanguages(value);
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param values The languages to add.
+           * @return This builder for chaining.
+           */
+          public Builder addAllLanguages(
+              java.lang.Iterable<java.lang.String> values) {
+            copyOnWrite();
+            instance.addAllLanguages(values);
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearLanguages() {
+            copyOnWrite();
+            instance.clearLanguages();
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param value The bytes of the languages to add.
+           * @return This builder for chaining.
+           */
+          public Builder addLanguagesBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.addLanguagesBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          @java.lang.Override
+          public boolean hasAttribution() {
+            return instance.hasAttribution();
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          @java.lang.Override
+          public com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getAttribution() {
+            return instance.getAttribution();
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder setAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+            copyOnWrite();
+            instance.setAttribution(value);
+            return this;
+            }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder setAttribution(
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.Builder builderForValue) {
+            copyOnWrite();
+            instance.setAttribution(builderForValue.build());
+            return this;
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder mergeAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+            copyOnWrite();
+            instance.mergeAttribution(value);
+            return this;
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder clearAttribution() {  copyOnWrite();
+            instance.clearAttribution();
+            return this;
+          }
+
+          /**
+           * <code>bool installed = 4;</code>
+           * @return The installed.
+           */
+          @java.lang.Override
+          public boolean getInstalled() {
+            return instance.getInstalled();
+          }
+          /**
+           * <code>bool installed = 4;</code>
+           * @param value The installed to set.
+           * @return This builder for chaining.
+           */
+          public Builder setInstalled(boolean value) {
+            copyOnWrite();
+            instance.setInstalled(value);
+            return this;
+          }
+          /**
+           * <code>bool installed = 4;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearInstalled() {
+            copyOnWrite();
+            instance.clearInstalled();
+            return this;
+          }
+
+          /**
+           * <code>string description = 5;</code>
+           * @return The description.
+           */
+          @java.lang.Override
+          public java.lang.String getDescription() {
+            return instance.getDescription();
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @return The bytes for description.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getDescriptionBytes() {
+            return instance.getDescriptionBytes();
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @param value The description to set.
+           * @return This builder for chaining.
+           */
+          public Builder setDescription(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.setDescription(value);
+            return this;
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearDescription() {
+            copyOnWrite();
+            instance.clearDescription();
+            return this;
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @param value The bytes for description to set.
+           * @return This builder for chaining.
+           */
+          public Builder setDescriptionBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.setDescriptionBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>string version = 6;</code>
+           * @return The version.
+           */
+          @java.lang.Override
+          public java.lang.String getVersion() {
+            return instance.getVersion();
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @return The bytes for version.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getVersionBytes() {
+            return instance.getVersionBytes();
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @param value The version to set.
+           * @return This builder for chaining.
+           */
+          public Builder setVersion(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.setVersion(value);
+            return this;
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearVersion() {
+            copyOnWrite();
+            instance.clearVersion();
+            return this;
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @param value The bytes for version to set.
+           * @return This builder for chaining.
+           */
+          public Builder setVersionBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.setVersionBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>.hassmic.WyomingEvent.Info.AudioFormat mic_format = 7;</code>
+           */
+          @java.lang.Override
+          public boolean hasMicFormat() {
+            return instance.hasMicFormat();
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Info.AudioFormat mic_format = 7;</code>
+           */
+          @java.lang.Override
+          public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat getMicFormat() {
+            return instance.getMicFormat();
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Info.AudioFormat mic_format = 7;</code>
+           */
+          public Builder setMicFormat(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat value) {
+            copyOnWrite();
+            instance.setMicFormat(value);
+            return this;
+            }
+          /**
+           * <code>.hassmic.WyomingEvent.Info.AudioFormat mic_format = 7;</code>
+           */
+          public Builder setMicFormat(
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat.Builder builderForValue) {
+            copyOnWrite();
+            instance.setMicFormat(builderForValue.build());
+            return this;
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Info.AudioFormat mic_format = 7;</code>
+           */
+          public Builder mergeMicFormat(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat value) {
+            copyOnWrite();
+            instance.mergeMicFormat(value);
+            return this;
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Info.AudioFormat mic_format = 7;</code>
+           */
+          public Builder clearMicFormat() {  copyOnWrite();
+            instance.clearMicFormat();
+            return this;
+          }
+
+          // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Info.MicProgram.MicModel)
+        }
+        @java.lang.Override
+        @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+        protected final java.lang.Object dynamicMethod(
+            com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+            java.lang.Object arg0, java.lang.Object arg1) {
+          switch (method) {
+            case NEW_MUTABLE_INSTANCE: {
+              return new com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel();
+            }
+            case NEW_BUILDER: {
+              return new Builder();
+            }
+            case BUILD_MESSAGE_INFO: {
+                java.lang.Object[] objects = new java.lang.Object[] {
+                  "name_",
+                  "languages_",
+                  "attribution_",
+                  "installed_",
+                  "description_",
+                  "version_",
+                  "micFormat_",
+                };
+                java.lang.String info =
+                    "\u0000\u0007\u0000\u0000\u0001\u0007\u0007\u0000\u0001\u0000\u0001\u0208\u0002\u021a" +
+                    "\u0003\t\u0004\u0007\u0005\u0208\u0006\u0208\u0007\t";
+                return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+            }
+            // fall through
+            case GET_DEFAULT_INSTANCE: {
+              return DEFAULT_INSTANCE;
+            }
+            case GET_PARSER: {
+              com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel> parser = PARSER;
+              if (parser == null) {
+                synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel.class) {
+                  parser = PARSER;
+                  if (parser == null) {
+                    parser =
+                        new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel>(
+                            DEFAULT_INSTANCE);
+                    PARSER = parser;
+                  }
+                }
+              }
+              return parser;
+          }
+          case GET_MEMOIZED_IS_INITIALIZED: {
+            return (byte) 1;
+          }
+          case SET_MEMOIZED_IS_INITIALIZED: {
+            return null;
+          }
+          }
+          throw new UnsupportedOperationException();
+        }
+
+
+        // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Info.MicProgram.MicModel)
+        private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel DEFAULT_INSTANCE;
+        static {
+          MicModel defaultInstance = new MicModel();
+          // New instances are implicitly immutable so no need to make
+          // immutable.
+          DEFAULT_INSTANCE = defaultInstance;
+          com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+            MicModel.class, defaultInstance);
+        }
+
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel getDefaultInstance() {
+          return DEFAULT_INSTANCE;
+        }
+
+        private static volatile com.google.protobuf.Parser<MicModel> PARSER;
+
+        public static com.google.protobuf.Parser<MicModel> parser() {
+          return DEFAULT_INSTANCE.getParserForType();
+        }
+      }
+
+      public static final int MODELS_FIELD_NUMBER = 1;
+      private com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel> models_;
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+       */
+      @java.lang.Override
+      public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel> getModelsList() {
+        return models_;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+       */
+      public java.util.List<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModelOrBuilder> 
+          getModelsOrBuilderList() {
+        return models_;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+       */
+      @java.lang.Override
+      public int getModelsCount() {
+        return models_.size();
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+       */
+      @java.lang.Override
+      public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel getModels(int index) {
+        return models_.get(index);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+       */
+      public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModelOrBuilder getModelsOrBuilder(
+          int index) {
+        return models_.get(index);
+      }
+      private void ensureModelsIsMutable() {
+        com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel> tmp = models_;
+        if (!tmp.isModifiable()) {
+          models_ =
+              com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+         }
+      }
+
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+       */
+      private void setModels(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel value) {
+        value.getClass();
+  ensureModelsIsMutable();
+        models_.set(index, value);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+       */
+      private void addModels(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel value) {
+        value.getClass();
+  ensureModelsIsMutable();
+        models_.add(value);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+       */
+      private void addModels(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel value) {
+        value.getClass();
+  ensureModelsIsMutable();
+        models_.add(index, value);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+       */
+      private void addAllModels(
+          java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel> values) {
+        ensureModelsIsMutable();
+        com.google.protobuf.AbstractMessageLite.addAll(
+            values, models_);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+       */
+      private void clearModels() {
+        models_ = emptyProtobufList();
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+       */
+      private void removeModels(int index) {
+        ensureModelsIsMutable();
+        models_.remove(index);
+      }
+
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+
+      public static Builder newBuilder() {
+        return (Builder) DEFAULT_INSTANCE.createBuilder();
+      }
+      public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram prototype) {
+        return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+      }
+
+      /**
+       * Protobuf type {@code hassmic.WyomingEvent.Info.MicProgram}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageLite.Builder<
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram, Builder> implements
+          // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Info.MicProgram)
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgramOrBuilder {
+        // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.newBuilder()
+        private Builder() {
+          super(DEFAULT_INSTANCE);
+        }
+
+
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+         */
+        @java.lang.Override
+        public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel> getModelsList() {
+          return java.util.Collections.unmodifiableList(
+              instance.getModelsList());
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+         */
+        @java.lang.Override
+        public int getModelsCount() {
+          return instance.getModelsCount();
+        }/**
+         * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+         */
+        @java.lang.Override
+        public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel getModels(int index) {
+          return instance.getModels(index);
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+         */
+        public Builder setModels(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel value) {
+          copyOnWrite();
+          instance.setModels(index, value);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+         */
+        public Builder setModels(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel.Builder builderForValue) {
+          copyOnWrite();
+          instance.setModels(index,
+              builderForValue.build());
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+         */
+        public Builder addModels(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel value) {
+          copyOnWrite();
+          instance.addModels(value);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+         */
+        public Builder addModels(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel value) {
+          copyOnWrite();
+          instance.addModels(index, value);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+         */
+        public Builder addModels(
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel.Builder builderForValue) {
+          copyOnWrite();
+          instance.addModels(builderForValue.build());
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+         */
+        public Builder addModels(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel.Builder builderForValue) {
+          copyOnWrite();
+          instance.addModels(index,
+              builderForValue.build());
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+         */
+        public Builder addAllModels(
+            java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel> values) {
+          copyOnWrite();
+          instance.addAllModels(values);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+         */
+        public Builder clearModels() {
+          copyOnWrite();
+          instance.clearModels();
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.MicProgram.MicModel models = 1;</code>
+         */
+        public Builder removeModels(int index) {
+          copyOnWrite();
+          instance.removeModels(index);
+          return this;
+        }
+
+        // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Info.MicProgram)
+      }
+      @java.lang.Override
+      @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+      protected final java.lang.Object dynamicMethod(
+          com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+          java.lang.Object arg0, java.lang.Object arg1) {
+        switch (method) {
+          case NEW_MUTABLE_INSTANCE: {
+            return new com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram();
+          }
+          case NEW_BUILDER: {
+            return new Builder();
+          }
+          case BUILD_MESSAGE_INFO: {
+              java.lang.Object[] objects = new java.lang.Object[] {
+                "models_",
+                com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.MicModel.class,
+              };
+              java.lang.String info =
+                  "\u0000\u0001\u0000\u0000\u0001\u0001\u0001\u0000\u0001\u0000\u0001\u001b";
+              return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+          }
+          // fall through
+          case GET_DEFAULT_INSTANCE: {
+            return DEFAULT_INSTANCE;
+          }
+          case GET_PARSER: {
+            com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram> parser = PARSER;
+            if (parser == null) {
+              synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.class) {
+                parser = PARSER;
+                if (parser == null) {
+                  parser =
+                      new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram>(
+                          DEFAULT_INSTANCE);
+                  PARSER = parser;
+                }
+              }
+            }
+            return parser;
+        }
+        case GET_MEMOIZED_IS_INITIALIZED: {
+          return (byte) 1;
+        }
+        case SET_MEMOIZED_IS_INITIALIZED: {
+          return null;
+        }
+        }
+        throw new UnsupportedOperationException();
+      }
+
+
+      // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Info.MicProgram)
+      private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram DEFAULT_INSTANCE;
+      static {
+        MicProgram defaultInstance = new MicProgram();
+        // New instances are implicitly immutable so no need to make
+        // immutable.
+        DEFAULT_INSTANCE = defaultInstance;
+        com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+          MicProgram.class, defaultInstance);
+      }
+
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static volatile com.google.protobuf.Parser<MicProgram> PARSER;
+
+      public static com.google.protobuf.Parser<MicProgram> parser() {
+        return DEFAULT_INSTANCE.getParserForType();
+      }
+    }
+
+    public interface SndProgramOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Info.SndProgram)
+        com.google.protobuf.MessageLiteOrBuilder {
+
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+       */
+      java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel> 
+          getModelsList();
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+       */
+      com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel getModels(int index);
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+       */
+      int getModelsCount();
+    }
+    /**
+     * Protobuf type {@code hassmic.WyomingEvent.Info.SndProgram}
+     */
+    public  static final class SndProgram extends
+        com.google.protobuf.GeneratedMessageLite<
+            SndProgram, SndProgram.Builder> implements
+        // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Info.SndProgram)
+        SndProgramOrBuilder {
+      private SndProgram() {
+        models_ = emptyProtobufList();
+      }
+      public interface SndModelOrBuilder extends
+          // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Info.SndProgram.SndModel)
+          com.google.protobuf.MessageLiteOrBuilder {
+
+        /**
+         * <code>string name = 1;</code>
+         * @return The name.
+         */
+        java.lang.String getName();
+        /**
+         * <code>string name = 1;</code>
+         * @return The bytes for name.
+         */
+        com.google.protobuf.ByteString
+            getNameBytes();
+
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return A list containing the languages.
+         */
+        java.util.List<java.lang.String>
+            getLanguagesList();
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return The count of languages.
+         */
+        int getLanguagesCount();
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the element to return.
+         * @return The languages at the given index.
+         */
+        java.lang.String getLanguages(int index);
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the element to return.
+         * @return The languages at the given index.
+         */
+        com.google.protobuf.ByteString
+            getLanguagesBytes(int index);
+
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         * @return Whether the attribution field is set.
+         */
+        boolean hasAttribution();
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         * @return The attribution.
+         */
+        com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getAttribution();
+
+        /**
+         * <code>bool installed = 4;</code>
+         * @return The installed.
+         */
+        boolean getInstalled();
+
+        /**
+         * <code>string description = 5;</code>
+         * @return The description.
+         */
+        java.lang.String getDescription();
+        /**
+         * <code>string description = 5;</code>
+         * @return The bytes for description.
+         */
+        com.google.protobuf.ByteString
+            getDescriptionBytes();
+
+        /**
+         * <code>string version = 6;</code>
+         * @return The version.
+         */
+        java.lang.String getVersion();
+        /**
+         * <code>string version = 6;</code>
+         * @return The bytes for version.
+         */
+        com.google.protobuf.ByteString
+            getVersionBytes();
+
+        /**
+         * <code>.hassmic.WyomingEvent.Info.AudioFormat snd_format = 7;</code>
+         * @return Whether the sndFormat field is set.
+         */
+        boolean hasSndFormat();
+        /**
+         * <code>.hassmic.WyomingEvent.Info.AudioFormat snd_format = 7;</code>
+         * @return The sndFormat.
+         */
+        com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat getSndFormat();
+      }
+      /**
+       * Protobuf type {@code hassmic.WyomingEvent.Info.SndProgram.SndModel}
+       */
+      public  static final class SndModel extends
+          com.google.protobuf.GeneratedMessageLite<
+              SndModel, SndModel.Builder> implements
+          // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Info.SndProgram.SndModel)
+          SndModelOrBuilder {
+        private SndModel() {
+          name_ = "";
+          languages_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+          description_ = "";
+          version_ = "";
+        }
+        public static final int NAME_FIELD_NUMBER = 1;
+        private java.lang.String name_;
+        /**
+         * <code>string name = 1;</code>
+         * @return The name.
+         */
+        @java.lang.Override
+        public java.lang.String getName() {
+          return name_;
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @return The bytes for name.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getNameBytes() {
+          return com.google.protobuf.ByteString.copyFromUtf8(name_);
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @param value The name to set.
+         */
+        private void setName(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  
+          name_ = value;
+        }
+        /**
+         * <code>string name = 1;</code>
+         */
+        private void clearName() {
+
+          name_ = getDefaultInstance().getName();
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @param value The bytes for name to set.
+         */
+        private void setNameBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          name_ = value.toStringUtf8();
+
+        }
+
+        public static final int LANGUAGES_FIELD_NUMBER = 2;
+        private com.google.protobuf.Internal.ProtobufList<java.lang.String> languages_;
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return A list containing the languages.
+         */
+        @java.lang.Override
+        public java.util.List<java.lang.String> getLanguagesList() {
+          return languages_;
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return The count of languages.
+         */
+        @java.lang.Override
+        public int getLanguagesCount() {
+          return languages_.size();
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the element to return.
+         * @return The languages at the given index.
+         */
+        @java.lang.Override
+        public java.lang.String getLanguages(int index) {
+          return languages_.get(index);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the value to return.
+         * @return The bytes of the languages at the given index.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getLanguagesBytes(int index) {
+          return com.google.protobuf.ByteString.copyFromUtf8(
+              languages_.get(index));
+        }
+        private void ensureLanguagesIsMutable() {
+          com.google.protobuf.Internal.ProtobufList<java.lang.String> tmp =
+              languages_;  if (!tmp.isModifiable()) {
+            languages_ =
+                com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+           }
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index to set the value at.
+         * @param value The languages to set.
+         */
+        private void setLanguages(
+            int index, java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  ensureLanguagesIsMutable();
+          languages_.set(index, value);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param value The languages to add.
+         */
+        private void addLanguages(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  ensureLanguagesIsMutable();
+          languages_.add(value);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param values The languages to add.
+         */
+        private void addAllLanguages(
+            java.lang.Iterable<java.lang.String> values) {
+          ensureLanguagesIsMutable();
+          com.google.protobuf.AbstractMessageLite.addAll(
+              values, languages_);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         */
+        private void clearLanguages() {
+          languages_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param value The bytes of the languages to add.
+         */
+        private void addLanguagesBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          ensureLanguagesIsMutable();
+          languages_.add(value.toStringUtf8());
+        }
+
+        public static final int ATTRIBUTION_FIELD_NUMBER = 3;
+        private com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution attribution_;
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        @java.lang.Override
+        public boolean hasAttribution() {
+          return attribution_ != null;
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        @java.lang.Override
+        public com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getAttribution() {
+          return attribution_ == null ? com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.getDefaultInstance() : attribution_;
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        private void setAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+          value.getClass();
+  attribution_ = value;
+
+          }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        @java.lang.SuppressWarnings({"ReferenceEquality"})
+        private void mergeAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+          value.getClass();
+  if (attribution_ != null &&
+              attribution_ != com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.getDefaultInstance()) {
+            attribution_ =
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.newBuilder(attribution_).mergeFrom(value).buildPartial();
+          } else {
+            attribution_ = value;
+          }
+
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        private void clearAttribution() {  attribution_ = null;
+
+        }
+
+        public static final int INSTALLED_FIELD_NUMBER = 4;
+        private boolean installed_;
+        /**
+         * <code>bool installed = 4;</code>
+         * @return The installed.
+         */
+        @java.lang.Override
+        public boolean getInstalled() {
+          return installed_;
+        }
+        /**
+         * <code>bool installed = 4;</code>
+         * @param value The installed to set.
+         */
+        private void setInstalled(boolean value) {
+          
+          installed_ = value;
+        }
+        /**
+         * <code>bool installed = 4;</code>
+         */
+        private void clearInstalled() {
+
+          installed_ = false;
+        }
+
+        public static final int DESCRIPTION_FIELD_NUMBER = 5;
+        private java.lang.String description_;
+        /**
+         * <code>string description = 5;</code>
+         * @return The description.
+         */
+        @java.lang.Override
+        public java.lang.String getDescription() {
+          return description_;
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @return The bytes for description.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getDescriptionBytes() {
+          return com.google.protobuf.ByteString.copyFromUtf8(description_);
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @param value The description to set.
+         */
+        private void setDescription(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  
+          description_ = value;
+        }
+        /**
+         * <code>string description = 5;</code>
+         */
+        private void clearDescription() {
+
+          description_ = getDefaultInstance().getDescription();
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @param value The bytes for description to set.
+         */
+        private void setDescriptionBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          description_ = value.toStringUtf8();
+
+        }
+
+        public static final int VERSION_FIELD_NUMBER = 6;
+        private java.lang.String version_;
+        /**
+         * <code>string version = 6;</code>
+         * @return The version.
+         */
+        @java.lang.Override
+        public java.lang.String getVersion() {
+          return version_;
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @return The bytes for version.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getVersionBytes() {
+          return com.google.protobuf.ByteString.copyFromUtf8(version_);
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @param value The version to set.
+         */
+        private void setVersion(
+            java.lang.String value) {
+          java.lang.Class<?> valueClass = value.getClass();
+  
+          version_ = value;
+        }
+        /**
+         * <code>string version = 6;</code>
+         */
+        private void clearVersion() {
+
+          version_ = getDefaultInstance().getVersion();
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @param value The bytes for version to set.
+         */
+        private void setVersionBytes(
+            com.google.protobuf.ByteString value) {
+          checkByteStringIsUtf8(value);
+          version_ = value.toStringUtf8();
+
+        }
+
+        public static final int SND_FORMAT_FIELD_NUMBER = 7;
+        private com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat sndFormat_;
+        /**
+         * <code>.hassmic.WyomingEvent.Info.AudioFormat snd_format = 7;</code>
+         */
+        @java.lang.Override
+        public boolean hasSndFormat() {
+          return sndFormat_ != null;
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Info.AudioFormat snd_format = 7;</code>
+         */
+        @java.lang.Override
+        public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat getSndFormat() {
+          return sndFormat_ == null ? com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat.getDefaultInstance() : sndFormat_;
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Info.AudioFormat snd_format = 7;</code>
+         */
+        private void setSndFormat(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat value) {
+          value.getClass();
+  sndFormat_ = value;
+
+          }
+        /**
+         * <code>.hassmic.WyomingEvent.Info.AudioFormat snd_format = 7;</code>
+         */
+        @java.lang.SuppressWarnings({"ReferenceEquality"})
+        private void mergeSndFormat(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat value) {
+          value.getClass();
+  if (sndFormat_ != null &&
+              sndFormat_ != com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat.getDefaultInstance()) {
+            sndFormat_ =
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat.newBuilder(sndFormat_).mergeFrom(value).buildPartial();
+          } else {
+            sndFormat_ = value;
+          }
+
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Info.AudioFormat snd_format = 7;</code>
+         */
+        private void clearSndFormat() {  sndFormat_ = null;
+
+        }
+
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input);
+        }
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+          return (Builder) DEFAULT_INSTANCE.createBuilder();
+        }
+        public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel prototype) {
+          return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+        }
+
+        /**
+         * Protobuf type {@code hassmic.WyomingEvent.Info.SndProgram.SndModel}
+         */
+        public static final class Builder extends
+            com.google.protobuf.GeneratedMessageLite.Builder<
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel, Builder> implements
+            // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Info.SndProgram.SndModel)
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModelOrBuilder {
+          // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel.newBuilder()
+          private Builder() {
+            super(DEFAULT_INSTANCE);
+          }
+
+
+          /**
+           * <code>string name = 1;</code>
+           * @return The name.
+           */
+          @java.lang.Override
+          public java.lang.String getName() {
+            return instance.getName();
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @return The bytes for name.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getNameBytes() {
+            return instance.getNameBytes();
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @param value The name to set.
+           * @return This builder for chaining.
+           */
+          public Builder setName(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.setName(value);
+            return this;
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearName() {
+            copyOnWrite();
+            instance.clearName();
+            return this;
+          }
+          /**
+           * <code>string name = 1;</code>
+           * @param value The bytes for name to set.
+           * @return This builder for chaining.
+           */
+          public Builder setNameBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.setNameBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @return A list containing the languages.
+           */
+          @java.lang.Override
+          public java.util.List<java.lang.String>
+              getLanguagesList() {
+            return java.util.Collections.unmodifiableList(
+                instance.getLanguagesList());
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @return The count of languages.
+           */
+          @java.lang.Override
+          public int getLanguagesCount() {
+            return instance.getLanguagesCount();
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param index The index of the element to return.
+           * @return The languages at the given index.
+           */
+          @java.lang.Override
+          public java.lang.String getLanguages(int index) {
+            return instance.getLanguages(index);
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param index The index of the value to return.
+           * @return The bytes of the languages at the given index.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getLanguagesBytes(int index) {
+            return instance.getLanguagesBytes(index);
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param index The index to set the value at.
+           * @param value The languages to set.
+           * @return This builder for chaining.
+           */
+          public Builder setLanguages(
+              int index, java.lang.String value) {
+            copyOnWrite();
+            instance.setLanguages(index, value);
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param value The languages to add.
+           * @return This builder for chaining.
+           */
+          public Builder addLanguages(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.addLanguages(value);
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param values The languages to add.
+           * @return This builder for chaining.
+           */
+          public Builder addAllLanguages(
+              java.lang.Iterable<java.lang.String> values) {
+            copyOnWrite();
+            instance.addAllLanguages(values);
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearLanguages() {
+            copyOnWrite();
+            instance.clearLanguages();
+            return this;
+          }
+          /**
+           * <code>repeated string languages = 2;</code>
+           * @param value The bytes of the languages to add.
+           * @return This builder for chaining.
+           */
+          public Builder addLanguagesBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.addLanguagesBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          @java.lang.Override
+          public boolean hasAttribution() {
+            return instance.hasAttribution();
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          @java.lang.Override
+          public com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getAttribution() {
+            return instance.getAttribution();
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder setAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+            copyOnWrite();
+            instance.setAttribution(value);
+            return this;
+            }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder setAttribution(
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.Builder builderForValue) {
+            copyOnWrite();
+            instance.setAttribution(builderForValue.build());
+            return this;
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder mergeAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+            copyOnWrite();
+            instance.mergeAttribution(value);
+            return this;
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+           */
+          public Builder clearAttribution() {  copyOnWrite();
+            instance.clearAttribution();
+            return this;
+          }
+
+          /**
+           * <code>bool installed = 4;</code>
+           * @return The installed.
+           */
+          @java.lang.Override
+          public boolean getInstalled() {
+            return instance.getInstalled();
+          }
+          /**
+           * <code>bool installed = 4;</code>
+           * @param value The installed to set.
+           * @return This builder for chaining.
+           */
+          public Builder setInstalled(boolean value) {
+            copyOnWrite();
+            instance.setInstalled(value);
+            return this;
+          }
+          /**
+           * <code>bool installed = 4;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearInstalled() {
+            copyOnWrite();
+            instance.clearInstalled();
+            return this;
+          }
+
+          /**
+           * <code>string description = 5;</code>
+           * @return The description.
+           */
+          @java.lang.Override
+          public java.lang.String getDescription() {
+            return instance.getDescription();
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @return The bytes for description.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getDescriptionBytes() {
+            return instance.getDescriptionBytes();
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @param value The description to set.
+           * @return This builder for chaining.
+           */
+          public Builder setDescription(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.setDescription(value);
+            return this;
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearDescription() {
+            copyOnWrite();
+            instance.clearDescription();
+            return this;
+          }
+          /**
+           * <code>string description = 5;</code>
+           * @param value The bytes for description to set.
+           * @return This builder for chaining.
+           */
+          public Builder setDescriptionBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.setDescriptionBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>string version = 6;</code>
+           * @return The version.
+           */
+          @java.lang.Override
+          public java.lang.String getVersion() {
+            return instance.getVersion();
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @return The bytes for version.
+           */
+          @java.lang.Override
+          public com.google.protobuf.ByteString
+              getVersionBytes() {
+            return instance.getVersionBytes();
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @param value The version to set.
+           * @return This builder for chaining.
+           */
+          public Builder setVersion(
+              java.lang.String value) {
+            copyOnWrite();
+            instance.setVersion(value);
+            return this;
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @return This builder for chaining.
+           */
+          public Builder clearVersion() {
+            copyOnWrite();
+            instance.clearVersion();
+            return this;
+          }
+          /**
+           * <code>string version = 6;</code>
+           * @param value The bytes for version to set.
+           * @return This builder for chaining.
+           */
+          public Builder setVersionBytes(
+              com.google.protobuf.ByteString value) {
+            copyOnWrite();
+            instance.setVersionBytes(value);
+            return this;
+          }
+
+          /**
+           * <code>.hassmic.WyomingEvent.Info.AudioFormat snd_format = 7;</code>
+           */
+          @java.lang.Override
+          public boolean hasSndFormat() {
+            return instance.hasSndFormat();
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Info.AudioFormat snd_format = 7;</code>
+           */
+          @java.lang.Override
+          public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat getSndFormat() {
+            return instance.getSndFormat();
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Info.AudioFormat snd_format = 7;</code>
+           */
+          public Builder setSndFormat(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat value) {
+            copyOnWrite();
+            instance.setSndFormat(value);
+            return this;
+            }
+          /**
+           * <code>.hassmic.WyomingEvent.Info.AudioFormat snd_format = 7;</code>
+           */
+          public Builder setSndFormat(
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat.Builder builderForValue) {
+            copyOnWrite();
+            instance.setSndFormat(builderForValue.build());
+            return this;
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Info.AudioFormat snd_format = 7;</code>
+           */
+          public Builder mergeSndFormat(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AudioFormat value) {
+            copyOnWrite();
+            instance.mergeSndFormat(value);
+            return this;
+          }
+          /**
+           * <code>.hassmic.WyomingEvent.Info.AudioFormat snd_format = 7;</code>
+           */
+          public Builder clearSndFormat() {  copyOnWrite();
+            instance.clearSndFormat();
+            return this;
+          }
+
+          // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Info.SndProgram.SndModel)
+        }
+        @java.lang.Override
+        @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+        protected final java.lang.Object dynamicMethod(
+            com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+            java.lang.Object arg0, java.lang.Object arg1) {
+          switch (method) {
+            case NEW_MUTABLE_INSTANCE: {
+              return new com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel();
+            }
+            case NEW_BUILDER: {
+              return new Builder();
+            }
+            case BUILD_MESSAGE_INFO: {
+                java.lang.Object[] objects = new java.lang.Object[] {
+                  "name_",
+                  "languages_",
+                  "attribution_",
+                  "installed_",
+                  "description_",
+                  "version_",
+                  "sndFormat_",
+                };
+                java.lang.String info =
+                    "\u0000\u0007\u0000\u0000\u0001\u0007\u0007\u0000\u0001\u0000\u0001\u0208\u0002\u021a" +
+                    "\u0003\t\u0004\u0007\u0005\u0208\u0006\u0208\u0007\t";
+                return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+            }
+            // fall through
+            case GET_DEFAULT_INSTANCE: {
+              return DEFAULT_INSTANCE;
+            }
+            case GET_PARSER: {
+              com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel> parser = PARSER;
+              if (parser == null) {
+                synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel.class) {
+                  parser = PARSER;
+                  if (parser == null) {
+                    parser =
+                        new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel>(
+                            DEFAULT_INSTANCE);
+                    PARSER = parser;
+                  }
+                }
+              }
+              return parser;
+          }
+          case GET_MEMOIZED_IS_INITIALIZED: {
+            return (byte) 1;
+          }
+          case SET_MEMOIZED_IS_INITIALIZED: {
+            return null;
+          }
+          }
+          throw new UnsupportedOperationException();
+        }
+
+
+        // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Info.SndProgram.SndModel)
+        private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel DEFAULT_INSTANCE;
+        static {
+          SndModel defaultInstance = new SndModel();
+          // New instances are implicitly immutable so no need to make
+          // immutable.
+          DEFAULT_INSTANCE = defaultInstance;
+          com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+            SndModel.class, defaultInstance);
+        }
+
+        public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel getDefaultInstance() {
+          return DEFAULT_INSTANCE;
+        }
+
+        private static volatile com.google.protobuf.Parser<SndModel> PARSER;
+
+        public static com.google.protobuf.Parser<SndModel> parser() {
+          return DEFAULT_INSTANCE.getParserForType();
+        }
+      }
+
+      public static final int MODELS_FIELD_NUMBER = 1;
+      private com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel> models_;
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+       */
+      @java.lang.Override
+      public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel> getModelsList() {
+        return models_;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+       */
+      public java.util.List<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModelOrBuilder> 
+          getModelsOrBuilderList() {
+        return models_;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+       */
+      @java.lang.Override
+      public int getModelsCount() {
+        return models_.size();
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+       */
+      @java.lang.Override
+      public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel getModels(int index) {
+        return models_.get(index);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+       */
+      public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModelOrBuilder getModelsOrBuilder(
+          int index) {
+        return models_.get(index);
+      }
+      private void ensureModelsIsMutable() {
+        com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel> tmp = models_;
+        if (!tmp.isModifiable()) {
+          models_ =
+              com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+         }
+      }
+
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+       */
+      private void setModels(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel value) {
+        value.getClass();
+  ensureModelsIsMutable();
+        models_.set(index, value);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+       */
+      private void addModels(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel value) {
+        value.getClass();
+  ensureModelsIsMutable();
+        models_.add(value);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+       */
+      private void addModels(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel value) {
+        value.getClass();
+  ensureModelsIsMutable();
+        models_.add(index, value);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+       */
+      private void addAllModels(
+          java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel> values) {
+        ensureModelsIsMutable();
+        com.google.protobuf.AbstractMessageLite.addAll(
+            values, models_);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+       */
+      private void clearModels() {
+        models_ = emptyProtobufList();
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+       */
+      private void removeModels(int index) {
+        ensureModelsIsMutable();
+        models_.remove(index);
+      }
+
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+
+      public static Builder newBuilder() {
+        return (Builder) DEFAULT_INSTANCE.createBuilder();
+      }
+      public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram prototype) {
+        return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+      }
+
+      /**
+       * Protobuf type {@code hassmic.WyomingEvent.Info.SndProgram}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageLite.Builder<
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram, Builder> implements
+          // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Info.SndProgram)
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgramOrBuilder {
+        // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.newBuilder()
+        private Builder() {
+          super(DEFAULT_INSTANCE);
+        }
+
+
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+         */
+        @java.lang.Override
+        public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel> getModelsList() {
+          return java.util.Collections.unmodifiableList(
+              instance.getModelsList());
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+         */
+        @java.lang.Override
+        public int getModelsCount() {
+          return instance.getModelsCount();
+        }/**
+         * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+         */
+        @java.lang.Override
+        public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel getModels(int index) {
+          return instance.getModels(index);
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+         */
+        public Builder setModels(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel value) {
+          copyOnWrite();
+          instance.setModels(index, value);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+         */
+        public Builder setModels(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel.Builder builderForValue) {
+          copyOnWrite();
+          instance.setModels(index,
+              builderForValue.build());
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+         */
+        public Builder addModels(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel value) {
+          copyOnWrite();
+          instance.addModels(value);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+         */
+        public Builder addModels(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel value) {
+          copyOnWrite();
+          instance.addModels(index, value);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+         */
+        public Builder addModels(
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel.Builder builderForValue) {
+          copyOnWrite();
+          instance.addModels(builderForValue.build());
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+         */
+        public Builder addModels(
+            int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel.Builder builderForValue) {
+          copyOnWrite();
+          instance.addModels(index,
+              builderForValue.build());
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+         */
+        public Builder addAllModels(
+            java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel> values) {
+          copyOnWrite();
+          instance.addAllModels(values);
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+         */
+        public Builder clearModels() {
+          copyOnWrite();
+          instance.clearModels();
+          return this;
+        }
+        /**
+         * <code>repeated .hassmic.WyomingEvent.Info.SndProgram.SndModel models = 1;</code>
+         */
+        public Builder removeModels(int index) {
+          copyOnWrite();
+          instance.removeModels(index);
+          return this;
+        }
+
+        // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Info.SndProgram)
+      }
+      @java.lang.Override
+      @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+      protected final java.lang.Object dynamicMethod(
+          com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+          java.lang.Object arg0, java.lang.Object arg1) {
+        switch (method) {
+          case NEW_MUTABLE_INSTANCE: {
+            return new com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram();
+          }
+          case NEW_BUILDER: {
+            return new Builder();
+          }
+          case BUILD_MESSAGE_INFO: {
+              java.lang.Object[] objects = new java.lang.Object[] {
+                "models_",
+                com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.SndModel.class,
+              };
+              java.lang.String info =
+                  "\u0000\u0001\u0000\u0000\u0001\u0001\u0001\u0000\u0001\u0000\u0001\u001b";
+              return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+          }
+          // fall through
+          case GET_DEFAULT_INSTANCE: {
+            return DEFAULT_INSTANCE;
+          }
+          case GET_PARSER: {
+            com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram> parser = PARSER;
+            if (parser == null) {
+              synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.class) {
+                parser = PARSER;
+                if (parser == null) {
+                  parser =
+                      new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram>(
+                          DEFAULT_INSTANCE);
+                  PARSER = parser;
+                }
+              }
+            }
+            return parser;
+        }
+        case GET_MEMOIZED_IS_INITIALIZED: {
+          return (byte) 1;
+        }
+        case SET_MEMOIZED_IS_INITIALIZED: {
+          return null;
+        }
+        }
+        throw new UnsupportedOperationException();
+      }
+
+
+      // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Info.SndProgram)
+      private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram DEFAULT_INSTANCE;
+      static {
+        SndProgram defaultInstance = new SndProgram();
+        // New instances are implicitly immutable so no need to make
+        // immutable.
+        DEFAULT_INSTANCE = defaultInstance;
+        com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+          SndProgram.class, defaultInstance);
+      }
+
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static volatile com.google.protobuf.Parser<SndProgram> PARSER;
+
+      public static com.google.protobuf.Parser<SndProgram> parser() {
+        return DEFAULT_INSTANCE.getParserForType();
+      }
+    }
+
+    public interface SatelliteOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Info.Satellite)
+        com.google.protobuf.MessageLiteOrBuilder {
+
+      /**
+       * <code>string name = 1;</code>
+       * @return The name.
+       */
+      java.lang.String getName();
+      /**
+       * <code>string name = 1;</code>
+       * @return The bytes for name.
+       */
+      com.google.protobuf.ByteString
+          getNameBytes();
+
+      /**
+       * <code>repeated string languages = 2;</code>
+       * @return A list containing the languages.
+       */
+      java.util.List<java.lang.String>
+          getLanguagesList();
+      /**
+       * <code>repeated string languages = 2;</code>
+       * @return The count of languages.
+       */
+      int getLanguagesCount();
+      /**
+       * <code>repeated string languages = 2;</code>
+       * @param index The index of the element to return.
+       * @return The languages at the given index.
+       */
+      java.lang.String getLanguages(int index);
+      /**
+       * <code>repeated string languages = 2;</code>
+       * @param index The index of the element to return.
+       * @return The languages at the given index.
+       */
+      com.google.protobuf.ByteString
+          getLanguagesBytes(int index);
+
+      /**
+       * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+       * @return Whether the attribution field is set.
+       */
+      boolean hasAttribution();
+      /**
+       * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+       * @return The attribution.
+       */
+      com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getAttribution();
+
+      /**
+       * <code>bool installed = 4;</code>
+       * @return The installed.
+       */
+      boolean getInstalled();
+
+      /**
+       * <code>string description = 5;</code>
+       * @return The description.
+       */
+      java.lang.String getDescription();
+      /**
+       * <code>string description = 5;</code>
+       * @return The bytes for description.
+       */
+      com.google.protobuf.ByteString
+          getDescriptionBytes();
+
+      /**
+       * <code>string version = 6;</code>
+       * @return The version.
+       */
+      java.lang.String getVersion();
+      /**
+       * <code>string version = 6;</code>
+       * @return The bytes for version.
+       */
+      com.google.protobuf.ByteString
+          getVersionBytes();
+
+      /**
+       * <code>string area = 7;</code>
+       * @return The area.
+       */
+      java.lang.String getArea();
+      /**
+       * <code>string area = 7;</code>
+       * @return The bytes for area.
+       */
+      com.google.protobuf.ByteString
+          getAreaBytes();
+
+      /**
+       * <code>bool has_vad = 8;</code>
+       * @return The hasVad.
+       */
+      boolean getHasVad();
+
+      /**
+       * <code>repeated string active_wake_words = 9;</code>
+       * @return A list containing the activeWakeWords.
+       */
+      java.util.List<java.lang.String>
+          getActiveWakeWordsList();
+      /**
+       * <code>repeated string active_wake_words = 9;</code>
+       * @return The count of activeWakeWords.
+       */
+      int getActiveWakeWordsCount();
+      /**
+       * <code>repeated string active_wake_words = 9;</code>
+       * @param index The index of the element to return.
+       * @return The activeWakeWords at the given index.
+       */
+      java.lang.String getActiveWakeWords(int index);
+      /**
+       * <code>repeated string active_wake_words = 9;</code>
+       * @param index The index of the element to return.
+       * @return The activeWakeWords at the given index.
+       */
+      com.google.protobuf.ByteString
+          getActiveWakeWordsBytes(int index);
+
+      /**
+       * <code>int64 max_active_wake_words = 10;</code>
+       * @return The maxActiveWakeWords.
+       */
+      long getMaxActiveWakeWords();
+
+      /**
+       * <code>bool supports_trigger = 11;</code>
+       * @return The supportsTrigger.
+       */
+      boolean getSupportsTrigger();
+    }
+    /**
+     * Protobuf type {@code hassmic.WyomingEvent.Info.Satellite}
+     */
+    public  static final class Satellite extends
+        com.google.protobuf.GeneratedMessageLite<
+            Satellite, Satellite.Builder> implements
+        // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Info.Satellite)
+        SatelliteOrBuilder {
+      private Satellite() {
+        name_ = "";
+        languages_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+        description_ = "";
+        version_ = "";
+        area_ = "";
+        activeWakeWords_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+      }
+      public static final int NAME_FIELD_NUMBER = 1;
+      private java.lang.String name_;
+      /**
+       * <code>string name = 1;</code>
+       * @return The name.
+       */
+      @java.lang.Override
+      public java.lang.String getName() {
+        return name_;
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @return The bytes for name.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        return com.google.protobuf.ByteString.copyFromUtf8(name_);
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @param value The name to set.
+       */
+      private void setName(
+          java.lang.String value) {
+        java.lang.Class<?> valueClass = value.getClass();
+  
+        name_ = value;
+      }
+      /**
+       * <code>string name = 1;</code>
+       */
+      private void clearName() {
+
+        name_ = getDefaultInstance().getName();
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @param value The bytes for name to set.
+       */
+      private void setNameBytes(
+          com.google.protobuf.ByteString value) {
+        checkByteStringIsUtf8(value);
+        name_ = value.toStringUtf8();
+
+      }
+
+      public static final int LANGUAGES_FIELD_NUMBER = 2;
+      private com.google.protobuf.Internal.ProtobufList<java.lang.String> languages_;
+      /**
+       * <code>repeated string languages = 2;</code>
+       * @return A list containing the languages.
+       */
+      @java.lang.Override
+      public java.util.List<java.lang.String> getLanguagesList() {
+        return languages_;
+      }
+      /**
+       * <code>repeated string languages = 2;</code>
+       * @return The count of languages.
+       */
+      @java.lang.Override
+      public int getLanguagesCount() {
+        return languages_.size();
+      }
+      /**
+       * <code>repeated string languages = 2;</code>
+       * @param index The index of the element to return.
+       * @return The languages at the given index.
+       */
+      @java.lang.Override
+      public java.lang.String getLanguages(int index) {
+        return languages_.get(index);
+      }
+      /**
+       * <code>repeated string languages = 2;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the languages at the given index.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getLanguagesBytes(int index) {
+        return com.google.protobuf.ByteString.copyFromUtf8(
+            languages_.get(index));
+      }
+      private void ensureLanguagesIsMutable() {
+        com.google.protobuf.Internal.ProtobufList<java.lang.String> tmp =
+            languages_;  if (!tmp.isModifiable()) {
+          languages_ =
+              com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+         }
+      }
+      /**
+       * <code>repeated string languages = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The languages to set.
+       */
+      private void setLanguages(
+          int index, java.lang.String value) {
+        java.lang.Class<?> valueClass = value.getClass();
+  ensureLanguagesIsMutable();
+        languages_.set(index, value);
+      }
+      /**
+       * <code>repeated string languages = 2;</code>
+       * @param value The languages to add.
+       */
+      private void addLanguages(
+          java.lang.String value) {
+        java.lang.Class<?> valueClass = value.getClass();
+  ensureLanguagesIsMutable();
+        languages_.add(value);
+      }
+      /**
+       * <code>repeated string languages = 2;</code>
+       * @param values The languages to add.
+       */
+      private void addAllLanguages(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureLanguagesIsMutable();
+        com.google.protobuf.AbstractMessageLite.addAll(
+            values, languages_);
+      }
+      /**
+       * <code>repeated string languages = 2;</code>
+       */
+      private void clearLanguages() {
+        languages_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+      }
+      /**
+       * <code>repeated string languages = 2;</code>
+       * @param value The bytes of the languages to add.
+       */
+      private void addLanguagesBytes(
+          com.google.protobuf.ByteString value) {
+        checkByteStringIsUtf8(value);
+        ensureLanguagesIsMutable();
+        languages_.add(value.toStringUtf8());
+      }
+
+      public static final int ATTRIBUTION_FIELD_NUMBER = 3;
+      private com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution attribution_;
+      /**
+       * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+       */
+      @java.lang.Override
+      public boolean hasAttribution() {
+        return attribution_ != null;
+      }
+      /**
+       * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+       */
+      @java.lang.Override
+      public com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getAttribution() {
+        return attribution_ == null ? com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.getDefaultInstance() : attribution_;
+      }
+      /**
+       * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+       */
+      private void setAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+        value.getClass();
+  attribution_ = value;
+
+        }
+      /**
+       * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+       */
+      @java.lang.SuppressWarnings({"ReferenceEquality"})
+      private void mergeAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+        value.getClass();
+  if (attribution_ != null &&
+            attribution_ != com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.getDefaultInstance()) {
+          attribution_ =
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.newBuilder(attribution_).mergeFrom(value).buildPartial();
+        } else {
+          attribution_ = value;
+        }
+
+      }
+      /**
+       * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+       */
+      private void clearAttribution() {  attribution_ = null;
+
+      }
+
+      public static final int INSTALLED_FIELD_NUMBER = 4;
+      private boolean installed_;
+      /**
+       * <code>bool installed = 4;</code>
+       * @return The installed.
+       */
+      @java.lang.Override
+      public boolean getInstalled() {
+        return installed_;
+      }
+      /**
+       * <code>bool installed = 4;</code>
+       * @param value The installed to set.
+       */
+      private void setInstalled(boolean value) {
+        
+        installed_ = value;
+      }
+      /**
+       * <code>bool installed = 4;</code>
+       */
+      private void clearInstalled() {
+
+        installed_ = false;
+      }
+
+      public static final int DESCRIPTION_FIELD_NUMBER = 5;
+      private java.lang.String description_;
+      /**
+       * <code>string description = 5;</code>
+       * @return The description.
+       */
+      @java.lang.Override
+      public java.lang.String getDescription() {
+        return description_;
+      }
+      /**
+       * <code>string description = 5;</code>
+       * @return The bytes for description.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getDescriptionBytes() {
+        return com.google.protobuf.ByteString.copyFromUtf8(description_);
+      }
+      /**
+       * <code>string description = 5;</code>
+       * @param value The description to set.
+       */
+      private void setDescription(
+          java.lang.String value) {
+        java.lang.Class<?> valueClass = value.getClass();
+  
+        description_ = value;
+      }
+      /**
+       * <code>string description = 5;</code>
+       */
+      private void clearDescription() {
+
+        description_ = getDefaultInstance().getDescription();
+      }
+      /**
+       * <code>string description = 5;</code>
+       * @param value The bytes for description to set.
+       */
+      private void setDescriptionBytes(
+          com.google.protobuf.ByteString value) {
+        checkByteStringIsUtf8(value);
+        description_ = value.toStringUtf8();
+
+      }
+
+      public static final int VERSION_FIELD_NUMBER = 6;
+      private java.lang.String version_;
+      /**
+       * <code>string version = 6;</code>
+       * @return The version.
+       */
+      @java.lang.Override
+      public java.lang.String getVersion() {
+        return version_;
+      }
+      /**
+       * <code>string version = 6;</code>
+       * @return The bytes for version.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getVersionBytes() {
+        return com.google.protobuf.ByteString.copyFromUtf8(version_);
+      }
+      /**
+       * <code>string version = 6;</code>
+       * @param value The version to set.
+       */
+      private void setVersion(
+          java.lang.String value) {
+        java.lang.Class<?> valueClass = value.getClass();
+  
+        version_ = value;
+      }
+      /**
+       * <code>string version = 6;</code>
+       */
+      private void clearVersion() {
+
+        version_ = getDefaultInstance().getVersion();
+      }
+      /**
+       * <code>string version = 6;</code>
+       * @param value The bytes for version to set.
+       */
+      private void setVersionBytes(
+          com.google.protobuf.ByteString value) {
+        checkByteStringIsUtf8(value);
+        version_ = value.toStringUtf8();
+
+      }
+
+      public static final int AREA_FIELD_NUMBER = 7;
+      private java.lang.String area_;
+      /**
+       * <code>string area = 7;</code>
+       * @return The area.
+       */
+      @java.lang.Override
+      public java.lang.String getArea() {
+        return area_;
+      }
+      /**
+       * <code>string area = 7;</code>
+       * @return The bytes for area.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getAreaBytes() {
+        return com.google.protobuf.ByteString.copyFromUtf8(area_);
+      }
+      /**
+       * <code>string area = 7;</code>
+       * @param value The area to set.
+       */
+      private void setArea(
+          java.lang.String value) {
+        java.lang.Class<?> valueClass = value.getClass();
+  
+        area_ = value;
+      }
+      /**
+       * <code>string area = 7;</code>
+       */
+      private void clearArea() {
+
+        area_ = getDefaultInstance().getArea();
+      }
+      /**
+       * <code>string area = 7;</code>
+       * @param value The bytes for area to set.
+       */
+      private void setAreaBytes(
+          com.google.protobuf.ByteString value) {
+        checkByteStringIsUtf8(value);
+        area_ = value.toStringUtf8();
+
+      }
+
+      public static final int HAS_VAD_FIELD_NUMBER = 8;
+      private boolean hasVad_;
+      /**
+       * <code>bool has_vad = 8;</code>
+       * @return The hasVad.
+       */
+      @java.lang.Override
+      public boolean getHasVad() {
+        return hasVad_;
+      }
+      /**
+       * <code>bool has_vad = 8;</code>
+       * @param value The hasVad to set.
+       */
+      private void setHasVad(boolean value) {
+        
+        hasVad_ = value;
+      }
+      /**
+       * <code>bool has_vad = 8;</code>
+       */
+      private void clearHasVad() {
+
+        hasVad_ = false;
+      }
+
+      public static final int ACTIVE_WAKE_WORDS_FIELD_NUMBER = 9;
+      private com.google.protobuf.Internal.ProtobufList<java.lang.String> activeWakeWords_;
+      /**
+       * <code>repeated string active_wake_words = 9;</code>
+       * @return A list containing the activeWakeWords.
+       */
+      @java.lang.Override
+      public java.util.List<java.lang.String> getActiveWakeWordsList() {
+        return activeWakeWords_;
+      }
+      /**
+       * <code>repeated string active_wake_words = 9;</code>
+       * @return The count of activeWakeWords.
+       */
+      @java.lang.Override
+      public int getActiveWakeWordsCount() {
+        return activeWakeWords_.size();
+      }
+      /**
+       * <code>repeated string active_wake_words = 9;</code>
+       * @param index The index of the element to return.
+       * @return The activeWakeWords at the given index.
+       */
+      @java.lang.Override
+      public java.lang.String getActiveWakeWords(int index) {
+        return activeWakeWords_.get(index);
+      }
+      /**
+       * <code>repeated string active_wake_words = 9;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the activeWakeWords at the given index.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getActiveWakeWordsBytes(int index) {
+        return com.google.protobuf.ByteString.copyFromUtf8(
+            activeWakeWords_.get(index));
+      }
+      private void ensureActiveWakeWordsIsMutable() {
+        com.google.protobuf.Internal.ProtobufList<java.lang.String> tmp =
+            activeWakeWords_;  if (!tmp.isModifiable()) {
+          activeWakeWords_ =
+              com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+         }
+      }
+      /**
+       * <code>repeated string active_wake_words = 9;</code>
+       * @param index The index to set the value at.
+       * @param value The activeWakeWords to set.
+       */
+      private void setActiveWakeWords(
+          int index, java.lang.String value) {
+        java.lang.Class<?> valueClass = value.getClass();
+  ensureActiveWakeWordsIsMutable();
+        activeWakeWords_.set(index, value);
+      }
+      /**
+       * <code>repeated string active_wake_words = 9;</code>
+       * @param value The activeWakeWords to add.
+       */
+      private void addActiveWakeWords(
+          java.lang.String value) {
+        java.lang.Class<?> valueClass = value.getClass();
+  ensureActiveWakeWordsIsMutable();
+        activeWakeWords_.add(value);
+      }
+      /**
+       * <code>repeated string active_wake_words = 9;</code>
+       * @param values The activeWakeWords to add.
+       */
+      private void addAllActiveWakeWords(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureActiveWakeWordsIsMutable();
+        com.google.protobuf.AbstractMessageLite.addAll(
+            values, activeWakeWords_);
+      }
+      /**
+       * <code>repeated string active_wake_words = 9;</code>
+       */
+      private void clearActiveWakeWords() {
+        activeWakeWords_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+      }
+      /**
+       * <code>repeated string active_wake_words = 9;</code>
+       * @param value The bytes of the activeWakeWords to add.
+       */
+      private void addActiveWakeWordsBytes(
+          com.google.protobuf.ByteString value) {
+        checkByteStringIsUtf8(value);
+        ensureActiveWakeWordsIsMutable();
+        activeWakeWords_.add(value.toStringUtf8());
+      }
+
+      public static final int MAX_ACTIVE_WAKE_WORDS_FIELD_NUMBER = 10;
+      private long maxActiveWakeWords_;
+      /**
+       * <code>int64 max_active_wake_words = 10;</code>
+       * @return The maxActiveWakeWords.
+       */
+      @java.lang.Override
+      public long getMaxActiveWakeWords() {
+        return maxActiveWakeWords_;
+      }
+      /**
+       * <code>int64 max_active_wake_words = 10;</code>
+       * @param value The maxActiveWakeWords to set.
+       */
+      private void setMaxActiveWakeWords(long value) {
+        
+        maxActiveWakeWords_ = value;
+      }
+      /**
+       * <code>int64 max_active_wake_words = 10;</code>
+       */
+      private void clearMaxActiveWakeWords() {
+
+        maxActiveWakeWords_ = 0L;
+      }
+
+      public static final int SUPPORTS_TRIGGER_FIELD_NUMBER = 11;
+      private boolean supportsTrigger_;
+      /**
+       * <code>bool supports_trigger = 11;</code>
+       * @return The supportsTrigger.
+       */
+      @java.lang.Override
+      public boolean getSupportsTrigger() {
+        return supportsTrigger_;
+      }
+      /**
+       * <code>bool supports_trigger = 11;</code>
+       * @param value The supportsTrigger to set.
+       */
+      private void setSupportsTrigger(boolean value) {
+        
+        supportsTrigger_ = value;
+      }
+      /**
+       * <code>bool supports_trigger = 11;</code>
+       */
+      private void clearSupportsTrigger() {
+
+        supportsTrigger_ = false;
+      }
+
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input);
+      }
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input, extensionRegistry);
+      }
+
+      public static Builder newBuilder() {
+        return (Builder) DEFAULT_INSTANCE.createBuilder();
+      }
+      public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite prototype) {
+        return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+      }
+
+      /**
+       * Protobuf type {@code hassmic.WyomingEvent.Info.Satellite}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageLite.Builder<
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite, Builder> implements
+          // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Info.Satellite)
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SatelliteOrBuilder {
+        // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite.newBuilder()
+        private Builder() {
+          super(DEFAULT_INSTANCE);
+        }
+
+
+        /**
+         * <code>string name = 1;</code>
+         * @return The name.
+         */
+        @java.lang.Override
+        public java.lang.String getName() {
+          return instance.getName();
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @return The bytes for name.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getNameBytes() {
+          return instance.getNameBytes();
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @param value The name to set.
+         * @return This builder for chaining.
+         */
+        public Builder setName(
+            java.lang.String value) {
+          copyOnWrite();
+          instance.setName(value);
+          return this;
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearName() {
+          copyOnWrite();
+          instance.clearName();
+          return this;
+        }
+        /**
+         * <code>string name = 1;</code>
+         * @param value The bytes for name to set.
+         * @return This builder for chaining.
+         */
+        public Builder setNameBytes(
+            com.google.protobuf.ByteString value) {
+          copyOnWrite();
+          instance.setNameBytes(value);
+          return this;
+        }
+
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return A list containing the languages.
+         */
+        @java.lang.Override
+        public java.util.List<java.lang.String>
+            getLanguagesList() {
+          return java.util.Collections.unmodifiableList(
+              instance.getLanguagesList());
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return The count of languages.
+         */
+        @java.lang.Override
+        public int getLanguagesCount() {
+          return instance.getLanguagesCount();
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the element to return.
+         * @return The languages at the given index.
+         */
+        @java.lang.Override
+        public java.lang.String getLanguages(int index) {
+          return instance.getLanguages(index);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index of the value to return.
+         * @return The bytes of the languages at the given index.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getLanguagesBytes(int index) {
+          return instance.getLanguagesBytes(index);
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param index The index to set the value at.
+         * @param value The languages to set.
+         * @return This builder for chaining.
+         */
+        public Builder setLanguages(
+            int index, java.lang.String value) {
+          copyOnWrite();
+          instance.setLanguages(index, value);
+          return this;
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param value The languages to add.
+         * @return This builder for chaining.
+         */
+        public Builder addLanguages(
+            java.lang.String value) {
+          copyOnWrite();
+          instance.addLanguages(value);
+          return this;
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param values The languages to add.
+         * @return This builder for chaining.
+         */
+        public Builder addAllLanguages(
+            java.lang.Iterable<java.lang.String> values) {
+          copyOnWrite();
+          instance.addAllLanguages(values);
+          return this;
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearLanguages() {
+          copyOnWrite();
+          instance.clearLanguages();
+          return this;
+        }
+        /**
+         * <code>repeated string languages = 2;</code>
+         * @param value The bytes of the languages to add.
+         * @return This builder for chaining.
+         */
+        public Builder addLanguagesBytes(
+            com.google.protobuf.ByteString value) {
+          copyOnWrite();
+          instance.addLanguagesBytes(value);
+          return this;
+        }
+
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        @java.lang.Override
+        public boolean hasAttribution() {
+          return instance.hasAttribution();
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        @java.lang.Override
+        public com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution getAttribution() {
+          return instance.getAttribution();
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        public Builder setAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+          copyOnWrite();
+          instance.setAttribution(value);
+          return this;
+          }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        public Builder setAttribution(
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution.Builder builderForValue) {
+          copyOnWrite();
+          instance.setAttribution(builderForValue.build());
+          return this;
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        public Builder mergeAttribution(com.thejeffcooper.hassmic.proto.WyomingEvent.Attribution value) {
+          copyOnWrite();
+          instance.mergeAttribution(value);
+          return this;
+        }
+        /**
+         * <code>.hassmic.WyomingEvent.Attribution attribution = 3;</code>
+         */
+        public Builder clearAttribution() {  copyOnWrite();
+          instance.clearAttribution();
+          return this;
+        }
+
+        /**
+         * <code>bool installed = 4;</code>
+         * @return The installed.
+         */
+        @java.lang.Override
+        public boolean getInstalled() {
+          return instance.getInstalled();
+        }
+        /**
+         * <code>bool installed = 4;</code>
+         * @param value The installed to set.
+         * @return This builder for chaining.
+         */
+        public Builder setInstalled(boolean value) {
+          copyOnWrite();
+          instance.setInstalled(value);
+          return this;
+        }
+        /**
+         * <code>bool installed = 4;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearInstalled() {
+          copyOnWrite();
+          instance.clearInstalled();
+          return this;
+        }
+
+        /**
+         * <code>string description = 5;</code>
+         * @return The description.
+         */
+        @java.lang.Override
+        public java.lang.String getDescription() {
+          return instance.getDescription();
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @return The bytes for description.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getDescriptionBytes() {
+          return instance.getDescriptionBytes();
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @param value The description to set.
+         * @return This builder for chaining.
+         */
+        public Builder setDescription(
+            java.lang.String value) {
+          copyOnWrite();
+          instance.setDescription(value);
+          return this;
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearDescription() {
+          copyOnWrite();
+          instance.clearDescription();
+          return this;
+        }
+        /**
+         * <code>string description = 5;</code>
+         * @param value The bytes for description to set.
+         * @return This builder for chaining.
+         */
+        public Builder setDescriptionBytes(
+            com.google.protobuf.ByteString value) {
+          copyOnWrite();
+          instance.setDescriptionBytes(value);
+          return this;
+        }
+
+        /**
+         * <code>string version = 6;</code>
+         * @return The version.
+         */
+        @java.lang.Override
+        public java.lang.String getVersion() {
+          return instance.getVersion();
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @return The bytes for version.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getVersionBytes() {
+          return instance.getVersionBytes();
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @param value The version to set.
+         * @return This builder for chaining.
+         */
+        public Builder setVersion(
+            java.lang.String value) {
+          copyOnWrite();
+          instance.setVersion(value);
+          return this;
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearVersion() {
+          copyOnWrite();
+          instance.clearVersion();
+          return this;
+        }
+        /**
+         * <code>string version = 6;</code>
+         * @param value The bytes for version to set.
+         * @return This builder for chaining.
+         */
+        public Builder setVersionBytes(
+            com.google.protobuf.ByteString value) {
+          copyOnWrite();
+          instance.setVersionBytes(value);
+          return this;
+        }
+
+        /**
+         * <code>string area = 7;</code>
+         * @return The area.
+         */
+        @java.lang.Override
+        public java.lang.String getArea() {
+          return instance.getArea();
+        }
+        /**
+         * <code>string area = 7;</code>
+         * @return The bytes for area.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getAreaBytes() {
+          return instance.getAreaBytes();
+        }
+        /**
+         * <code>string area = 7;</code>
+         * @param value The area to set.
+         * @return This builder for chaining.
+         */
+        public Builder setArea(
+            java.lang.String value) {
+          copyOnWrite();
+          instance.setArea(value);
+          return this;
+        }
+        /**
+         * <code>string area = 7;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearArea() {
+          copyOnWrite();
+          instance.clearArea();
+          return this;
+        }
+        /**
+         * <code>string area = 7;</code>
+         * @param value The bytes for area to set.
+         * @return This builder for chaining.
+         */
+        public Builder setAreaBytes(
+            com.google.protobuf.ByteString value) {
+          copyOnWrite();
+          instance.setAreaBytes(value);
+          return this;
+        }
+
+        /**
+         * <code>bool has_vad = 8;</code>
+         * @return The hasVad.
+         */
+        @java.lang.Override
+        public boolean getHasVad() {
+          return instance.getHasVad();
+        }
+        /**
+         * <code>bool has_vad = 8;</code>
+         * @param value The hasVad to set.
+         * @return This builder for chaining.
+         */
+        public Builder setHasVad(boolean value) {
+          copyOnWrite();
+          instance.setHasVad(value);
+          return this;
+        }
+        /**
+         * <code>bool has_vad = 8;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearHasVad() {
+          copyOnWrite();
+          instance.clearHasVad();
+          return this;
+        }
+
+        /**
+         * <code>repeated string active_wake_words = 9;</code>
+         * @return A list containing the activeWakeWords.
+         */
+        @java.lang.Override
+        public java.util.List<java.lang.String>
+            getActiveWakeWordsList() {
+          return java.util.Collections.unmodifiableList(
+              instance.getActiveWakeWordsList());
+        }
+        /**
+         * <code>repeated string active_wake_words = 9;</code>
+         * @return The count of activeWakeWords.
+         */
+        @java.lang.Override
+        public int getActiveWakeWordsCount() {
+          return instance.getActiveWakeWordsCount();
+        }
+        /**
+         * <code>repeated string active_wake_words = 9;</code>
+         * @param index The index of the element to return.
+         * @return The activeWakeWords at the given index.
+         */
+        @java.lang.Override
+        public java.lang.String getActiveWakeWords(int index) {
+          return instance.getActiveWakeWords(index);
+        }
+        /**
+         * <code>repeated string active_wake_words = 9;</code>
+         * @param index The index of the value to return.
+         * @return The bytes of the activeWakeWords at the given index.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getActiveWakeWordsBytes(int index) {
+          return instance.getActiveWakeWordsBytes(index);
+        }
+        /**
+         * <code>repeated string active_wake_words = 9;</code>
+         * @param index The index to set the value at.
+         * @param value The activeWakeWords to set.
+         * @return This builder for chaining.
+         */
+        public Builder setActiveWakeWords(
+            int index, java.lang.String value) {
+          copyOnWrite();
+          instance.setActiveWakeWords(index, value);
+          return this;
+        }
+        /**
+         * <code>repeated string active_wake_words = 9;</code>
+         * @param value The activeWakeWords to add.
+         * @return This builder for chaining.
+         */
+        public Builder addActiveWakeWords(
+            java.lang.String value) {
+          copyOnWrite();
+          instance.addActiveWakeWords(value);
+          return this;
+        }
+        /**
+         * <code>repeated string active_wake_words = 9;</code>
+         * @param values The activeWakeWords to add.
+         * @return This builder for chaining.
+         */
+        public Builder addAllActiveWakeWords(
+            java.lang.Iterable<java.lang.String> values) {
+          copyOnWrite();
+          instance.addAllActiveWakeWords(values);
+          return this;
+        }
+        /**
+         * <code>repeated string active_wake_words = 9;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearActiveWakeWords() {
+          copyOnWrite();
+          instance.clearActiveWakeWords();
+          return this;
+        }
+        /**
+         * <code>repeated string active_wake_words = 9;</code>
+         * @param value The bytes of the activeWakeWords to add.
+         * @return This builder for chaining.
+         */
+        public Builder addActiveWakeWordsBytes(
+            com.google.protobuf.ByteString value) {
+          copyOnWrite();
+          instance.addActiveWakeWordsBytes(value);
+          return this;
+        }
+
+        /**
+         * <code>int64 max_active_wake_words = 10;</code>
+         * @return The maxActiveWakeWords.
+         */
+        @java.lang.Override
+        public long getMaxActiveWakeWords() {
+          return instance.getMaxActiveWakeWords();
+        }
+        /**
+         * <code>int64 max_active_wake_words = 10;</code>
+         * @param value The maxActiveWakeWords to set.
+         * @return This builder for chaining.
+         */
+        public Builder setMaxActiveWakeWords(long value) {
+          copyOnWrite();
+          instance.setMaxActiveWakeWords(value);
+          return this;
+        }
+        /**
+         * <code>int64 max_active_wake_words = 10;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearMaxActiveWakeWords() {
+          copyOnWrite();
+          instance.clearMaxActiveWakeWords();
+          return this;
+        }
+
+        /**
+         * <code>bool supports_trigger = 11;</code>
+         * @return The supportsTrigger.
+         */
+        @java.lang.Override
+        public boolean getSupportsTrigger() {
+          return instance.getSupportsTrigger();
+        }
+        /**
+         * <code>bool supports_trigger = 11;</code>
+         * @param value The supportsTrigger to set.
+         * @return This builder for chaining.
+         */
+        public Builder setSupportsTrigger(boolean value) {
+          copyOnWrite();
+          instance.setSupportsTrigger(value);
+          return this;
+        }
+        /**
+         * <code>bool supports_trigger = 11;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearSupportsTrigger() {
+          copyOnWrite();
+          instance.clearSupportsTrigger();
+          return this;
+        }
+
+        // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Info.Satellite)
+      }
+      @java.lang.Override
+      @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+      protected final java.lang.Object dynamicMethod(
+          com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+          java.lang.Object arg0, java.lang.Object arg1) {
+        switch (method) {
+          case NEW_MUTABLE_INSTANCE: {
+            return new com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite();
+          }
+          case NEW_BUILDER: {
+            return new Builder();
+          }
+          case BUILD_MESSAGE_INFO: {
+              java.lang.Object[] objects = new java.lang.Object[] {
+                "name_",
+                "languages_",
+                "attribution_",
+                "installed_",
+                "description_",
+                "version_",
+                "area_",
+                "hasVad_",
+                "activeWakeWords_",
+                "maxActiveWakeWords_",
+                "supportsTrigger_",
+              };
+              java.lang.String info =
+                  "\u0000\u000b\u0000\u0000\u0001\u000b\u000b\u0000\u0002\u0000\u0001\u0208\u0002\u021a" +
+                  "\u0003\t\u0004\u0007\u0005\u0208\u0006\u0208\u0007\u0208\b\u0007\t\u021a\n\u0002" +
+                  "\u000b\u0007";
+              return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+          }
+          // fall through
+          case GET_DEFAULT_INSTANCE: {
+            return DEFAULT_INSTANCE;
+          }
+          case GET_PARSER: {
+            com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite> parser = PARSER;
+            if (parser == null) {
+              synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite.class) {
+                parser = PARSER;
+                if (parser == null) {
+                  parser =
+                      new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite>(
+                          DEFAULT_INSTANCE);
+                  PARSER = parser;
+                }
+              }
+            }
+            return parser;
+        }
+        case GET_MEMOIZED_IS_INITIALIZED: {
+          return (byte) 1;
+        }
+        case SET_MEMOIZED_IS_INITIALIZED: {
+          return null;
+        }
+        }
+        throw new UnsupportedOperationException();
+      }
+
+
+      // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Info.Satellite)
+      private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite DEFAULT_INSTANCE;
+      static {
+        Satellite defaultInstance = new Satellite();
+        // New instances are implicitly immutable so no need to make
+        // immutable.
+        DEFAULT_INSTANCE = defaultInstance;
+        com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+          Satellite.class, defaultInstance);
+      }
+
+      public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static volatile com.google.protobuf.Parser<Satellite> PARSER;
+
+      public static com.google.protobuf.Parser<Satellite> parser() {
+        return DEFAULT_INSTANCE.getParserForType();
+      }
+    }
+
+    public static final int ASR_FIELD_NUMBER = 1;
+    private com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram> asr_;
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram> getAsrList() {
+      return asr_;
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+     */
+    public java.util.List<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgramOrBuilder> 
+        getAsrOrBuilderList() {
+      return asr_;
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+     */
+    @java.lang.Override
+    public int getAsrCount() {
+      return asr_.size();
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+     */
+    @java.lang.Override
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram getAsr(int index) {
+      return asr_.get(index);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+     */
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgramOrBuilder getAsrOrBuilder(
+        int index) {
+      return asr_.get(index);
+    }
+    private void ensureAsrIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram> tmp = asr_;
+      if (!tmp.isModifiable()) {
+        asr_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
+
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+     */
+    private void setAsr(
+        int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram value) {
+      value.getClass();
+  ensureAsrIsMutable();
+      asr_.set(index, value);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+     */
+    private void addAsr(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram value) {
+      value.getClass();
+  ensureAsrIsMutable();
+      asr_.add(value);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+     */
+    private void addAsr(
+        int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram value) {
+      value.getClass();
+  ensureAsrIsMutable();
+      asr_.add(index, value);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+     */
+    private void addAllAsr(
+        java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram> values) {
+      ensureAsrIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, asr_);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+     */
+    private void clearAsr() {
+      asr_ = emptyProtobufList();
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+     */
+    private void removeAsr(int index) {
+      ensureAsrIsMutable();
+      asr_.remove(index);
+    }
+
+    public static final int TTS_FIELD_NUMBER = 2;
+    private com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram> tts_;
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram> getTtsList() {
+      return tts_;
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+     */
+    public java.util.List<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgramOrBuilder> 
+        getTtsOrBuilderList() {
+      return tts_;
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+     */
+    @java.lang.Override
+    public int getTtsCount() {
+      return tts_.size();
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+     */
+    @java.lang.Override
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram getTts(int index) {
+      return tts_.get(index);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+     */
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgramOrBuilder getTtsOrBuilder(
+        int index) {
+      return tts_.get(index);
+    }
+    private void ensureTtsIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram> tmp = tts_;
+      if (!tmp.isModifiable()) {
+        tts_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
+
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+     */
+    private void setTts(
+        int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram value) {
+      value.getClass();
+  ensureTtsIsMutable();
+      tts_.set(index, value);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+     */
+    private void addTts(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram value) {
+      value.getClass();
+  ensureTtsIsMutable();
+      tts_.add(value);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+     */
+    private void addTts(
+        int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram value) {
+      value.getClass();
+  ensureTtsIsMutable();
+      tts_.add(index, value);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+     */
+    private void addAllTts(
+        java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram> values) {
+      ensureTtsIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, tts_);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+     */
+    private void clearTts() {
+      tts_ = emptyProtobufList();
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+     */
+    private void removeTts(int index) {
+      ensureTtsIsMutable();
+      tts_.remove(index);
+    }
+
+    public static final int HANDLE_FIELD_NUMBER = 3;
+    private com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram> handle_;
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram> getHandleList() {
+      return handle_;
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+     */
+    public java.util.List<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgramOrBuilder> 
+        getHandleOrBuilderList() {
+      return handle_;
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+     */
+    @java.lang.Override
+    public int getHandleCount() {
+      return handle_.size();
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+     */
+    @java.lang.Override
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram getHandle(int index) {
+      return handle_.get(index);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+     */
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgramOrBuilder getHandleOrBuilder(
+        int index) {
+      return handle_.get(index);
+    }
+    private void ensureHandleIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram> tmp = handle_;
+      if (!tmp.isModifiable()) {
+        handle_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
+
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+     */
+    private void setHandle(
+        int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram value) {
+      value.getClass();
+  ensureHandleIsMutable();
+      handle_.set(index, value);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+     */
+    private void addHandle(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram value) {
+      value.getClass();
+  ensureHandleIsMutable();
+      handle_.add(value);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+     */
+    private void addHandle(
+        int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram value) {
+      value.getClass();
+  ensureHandleIsMutable();
+      handle_.add(index, value);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+     */
+    private void addAllHandle(
+        java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram> values) {
+      ensureHandleIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, handle_);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+     */
+    private void clearHandle() {
+      handle_ = emptyProtobufList();
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+     */
+    private void removeHandle(int index) {
+      ensureHandleIsMutable();
+      handle_.remove(index);
+    }
+
+    public static final int INTENT_FIELD_NUMBER = 4;
+    private com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram> intent_;
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram> getIntentList() {
+      return intent_;
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+     */
+    public java.util.List<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgramOrBuilder> 
+        getIntentOrBuilderList() {
+      return intent_;
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+     */
+    @java.lang.Override
+    public int getIntentCount() {
+      return intent_.size();
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+     */
+    @java.lang.Override
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram getIntent(int index) {
+      return intent_.get(index);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+     */
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgramOrBuilder getIntentOrBuilder(
+        int index) {
+      return intent_.get(index);
+    }
+    private void ensureIntentIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram> tmp = intent_;
+      if (!tmp.isModifiable()) {
+        intent_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
+
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+     */
+    private void setIntent(
+        int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram value) {
+      value.getClass();
+  ensureIntentIsMutable();
+      intent_.set(index, value);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+     */
+    private void addIntent(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram value) {
+      value.getClass();
+  ensureIntentIsMutable();
+      intent_.add(value);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+     */
+    private void addIntent(
+        int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram value) {
+      value.getClass();
+  ensureIntentIsMutable();
+      intent_.add(index, value);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+     */
+    private void addAllIntent(
+        java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram> values) {
+      ensureIntentIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, intent_);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+     */
+    private void clearIntent() {
+      intent_ = emptyProtobufList();
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+     */
+    private void removeIntent(int index) {
+      ensureIntentIsMutable();
+      intent_.remove(index);
+    }
+
+    public static final int WAKE_FIELD_NUMBER = 5;
+    private com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram> wake_;
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram> getWakeList() {
+      return wake_;
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+     */
+    public java.util.List<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgramOrBuilder> 
+        getWakeOrBuilderList() {
+      return wake_;
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+     */
+    @java.lang.Override
+    public int getWakeCount() {
+      return wake_.size();
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+     */
+    @java.lang.Override
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram getWake(int index) {
+      return wake_.get(index);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+     */
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgramOrBuilder getWakeOrBuilder(
+        int index) {
+      return wake_.get(index);
+    }
+    private void ensureWakeIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram> tmp = wake_;
+      if (!tmp.isModifiable()) {
+        wake_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
+
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+     */
+    private void setWake(
+        int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram value) {
+      value.getClass();
+  ensureWakeIsMutable();
+      wake_.set(index, value);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+     */
+    private void addWake(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram value) {
+      value.getClass();
+  ensureWakeIsMutable();
+      wake_.add(value);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+     */
+    private void addWake(
+        int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram value) {
+      value.getClass();
+  ensureWakeIsMutable();
+      wake_.add(index, value);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+     */
+    private void addAllWake(
+        java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram> values) {
+      ensureWakeIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, wake_);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+     */
+    private void clearWake() {
+      wake_ = emptyProtobufList();
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+     */
+    private void removeWake(int index) {
+      ensureWakeIsMutable();
+      wake_.remove(index);
+    }
+
+    public static final int MIC_FIELD_NUMBER = 6;
+    private com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram> mic_;
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram> getMicList() {
+      return mic_;
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+     */
+    public java.util.List<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgramOrBuilder> 
+        getMicOrBuilderList() {
+      return mic_;
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+     */
+    @java.lang.Override
+    public int getMicCount() {
+      return mic_.size();
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+     */
+    @java.lang.Override
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram getMic(int index) {
+      return mic_.get(index);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+     */
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgramOrBuilder getMicOrBuilder(
+        int index) {
+      return mic_.get(index);
+    }
+    private void ensureMicIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram> tmp = mic_;
+      if (!tmp.isModifiable()) {
+        mic_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
+
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+     */
+    private void setMic(
+        int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram value) {
+      value.getClass();
+  ensureMicIsMutable();
+      mic_.set(index, value);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+     */
+    private void addMic(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram value) {
+      value.getClass();
+  ensureMicIsMutable();
+      mic_.add(value);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+     */
+    private void addMic(
+        int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram value) {
+      value.getClass();
+  ensureMicIsMutable();
+      mic_.add(index, value);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+     */
+    private void addAllMic(
+        java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram> values) {
+      ensureMicIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, mic_);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+     */
+    private void clearMic() {
+      mic_ = emptyProtobufList();
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+     */
+    private void removeMic(int index) {
+      ensureMicIsMutable();
+      mic_.remove(index);
+    }
+
+    public static final int SND_FIELD_NUMBER = 7;
+    private com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram> snd_;
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram> getSndList() {
+      return snd_;
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+     */
+    public java.util.List<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgramOrBuilder> 
+        getSndOrBuilderList() {
+      return snd_;
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+     */
+    @java.lang.Override
+    public int getSndCount() {
+      return snd_.size();
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+     */
+    @java.lang.Override
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram getSnd(int index) {
+      return snd_.get(index);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+     */
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgramOrBuilder getSndOrBuilder(
+        int index) {
+      return snd_.get(index);
+    }
+    private void ensureSndIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram> tmp = snd_;
+      if (!tmp.isModifiable()) {
+        snd_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
+
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+     */
+    private void setSnd(
+        int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram value) {
+      value.getClass();
+  ensureSndIsMutable();
+      snd_.set(index, value);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+     */
+    private void addSnd(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram value) {
+      value.getClass();
+  ensureSndIsMutable();
+      snd_.add(value);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+     */
+    private void addSnd(
+        int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram value) {
+      value.getClass();
+  ensureSndIsMutable();
+      snd_.add(index, value);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+     */
+    private void addAllSnd(
+        java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram> values) {
+      ensureSndIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, snd_);
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+     */
+    private void clearSnd() {
+      snd_ = emptyProtobufList();
+    }
+    /**
+     * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+     */
+    private void removeSnd(int index) {
+      ensureSndIsMutable();
+      snd_.remove(index);
+    }
+
+    public static final int SATELLITE_FIELD_NUMBER = 8;
+    private com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite satellite_;
+    /**
+     * <code>.hassmic.WyomingEvent.Info.Satellite satellite = 8;</code>
+     */
+    @java.lang.Override
+    public boolean hasSatellite() {
+      return satellite_ != null;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Info.Satellite satellite = 8;</code>
+     */
+    @java.lang.Override
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite getSatellite() {
+      return satellite_ == null ? com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite.getDefaultInstance() : satellite_;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Info.Satellite satellite = 8;</code>
+     */
+    private void setSatellite(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite value) {
+      value.getClass();
+  satellite_ = value;
+
+      }
+    /**
+     * <code>.hassmic.WyomingEvent.Info.Satellite satellite = 8;</code>
+     */
+    @java.lang.SuppressWarnings({"ReferenceEquality"})
+    private void mergeSatellite(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite value) {
+      value.getClass();
+  if (satellite_ != null &&
+          satellite_ != com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite.getDefaultInstance()) {
+        satellite_ =
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite.newBuilder(satellite_).mergeFrom(value).buildPartial();
+      } else {
+        satellite_ = value;
+      }
+
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Info.Satellite satellite = 8;</code>
+     */
+    private void clearSatellite() {  satellite_ = null;
+
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Info prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code hassmic.WyomingEvent.Info}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Info, Builder> implements
+        // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Info)
+        com.thejeffcooper.hassmic.proto.WyomingEvent.InfoOrBuilder {
+      // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Info.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+       */
+      @java.lang.Override
+      public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram> getAsrList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getAsrList());
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+       */
+      @java.lang.Override
+      public int getAsrCount() {
+        return instance.getAsrCount();
+      }/**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+       */
+      @java.lang.Override
+      public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram getAsr(int index) {
+        return instance.getAsr(index);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+       */
+      public Builder setAsr(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram value) {
+        copyOnWrite();
+        instance.setAsr(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+       */
+      public Builder setAsr(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.Builder builderForValue) {
+        copyOnWrite();
+        instance.setAsr(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+       */
+      public Builder addAsr(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram value) {
+        copyOnWrite();
+        instance.addAsr(value);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+       */
+      public Builder addAsr(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram value) {
+        copyOnWrite();
+        instance.addAsr(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+       */
+      public Builder addAsr(
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.Builder builderForValue) {
+        copyOnWrite();
+        instance.addAsr(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+       */
+      public Builder addAsr(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.Builder builderForValue) {
+        copyOnWrite();
+        instance.addAsr(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+       */
+      public Builder addAllAsr(
+          java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram> values) {
+        copyOnWrite();
+        instance.addAllAsr(values);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+       */
+      public Builder clearAsr() {
+        copyOnWrite();
+        instance.clearAsr();
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.AsrProgram asr = 1;</code>
+       */
+      public Builder removeAsr(int index) {
+        copyOnWrite();
+        instance.removeAsr(index);
+        return this;
+      }
+
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+       */
+      @java.lang.Override
+      public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram> getTtsList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getTtsList());
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+       */
+      @java.lang.Override
+      public int getTtsCount() {
+        return instance.getTtsCount();
+      }/**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+       */
+      @java.lang.Override
+      public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram getTts(int index) {
+        return instance.getTts(index);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+       */
+      public Builder setTts(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram value) {
+        copyOnWrite();
+        instance.setTts(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+       */
+      public Builder setTts(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.Builder builderForValue) {
+        copyOnWrite();
+        instance.setTts(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+       */
+      public Builder addTts(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram value) {
+        copyOnWrite();
+        instance.addTts(value);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+       */
+      public Builder addTts(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram value) {
+        copyOnWrite();
+        instance.addTts(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+       */
+      public Builder addTts(
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.Builder builderForValue) {
+        copyOnWrite();
+        instance.addTts(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+       */
+      public Builder addTts(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.Builder builderForValue) {
+        copyOnWrite();
+        instance.addTts(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+       */
+      public Builder addAllTts(
+          java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram> values) {
+        copyOnWrite();
+        instance.addAllTts(values);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+       */
+      public Builder clearTts() {
+        copyOnWrite();
+        instance.clearTts();
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.TtsProgram tts = 2;</code>
+       */
+      public Builder removeTts(int index) {
+        copyOnWrite();
+        instance.removeTts(index);
+        return this;
+      }
+
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+       */
+      @java.lang.Override
+      public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram> getHandleList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getHandleList());
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+       */
+      @java.lang.Override
+      public int getHandleCount() {
+        return instance.getHandleCount();
+      }/**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+       */
+      @java.lang.Override
+      public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram getHandle(int index) {
+        return instance.getHandle(index);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+       */
+      public Builder setHandle(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram value) {
+        copyOnWrite();
+        instance.setHandle(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+       */
+      public Builder setHandle(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.Builder builderForValue) {
+        copyOnWrite();
+        instance.setHandle(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+       */
+      public Builder addHandle(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram value) {
+        copyOnWrite();
+        instance.addHandle(value);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+       */
+      public Builder addHandle(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram value) {
+        copyOnWrite();
+        instance.addHandle(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+       */
+      public Builder addHandle(
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.Builder builderForValue) {
+        copyOnWrite();
+        instance.addHandle(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+       */
+      public Builder addHandle(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.Builder builderForValue) {
+        copyOnWrite();
+        instance.addHandle(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+       */
+      public Builder addAllHandle(
+          java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram> values) {
+        copyOnWrite();
+        instance.addAllHandle(values);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+       */
+      public Builder clearHandle() {
+        copyOnWrite();
+        instance.clearHandle();
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.HandleProgram handle = 3;</code>
+       */
+      public Builder removeHandle(int index) {
+        copyOnWrite();
+        instance.removeHandle(index);
+        return this;
+      }
+
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+       */
+      @java.lang.Override
+      public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram> getIntentList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getIntentList());
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+       */
+      @java.lang.Override
+      public int getIntentCount() {
+        return instance.getIntentCount();
+      }/**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+       */
+      @java.lang.Override
+      public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram getIntent(int index) {
+        return instance.getIntent(index);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+       */
+      public Builder setIntent(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram value) {
+        copyOnWrite();
+        instance.setIntent(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+       */
+      public Builder setIntent(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.Builder builderForValue) {
+        copyOnWrite();
+        instance.setIntent(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+       */
+      public Builder addIntent(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram value) {
+        copyOnWrite();
+        instance.addIntent(value);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+       */
+      public Builder addIntent(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram value) {
+        copyOnWrite();
+        instance.addIntent(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+       */
+      public Builder addIntent(
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.Builder builderForValue) {
+        copyOnWrite();
+        instance.addIntent(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+       */
+      public Builder addIntent(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.Builder builderForValue) {
+        copyOnWrite();
+        instance.addIntent(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+       */
+      public Builder addAllIntent(
+          java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram> values) {
+        copyOnWrite();
+        instance.addAllIntent(values);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+       */
+      public Builder clearIntent() {
+        copyOnWrite();
+        instance.clearIntent();
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.IntentProgram intent = 4;</code>
+       */
+      public Builder removeIntent(int index) {
+        copyOnWrite();
+        instance.removeIntent(index);
+        return this;
+      }
+
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+       */
+      @java.lang.Override
+      public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram> getWakeList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getWakeList());
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+       */
+      @java.lang.Override
+      public int getWakeCount() {
+        return instance.getWakeCount();
+      }/**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+       */
+      @java.lang.Override
+      public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram getWake(int index) {
+        return instance.getWake(index);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+       */
+      public Builder setWake(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram value) {
+        copyOnWrite();
+        instance.setWake(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+       */
+      public Builder setWake(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.Builder builderForValue) {
+        copyOnWrite();
+        instance.setWake(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+       */
+      public Builder addWake(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram value) {
+        copyOnWrite();
+        instance.addWake(value);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+       */
+      public Builder addWake(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram value) {
+        copyOnWrite();
+        instance.addWake(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+       */
+      public Builder addWake(
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.Builder builderForValue) {
+        copyOnWrite();
+        instance.addWake(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+       */
+      public Builder addWake(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.Builder builderForValue) {
+        copyOnWrite();
+        instance.addWake(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+       */
+      public Builder addAllWake(
+          java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram> values) {
+        copyOnWrite();
+        instance.addAllWake(values);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+       */
+      public Builder clearWake() {
+        copyOnWrite();
+        instance.clearWake();
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.WakeProgram wake = 5;</code>
+       */
+      public Builder removeWake(int index) {
+        copyOnWrite();
+        instance.removeWake(index);
+        return this;
+      }
+
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+       */
+      @java.lang.Override
+      public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram> getMicList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getMicList());
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+       */
+      @java.lang.Override
+      public int getMicCount() {
+        return instance.getMicCount();
+      }/**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+       */
+      @java.lang.Override
+      public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram getMic(int index) {
+        return instance.getMic(index);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+       */
+      public Builder setMic(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram value) {
+        copyOnWrite();
+        instance.setMic(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+       */
+      public Builder setMic(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.Builder builderForValue) {
+        copyOnWrite();
+        instance.setMic(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+       */
+      public Builder addMic(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram value) {
+        copyOnWrite();
+        instance.addMic(value);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+       */
+      public Builder addMic(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram value) {
+        copyOnWrite();
+        instance.addMic(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+       */
+      public Builder addMic(
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.Builder builderForValue) {
+        copyOnWrite();
+        instance.addMic(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+       */
+      public Builder addMic(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.Builder builderForValue) {
+        copyOnWrite();
+        instance.addMic(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+       */
+      public Builder addAllMic(
+          java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram> values) {
+        copyOnWrite();
+        instance.addAllMic(values);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+       */
+      public Builder clearMic() {
+        copyOnWrite();
+        instance.clearMic();
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.MicProgram mic = 6;</code>
+       */
+      public Builder removeMic(int index) {
+        copyOnWrite();
+        instance.removeMic(index);
+        return this;
+      }
+
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+       */
+      @java.lang.Override
+      public java.util.List<com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram> getSndList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getSndList());
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+       */
+      @java.lang.Override
+      public int getSndCount() {
+        return instance.getSndCount();
+      }/**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+       */
+      @java.lang.Override
+      public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram getSnd(int index) {
+        return instance.getSnd(index);
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+       */
+      public Builder setSnd(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram value) {
+        copyOnWrite();
+        instance.setSnd(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+       */
+      public Builder setSnd(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.Builder builderForValue) {
+        copyOnWrite();
+        instance.setSnd(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+       */
+      public Builder addSnd(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram value) {
+        copyOnWrite();
+        instance.addSnd(value);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+       */
+      public Builder addSnd(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram value) {
+        copyOnWrite();
+        instance.addSnd(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+       */
+      public Builder addSnd(
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.Builder builderForValue) {
+        copyOnWrite();
+        instance.addSnd(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+       */
+      public Builder addSnd(
+          int index, com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.Builder builderForValue) {
+        copyOnWrite();
+        instance.addSnd(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+       */
+      public Builder addAllSnd(
+          java.lang.Iterable<? extends com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram> values) {
+        copyOnWrite();
+        instance.addAllSnd(values);
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+       */
+      public Builder clearSnd() {
+        copyOnWrite();
+        instance.clearSnd();
+        return this;
+      }
+      /**
+       * <code>repeated .hassmic.WyomingEvent.Info.SndProgram snd = 7;</code>
+       */
+      public Builder removeSnd(int index) {
+        copyOnWrite();
+        instance.removeSnd(index);
+        return this;
+      }
+
+      /**
+       * <code>.hassmic.WyomingEvent.Info.Satellite satellite = 8;</code>
+       */
+      @java.lang.Override
+      public boolean hasSatellite() {
+        return instance.hasSatellite();
+      }
+      /**
+       * <code>.hassmic.WyomingEvent.Info.Satellite satellite = 8;</code>
+       */
+      @java.lang.Override
+      public com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite getSatellite() {
+        return instance.getSatellite();
+      }
+      /**
+       * <code>.hassmic.WyomingEvent.Info.Satellite satellite = 8;</code>
+       */
+      public Builder setSatellite(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite value) {
+        copyOnWrite();
+        instance.setSatellite(value);
+        return this;
+        }
+      /**
+       * <code>.hassmic.WyomingEvent.Info.Satellite satellite = 8;</code>
+       */
+      public Builder setSatellite(
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite.Builder builderForValue) {
+        copyOnWrite();
+        instance.setSatellite(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>.hassmic.WyomingEvent.Info.Satellite satellite = 8;</code>
+       */
+      public Builder mergeSatellite(com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Satellite value) {
+        copyOnWrite();
+        instance.mergeSatellite(value);
+        return this;
+      }
+      /**
+       * <code>.hassmic.WyomingEvent.Info.Satellite satellite = 8;</code>
+       */
+      public Builder clearSatellite() {  copyOnWrite();
+        instance.clearSatellite();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Info)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new com.thejeffcooper.hassmic.proto.WyomingEvent.Info();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "asr_",
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Info.AsrProgram.class,
+              "tts_",
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Info.TtsProgram.class,
+              "handle_",
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Info.HandleProgram.class,
+              "intent_",
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Info.IntentProgram.class,
+              "wake_",
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Info.WakeProgram.class,
+              "mic_",
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Info.MicProgram.class,
+              "snd_",
+              com.thejeffcooper.hassmic.proto.WyomingEvent.Info.SndProgram.class,
+              "satellite_",
+            };
+            java.lang.String info =
+                "\u0000\b\u0000\u0000\u0001\b\b\u0000\u0007\u0000\u0001\u001b\u0002\u001b\u0003\u001b" +
+                "\u0004\u001b\u0005\u001b\u0006\u001b\u0007\u001b\b\t";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info> parser = PARSER;
+          if (parser == null) {
+            synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Info.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Info>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Info)
+    private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Info DEFAULT_INSTANCE;
+    static {
+      Info defaultInstance = new Info();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        Info.class, defaultInstance);
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Info getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<Info> PARSER;
+
+    public static com.google.protobuf.Parser<Info> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface PauseSatelliteOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.PauseSatellite)
+      com.google.protobuf.MessageLiteOrBuilder {
+  }
+  /**
+   * Protobuf type {@code hassmic.WyomingEvent.PauseSatellite}
+   */
+  public  static final class PauseSatellite extends
+      com.google.protobuf.GeneratedMessageLite<
+          PauseSatellite, PauseSatellite.Builder> implements
+      // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.PauseSatellite)
+      PauseSatelliteOrBuilder {
+    private PauseSatellite() {
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code hassmic.WyomingEvent.PauseSatellite}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite, Builder> implements
+        // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.PauseSatellite)
+        com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatelliteOrBuilder {
+      // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.PauseSatellite)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = null;java.lang.String info =
+                "\u0000\u0000";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite> parser = PARSER;
+          if (parser == null) {
+            synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.PauseSatellite)
+    private static final com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite DEFAULT_INSTANCE;
+    static {
+      PauseSatellite defaultInstance = new PauseSatellite();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        PauseSatellite.class, defaultInstance);
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<PauseSatellite> PARSER;
+
+    public static com.google.protobuf.Parser<PauseSatellite> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface PingOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Ping)
+      com.google.protobuf.MessageLiteOrBuilder {
+  }
+  /**
+   * Protobuf type {@code hassmic.WyomingEvent.Ping}
+   */
+  public  static final class Ping extends
+      com.google.protobuf.GeneratedMessageLite<
+          Ping, Ping.Builder> implements
+      // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Ping)
+      PingOrBuilder {
+    private Ping() {
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Ping parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Ping parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Ping parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Ping parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Ping parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Ping parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Ping parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Ping parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Ping parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Ping parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Ping parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Ping parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Ping prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code hassmic.WyomingEvent.Ping}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Ping, Builder> implements
+        // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Ping)
+        com.thejeffcooper.hassmic.proto.WyomingEvent.PingOrBuilder {
+      // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Ping.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Ping)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new com.thejeffcooper.hassmic.proto.WyomingEvent.Ping();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = null;java.lang.String info =
+                "\u0000\u0000";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Ping> parser = PARSER;
+          if (parser == null) {
+            synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Ping.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Ping>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Ping)
+    private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Ping DEFAULT_INSTANCE;
+    static {
+      Ping defaultInstance = new Ping();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        Ping.class, defaultInstance);
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Ping getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<Ping> PARSER;
+
+    public static com.google.protobuf.Parser<Ping> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface PongOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Pong)
+      com.google.protobuf.MessageLiteOrBuilder {
+  }
+  /**
+   * Protobuf type {@code hassmic.WyomingEvent.Pong}
+   */
+  public  static final class Pong extends
+      com.google.protobuf.GeneratedMessageLite<
+          Pong, Pong.Builder> implements
+      // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Pong)
+      PongOrBuilder {
+    private Pong() {
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Pong parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Pong parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Pong parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Pong parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Pong parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Pong parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Pong parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Pong parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Pong parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Pong parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Pong parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Pong parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Pong prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code hassmic.WyomingEvent.Pong}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Pong, Builder> implements
+        // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Pong)
+        com.thejeffcooper.hassmic.proto.WyomingEvent.PongOrBuilder {
+      // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Pong.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Pong)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new com.thejeffcooper.hassmic.proto.WyomingEvent.Pong();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = null;java.lang.String info =
+                "\u0000\u0000";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Pong> parser = PARSER;
+          if (parser == null) {
+            synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Pong.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Pong>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Pong)
+    private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Pong DEFAULT_INSTANCE;
+    static {
+      Pong defaultInstance = new Pong();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        Pong.class, defaultInstance);
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Pong getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<Pong> PARSER;
+
+    public static com.google.protobuf.Parser<Pong> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface RunSatelliteOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.RunSatellite)
+      com.google.protobuf.MessageLiteOrBuilder {
+  }
+  /**
+   * Protobuf type {@code hassmic.WyomingEvent.RunSatellite}
+   */
+  public  static final class RunSatellite extends
+      com.google.protobuf.GeneratedMessageLite<
+          RunSatellite, RunSatellite.Builder> implements
+      // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.RunSatellite)
+      RunSatelliteOrBuilder {
+    private RunSatellite() {
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code hassmic.WyomingEvent.RunSatellite}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite, Builder> implements
+        // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.RunSatellite)
+        com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatelliteOrBuilder {
+      // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.RunSatellite)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = null;java.lang.String info =
+                "\u0000\u0000";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite> parser = PARSER;
+          if (parser == null) {
+            synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.RunSatellite)
+    private static final com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite DEFAULT_INSTANCE;
+    static {
+      RunSatellite defaultInstance = new RunSatellite();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        RunSatellite.class, defaultInstance);
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<RunSatellite> PARSER;
+
+    public static com.google.protobuf.Parser<RunSatellite> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface TranscribeOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Transcribe)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>string name = 1;</code>
+     * @return The name.
+     */
+    java.lang.String getName();
+    /**
+     * <code>string name = 1;</code>
+     * @return The bytes for name.
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>string language = 2;</code>
+     * @return The language.
+     */
+    java.lang.String getLanguage();
+    /**
+     * <code>string language = 2;</code>
+     * @return The bytes for language.
+     */
+    com.google.protobuf.ByteString
+        getLanguageBytes();
+
+    /**
+     * <code>map&lt;string, string&gt; context = 3;</code>
+     */
+    int getContextCount();
+    /**
+     * <code>map&lt;string, string&gt; context = 3;</code>
+     */
+    boolean containsContext(
+        java.lang.String key);
+    /**
+     * Use {@link #getContextMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getContext();
+    /**
+     * <code>map&lt;string, string&gt; context = 3;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getContextMap();
+    /**
+     * <code>map&lt;string, string&gt; context = 3;</code>
+     */
+
+    /* nullable */
+java.lang.String getContextOrDefault(
+        java.lang.String key,
+        /* nullable */
+java.lang.String defaultValue);
+    /**
+     * <code>map&lt;string, string&gt; context = 3;</code>
+     */
+
+    java.lang.String getContextOrThrow(
+        java.lang.String key);
+  }
+  /**
+   * Protobuf type {@code hassmic.WyomingEvent.Transcribe}
+   */
+  public  static final class Transcribe extends
+      com.google.protobuf.GeneratedMessageLite<
+          Transcribe, Transcribe.Builder> implements
+      // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Transcribe)
+      TranscribeOrBuilder {
+    private Transcribe() {
+      name_ = "";
+      language_ = "";
+    }
+    public static final int NAME_FIELD_NUMBER = 1;
+    private java.lang.String name_;
+    /**
+     * <code>string name = 1;</code>
+     * @return The name.
+     */
+    @java.lang.Override
+    public java.lang.String getName() {
+      return name_;
+    }
+    /**
+     * <code>string name = 1;</code>
+     * @return The bytes for name.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(name_);
+    }
+    /**
+     * <code>string name = 1;</code>
+     * @param value The name to set.
+     */
+    private void setName(
+        java.lang.String value) {
+      java.lang.Class<?> valueClass = value.getClass();
+  
+      name_ = value;
+    }
+    /**
+     * <code>string name = 1;</code>
+     */
+    private void clearName() {
+
+      name_ = getDefaultInstance().getName();
+    }
+    /**
+     * <code>string name = 1;</code>
+     * @param value The bytes for name to set.
+     */
+    private void setNameBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      name_ = value.toStringUtf8();
+
+    }
+
+    public static final int LANGUAGE_FIELD_NUMBER = 2;
+    private java.lang.String language_;
+    /**
+     * <code>string language = 2;</code>
+     * @return The language.
+     */
+    @java.lang.Override
+    public java.lang.String getLanguage() {
+      return language_;
+    }
+    /**
+     * <code>string language = 2;</code>
+     * @return The bytes for language.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getLanguageBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(language_);
+    }
+    /**
+     * <code>string language = 2;</code>
+     * @param value The language to set.
+     */
+    private void setLanguage(
+        java.lang.String value) {
+      java.lang.Class<?> valueClass = value.getClass();
+  
+      language_ = value;
+    }
+    /**
+     * <code>string language = 2;</code>
+     */
+    private void clearLanguage() {
+
+      language_ = getDefaultInstance().getLanguage();
+    }
+    /**
+     * <code>string language = 2;</code>
+     * @param value The bytes for language to set.
+     */
+    private void setLanguageBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      language_ = value.toStringUtf8();
+
+    }
+
+    public static final int CONTEXT_FIELD_NUMBER = 3;
+    private static final class ContextDefaultEntryHolder {
+      static final com.google.protobuf.MapEntryLite<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntryLite
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapFieldLite<
+        java.lang.String, java.lang.String> context_ =
+            com.google.protobuf.MapFieldLite.emptyMapField();
+    private com.google.protobuf.MapFieldLite<java.lang.String, java.lang.String>
+    internalGetContext() {
+      return context_;
+    }
+    private com.google.protobuf.MapFieldLite<java.lang.String, java.lang.String>
+    internalGetMutableContext() {
+      if (!context_.isMutable()) {
+        context_ = context_.mutableCopy();
+      }
+      return context_;
+    }
+    @java.lang.Override
+
+    public int getContextCount() {
+      return internalGetContext().size();
+    }
+    /**
+     * <code>map&lt;string, string&gt; context = 3;</code>
+     */
+    @java.lang.Override
+
+    public boolean containsContext(
+        java.lang.String key) {
+      java.lang.Class<?> keyClass = key.getClass();
+      return internalGetContext().containsKey(key);
+    }
+    /**
+     * Use {@link #getContextMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getContext() {
+      return getContextMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; context = 3;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.String, java.lang.String> getContextMap() {
+      return java.util.Collections.unmodifiableMap(
+          internalGetContext());
+    }
+    /**
+     * <code>map&lt;string, string&gt; context = 3;</code>
+     */
+    @java.lang.Override
+
+    public /* nullable */
+java.lang.String getContextOrDefault(
+        java.lang.String key,
+        /* nullable */
+java.lang.String defaultValue) {
+      java.lang.Class<?> keyClass = key.getClass();
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetContext();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, string&gt; context = 3;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getContextOrThrow(
+        java.lang.String key) {
+      java.lang.Class<?> keyClass = key.getClass();
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetContext();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+    /**
+     * <code>map&lt;string, string&gt; context = 3;</code>
+     */
+    private java.util.Map<java.lang.String, java.lang.String>
+    getMutableContextMap() {
+      return internalGetMutableContext();
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code hassmic.WyomingEvent.Transcribe}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe, Builder> implements
+        // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Transcribe)
+        com.thejeffcooper.hassmic.proto.WyomingEvent.TranscribeOrBuilder {
+      // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>string name = 1;</code>
+       * @return The name.
+       */
+      @java.lang.Override
+      public java.lang.String getName() {
+        return instance.getName();
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @return The bytes for name.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        return instance.getNameBytes();
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setName(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setName(value);
+        return this;
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearName() {
+        copyOnWrite();
+        instance.clearName();
+        return this;
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setNameBytes(value);
+        return this;
+      }
+
+      /**
+       * <code>string language = 2;</code>
+       * @return The language.
+       */
+      @java.lang.Override
+      public java.lang.String getLanguage() {
+        return instance.getLanguage();
+      }
+      /**
+       * <code>string language = 2;</code>
+       * @return The bytes for language.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getLanguageBytes() {
+        return instance.getLanguageBytes();
+      }
+      /**
+       * <code>string language = 2;</code>
+       * @param value The language to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLanguage(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setLanguage(value);
+        return this;
+      }
+      /**
+       * <code>string language = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLanguage() {
+        copyOnWrite();
+        instance.clearLanguage();
+        return this;
+      }
+      /**
+       * <code>string language = 2;</code>
+       * @param value The bytes for language to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLanguageBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setLanguageBytes(value);
+        return this;
+      }
+
+      @java.lang.Override
+
+      public int getContextCount() {
+        return instance.getContextMap().size();
+      }
+      /**
+       * <code>map&lt;string, string&gt; context = 3;</code>
+       */
+      @java.lang.Override
+
+      public boolean containsContext(
+          java.lang.String key) {
+        java.lang.Class<?> keyClass = key.getClass();
+        return instance.getContextMap().containsKey(key);
+      }
+
+      public Builder clearContext() {
+        copyOnWrite();
+        instance.getMutableContextMap().clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; context = 3;</code>
+       */
+
+      public Builder removeContext(
+          java.lang.String key) {
+        java.lang.Class<?> keyClass = key.getClass();
+        copyOnWrite();
+        instance.getMutableContextMap().remove(key);
+        return this;
+      }
+      /**
+       * Use {@link #getContextMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getContext() {
+        return getContextMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; context = 3;</code>
+       */
+      @java.lang.Override
+      public java.util.Map<java.lang.String, java.lang.String> getContextMap() {
+        return java.util.Collections.unmodifiableMap(
+            instance.getContextMap());
+      }
+      /**
+       * <code>map&lt;string, string&gt; context = 3;</code>
+       */
+      @java.lang.Override
+
+      public /* nullable */
+java.lang.String getContextOrDefault(
+          java.lang.String key,
+          /* nullable */
+java.lang.String defaultValue) {
+        java.lang.Class<?> keyClass = key.getClass();
+        java.util.Map<java.lang.String, java.lang.String> map =
+            instance.getContextMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, string&gt; context = 3;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getContextOrThrow(
+          java.lang.String key) {
+        java.lang.Class<?> keyClass = key.getClass();
+        java.util.Map<java.lang.String, java.lang.String> map =
+            instance.getContextMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+      /**
+       * <code>map&lt;string, string&gt; context = 3;</code>
+       */
+      public Builder putContext(
+          java.lang.String key,
+          java.lang.String value) {
+        java.lang.Class<?> keyClass = key.getClass();
+        java.lang.Class<?> valueClass = value.getClass();
+        copyOnWrite();
+        instance.getMutableContextMap().put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; context = 3;</code>
+       */
+      public Builder putAllContext(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        copyOnWrite();
+        instance.getMutableContextMap().putAll(values);
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Transcribe)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "name_",
+              "language_",
+              "context_",
+              ContextDefaultEntryHolder.defaultEntry,
+            };
+            java.lang.String info =
+                "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0001\u0000\u0000\u0001\u0208\u0002\u0208" +
+                "\u00032";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe> parser = PARSER;
+          if (parser == null) {
+            synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Transcribe)
+    private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe DEFAULT_INSTANCE;
+    static {
+      Transcribe defaultInstance = new Transcribe();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        Transcribe.class, defaultInstance);
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<Transcribe> PARSER;
+
+    public static com.google.protobuf.Parser<Transcribe> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface VoiceStartedOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.VoiceStarted)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>int64 timestamp = 1;</code>
+     * @return The timestamp.
+     */
+    long getTimestamp();
+  }
+  /**
+   * Protobuf type {@code hassmic.WyomingEvent.VoiceStarted}
+   */
+  public  static final class VoiceStarted extends
+      com.google.protobuf.GeneratedMessageLite<
+          VoiceStarted, VoiceStarted.Builder> implements
+      // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.VoiceStarted)
+      VoiceStartedOrBuilder {
+    private VoiceStarted() {
+    }
+    public static final int TIMESTAMP_FIELD_NUMBER = 1;
+    private long timestamp_;
+    /**
+     * <code>int64 timestamp = 1;</code>
+     * @return The timestamp.
+     */
+    @java.lang.Override
+    public long getTimestamp() {
+      return timestamp_;
+    }
+    /**
+     * <code>int64 timestamp = 1;</code>
+     * @param value The timestamp to set.
+     */
+    private void setTimestamp(long value) {
+      
+      timestamp_ = value;
+    }
+    /**
+     * <code>int64 timestamp = 1;</code>
+     */
+    private void clearTimestamp() {
+
+      timestamp_ = 0L;
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code hassmic.WyomingEvent.VoiceStarted}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted, Builder> implements
+        // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.VoiceStarted)
+        com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStartedOrBuilder {
+      // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>int64 timestamp = 1;</code>
+       * @return The timestamp.
+       */
+      @java.lang.Override
+      public long getTimestamp() {
+        return instance.getTimestamp();
+      }
+      /**
+       * <code>int64 timestamp = 1;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimestamp(long value) {
+        copyOnWrite();
+        instance.setTimestamp(value);
+        return this;
+      }
+      /**
+       * <code>int64 timestamp = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimestamp() {
+        copyOnWrite();
+        instance.clearTimestamp();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.VoiceStarted)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "timestamp_",
+            };
+            java.lang.String info =
+                "\u0000\u0001\u0000\u0000\u0001\u0001\u0001\u0000\u0000\u0000\u0001\u0002";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted> parser = PARSER;
+          if (parser == null) {
+            synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.VoiceStarted)
+    private static final com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted DEFAULT_INSTANCE;
+    static {
+      VoiceStarted defaultInstance = new VoiceStarted();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        VoiceStarted.class, defaultInstance);
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<VoiceStarted> PARSER;
+
+    public static com.google.protobuf.Parser<VoiceStarted> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface VoiceStoppedOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.VoiceStopped)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>int64 timestamp = 1;</code>
+     * @return The timestamp.
+     */
+    long getTimestamp();
+  }
+  /**
+   * Protobuf type {@code hassmic.WyomingEvent.VoiceStopped}
+   */
+  public  static final class VoiceStopped extends
+      com.google.protobuf.GeneratedMessageLite<
+          VoiceStopped, VoiceStopped.Builder> implements
+      // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.VoiceStopped)
+      VoiceStoppedOrBuilder {
+    private VoiceStopped() {
+    }
+    public static final int TIMESTAMP_FIELD_NUMBER = 1;
+    private long timestamp_;
+    /**
+     * <code>int64 timestamp = 1;</code>
+     * @return The timestamp.
+     */
+    @java.lang.Override
+    public long getTimestamp() {
+      return timestamp_;
+    }
+    /**
+     * <code>int64 timestamp = 1;</code>
+     * @param value The timestamp to set.
+     */
+    private void setTimestamp(long value) {
+      
+      timestamp_ = value;
+    }
+    /**
+     * <code>int64 timestamp = 1;</code>
+     */
+    private void clearTimestamp() {
+
+      timestamp_ = 0L;
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code hassmic.WyomingEvent.VoiceStopped}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped, Builder> implements
+        // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.VoiceStopped)
+        com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStoppedOrBuilder {
+      // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>int64 timestamp = 1;</code>
+       * @return The timestamp.
+       */
+      @java.lang.Override
+      public long getTimestamp() {
+        return instance.getTimestamp();
+      }
+      /**
+       * <code>int64 timestamp = 1;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimestamp(long value) {
+        copyOnWrite();
+        instance.setTimestamp(value);
+        return this;
+      }
+      /**
+       * <code>int64 timestamp = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimestamp() {
+        copyOnWrite();
+        instance.clearTimestamp();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.VoiceStopped)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "timestamp_",
+            };
+            java.lang.String info =
+                "\u0000\u0001\u0000\u0000\u0001\u0001\u0001\u0000\u0000\u0000\u0001\u0002";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped> parser = PARSER;
+          if (parser == null) {
+            synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.VoiceStopped)
+    private static final com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped DEFAULT_INSTANCE;
+    static {
+      VoiceStopped defaultInstance = new VoiceStopped();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        VoiceStopped.class, defaultInstance);
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<VoiceStopped> PARSER;
+
+    public static com.google.protobuf.Parser<VoiceStopped> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface OtherOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hassmic.WyomingEvent.Other)
+      com.google.protobuf.MessageLiteOrBuilder {
+  }
+  /**
+   * Protobuf type {@code hassmic.WyomingEvent.Other}
+   */
+  public  static final class Other extends
+      com.google.protobuf.GeneratedMessageLite<
+          Other, Other.Builder> implements
+      // @@protoc_insertion_point(message_implements:hassmic.WyomingEvent.Other)
+      OtherOrBuilder {
+    private Other() {
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Other parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Other parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Other parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Other parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Other parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Other parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Other parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Other parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Other parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Other parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Other parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Other parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent.Other prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code hassmic.WyomingEvent.Other}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.thejeffcooper.hassmic.proto.WyomingEvent.Other, Builder> implements
+        // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent.Other)
+        com.thejeffcooper.hassmic.proto.WyomingEvent.OtherOrBuilder {
+      // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.Other.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent.Other)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new com.thejeffcooper.hassmic.proto.WyomingEvent.Other();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = null;java.lang.String info =
+                "\u0000\u0000";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent.Other> parser = PARSER;
+          if (parser == null) {
+            synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.Other.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent.Other>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent.Other)
+    private static final com.thejeffcooper.hassmic.proto.WyomingEvent.Other DEFAULT_INSTANCE;
+    static {
+      Other defaultInstance = new Other();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        Other.class, defaultInstance);
+    }
+
+    public static com.thejeffcooper.hassmic.proto.WyomingEvent.Other getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<Other> PARSER;
+
+    public static com.google.protobuf.Parser<Other> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  private int eventCase_ = 0;
+  private java.lang.Object event_;
+  public enum EventCase {
+    DESCRIBE(3),
+    INFO(4),
+    PING(5),
+    PONG(6),
+    AUDIO_CHUNK(7),
+    AUDIO_START(8),
+    AUDIO_STOP(9),
+    DETECT(10),
+    DETECTION(11),
+    RUN_SATELLITE(12),
+    PAUSE_SATELLITE(13),
+    TRANSCRIBE(14),
+    VOICE_STARTED(15),
+    VOICE_STOPPED(16),
+    OTHER(17),
+    EVENT_NOT_SET(0);
+    private final int value;
+    private EventCase(int value) {
+      this.value = value;
+    }
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static EventCase valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static EventCase forNumber(int value) {
+      switch (value) {
+        case 3: return DESCRIBE;
+        case 4: return INFO;
+        case 5: return PING;
+        case 6: return PONG;
+        case 7: return AUDIO_CHUNK;
+        case 8: return AUDIO_START;
+        case 9: return AUDIO_STOP;
+        case 10: return DETECT;
+        case 11: return DETECTION;
+        case 12: return RUN_SATELLITE;
+        case 13: return PAUSE_SATELLITE;
+        case 14: return TRANSCRIBE;
+        case 15: return VOICE_STARTED;
+        case 16: return VOICE_STOPPED;
+        case 17: return OTHER;
+        case 0: return EVENT_NOT_SET;
+        default: return null;
+      }
+    }
+    public int getNumber() {
+      return this.value;
+    }
+  };
+
+  @java.lang.Override
+  public EventCase
+  getEventCase() {
+    return EventCase.forNumber(
+        eventCase_);
+  }
+
+  private void clearEvent() {
+    eventCase_ = 0;
+    event_ = null;
   }
 
   public static final int RAW_JSON_FIELD_NUMBER = 1;
   private java.lang.String rawJson_;
-
   /**
-   * <code>string raw_json = 1;</code>
+   * <pre>
+   * The raw json of the message
+   * </pre>
    *
+   * <code>string raw_json = 1;</code>
    * @return The rawJson.
    */
   @java.lang.Override
   public java.lang.String getRawJson() {
     return rawJson_;
   }
-
   /**
-   * <code>string raw_json = 1;</code>
+   * <pre>
+   * The raw json of the message
+   * </pre>
    *
+   * <code>string raw_json = 1;</code>
    * @return The bytes for rawJson.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString getRawJsonBytes() {
+  public com.google.protobuf.ByteString
+      getRawJsonBytes() {
     return com.google.protobuf.ByteString.copyFromUtf8(rawJson_);
   }
-
   /**
-   * <code>string raw_json = 1;</code>
+   * <pre>
+   * The raw json of the message
+   * </pre>
    *
+   * <code>string raw_json = 1;</code>
    * @param value The rawJson to set.
    */
-  private void setRawJson(java.lang.String value) {
+  private void setRawJson(
+      java.lang.String value) {
     java.lang.Class<?> valueClass = value.getClass();
-
+  
     rawJson_ = value;
   }
-
-  /** <code>string raw_json = 1;</code> */
+  /**
+   * <pre>
+   * The raw json of the message
+   * </pre>
+   *
+   * <code>string raw_json = 1;</code>
+   */
   private void clearRawJson() {
 
     rawJson_ = getDefaultInstance().getRawJson();
   }
-
   /**
-   * <code>string raw_json = 1;</code>
+   * <pre>
+   * The raw json of the message
+   * </pre>
    *
+   * <code>string raw_json = 1;</code>
    * @param value The bytes for rawJson to set.
    */
-  private void setRawJsonBytes(com.google.protobuf.ByteString value) {
+  private void setRawJsonBytes(
+      com.google.protobuf.ByteString value) {
     checkByteStringIsUtf8(value);
     rawJson_ = value.toStringUtf8();
+
   }
 
-  public static com.thejeffcooper.hassmic.proto.WyomingEvent parseFrom(java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+  public static final int PAYLOAD_FIELD_NUMBER = 2;
+  private com.google.protobuf.ByteString payload_;
+  /**
+   * <code>bytes payload = 2;</code>
+   * @return The payload.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString getPayload() {
+    return payload_;
+  }
+  /**
+   * <code>bytes payload = 2;</code>
+   * @param value The payload to set.
+   */
+  private void setPayload(com.google.protobuf.ByteString value) {
+    java.lang.Class<?> valueClass = value.getClass();
+  
+    payload_ = value;
+  }
+  /**
+   * <code>bytes payload = 2;</code>
+   */
+  private void clearPayload() {
+
+    payload_ = getDefaultInstance().getPayload();
+  }
+
+  public static final int DESCRIBE_FIELD_NUMBER = 3;
+  /**
+   * <code>.hassmic.WyomingEvent.Describe describe = 3;</code>
+   */
+  @java.lang.Override
+  public boolean hasDescribe() {
+    return eventCase_ == 3;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Describe describe = 3;</code>
+   */
+  @java.lang.Override
+  public com.thejeffcooper.hassmic.proto.WyomingEvent.Describe getDescribe() {
+    if (eventCase_ == 3) {
+       return (com.thejeffcooper.hassmic.proto.WyomingEvent.Describe) event_;
+    }
+    return com.thejeffcooper.hassmic.proto.WyomingEvent.Describe.getDefaultInstance();
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Describe describe = 3;</code>
+   */
+  private void setDescribe(com.thejeffcooper.hassmic.proto.WyomingEvent.Describe value) {
+    value.getClass();
+  event_ = value;
+    eventCase_ = 3;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Describe describe = 3;</code>
+   */
+  private void mergeDescribe(com.thejeffcooper.hassmic.proto.WyomingEvent.Describe value) {
+    value.getClass();
+  if (eventCase_ == 3 &&
+        event_ != com.thejeffcooper.hassmic.proto.WyomingEvent.Describe.getDefaultInstance()) {
+      event_ = com.thejeffcooper.hassmic.proto.WyomingEvent.Describe.newBuilder((com.thejeffcooper.hassmic.proto.WyomingEvent.Describe) event_)
+          .mergeFrom(value).buildPartial();
+    } else {
+      event_ = value;
+    }
+    eventCase_ = 3;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Describe describe = 3;</code>
+   */
+  private void clearDescribe() {
+    if (eventCase_ == 3) {
+      eventCase_ = 0;
+      event_ = null;
+    }
+  }
+
+  public static final int INFO_FIELD_NUMBER = 4;
+  /**
+   * <code>.hassmic.WyomingEvent.Info info = 4;</code>
+   */
+  @java.lang.Override
+  public boolean hasInfo() {
+    return eventCase_ == 4;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Info info = 4;</code>
+   */
+  @java.lang.Override
+  public com.thejeffcooper.hassmic.proto.WyomingEvent.Info getInfo() {
+    if (eventCase_ == 4) {
+       return (com.thejeffcooper.hassmic.proto.WyomingEvent.Info) event_;
+    }
+    return com.thejeffcooper.hassmic.proto.WyomingEvent.Info.getDefaultInstance();
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Info info = 4;</code>
+   */
+  private void setInfo(com.thejeffcooper.hassmic.proto.WyomingEvent.Info value) {
+    value.getClass();
+  event_ = value;
+    eventCase_ = 4;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Info info = 4;</code>
+   */
+  private void mergeInfo(com.thejeffcooper.hassmic.proto.WyomingEvent.Info value) {
+    value.getClass();
+  if (eventCase_ == 4 &&
+        event_ != com.thejeffcooper.hassmic.proto.WyomingEvent.Info.getDefaultInstance()) {
+      event_ = com.thejeffcooper.hassmic.proto.WyomingEvent.Info.newBuilder((com.thejeffcooper.hassmic.proto.WyomingEvent.Info) event_)
+          .mergeFrom(value).buildPartial();
+    } else {
+      event_ = value;
+    }
+    eventCase_ = 4;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Info info = 4;</code>
+   */
+  private void clearInfo() {
+    if (eventCase_ == 4) {
+      eventCase_ = 0;
+      event_ = null;
+    }
+  }
+
+  public static final int PING_FIELD_NUMBER = 5;
+  /**
+   * <code>.hassmic.WyomingEvent.Ping ping = 5;</code>
+   */
+  @java.lang.Override
+  public boolean hasPing() {
+    return eventCase_ == 5;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Ping ping = 5;</code>
+   */
+  @java.lang.Override
+  public com.thejeffcooper.hassmic.proto.WyomingEvent.Ping getPing() {
+    if (eventCase_ == 5) {
+       return (com.thejeffcooper.hassmic.proto.WyomingEvent.Ping) event_;
+    }
+    return com.thejeffcooper.hassmic.proto.WyomingEvent.Ping.getDefaultInstance();
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Ping ping = 5;</code>
+   */
+  private void setPing(com.thejeffcooper.hassmic.proto.WyomingEvent.Ping value) {
+    value.getClass();
+  event_ = value;
+    eventCase_ = 5;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Ping ping = 5;</code>
+   */
+  private void mergePing(com.thejeffcooper.hassmic.proto.WyomingEvent.Ping value) {
+    value.getClass();
+  if (eventCase_ == 5 &&
+        event_ != com.thejeffcooper.hassmic.proto.WyomingEvent.Ping.getDefaultInstance()) {
+      event_ = com.thejeffcooper.hassmic.proto.WyomingEvent.Ping.newBuilder((com.thejeffcooper.hassmic.proto.WyomingEvent.Ping) event_)
+          .mergeFrom(value).buildPartial();
+    } else {
+      event_ = value;
+    }
+    eventCase_ = 5;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Ping ping = 5;</code>
+   */
+  private void clearPing() {
+    if (eventCase_ == 5) {
+      eventCase_ = 0;
+      event_ = null;
+    }
+  }
+
+  public static final int PONG_FIELD_NUMBER = 6;
+  /**
+   * <code>.hassmic.WyomingEvent.Pong pong = 6;</code>
+   */
+  @java.lang.Override
+  public boolean hasPong() {
+    return eventCase_ == 6;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Pong pong = 6;</code>
+   */
+  @java.lang.Override
+  public com.thejeffcooper.hassmic.proto.WyomingEvent.Pong getPong() {
+    if (eventCase_ == 6) {
+       return (com.thejeffcooper.hassmic.proto.WyomingEvent.Pong) event_;
+    }
+    return com.thejeffcooper.hassmic.proto.WyomingEvent.Pong.getDefaultInstance();
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Pong pong = 6;</code>
+   */
+  private void setPong(com.thejeffcooper.hassmic.proto.WyomingEvent.Pong value) {
+    value.getClass();
+  event_ = value;
+    eventCase_ = 6;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Pong pong = 6;</code>
+   */
+  private void mergePong(com.thejeffcooper.hassmic.proto.WyomingEvent.Pong value) {
+    value.getClass();
+  if (eventCase_ == 6 &&
+        event_ != com.thejeffcooper.hassmic.proto.WyomingEvent.Pong.getDefaultInstance()) {
+      event_ = com.thejeffcooper.hassmic.proto.WyomingEvent.Pong.newBuilder((com.thejeffcooper.hassmic.proto.WyomingEvent.Pong) event_)
+          .mergeFrom(value).buildPartial();
+    } else {
+      event_ = value;
+    }
+    eventCase_ = 6;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Pong pong = 6;</code>
+   */
+  private void clearPong() {
+    if (eventCase_ == 6) {
+      eventCase_ = 0;
+      event_ = null;
+    }
+  }
+
+  public static final int AUDIO_CHUNK_FIELD_NUMBER = 7;
+  /**
+   * <code>.hassmic.WyomingEvent.AudioChunk audio_chunk = 7;</code>
+   */
+  @java.lang.Override
+  public boolean hasAudioChunk() {
+    return eventCase_ == 7;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.AudioChunk audio_chunk = 7;</code>
+   */
+  @java.lang.Override
+  public com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk getAudioChunk() {
+    if (eventCase_ == 7) {
+       return (com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk) event_;
+    }
+    return com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk.getDefaultInstance();
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.AudioChunk audio_chunk = 7;</code>
+   */
+  private void setAudioChunk(com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk value) {
+    value.getClass();
+  event_ = value;
+    eventCase_ = 7;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.AudioChunk audio_chunk = 7;</code>
+   */
+  private void mergeAudioChunk(com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk value) {
+    value.getClass();
+  if (eventCase_ == 7 &&
+        event_ != com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk.getDefaultInstance()) {
+      event_ = com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk.newBuilder((com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk) event_)
+          .mergeFrom(value).buildPartial();
+    } else {
+      event_ = value;
+    }
+    eventCase_ = 7;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.AudioChunk audio_chunk = 7;</code>
+   */
+  private void clearAudioChunk() {
+    if (eventCase_ == 7) {
+      eventCase_ = 0;
+      event_ = null;
+    }
+  }
+
+  public static final int AUDIO_START_FIELD_NUMBER = 8;
+  /**
+   * <code>.hassmic.WyomingEvent.AudioStart audio_start = 8;</code>
+   */
+  @java.lang.Override
+  public boolean hasAudioStart() {
+    return eventCase_ == 8;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.AudioStart audio_start = 8;</code>
+   */
+  @java.lang.Override
+  public com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart getAudioStart() {
+    if (eventCase_ == 8) {
+       return (com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart) event_;
+    }
+    return com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart.getDefaultInstance();
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.AudioStart audio_start = 8;</code>
+   */
+  private void setAudioStart(com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart value) {
+    value.getClass();
+  event_ = value;
+    eventCase_ = 8;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.AudioStart audio_start = 8;</code>
+   */
+  private void mergeAudioStart(com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart value) {
+    value.getClass();
+  if (eventCase_ == 8 &&
+        event_ != com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart.getDefaultInstance()) {
+      event_ = com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart.newBuilder((com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart) event_)
+          .mergeFrom(value).buildPartial();
+    } else {
+      event_ = value;
+    }
+    eventCase_ = 8;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.AudioStart audio_start = 8;</code>
+   */
+  private void clearAudioStart() {
+    if (eventCase_ == 8) {
+      eventCase_ = 0;
+      event_ = null;
+    }
+  }
+
+  public static final int AUDIO_STOP_FIELD_NUMBER = 9;
+  /**
+   * <code>.hassmic.WyomingEvent.AudioStop audio_stop = 9;</code>
+   */
+  @java.lang.Override
+  public boolean hasAudioStop() {
+    return eventCase_ == 9;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.AudioStop audio_stop = 9;</code>
+   */
+  @java.lang.Override
+  public com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop getAudioStop() {
+    if (eventCase_ == 9) {
+       return (com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop) event_;
+    }
+    return com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop.getDefaultInstance();
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.AudioStop audio_stop = 9;</code>
+   */
+  private void setAudioStop(com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop value) {
+    value.getClass();
+  event_ = value;
+    eventCase_ = 9;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.AudioStop audio_stop = 9;</code>
+   */
+  private void mergeAudioStop(com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop value) {
+    value.getClass();
+  if (eventCase_ == 9 &&
+        event_ != com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop.getDefaultInstance()) {
+      event_ = com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop.newBuilder((com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop) event_)
+          .mergeFrom(value).buildPartial();
+    } else {
+      event_ = value;
+    }
+    eventCase_ = 9;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.AudioStop audio_stop = 9;</code>
+   */
+  private void clearAudioStop() {
+    if (eventCase_ == 9) {
+      eventCase_ = 0;
+      event_ = null;
+    }
+  }
+
+  public static final int DETECT_FIELD_NUMBER = 10;
+  /**
+   * <code>.hassmic.WyomingEvent.Detect detect = 10;</code>
+   */
+  @java.lang.Override
+  public boolean hasDetect() {
+    return eventCase_ == 10;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Detect detect = 10;</code>
+   */
+  @java.lang.Override
+  public com.thejeffcooper.hassmic.proto.WyomingEvent.Detect getDetect() {
+    if (eventCase_ == 10) {
+       return (com.thejeffcooper.hassmic.proto.WyomingEvent.Detect) event_;
+    }
+    return com.thejeffcooper.hassmic.proto.WyomingEvent.Detect.getDefaultInstance();
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Detect detect = 10;</code>
+   */
+  private void setDetect(com.thejeffcooper.hassmic.proto.WyomingEvent.Detect value) {
+    value.getClass();
+  event_ = value;
+    eventCase_ = 10;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Detect detect = 10;</code>
+   */
+  private void mergeDetect(com.thejeffcooper.hassmic.proto.WyomingEvent.Detect value) {
+    value.getClass();
+  if (eventCase_ == 10 &&
+        event_ != com.thejeffcooper.hassmic.proto.WyomingEvent.Detect.getDefaultInstance()) {
+      event_ = com.thejeffcooper.hassmic.proto.WyomingEvent.Detect.newBuilder((com.thejeffcooper.hassmic.proto.WyomingEvent.Detect) event_)
+          .mergeFrom(value).buildPartial();
+    } else {
+      event_ = value;
+    }
+    eventCase_ = 10;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Detect detect = 10;</code>
+   */
+  private void clearDetect() {
+    if (eventCase_ == 10) {
+      eventCase_ = 0;
+      event_ = null;
+    }
+  }
+
+  public static final int DETECTION_FIELD_NUMBER = 11;
+  /**
+   * <code>.hassmic.WyomingEvent.Detection detection = 11;</code>
+   */
+  @java.lang.Override
+  public boolean hasDetection() {
+    return eventCase_ == 11;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Detection detection = 11;</code>
+   */
+  @java.lang.Override
+  public com.thejeffcooper.hassmic.proto.WyomingEvent.Detection getDetection() {
+    if (eventCase_ == 11) {
+       return (com.thejeffcooper.hassmic.proto.WyomingEvent.Detection) event_;
+    }
+    return com.thejeffcooper.hassmic.proto.WyomingEvent.Detection.getDefaultInstance();
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Detection detection = 11;</code>
+   */
+  private void setDetection(com.thejeffcooper.hassmic.proto.WyomingEvent.Detection value) {
+    value.getClass();
+  event_ = value;
+    eventCase_ = 11;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Detection detection = 11;</code>
+   */
+  private void mergeDetection(com.thejeffcooper.hassmic.proto.WyomingEvent.Detection value) {
+    value.getClass();
+  if (eventCase_ == 11 &&
+        event_ != com.thejeffcooper.hassmic.proto.WyomingEvent.Detection.getDefaultInstance()) {
+      event_ = com.thejeffcooper.hassmic.proto.WyomingEvent.Detection.newBuilder((com.thejeffcooper.hassmic.proto.WyomingEvent.Detection) event_)
+          .mergeFrom(value).buildPartial();
+    } else {
+      event_ = value;
+    }
+    eventCase_ = 11;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Detection detection = 11;</code>
+   */
+  private void clearDetection() {
+    if (eventCase_ == 11) {
+      eventCase_ = 0;
+      event_ = null;
+    }
+  }
+
+  public static final int RUN_SATELLITE_FIELD_NUMBER = 12;
+  /**
+   * <code>.hassmic.WyomingEvent.RunSatellite run_satellite = 12;</code>
+   */
+  @java.lang.Override
+  public boolean hasRunSatellite() {
+    return eventCase_ == 12;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.RunSatellite run_satellite = 12;</code>
+   */
+  @java.lang.Override
+  public com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite getRunSatellite() {
+    if (eventCase_ == 12) {
+       return (com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite) event_;
+    }
+    return com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite.getDefaultInstance();
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.RunSatellite run_satellite = 12;</code>
+   */
+  private void setRunSatellite(com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite value) {
+    value.getClass();
+  event_ = value;
+    eventCase_ = 12;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.RunSatellite run_satellite = 12;</code>
+   */
+  private void mergeRunSatellite(com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite value) {
+    value.getClass();
+  if (eventCase_ == 12 &&
+        event_ != com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite.getDefaultInstance()) {
+      event_ = com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite.newBuilder((com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite) event_)
+          .mergeFrom(value).buildPartial();
+    } else {
+      event_ = value;
+    }
+    eventCase_ = 12;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.RunSatellite run_satellite = 12;</code>
+   */
+  private void clearRunSatellite() {
+    if (eventCase_ == 12) {
+      eventCase_ = 0;
+      event_ = null;
+    }
+  }
+
+  public static final int PAUSE_SATELLITE_FIELD_NUMBER = 13;
+  /**
+   * <code>.hassmic.WyomingEvent.PauseSatellite pause_satellite = 13;</code>
+   */
+  @java.lang.Override
+  public boolean hasPauseSatellite() {
+    return eventCase_ == 13;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.PauseSatellite pause_satellite = 13;</code>
+   */
+  @java.lang.Override
+  public com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite getPauseSatellite() {
+    if (eventCase_ == 13) {
+       return (com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite) event_;
+    }
+    return com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite.getDefaultInstance();
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.PauseSatellite pause_satellite = 13;</code>
+   */
+  private void setPauseSatellite(com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite value) {
+    value.getClass();
+  event_ = value;
+    eventCase_ = 13;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.PauseSatellite pause_satellite = 13;</code>
+   */
+  private void mergePauseSatellite(com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite value) {
+    value.getClass();
+  if (eventCase_ == 13 &&
+        event_ != com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite.getDefaultInstance()) {
+      event_ = com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite.newBuilder((com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite) event_)
+          .mergeFrom(value).buildPartial();
+    } else {
+      event_ = value;
+    }
+    eventCase_ = 13;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.PauseSatellite pause_satellite = 13;</code>
+   */
+  private void clearPauseSatellite() {
+    if (eventCase_ == 13) {
+      eventCase_ = 0;
+      event_ = null;
+    }
+  }
+
+  public static final int TRANSCRIBE_FIELD_NUMBER = 14;
+  /**
+   * <code>.hassmic.WyomingEvent.Transcribe transcribe = 14;</code>
+   */
+  @java.lang.Override
+  public boolean hasTranscribe() {
+    return eventCase_ == 14;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Transcribe transcribe = 14;</code>
+   */
+  @java.lang.Override
+  public com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe getTranscribe() {
+    if (eventCase_ == 14) {
+       return (com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe) event_;
+    }
+    return com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe.getDefaultInstance();
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Transcribe transcribe = 14;</code>
+   */
+  private void setTranscribe(com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe value) {
+    value.getClass();
+  event_ = value;
+    eventCase_ = 14;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Transcribe transcribe = 14;</code>
+   */
+  private void mergeTranscribe(com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe value) {
+    value.getClass();
+  if (eventCase_ == 14 &&
+        event_ != com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe.getDefaultInstance()) {
+      event_ = com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe.newBuilder((com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe) event_)
+          .mergeFrom(value).buildPartial();
+    } else {
+      event_ = value;
+    }
+    eventCase_ = 14;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Transcribe transcribe = 14;</code>
+   */
+  private void clearTranscribe() {
+    if (eventCase_ == 14) {
+      eventCase_ = 0;
+      event_ = null;
+    }
+  }
+
+  public static final int VOICE_STARTED_FIELD_NUMBER = 15;
+  /**
+   * <code>.hassmic.WyomingEvent.VoiceStarted voice_started = 15;</code>
+   */
+  @java.lang.Override
+  public boolean hasVoiceStarted() {
+    return eventCase_ == 15;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.VoiceStarted voice_started = 15;</code>
+   */
+  @java.lang.Override
+  public com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted getVoiceStarted() {
+    if (eventCase_ == 15) {
+       return (com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted) event_;
+    }
+    return com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted.getDefaultInstance();
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.VoiceStarted voice_started = 15;</code>
+   */
+  private void setVoiceStarted(com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted value) {
+    value.getClass();
+  event_ = value;
+    eventCase_ = 15;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.VoiceStarted voice_started = 15;</code>
+   */
+  private void mergeVoiceStarted(com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted value) {
+    value.getClass();
+  if (eventCase_ == 15 &&
+        event_ != com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted.getDefaultInstance()) {
+      event_ = com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted.newBuilder((com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted) event_)
+          .mergeFrom(value).buildPartial();
+    } else {
+      event_ = value;
+    }
+    eventCase_ = 15;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.VoiceStarted voice_started = 15;</code>
+   */
+  private void clearVoiceStarted() {
+    if (eventCase_ == 15) {
+      eventCase_ = 0;
+      event_ = null;
+    }
+  }
+
+  public static final int VOICE_STOPPED_FIELD_NUMBER = 16;
+  /**
+   * <code>.hassmic.WyomingEvent.VoiceStopped voice_stopped = 16;</code>
+   */
+  @java.lang.Override
+  public boolean hasVoiceStopped() {
+    return eventCase_ == 16;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.VoiceStopped voice_stopped = 16;</code>
+   */
+  @java.lang.Override
+  public com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped getVoiceStopped() {
+    if (eventCase_ == 16) {
+       return (com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped) event_;
+    }
+    return com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped.getDefaultInstance();
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.VoiceStopped voice_stopped = 16;</code>
+   */
+  private void setVoiceStopped(com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped value) {
+    value.getClass();
+  event_ = value;
+    eventCase_ = 16;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.VoiceStopped voice_stopped = 16;</code>
+   */
+  private void mergeVoiceStopped(com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped value) {
+    value.getClass();
+  if (eventCase_ == 16 &&
+        event_ != com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped.getDefaultInstance()) {
+      event_ = com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped.newBuilder((com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped) event_)
+          .mergeFrom(value).buildPartial();
+    } else {
+      event_ = value;
+    }
+    eventCase_ = 16;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.VoiceStopped voice_stopped = 16;</code>
+   */
+  private void clearVoiceStopped() {
+    if (eventCase_ == 16) {
+      eventCase_ = 0;
+      event_ = null;
+    }
+  }
+
+  public static final int OTHER_FIELD_NUMBER = 17;
+  /**
+   * <code>.hassmic.WyomingEvent.Other other = 17;</code>
+   */
+  @java.lang.Override
+  public boolean hasOther() {
+    return eventCase_ == 17;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Other other = 17;</code>
+   */
+  @java.lang.Override
+  public com.thejeffcooper.hassmic.proto.WyomingEvent.Other getOther() {
+    if (eventCase_ == 17) {
+       return (com.thejeffcooper.hassmic.proto.WyomingEvent.Other) event_;
+    }
+    return com.thejeffcooper.hassmic.proto.WyomingEvent.Other.getDefaultInstance();
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Other other = 17;</code>
+   */
+  private void setOther(com.thejeffcooper.hassmic.proto.WyomingEvent.Other value) {
+    value.getClass();
+  event_ = value;
+    eventCase_ = 17;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Other other = 17;</code>
+   */
+  private void mergeOther(com.thejeffcooper.hassmic.proto.WyomingEvent.Other value) {
+    value.getClass();
+  if (eventCase_ == 17 &&
+        event_ != com.thejeffcooper.hassmic.proto.WyomingEvent.Other.getDefaultInstance()) {
+      event_ = com.thejeffcooper.hassmic.proto.WyomingEvent.Other.newBuilder((com.thejeffcooper.hassmic.proto.WyomingEvent.Other) event_)
+          .mergeFrom(value).buildPartial();
+    } else {
+      event_ = value;
+    }
+    eventCase_ = 17;
+  }
+  /**
+   * <code>.hassmic.WyomingEvent.Other other = 17;</code>
+   */
+  private void clearOther() {
+    if (eventCase_ == 17) {
+      eventCase_ = 0;
+      event_ = null;
+    }
   }
 
   public static com.thejeffcooper.hassmic.proto.WyomingEvent parseFrom(
-      java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.nio.ByteBuffer data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
+  }
+  public static com.thejeffcooper.hassmic.proto.WyomingEvent parseFrom(
+      java.nio.ByteBuffer data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.WyomingEvent parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static com.thejeffcooper.hassmic.proto.WyomingEvent parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -96,47 +18714,46 @@ public final class WyomingEvent
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.WyomingEvent parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static com.thejeffcooper.hassmic.proto.WyomingEvent parseFrom(
-      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.WyomingEvent parseFrom(java.io.InputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static com.thejeffcooper.hassmic.proto.WyomingEvent parseFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
-  public static com.thejeffcooper.hassmic.proto.WyomingEvent parseDelimitedFrom(
-      java.io.InputStream input) throws java.io.IOException {
+  public static com.thejeffcooper.hassmic.proto.WyomingEvent parseDelimitedFrom(java.io.InputStream input)
+      throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
-
   public static com.thejeffcooper.hassmic.proto.WyomingEvent parseDelimitedFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.WyomingEvent parseFrom(
-      com.google.protobuf.CodedInputStream input) throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+      com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static com.thejeffcooper.hassmic.proto.WyomingEvent parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -148,24 +18765,24 @@ public final class WyomingEvent
   public static Builder newBuilder() {
     return (Builder) DEFAULT_INSTANCE.createBuilder();
   }
-
   public static Builder newBuilder(com.thejeffcooper.hassmic.proto.WyomingEvent prototype) {
     return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
   }
 
   /**
-   *
-   *
    * <pre>
    * An event from the wyoming server
+   * event definitions are captured from the wyoming project source
+   *
+   * up to date info messages are here, not the main page -
+   * https://github.com/rhasspy/wyoming/blob/master/wyoming/info.py
    * </pre>
    *
    * Protobuf type {@code hassmic.WyomingEvent}
    */
-  public static final class Builder
-      extends com.google.protobuf.GeneratedMessageLite.Builder<
-          com.thejeffcooper.hassmic.proto.WyomingEvent, Builder>
-      implements
+  public static final class Builder extends
+      com.google.protobuf.GeneratedMessageLite.Builder<
+        com.thejeffcooper.hassmic.proto.WyomingEvent, Builder> implements
       // @@protoc_insertion_point(builder_implements:hassmic.WyomingEvent)
       com.thejeffcooper.hassmic.proto.WyomingEventOrBuilder {
     // Construct using com.thejeffcooper.hassmic.proto.WyomingEvent.newBuilder()
@@ -173,41 +18790,65 @@ public final class WyomingEvent
       super(DEFAULT_INSTANCE);
     }
 
+    @java.lang.Override
+    public EventCase
+        getEventCase() {
+      return instance.getEventCase();
+    }
+
+    public Builder clearEvent() {
+      copyOnWrite();
+      instance.clearEvent();
+      return this;
+    }
+
+
     /**
-     * <code>string raw_json = 1;</code>
+     * <pre>
+     * The raw json of the message
+     * </pre>
      *
+     * <code>string raw_json = 1;</code>
      * @return The rawJson.
      */
     @java.lang.Override
     public java.lang.String getRawJson() {
       return instance.getRawJson();
     }
-
     /**
-     * <code>string raw_json = 1;</code>
+     * <pre>
+     * The raw json of the message
+     * </pre>
      *
+     * <code>string raw_json = 1;</code>
      * @return The bytes for rawJson.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString getRawJsonBytes() {
+    public com.google.protobuf.ByteString
+        getRawJsonBytes() {
       return instance.getRawJsonBytes();
     }
-
     /**
-     * <code>string raw_json = 1;</code>
+     * <pre>
+     * The raw json of the message
+     * </pre>
      *
+     * <code>string raw_json = 1;</code>
      * @param value The rawJson to set.
      * @return This builder for chaining.
      */
-    public Builder setRawJson(java.lang.String value) {
+    public Builder setRawJson(
+        java.lang.String value) {
       copyOnWrite();
       instance.setRawJson(value);
       return this;
     }
-
     /**
-     * <code>string raw_json = 1;</code>
+     * <pre>
+     * The raw json of the message
+     * </pre>
      *
+     * <code>string raw_json = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearRawJson() {
@@ -215,90 +18856,852 @@ public final class WyomingEvent
       instance.clearRawJson();
       return this;
     }
-
     /**
-     * <code>string raw_json = 1;</code>
+     * <pre>
+     * The raw json of the message
+     * </pre>
      *
+     * <code>string raw_json = 1;</code>
      * @param value The bytes for rawJson to set.
      * @return This builder for chaining.
      */
-    public Builder setRawJsonBytes(com.google.protobuf.ByteString value) {
+    public Builder setRawJsonBytes(
+        com.google.protobuf.ByteString value) {
       copyOnWrite();
       instance.setRawJsonBytes(value);
       return this;
     }
 
+    /**
+     * <code>bytes payload = 2;</code>
+     * @return The payload.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getPayload() {
+      return instance.getPayload();
+    }
+    /**
+     * <code>bytes payload = 2;</code>
+     * @param value The payload to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPayload(com.google.protobuf.ByteString value) {
+      copyOnWrite();
+      instance.setPayload(value);
+      return this;
+    }
+    /**
+     * <code>bytes payload = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPayload() {
+      copyOnWrite();
+      instance.clearPayload();
+      return this;
+    }
+
+    /**
+     * <code>.hassmic.WyomingEvent.Describe describe = 3;</code>
+     */
+    @java.lang.Override
+    public boolean hasDescribe() {
+      return instance.hasDescribe();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Describe describe = 3;</code>
+     */
+    @java.lang.Override
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.Describe getDescribe() {
+      return instance.getDescribe();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Describe describe = 3;</code>
+     */
+    public Builder setDescribe(com.thejeffcooper.hassmic.proto.WyomingEvent.Describe value) {
+      copyOnWrite();
+      instance.setDescribe(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Describe describe = 3;</code>
+     */
+    public Builder setDescribe(
+        com.thejeffcooper.hassmic.proto.WyomingEvent.Describe.Builder builderForValue) {
+      copyOnWrite();
+      instance.setDescribe(builderForValue.build());
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Describe describe = 3;</code>
+     */
+    public Builder mergeDescribe(com.thejeffcooper.hassmic.proto.WyomingEvent.Describe value) {
+      copyOnWrite();
+      instance.mergeDescribe(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Describe describe = 3;</code>
+     */
+    public Builder clearDescribe() {
+      copyOnWrite();
+      instance.clearDescribe();
+      return this;
+    }
+
+    /**
+     * <code>.hassmic.WyomingEvent.Info info = 4;</code>
+     */
+    @java.lang.Override
+    public boolean hasInfo() {
+      return instance.hasInfo();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Info info = 4;</code>
+     */
+    @java.lang.Override
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.Info getInfo() {
+      return instance.getInfo();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Info info = 4;</code>
+     */
+    public Builder setInfo(com.thejeffcooper.hassmic.proto.WyomingEvent.Info value) {
+      copyOnWrite();
+      instance.setInfo(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Info info = 4;</code>
+     */
+    public Builder setInfo(
+        com.thejeffcooper.hassmic.proto.WyomingEvent.Info.Builder builderForValue) {
+      copyOnWrite();
+      instance.setInfo(builderForValue.build());
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Info info = 4;</code>
+     */
+    public Builder mergeInfo(com.thejeffcooper.hassmic.proto.WyomingEvent.Info value) {
+      copyOnWrite();
+      instance.mergeInfo(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Info info = 4;</code>
+     */
+    public Builder clearInfo() {
+      copyOnWrite();
+      instance.clearInfo();
+      return this;
+    }
+
+    /**
+     * <code>.hassmic.WyomingEvent.Ping ping = 5;</code>
+     */
+    @java.lang.Override
+    public boolean hasPing() {
+      return instance.hasPing();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Ping ping = 5;</code>
+     */
+    @java.lang.Override
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.Ping getPing() {
+      return instance.getPing();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Ping ping = 5;</code>
+     */
+    public Builder setPing(com.thejeffcooper.hassmic.proto.WyomingEvent.Ping value) {
+      copyOnWrite();
+      instance.setPing(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Ping ping = 5;</code>
+     */
+    public Builder setPing(
+        com.thejeffcooper.hassmic.proto.WyomingEvent.Ping.Builder builderForValue) {
+      copyOnWrite();
+      instance.setPing(builderForValue.build());
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Ping ping = 5;</code>
+     */
+    public Builder mergePing(com.thejeffcooper.hassmic.proto.WyomingEvent.Ping value) {
+      copyOnWrite();
+      instance.mergePing(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Ping ping = 5;</code>
+     */
+    public Builder clearPing() {
+      copyOnWrite();
+      instance.clearPing();
+      return this;
+    }
+
+    /**
+     * <code>.hassmic.WyomingEvent.Pong pong = 6;</code>
+     */
+    @java.lang.Override
+    public boolean hasPong() {
+      return instance.hasPong();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Pong pong = 6;</code>
+     */
+    @java.lang.Override
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.Pong getPong() {
+      return instance.getPong();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Pong pong = 6;</code>
+     */
+    public Builder setPong(com.thejeffcooper.hassmic.proto.WyomingEvent.Pong value) {
+      copyOnWrite();
+      instance.setPong(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Pong pong = 6;</code>
+     */
+    public Builder setPong(
+        com.thejeffcooper.hassmic.proto.WyomingEvent.Pong.Builder builderForValue) {
+      copyOnWrite();
+      instance.setPong(builderForValue.build());
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Pong pong = 6;</code>
+     */
+    public Builder mergePong(com.thejeffcooper.hassmic.proto.WyomingEvent.Pong value) {
+      copyOnWrite();
+      instance.mergePong(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Pong pong = 6;</code>
+     */
+    public Builder clearPong() {
+      copyOnWrite();
+      instance.clearPong();
+      return this;
+    }
+
+    /**
+     * <code>.hassmic.WyomingEvent.AudioChunk audio_chunk = 7;</code>
+     */
+    @java.lang.Override
+    public boolean hasAudioChunk() {
+      return instance.hasAudioChunk();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.AudioChunk audio_chunk = 7;</code>
+     */
+    @java.lang.Override
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk getAudioChunk() {
+      return instance.getAudioChunk();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.AudioChunk audio_chunk = 7;</code>
+     */
+    public Builder setAudioChunk(com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk value) {
+      copyOnWrite();
+      instance.setAudioChunk(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.AudioChunk audio_chunk = 7;</code>
+     */
+    public Builder setAudioChunk(
+        com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk.Builder builderForValue) {
+      copyOnWrite();
+      instance.setAudioChunk(builderForValue.build());
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.AudioChunk audio_chunk = 7;</code>
+     */
+    public Builder mergeAudioChunk(com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk value) {
+      copyOnWrite();
+      instance.mergeAudioChunk(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.AudioChunk audio_chunk = 7;</code>
+     */
+    public Builder clearAudioChunk() {
+      copyOnWrite();
+      instance.clearAudioChunk();
+      return this;
+    }
+
+    /**
+     * <code>.hassmic.WyomingEvent.AudioStart audio_start = 8;</code>
+     */
+    @java.lang.Override
+    public boolean hasAudioStart() {
+      return instance.hasAudioStart();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.AudioStart audio_start = 8;</code>
+     */
+    @java.lang.Override
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart getAudioStart() {
+      return instance.getAudioStart();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.AudioStart audio_start = 8;</code>
+     */
+    public Builder setAudioStart(com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart value) {
+      copyOnWrite();
+      instance.setAudioStart(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.AudioStart audio_start = 8;</code>
+     */
+    public Builder setAudioStart(
+        com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart.Builder builderForValue) {
+      copyOnWrite();
+      instance.setAudioStart(builderForValue.build());
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.AudioStart audio_start = 8;</code>
+     */
+    public Builder mergeAudioStart(com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart value) {
+      copyOnWrite();
+      instance.mergeAudioStart(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.AudioStart audio_start = 8;</code>
+     */
+    public Builder clearAudioStart() {
+      copyOnWrite();
+      instance.clearAudioStart();
+      return this;
+    }
+
+    /**
+     * <code>.hassmic.WyomingEvent.AudioStop audio_stop = 9;</code>
+     */
+    @java.lang.Override
+    public boolean hasAudioStop() {
+      return instance.hasAudioStop();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.AudioStop audio_stop = 9;</code>
+     */
+    @java.lang.Override
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop getAudioStop() {
+      return instance.getAudioStop();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.AudioStop audio_stop = 9;</code>
+     */
+    public Builder setAudioStop(com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop value) {
+      copyOnWrite();
+      instance.setAudioStop(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.AudioStop audio_stop = 9;</code>
+     */
+    public Builder setAudioStop(
+        com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop.Builder builderForValue) {
+      copyOnWrite();
+      instance.setAudioStop(builderForValue.build());
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.AudioStop audio_stop = 9;</code>
+     */
+    public Builder mergeAudioStop(com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop value) {
+      copyOnWrite();
+      instance.mergeAudioStop(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.AudioStop audio_stop = 9;</code>
+     */
+    public Builder clearAudioStop() {
+      copyOnWrite();
+      instance.clearAudioStop();
+      return this;
+    }
+
+    /**
+     * <code>.hassmic.WyomingEvent.Detect detect = 10;</code>
+     */
+    @java.lang.Override
+    public boolean hasDetect() {
+      return instance.hasDetect();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Detect detect = 10;</code>
+     */
+    @java.lang.Override
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.Detect getDetect() {
+      return instance.getDetect();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Detect detect = 10;</code>
+     */
+    public Builder setDetect(com.thejeffcooper.hassmic.proto.WyomingEvent.Detect value) {
+      copyOnWrite();
+      instance.setDetect(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Detect detect = 10;</code>
+     */
+    public Builder setDetect(
+        com.thejeffcooper.hassmic.proto.WyomingEvent.Detect.Builder builderForValue) {
+      copyOnWrite();
+      instance.setDetect(builderForValue.build());
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Detect detect = 10;</code>
+     */
+    public Builder mergeDetect(com.thejeffcooper.hassmic.proto.WyomingEvent.Detect value) {
+      copyOnWrite();
+      instance.mergeDetect(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Detect detect = 10;</code>
+     */
+    public Builder clearDetect() {
+      copyOnWrite();
+      instance.clearDetect();
+      return this;
+    }
+
+    /**
+     * <code>.hassmic.WyomingEvent.Detection detection = 11;</code>
+     */
+    @java.lang.Override
+    public boolean hasDetection() {
+      return instance.hasDetection();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Detection detection = 11;</code>
+     */
+    @java.lang.Override
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.Detection getDetection() {
+      return instance.getDetection();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Detection detection = 11;</code>
+     */
+    public Builder setDetection(com.thejeffcooper.hassmic.proto.WyomingEvent.Detection value) {
+      copyOnWrite();
+      instance.setDetection(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Detection detection = 11;</code>
+     */
+    public Builder setDetection(
+        com.thejeffcooper.hassmic.proto.WyomingEvent.Detection.Builder builderForValue) {
+      copyOnWrite();
+      instance.setDetection(builderForValue.build());
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Detection detection = 11;</code>
+     */
+    public Builder mergeDetection(com.thejeffcooper.hassmic.proto.WyomingEvent.Detection value) {
+      copyOnWrite();
+      instance.mergeDetection(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Detection detection = 11;</code>
+     */
+    public Builder clearDetection() {
+      copyOnWrite();
+      instance.clearDetection();
+      return this;
+    }
+
+    /**
+     * <code>.hassmic.WyomingEvent.RunSatellite run_satellite = 12;</code>
+     */
+    @java.lang.Override
+    public boolean hasRunSatellite() {
+      return instance.hasRunSatellite();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.RunSatellite run_satellite = 12;</code>
+     */
+    @java.lang.Override
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite getRunSatellite() {
+      return instance.getRunSatellite();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.RunSatellite run_satellite = 12;</code>
+     */
+    public Builder setRunSatellite(com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite value) {
+      copyOnWrite();
+      instance.setRunSatellite(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.RunSatellite run_satellite = 12;</code>
+     */
+    public Builder setRunSatellite(
+        com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite.Builder builderForValue) {
+      copyOnWrite();
+      instance.setRunSatellite(builderForValue.build());
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.RunSatellite run_satellite = 12;</code>
+     */
+    public Builder mergeRunSatellite(com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite value) {
+      copyOnWrite();
+      instance.mergeRunSatellite(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.RunSatellite run_satellite = 12;</code>
+     */
+    public Builder clearRunSatellite() {
+      copyOnWrite();
+      instance.clearRunSatellite();
+      return this;
+    }
+
+    /**
+     * <code>.hassmic.WyomingEvent.PauseSatellite pause_satellite = 13;</code>
+     */
+    @java.lang.Override
+    public boolean hasPauseSatellite() {
+      return instance.hasPauseSatellite();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.PauseSatellite pause_satellite = 13;</code>
+     */
+    @java.lang.Override
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite getPauseSatellite() {
+      return instance.getPauseSatellite();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.PauseSatellite pause_satellite = 13;</code>
+     */
+    public Builder setPauseSatellite(com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite value) {
+      copyOnWrite();
+      instance.setPauseSatellite(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.PauseSatellite pause_satellite = 13;</code>
+     */
+    public Builder setPauseSatellite(
+        com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite.Builder builderForValue) {
+      copyOnWrite();
+      instance.setPauseSatellite(builderForValue.build());
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.PauseSatellite pause_satellite = 13;</code>
+     */
+    public Builder mergePauseSatellite(com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite value) {
+      copyOnWrite();
+      instance.mergePauseSatellite(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.PauseSatellite pause_satellite = 13;</code>
+     */
+    public Builder clearPauseSatellite() {
+      copyOnWrite();
+      instance.clearPauseSatellite();
+      return this;
+    }
+
+    /**
+     * <code>.hassmic.WyomingEvent.Transcribe transcribe = 14;</code>
+     */
+    @java.lang.Override
+    public boolean hasTranscribe() {
+      return instance.hasTranscribe();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Transcribe transcribe = 14;</code>
+     */
+    @java.lang.Override
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe getTranscribe() {
+      return instance.getTranscribe();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Transcribe transcribe = 14;</code>
+     */
+    public Builder setTranscribe(com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe value) {
+      copyOnWrite();
+      instance.setTranscribe(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Transcribe transcribe = 14;</code>
+     */
+    public Builder setTranscribe(
+        com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe.Builder builderForValue) {
+      copyOnWrite();
+      instance.setTranscribe(builderForValue.build());
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Transcribe transcribe = 14;</code>
+     */
+    public Builder mergeTranscribe(com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe value) {
+      copyOnWrite();
+      instance.mergeTranscribe(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Transcribe transcribe = 14;</code>
+     */
+    public Builder clearTranscribe() {
+      copyOnWrite();
+      instance.clearTranscribe();
+      return this;
+    }
+
+    /**
+     * <code>.hassmic.WyomingEvent.VoiceStarted voice_started = 15;</code>
+     */
+    @java.lang.Override
+    public boolean hasVoiceStarted() {
+      return instance.hasVoiceStarted();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.VoiceStarted voice_started = 15;</code>
+     */
+    @java.lang.Override
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted getVoiceStarted() {
+      return instance.getVoiceStarted();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.VoiceStarted voice_started = 15;</code>
+     */
+    public Builder setVoiceStarted(com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted value) {
+      copyOnWrite();
+      instance.setVoiceStarted(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.VoiceStarted voice_started = 15;</code>
+     */
+    public Builder setVoiceStarted(
+        com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted.Builder builderForValue) {
+      copyOnWrite();
+      instance.setVoiceStarted(builderForValue.build());
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.VoiceStarted voice_started = 15;</code>
+     */
+    public Builder mergeVoiceStarted(com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted value) {
+      copyOnWrite();
+      instance.mergeVoiceStarted(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.VoiceStarted voice_started = 15;</code>
+     */
+    public Builder clearVoiceStarted() {
+      copyOnWrite();
+      instance.clearVoiceStarted();
+      return this;
+    }
+
+    /**
+     * <code>.hassmic.WyomingEvent.VoiceStopped voice_stopped = 16;</code>
+     */
+    @java.lang.Override
+    public boolean hasVoiceStopped() {
+      return instance.hasVoiceStopped();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.VoiceStopped voice_stopped = 16;</code>
+     */
+    @java.lang.Override
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped getVoiceStopped() {
+      return instance.getVoiceStopped();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.VoiceStopped voice_stopped = 16;</code>
+     */
+    public Builder setVoiceStopped(com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped value) {
+      copyOnWrite();
+      instance.setVoiceStopped(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.VoiceStopped voice_stopped = 16;</code>
+     */
+    public Builder setVoiceStopped(
+        com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped.Builder builderForValue) {
+      copyOnWrite();
+      instance.setVoiceStopped(builderForValue.build());
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.VoiceStopped voice_stopped = 16;</code>
+     */
+    public Builder mergeVoiceStopped(com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped value) {
+      copyOnWrite();
+      instance.mergeVoiceStopped(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.VoiceStopped voice_stopped = 16;</code>
+     */
+    public Builder clearVoiceStopped() {
+      copyOnWrite();
+      instance.clearVoiceStopped();
+      return this;
+    }
+
+    /**
+     * <code>.hassmic.WyomingEvent.Other other = 17;</code>
+     */
+    @java.lang.Override
+    public boolean hasOther() {
+      return instance.hasOther();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Other other = 17;</code>
+     */
+    @java.lang.Override
+    public com.thejeffcooper.hassmic.proto.WyomingEvent.Other getOther() {
+      return instance.getOther();
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Other other = 17;</code>
+     */
+    public Builder setOther(com.thejeffcooper.hassmic.proto.WyomingEvent.Other value) {
+      copyOnWrite();
+      instance.setOther(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Other other = 17;</code>
+     */
+    public Builder setOther(
+        com.thejeffcooper.hassmic.proto.WyomingEvent.Other.Builder builderForValue) {
+      copyOnWrite();
+      instance.setOther(builderForValue.build());
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Other other = 17;</code>
+     */
+    public Builder mergeOther(com.thejeffcooper.hassmic.proto.WyomingEvent.Other value) {
+      copyOnWrite();
+      instance.mergeOther(value);
+      return this;
+    }
+    /**
+     * <code>.hassmic.WyomingEvent.Other other = 17;</code>
+     */
+    public Builder clearOther() {
+      copyOnWrite();
+      instance.clearOther();
+      return this;
+    }
+
     // @@protoc_insertion_point(builder_scope:hassmic.WyomingEvent)
   }
-
   @java.lang.Override
   @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
   protected final java.lang.Object dynamicMethod(
       com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-      java.lang.Object arg0,
-      java.lang.Object arg1) {
+      java.lang.Object arg0, java.lang.Object arg1) {
     switch (method) {
-      case NEW_MUTABLE_INSTANCE:
-        {
-          return new com.thejeffcooper.hassmic.proto.WyomingEvent();
-        }
-      case NEW_BUILDER:
-        {
-          return new Builder();
-        }
-      case BUILD_MESSAGE_INFO:
-        {
-          java.lang.Object[] objects =
-              new java.lang.Object[] {
-                "rawJson_",
-              };
+      case NEW_MUTABLE_INSTANCE: {
+        return new com.thejeffcooper.hassmic.proto.WyomingEvent();
+      }
+      case NEW_BUILDER: {
+        return new Builder();
+      }
+      case BUILD_MESSAGE_INFO: {
+          java.lang.Object[] objects = new java.lang.Object[] {
+            "event_",
+            "eventCase_",
+            "rawJson_",
+            "payload_",
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Describe.class,
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Info.class,
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Ping.class,
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Pong.class,
+            com.thejeffcooper.hassmic.proto.WyomingEvent.AudioChunk.class,
+            com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStart.class,
+            com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop.class,
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Detect.class,
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Detection.class,
+            com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite.class,
+            com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite.class,
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe.class,
+            com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted.class,
+            com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped.class,
+            com.thejeffcooper.hassmic.proto.WyomingEvent.Other.class,
+          };
           java.lang.String info =
-              "\u0000\u0001\u0000\u0000\u0001\u0001\u0001\u0000\u0000\u0000\u0001\u0208";
+              "\u0000\u0011\u0001\u0000\u0001\u0011\u0011\u0000\u0000\u0000\u0001\u0208\u0002\n" +
+              "\u0003<\u0000\u0004<\u0000\u0005<\u0000\u0006<\u0000\u0007<\u0000\b<\u0000\t<\u0000" +
+              "\n<\u0000\u000b<\u0000\f<\u0000\r<\u0000\u000e<\u0000\u000f<\u0000\u0010<\u0000\u0011" +
+              "<\u0000";
           return newMessageInfo(DEFAULT_INSTANCE, info, objects);
-        }
-        // fall through
-      case GET_DEFAULT_INSTANCE:
-        {
-          return DEFAULT_INSTANCE;
-        }
-      case GET_PARSER:
-        {
-          com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent> parser = PARSER;
-          if (parser == null) {
-            synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.class) {
-              parser = PARSER;
-              if (parser == null) {
-                parser =
-                    new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent>(
-                        DEFAULT_INSTANCE);
-                PARSER = parser;
-              }
+      }
+      // fall through
+      case GET_DEFAULT_INSTANCE: {
+        return DEFAULT_INSTANCE;
+      }
+      case GET_PARSER: {
+        com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.WyomingEvent> parser = PARSER;
+        if (parser == null) {
+          synchronized (com.thejeffcooper.hassmic.proto.WyomingEvent.class) {
+            parser = PARSER;
+            if (parser == null) {
+              parser =
+                  new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.WyomingEvent>(
+                      DEFAULT_INSTANCE);
+              PARSER = parser;
             }
           }
-          return parser;
         }
-      case GET_MEMOIZED_IS_INITIALIZED:
-        {
-          return (byte) 1;
-        }
-      case SET_MEMOIZED_IS_INITIALIZED:
-        {
-          return null;
-        }
+        return parser;
+    }
+    case GET_MEMOIZED_IS_INITIALIZED: {
+      return (byte) 1;
+    }
+    case SET_MEMOIZED_IS_INITIALIZED: {
+      return null;
+    }
     }
     throw new UnsupportedOperationException();
   }
 
+
   // @@protoc_insertion_point(class_scope:hassmic.WyomingEvent)
   private static final com.thejeffcooper.hassmic.proto.WyomingEvent DEFAULT_INSTANCE;
-
   static {
     WyomingEvent defaultInstance = new WyomingEvent();
     // New instances are implicitly immutable so no need to make
     // immutable.
     DEFAULT_INSTANCE = defaultInstance;
     com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
-        WyomingEvent.class, defaultInstance);
+      WyomingEvent.class, defaultInstance);
   }
 
   public static com.thejeffcooper.hassmic.proto.WyomingEvent getDefaultInstance() {
@@ -311,3 +19714,4 @@ public final class WyomingEvent
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
+

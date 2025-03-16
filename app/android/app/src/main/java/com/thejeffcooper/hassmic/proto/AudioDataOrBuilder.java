@@ -3,14 +3,12 @@
 
 package com.thejeffcooper.hassmic.proto;
 
-public interface AudioDataOrBuilder
-    extends
+public interface AudioDataOrBuilder extends
     // @@protoc_insertion_point(interface_extends:hassmic.AudioData)
     com.google.protobuf.MessageLiteOrBuilder {
 
   /**
    * <code>bytes data = 1;</code>
-   *
    * @return The data.
    */
   com.google.protobuf.ByteString getData();

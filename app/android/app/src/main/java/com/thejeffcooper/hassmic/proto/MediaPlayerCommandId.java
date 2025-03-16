@@ -3,30 +3,47 @@
 
 package com.thejeffcooper.hassmic.proto;
 
-/** Protobuf enum {@code hassmic.MediaPlayerCommandId} */
-public enum MediaPlayerCommandId implements com.google.protobuf.Internal.EnumLite {
-  /** <code>COMMAND_UNKNOWN = 0;</code> */
+/**
+ * Protobuf enum {@code hassmic.MediaPlayerCommandId}
+ */
+public enum MediaPlayerCommandId
+    implements com.google.protobuf.Internal.EnumLite {
+  /**
+   * <code>COMMAND_UNKNOWN = 0;</code>
+   */
   COMMAND_UNKNOWN(0),
-  /** <code>COMMAND_PLAY = 1;</code> */
+  /**
+   * <code>COMMAND_PLAY = 1;</code>
+   */
   COMMAND_PLAY(1),
-  /** <code>COMMAND_PAUSE = 2;</code> */
+  /**
+   * <code>COMMAND_PAUSE = 2;</code>
+   */
   COMMAND_PAUSE(2),
-  /** <code>COMMAND_STOP = 3;</code> */
+  /**
+   * <code>COMMAND_STOP = 3;</code>
+   */
   COMMAND_STOP(3),
   UNRECOGNIZED(-1),
   ;
 
-  /** <code>COMMAND_UNKNOWN = 0;</code> */
+  /**
+   * <code>COMMAND_UNKNOWN = 0;</code>
+   */
   public static final int COMMAND_UNKNOWN_VALUE = 0;
-
-  /** <code>COMMAND_PLAY = 1;</code> */
+  /**
+   * <code>COMMAND_PLAY = 1;</code>
+   */
   public static final int COMMAND_PLAY_VALUE = 1;
-
-  /** <code>COMMAND_PAUSE = 2;</code> */
+  /**
+   * <code>COMMAND_PAUSE = 2;</code>
+   */
   public static final int COMMAND_PAUSE_VALUE = 2;
-
-  /** <code>COMMAND_STOP = 3;</code> */
+  /**
+   * <code>COMMAND_STOP = 3;</code>
+   */
   public static final int COMMAND_STOP_VALUE = 3;
+
 
   @java.lang.Override
   public final int getNumber() {
@@ -49,16 +66,11 @@ public enum MediaPlayerCommandId implements com.google.protobuf.Internal.EnumLit
 
   public static MediaPlayerCommandId forNumber(int value) {
     switch (value) {
-      case 0:
-        return COMMAND_UNKNOWN;
-      case 1:
-        return COMMAND_PLAY;
-      case 2:
-        return COMMAND_PAUSE;
-      case 3:
-        return COMMAND_STOP;
-      default:
-        return null;
+      case 0: return COMMAND_UNKNOWN;
+      case 1: return COMMAND_PLAY;
+      case 2: return COMMAND_PAUSE;
+      case 3: return COMMAND_STOP;
+      default: return null;
     }
   }
 
@@ -66,31 +78,28 @@ public enum MediaPlayerCommandId implements com.google.protobuf.Internal.EnumLit
       internalGetValueMap() {
     return internalValueMap;
   }
+  private static final com.google.protobuf.Internal.EnumLiteMap<
+      MediaPlayerCommandId> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<MediaPlayerCommandId>() {
+          @java.lang.Override
+          public MediaPlayerCommandId findValueByNumber(int number) {
+            return MediaPlayerCommandId.forNumber(number);
+          }
+        };
 
-  private static final com.google.protobuf.Internal.EnumLiteMap<MediaPlayerCommandId>
-      internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<MediaPlayerCommandId>() {
-            @java.lang.Override
-            public MediaPlayerCommandId findValueByNumber(int number) {
-              return MediaPlayerCommandId.forNumber(number);
-            }
-          };
-
-  public static com.google.protobuf.Internal.EnumVerifier internalGetVerifier() {
+  public static com.google.protobuf.Internal.EnumVerifier 
+      internalGetVerifier() {
     return MediaPlayerCommandIdVerifier.INSTANCE;
   }
 
-  private static final class MediaPlayerCommandIdVerifier
-      implements com.google.protobuf.Internal.EnumVerifier {
-    static final com.google.protobuf.Internal.EnumVerifier INSTANCE =
-        new MediaPlayerCommandIdVerifier();
-
-    @java.lang.Override
-    public boolean isInRange(int number) {
-      return MediaPlayerCommandId.forNumber(number) != null;
-    }
-  }
-  ;
+  private static final class MediaPlayerCommandIdVerifier implements 
+       com.google.protobuf.Internal.EnumVerifier { 
+          static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new MediaPlayerCommandIdVerifier();
+          @java.lang.Override
+          public boolean isInRange(int number) {
+            return MediaPlayerCommandId.forNumber(number) != null;
+          }
+        };
 
   private final int value;
 
@@ -100,3 +109,4 @@ public enum MediaPlayerCommandId implements com.google.protobuf.Internal.EnumLit
 
   // @@protoc_insertion_point(enum_scope:hassmic.MediaPlayerCommandId)
 }
+

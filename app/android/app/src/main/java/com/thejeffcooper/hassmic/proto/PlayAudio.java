@@ -4,61 +4,47 @@
 package com.thejeffcooper.hassmic.proto;
 
 /**
- *
- *
  * <pre>
  * Play an audio file
  * </pre>
  *
  * Protobuf type {@code hassmic.PlayAudio}
  */
-public final class PlayAudio
-    extends com.google.protobuf.GeneratedMessageLite<PlayAudio, PlayAudio.Builder>
-    implements
+public  final class PlayAudio extends
+    com.google.protobuf.GeneratedMessageLite<
+        PlayAudio, PlayAudio.Builder> implements
     // @@protoc_insertion_point(message_implements:hassmic.PlayAudio)
     PlayAudioOrBuilder {
   private PlayAudio() {
     url_ = "";
   }
-
   public static final int ANNOUNCE_FIELD_NUMBER = 1;
   private boolean announce_;
-
   /**
-   *
-   *
    * <pre>
    * Whether this should be an announcement or not
    * </pre>
    *
    * <code>bool announce = 1;</code>
-   *
    * @return The announce.
    */
   @java.lang.Override
   public boolean getAnnounce() {
     return announce_;
   }
-
   /**
-   *
-   *
    * <pre>
    * Whether this should be an announcement or not
    * </pre>
    *
    * <code>bool announce = 1;</code>
-   *
    * @param value The announce to set.
    */
   private void setAnnounce(boolean value) {
-
+    
     announce_ = value;
   }
-
   /**
-   *
-   *
    * <pre>
    * Whether this should be an announcement or not
    * </pre>
@@ -72,59 +58,46 @@ public final class PlayAudio
 
   public static final int URL_FIELD_NUMBER = 2;
   private java.lang.String url_;
-
   /**
-   *
-   *
    * <pre>
    * The url to play
    * </pre>
    *
    * <code>string url = 2;</code>
-   *
    * @return The url.
    */
   @java.lang.Override
   public java.lang.String getUrl() {
     return url_;
   }
-
   /**
-   *
-   *
    * <pre>
    * The url to play
    * </pre>
    *
    * <code>string url = 2;</code>
-   *
    * @return The bytes for url.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString getUrlBytes() {
+  public com.google.protobuf.ByteString
+      getUrlBytes() {
     return com.google.protobuf.ByteString.copyFromUtf8(url_);
   }
-
   /**
-   *
-   *
    * <pre>
    * The url to play
    * </pre>
    *
    * <code>string url = 2;</code>
-   *
    * @param value The url to set.
    */
-  private void setUrl(java.lang.String value) {
+  private void setUrl(
+      java.lang.String value) {
     java.lang.Class<?> valueClass = value.getClass();
-
+  
     url_ = value;
   }
-
   /**
-   *
-   *
    * <pre>
    * The url to play
    * </pre>
@@ -135,41 +108,40 @@ public final class PlayAudio
 
     url_ = getDefaultInstance().getUrl();
   }
-
   /**
-   *
-   *
    * <pre>
    * The url to play
    * </pre>
    *
    * <code>string url = 2;</code>
-   *
    * @param value The bytes for url to set.
    */
-  private void setUrlBytes(com.google.protobuf.ByteString value) {
+  private void setUrlBytes(
+      com.google.protobuf.ByteString value) {
     checkByteStringIsUtf8(value);
     url_ = value.toStringUtf8();
-  }
 
-  public static com.thejeffcooper.hassmic.proto.PlayAudio parseFrom(java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
   }
 
   public static com.thejeffcooper.hassmic.proto.PlayAudio parseFrom(
-      java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.nio.ByteBuffer data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
+  }
+  public static com.thejeffcooper.hassmic.proto.PlayAudio parseFrom(
+      java.nio.ByteBuffer data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.PlayAudio parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static com.thejeffcooper.hassmic.proto.PlayAudio parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -177,47 +149,46 @@ public final class PlayAudio
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.PlayAudio parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, data);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, data);
   }
-
   public static com.thejeffcooper.hassmic.proto.PlayAudio parseFrom(
-      byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      byte[] data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, data, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.PlayAudio parseFrom(java.io.InputStream input)
       throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static com.thejeffcooper.hassmic.proto.PlayAudio parseFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageLite.parseFrom(
         DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
-  public static com.thejeffcooper.hassmic.proto.PlayAudio parseDelimitedFrom(
-      java.io.InputStream input) throws java.io.IOException {
+  public static com.thejeffcooper.hassmic.proto.PlayAudio parseDelimitedFrom(java.io.InputStream input)
+      throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input);
   }
-
   public static com.thejeffcooper.hassmic.proto.PlayAudio parseDelimitedFrom(
-      java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
   }
-
   public static com.thejeffcooper.hassmic.proto.PlayAudio parseFrom(
-      com.google.protobuf.CodedInputStream input) throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageLite.parseFrom(DEFAULT_INSTANCE, input);
+      com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageLite.parseFrom(
+        DEFAULT_INSTANCE, input);
   }
-
   public static com.thejeffcooper.hassmic.proto.PlayAudio parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -229,24 +200,20 @@ public final class PlayAudio
   public static Builder newBuilder() {
     return (Builder) DEFAULT_INSTANCE.createBuilder();
   }
-
   public static Builder newBuilder(com.thejeffcooper.hassmic.proto.PlayAudio prototype) {
     return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
   }
 
   /**
-   *
-   *
    * <pre>
    * Play an audio file
    * </pre>
    *
    * Protobuf type {@code hassmic.PlayAudio}
    */
-  public static final class Builder
-      extends com.google.protobuf.GeneratedMessageLite.Builder<
-          com.thejeffcooper.hassmic.proto.PlayAudio, Builder>
-      implements
+  public static final class Builder extends
+      com.google.protobuf.GeneratedMessageLite.Builder<
+        com.thejeffcooper.hassmic.proto.PlayAudio, Builder> implements
       // @@protoc_insertion_point(builder_implements:hassmic.PlayAudio)
       com.thejeffcooper.hassmic.proto.PlayAudioOrBuilder {
     // Construct using com.thejeffcooper.hassmic.proto.PlayAudio.newBuilder()
@@ -254,31 +221,25 @@ public final class PlayAudio
       super(DEFAULT_INSTANCE);
     }
 
+
     /**
-     *
-     *
      * <pre>
      * Whether this should be an announcement or not
      * </pre>
      *
      * <code>bool announce = 1;</code>
-     *
      * @return The announce.
      */
     @java.lang.Override
     public boolean getAnnounce() {
       return instance.getAnnounce();
     }
-
     /**
-     *
-     *
      * <pre>
      * Whether this should be an announcement or not
      * </pre>
      *
      * <code>bool announce = 1;</code>
-     *
      * @param value The announce to set.
      * @return This builder for chaining.
      */
@@ -287,16 +248,12 @@ public final class PlayAudio
       instance.setAnnounce(value);
       return this;
     }
-
     /**
-     *
-     *
      * <pre>
      * Whether this should be an announcement or not
      * </pre>
      *
      * <code>bool announce = 1;</code>
-     *
      * @return This builder for chaining.
      */
     public Builder clearAnnounce() {
@@ -306,64 +263,51 @@ public final class PlayAudio
     }
 
     /**
-     *
-     *
      * <pre>
      * The url to play
      * </pre>
      *
      * <code>string url = 2;</code>
-     *
      * @return The url.
      */
     @java.lang.Override
     public java.lang.String getUrl() {
       return instance.getUrl();
     }
-
     /**
-     *
-     *
      * <pre>
      * The url to play
      * </pre>
      *
      * <code>string url = 2;</code>
-     *
      * @return The bytes for url.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString getUrlBytes() {
+    public com.google.protobuf.ByteString
+        getUrlBytes() {
       return instance.getUrlBytes();
     }
-
     /**
-     *
-     *
      * <pre>
      * The url to play
      * </pre>
      *
      * <code>string url = 2;</code>
-     *
      * @param value The url to set.
      * @return This builder for chaining.
      */
-    public Builder setUrl(java.lang.String value) {
+    public Builder setUrl(
+        java.lang.String value) {
       copyOnWrite();
       instance.setUrl(value);
       return this;
     }
-
     /**
-     *
-     *
      * <pre>
      * The url to play
      * </pre>
      *
      * <code>string url = 2;</code>
-     *
      * @return This builder for chaining.
      */
     public Builder clearUrl() {
@@ -371,20 +315,17 @@ public final class PlayAudio
       instance.clearUrl();
       return this;
     }
-
     /**
-     *
-     *
      * <pre>
      * The url to play
      * </pre>
      *
      * <code>string url = 2;</code>
-     *
      * @param value The bytes for url to set.
      * @return This builder for chaining.
      */
-    public Builder setUrlBytes(com.google.protobuf.ByteString value) {
+    public Builder setUrlBytes(
+        com.google.protobuf.ByteString value) {
       copyOnWrite();
       instance.setUrlBytes(value);
       return this;
@@ -392,76 +333,67 @@ public final class PlayAudio
 
     // @@protoc_insertion_point(builder_scope:hassmic.PlayAudio)
   }
-
   @java.lang.Override
   @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
   protected final java.lang.Object dynamicMethod(
       com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-      java.lang.Object arg0,
-      java.lang.Object arg1) {
+      java.lang.Object arg0, java.lang.Object arg1) {
     switch (method) {
-      case NEW_MUTABLE_INSTANCE:
-        {
-          return new com.thejeffcooper.hassmic.proto.PlayAudio();
-        }
-      case NEW_BUILDER:
-        {
-          return new Builder();
-        }
-      case BUILD_MESSAGE_INFO:
-        {
-          java.lang.Object[] objects =
-              new java.lang.Object[] {
-                "announce_", "url_",
-              };
+      case NEW_MUTABLE_INSTANCE: {
+        return new com.thejeffcooper.hassmic.proto.PlayAudio();
+      }
+      case NEW_BUILDER: {
+        return new Builder();
+      }
+      case BUILD_MESSAGE_INFO: {
+          java.lang.Object[] objects = new java.lang.Object[] {
+            "announce_",
+            "url_",
+          };
           java.lang.String info =
-              "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u0001\u0007\u0002\u0208"
-                  + "";
+              "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u0001\u0007\u0002\u0208" +
+              "";
           return newMessageInfo(DEFAULT_INSTANCE, info, objects);
-        }
-        // fall through
-      case GET_DEFAULT_INSTANCE:
-        {
-          return DEFAULT_INSTANCE;
-        }
-      case GET_PARSER:
-        {
-          com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.PlayAudio> parser = PARSER;
-          if (parser == null) {
-            synchronized (com.thejeffcooper.hassmic.proto.PlayAudio.class) {
-              parser = PARSER;
-              if (parser == null) {
-                parser =
-                    new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.PlayAudio>(
-                        DEFAULT_INSTANCE);
-                PARSER = parser;
-              }
+      }
+      // fall through
+      case GET_DEFAULT_INSTANCE: {
+        return DEFAULT_INSTANCE;
+      }
+      case GET_PARSER: {
+        com.google.protobuf.Parser<com.thejeffcooper.hassmic.proto.PlayAudio> parser = PARSER;
+        if (parser == null) {
+          synchronized (com.thejeffcooper.hassmic.proto.PlayAudio.class) {
+            parser = PARSER;
+            if (parser == null) {
+              parser =
+                  new DefaultInstanceBasedParser<com.thejeffcooper.hassmic.proto.PlayAudio>(
+                      DEFAULT_INSTANCE);
+              PARSER = parser;
             }
           }
-          return parser;
         }
-      case GET_MEMOIZED_IS_INITIALIZED:
-        {
-          return (byte) 1;
-        }
-      case SET_MEMOIZED_IS_INITIALIZED:
-        {
-          return null;
-        }
+        return parser;
+    }
+    case GET_MEMOIZED_IS_INITIALIZED: {
+      return (byte) 1;
+    }
+    case SET_MEMOIZED_IS_INITIALIZED: {
+      return null;
+    }
     }
     throw new UnsupportedOperationException();
   }
 
+
   // @@protoc_insertion_point(class_scope:hassmic.PlayAudio)
   private static final com.thejeffcooper.hassmic.proto.PlayAudio DEFAULT_INSTANCE;
-
   static {
     PlayAudio defaultInstance = new PlayAudio();
     // New instances are implicitly immutable so no need to make
     // immutable.
     DEFAULT_INSTANCE = defaultInstance;
     com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
-        PlayAudio.class, defaultInstance);
+      PlayAudio.class, defaultInstance);
   }
 
   public static com.thejeffcooper.hassmic.proto.PlayAudio getDefaultInstance() {
@@ -474,3 +406,4 @@ public final class PlayAudio
     return DEFAULT_INSTANCE.getParserForType();
   }
 }
+
