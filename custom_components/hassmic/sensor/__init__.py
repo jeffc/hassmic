@@ -6,22 +6,10 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from .intent import Intent
-from .pipeline_state import PipelineState
-from .simple_state import SimpleState
-from .stt import STT
-from .wake import Wake
-
 _LOGGER = logging.getLogger(__name__)
 
 # All of the sensor types in hassmic
-ALL_SENSOR_TYPES = [
-    Intent,
-    PipelineState,
-    SimpleState,
-    STT,
-    Wake,
-]
+ALL_SENSOR_TYPES = []
 
 
 async def async_setup_entry(

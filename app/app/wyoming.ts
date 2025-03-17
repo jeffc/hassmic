@@ -69,6 +69,10 @@ class WyomingPacket {
     return this._payload.length;
   };
 
+  getData = () => {
+    return JSON.stringify(this._data);
+  };
+
   getDataLength = () => {
     return JSON.stringify(this._data).length;
   };
@@ -86,6 +90,27 @@ class WyomingPacket {
       data: this._data,
       payload_length: this.getPayloadLength(),
     });
+  };
+
+  toProto = () => {
+    try {
+      // replace audio-chunk with audioChunk and similar to match compiler
+      let kind = this.getType().replaceAll(/-([a-z])/g, match =>
+        match[1].toUpperCase(),
+      );
+      let p: WyomingEvent = WyomingEvent.create({
+        raw_json: this.toString(),
+        payload: this.getPayload(),
+        event: {
+          oneofKind: kind,
+          [kind]: JSON.parse(this.getData()),
+        },
+      });
+      return p;
+    } catch (e: any) {
+      Logger.error(`Error building proto: ${e}`);
+      return WyomingEvent.create();
+    }
   };
 
   // Construct a packet from a blob of data
@@ -317,26 +342,26 @@ class WyomingServer_ {
     }
 
     let ptype = p.getType();
-    try {
-      CheyenneSocket.sendMessage(
-        ClientMessage.create({
-          msg: {
-            oneofKind: 'clientEvent',
-            clientEvent: ClientEvent.create({
-              event: {
-                oneofKind: 'wyomingEvent',
-                wyomingEvent: WyomingEvent.create({
-                  rawJson: p.toString(),
-                }),
-              },
-            }),
-          },
-        }),
-      );
-    } catch (e) {
-      Logger.error(
-        `Error forwarding wyoming event to hassmic integration: ${e}`,
-      );
+    if (['audio-chunk', 'ping', 'pong'].indexOf(ptype) == -1) {
+      try {
+        CheyenneSocket.sendMessage(
+          ClientMessage.create({
+            msg: {
+              oneofKind: 'clientEvent',
+              clientEvent: ClientEvent.create({
+                event: {
+                  oneofKind: 'wyomingEvent',
+                  wyomingEvent: p.toProto(),
+                },
+              }),
+            },
+          }),
+        );
+      } catch (e) {
+        Logger.error(
+          `Error forwarding wyoming event to hassmic integration: ${e}`,
+        );
+      }
     }
     try {
       switch (ptype) {

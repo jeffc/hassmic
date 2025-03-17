@@ -427,7 +427,7 @@ class Log(betterproto.Message):
 
 
 @dataclass(eq=False, repr=False)
-class Clientmessage(betterproto.Message):
+class ClientMessage(betterproto.Message):
     """The wrapper message that actually gets sent to the server"""
 
     ping: "Ping" = betterproto.message_field(1, group="msg")

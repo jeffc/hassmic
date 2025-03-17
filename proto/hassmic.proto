@@ -303,7 +303,7 @@ message Log {
 }
 
 // The wrapper message that actually gets sent to the server
-message Clientmessage {
+message ClientMessage {
   oneof msg {
     Ping ping = 1;
     ClientInfo client_info = 2;

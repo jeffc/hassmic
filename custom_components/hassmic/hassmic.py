@@ -111,12 +111,16 @@ class HassMic:
 
             case "wyoming_event":
                 try:
-                    wraw = json.loads(val.raw_json)
-                    if wraw["type"] != "ping" and wraw["type"] != "audio-chunk":
-                        lg = logging.getLogger(f"{__spec__.parent}.{self._host}")
-                        lg.info(f"Wyoming event: {val.raw_json}")
+                    (which, val) = betterproto.which_one_of(val, "event")
+                    match which:
+                        case "ping" | "pong" | "audio-chunk":
+                            pass
+                        case "describe":
+                            _LOGGER.debug("Got describe request")
+                        case _:
+                            _LOGGER.warning(f"Unmatched Wyoming event: {val}")
                 except Exception as e:
-                    _LOGGER.warning(f"Error logging wyoming event: {e}")
+                    _LOGGER.warning(f"Error logging wyoming event: {e} ({val})")
 
             case _:
                 pass

@@ -876,9 +876,9 @@ export enum Log_Severity {
 /**
  * The wrapper message that actually gets sent to the server
  *
- * @generated from protobuf message hassmic.Clientmessage
+ * @generated from protobuf message hassmic.ClientMessage
  */
-export interface Clientmessage {
+export interface ClientMessage {
     /**
      * @generated from protobuf oneof: msg
      */
@@ -3762,9 +3762,9 @@ class Log$Type extends MessageType<Log> {
  */
 export const Log = new Log$Type();
 // @generated message type with reflection information, may provide speed optimized methods
-class Clientmessage$Type extends MessageType<Clientmessage> {
+class ClientMessage$Type extends MessageType<ClientMessage> {
     constructor() {
-        super("hassmic.Clientmessage", [
+        super("hassmic.ClientMessage", [
             { no: 1, name: "ping", kind: "message", oneof: "msg", T: () => Ping },
             { no: 2, name: "client_info", kind: "message", oneof: "msg", T: () => ClientInfo },
             { no: 3, name: "audio_data", kind: "message", oneof: "msg", T: () => AudioData },
@@ -3772,14 +3772,14 @@ class Clientmessage$Type extends MessageType<Clientmessage> {
             { no: 5, name: "saved_settings", kind: "message", oneof: "msg", T: () => SavedSettings }
         ]);
     }
-    create(value?: PartialMessage<Clientmessage>): Clientmessage {
+    create(value?: PartialMessage<ClientMessage>): ClientMessage {
         const message = globalThis.Object.create((this.messagePrototype!));
         message.msg = { oneofKind: undefined };
         if (value !== undefined)
-            reflectionMergePartial<Clientmessage>(this, message, value);
+            reflectionMergePartial<ClientMessage>(this, message, value);
         return message;
     }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: Clientmessage): Clientmessage {
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ClientMessage): ClientMessage {
         let message = target ?? this.create(), end = reader.pos + length;
         while (reader.pos < end) {
             let [fieldNo, wireType] = reader.tag();
@@ -3825,7 +3825,7 @@ class Clientmessage$Type extends MessageType<Clientmessage> {
         }
         return message;
     }
-    internalBinaryWrite(message: Clientmessage, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+    internalBinaryWrite(message: ClientMessage, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
         /* hassmic.Ping ping = 1; */
         if (message.msg.oneofKind === "ping")
             Ping.internalBinaryWrite(message.msg.ping, writer.tag(1, WireType.LengthDelimited).fork(), options).join();
@@ -3848,9 +3848,9 @@ class Clientmessage$Type extends MessageType<Clientmessage> {
     }
 }
 /**
- * @generated MessageType for protobuf message hassmic.Clientmessage
+ * @generated MessageType for protobuf message hassmic.ClientMessage
  */
-export const Clientmessage = new Clientmessage$Type();
+export const ClientMessage = new ClientMessage$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class PlayAudio$Type extends MessageType<PlayAudio> {
     constructor() {
