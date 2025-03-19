@@ -50,10 +50,11 @@ class NativeManager_ {
   // Add a listener for ClientEvents sent by native code.
   addClientEventListener = (f: (ev: ClientEvent) => Promise<void>) => {
     this.emitter.addListener(CLIENT_EVENT_KEY, async ev => {
-      Logger.debug(`Proto-valued event: ${ev}`);
+      Logger.debug(`Proto-valued event: "${ev}"`);
       try {
         let ce = ClientEvent.fromBinary(
-          Buffer.from(Buffer.from(ev.slice(0, -1)).toString(), 'base64'),
+          //Buffer.from(Buffer.from(ev.slice(0, -1)).toString(), 'base64'),
+          Buffer.from(Buffer.from(ev).toString(), 'base64'),
         );
         await f(ce);
       } catch (e) {

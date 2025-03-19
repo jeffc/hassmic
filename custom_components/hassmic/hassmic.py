@@ -111,14 +111,16 @@ class HassMic:
 
             case "wyoming_event":
                 try:
-                    (which, val) = betterproto.which_one_of(val, "event")
+                    (which, wevent) = betterproto.which_one_of(val, "event")
                     match which:
                         case "ping" | "pong" | "audio-chunk":
                             pass
-                        case "describe":
-                            _LOGGER.debug("Got describe request")
+                        case None:
+                            _LOGGER.warning(
+                                f"Unmatched Wyoming event; json=`{val.raw_json}`"
+                            )
                         case _:
-                            _LOGGER.warning(f"Unmatched Wyoming event: {val}")
+                            _LOGGER.debug(f"Got {which} message")
                 except Exception as e:
                     _LOGGER.warning(f"Error logging wyoming event: {e} ({val})")
 

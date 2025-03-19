@@ -111,89 +111,298 @@ public interface WyomingEventOrBuilder extends
   com.thejeffcooper.hassmic.proto.WyomingEvent.AudioStop getAudioStop();
 
   /**
-   * <code>.hassmic.WyomingEvent.Detect detect = 10;</code>
+   * <code>.hassmic.WyomingEvent.Played played = 10;</code>
+   * @return Whether the played field is set.
+   */
+  boolean hasPlayed();
+  /**
+   * <code>.hassmic.WyomingEvent.Played played = 10;</code>
+   * @return The played.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.Played getPlayed();
+
+  /**
+   * <code>.hassmic.WyomingEvent.Detect detect = 11;</code>
    * @return Whether the detect field is set.
    */
   boolean hasDetect();
   /**
-   * <code>.hassmic.WyomingEvent.Detect detect = 10;</code>
+   * <code>.hassmic.WyomingEvent.Detect detect = 11;</code>
    * @return The detect.
    */
   com.thejeffcooper.hassmic.proto.WyomingEvent.Detect getDetect();
 
   /**
-   * <code>.hassmic.WyomingEvent.Detection detection = 11;</code>
+   * <code>.hassmic.WyomingEvent.Detection detection = 12;</code>
    * @return Whether the detection field is set.
    */
   boolean hasDetection();
   /**
-   * <code>.hassmic.WyomingEvent.Detection detection = 11;</code>
+   * <code>.hassmic.WyomingEvent.Detection detection = 12;</code>
    * @return The detection.
    */
   com.thejeffcooper.hassmic.proto.WyomingEvent.Detection getDetection();
 
   /**
-   * <code>.hassmic.WyomingEvent.RunSatellite run_satellite = 12;</code>
+   * <code>.hassmic.WyomingEvent.NotDetected not_detected = 13;</code>
+   * @return Whether the notDetected field is set.
+   */
+  boolean hasNotDetected();
+  /**
+   * <code>.hassmic.WyomingEvent.NotDetected not_detected = 13;</code>
+   * @return The notDetected.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.NotDetected getNotDetected();
+
+  /**
+   * <code>.hassmic.WyomingEvent.RunPipeline run_pipeline = 14;</code>
+   * @return Whether the runPipeline field is set.
+   */
+  boolean hasRunPipeline();
+  /**
+   * <code>.hassmic.WyomingEvent.RunPipeline run_pipeline = 14;</code>
+   * @return The runPipeline.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.RunPipeline getRunPipeline();
+
+  /**
+   * <code>.hassmic.WyomingEvent.RunSatellite run_satellite = 15;</code>
    * @return Whether the runSatellite field is set.
    */
   boolean hasRunSatellite();
   /**
-   * <code>.hassmic.WyomingEvent.RunSatellite run_satellite = 12;</code>
+   * <code>.hassmic.WyomingEvent.RunSatellite run_satellite = 15;</code>
    * @return The runSatellite.
    */
   com.thejeffcooper.hassmic.proto.WyomingEvent.RunSatellite getRunSatellite();
 
   /**
-   * <code>.hassmic.WyomingEvent.PauseSatellite pause_satellite = 13;</code>
+   * <code>.hassmic.WyomingEvent.PauseSatellite pause_satellite = 16;</code>
    * @return Whether the pauseSatellite field is set.
    */
   boolean hasPauseSatellite();
   /**
-   * <code>.hassmic.WyomingEvent.PauseSatellite pause_satellite = 13;</code>
+   * <code>.hassmic.WyomingEvent.PauseSatellite pause_satellite = 16;</code>
    * @return The pauseSatellite.
    */
   com.thejeffcooper.hassmic.proto.WyomingEvent.PauseSatellite getPauseSatellite();
 
   /**
-   * <code>.hassmic.WyomingEvent.Transcribe transcribe = 14;</code>
+   * <code>.hassmic.WyomingEvent.SatelliteConnected satellite_connected = 17;</code>
+   * @return Whether the satelliteConnected field is set.
+   */
+  boolean hasSatelliteConnected();
+  /**
+   * <code>.hassmic.WyomingEvent.SatelliteConnected satellite_connected = 17;</code>
+   * @return The satelliteConnected.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.SatelliteConnected getSatelliteConnected();
+
+  /**
+   * <code>.hassmic.WyomingEvent.SatelliteDisconnected satellite_disconnected = 18;</code>
+   * @return Whether the satelliteDisconnected field is set.
+   */
+  boolean hasSatelliteDisconnected();
+  /**
+   * <code>.hassmic.WyomingEvent.SatelliteDisconnected satellite_disconnected = 18;</code>
+   * @return The satelliteDisconnected.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.SatelliteDisconnected getSatelliteDisconnected();
+
+  /**
+   * <code>.hassmic.WyomingEvent.StreamingStarted streaming_started = 19;</code>
+   * @return Whether the streamingStarted field is set.
+   */
+  boolean hasStreamingStarted();
+  /**
+   * <code>.hassmic.WyomingEvent.StreamingStarted streaming_started = 19;</code>
+   * @return The streamingStarted.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.StreamingStarted getStreamingStarted();
+
+  /**
+   * <code>.hassmic.WyomingEvent.StreamingStopped streaming_stopped = 20;</code>
+   * @return Whether the streamingStopped field is set.
+   */
+  boolean hasStreamingStopped();
+  /**
+   * <code>.hassmic.WyomingEvent.StreamingStopped streaming_stopped = 20;</code>
+   * @return The streamingStopped.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.StreamingStopped getStreamingStopped();
+
+  /**
+   * <code>.hassmic.WyomingEvent.Transcribe transcribe = 21;</code>
    * @return Whether the transcribe field is set.
    */
   boolean hasTranscribe();
   /**
-   * <code>.hassmic.WyomingEvent.Transcribe transcribe = 14;</code>
+   * <code>.hassmic.WyomingEvent.Transcribe transcribe = 21;</code>
    * @return The transcribe.
    */
   com.thejeffcooper.hassmic.proto.WyomingEvent.Transcribe getTranscribe();
 
   /**
-   * <code>.hassmic.WyomingEvent.VoiceStarted voice_started = 15;</code>
+   * <code>.hassmic.WyomingEvent.Transcript transcript = 22;</code>
+   * @return Whether the transcript field is set.
+   */
+  boolean hasTranscript();
+  /**
+   * <code>.hassmic.WyomingEvent.Transcript transcript = 22;</code>
+   * @return The transcript.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.Transcript getTranscript();
+
+  /**
+   * <code>.hassmic.WyomingEvent.Synthesize synthesize = 23;</code>
+   * @return Whether the synthesize field is set.
+   */
+  boolean hasSynthesize();
+  /**
+   * <code>.hassmic.WyomingEvent.Synthesize synthesize = 23;</code>
+   * @return The synthesize.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.Synthesize getSynthesize();
+
+  /**
+   * <code>.hassmic.WyomingEvent.VoiceStarted voice_started = 24;</code>
    * @return Whether the voiceStarted field is set.
    */
   boolean hasVoiceStarted();
   /**
-   * <code>.hassmic.WyomingEvent.VoiceStarted voice_started = 15;</code>
+   * <code>.hassmic.WyomingEvent.VoiceStarted voice_started = 24;</code>
    * @return The voiceStarted.
    */
   com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStarted getVoiceStarted();
 
   /**
-   * <code>.hassmic.WyomingEvent.VoiceStopped voice_stopped = 16;</code>
+   * <code>.hassmic.WyomingEvent.VoiceStopped voice_stopped = 25;</code>
    * @return Whether the voiceStopped field is set.
    */
   boolean hasVoiceStopped();
   /**
-   * <code>.hassmic.WyomingEvent.VoiceStopped voice_stopped = 16;</code>
+   * <code>.hassmic.WyomingEvent.VoiceStopped voice_stopped = 25;</code>
    * @return The voiceStopped.
    */
   com.thejeffcooper.hassmic.proto.WyomingEvent.VoiceStopped getVoiceStopped();
 
   /**
-   * <code>.hassmic.WyomingEvent.Other other = 17;</code>
+   * <code>.hassmic.WyomingEvent.Intent intent = 26;</code>
+   * @return Whether the intent field is set.
+   */
+  boolean hasIntent();
+  /**
+   * <code>.hassmic.WyomingEvent.Intent intent = 26;</code>
+   * @return The intent.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.Intent getIntent();
+
+  /**
+   * <code>.hassmic.WyomingEvent.Recognize recognize = 27;</code>
+   * @return Whether the recognize field is set.
+   */
+  boolean hasRecognize();
+  /**
+   * <code>.hassmic.WyomingEvent.Recognize recognize = 27;</code>
+   * @return The recognize.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.Recognize getRecognize();
+
+  /**
+   * <code>.hassmic.WyomingEvent.NotRecognized not_recognized = 28;</code>
+   * @return Whether the notRecognized field is set.
+   */
+  boolean hasNotRecognized();
+  /**
+   * <code>.hassmic.WyomingEvent.NotRecognized not_recognized = 28;</code>
+   * @return The notRecognized.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.NotRecognized getNotRecognized();
+
+  /**
+   * <code>.hassmic.WyomingEvent.Handled handled = 29;</code>
+   * @return Whether the handled field is set.
+   */
+  boolean hasHandled();
+  /**
+   * <code>.hassmic.WyomingEvent.Handled handled = 29;</code>
+   * @return The handled.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.Handled getHandled();
+
+  /**
+   * <code>.hassmic.WyomingEvent.NotHandled not_handled = 30;</code>
+   * @return Whether the notHandled field is set.
+   */
+  boolean hasNotHandled();
+  /**
+   * <code>.hassmic.WyomingEvent.NotHandled not_handled = 30;</code>
+   * @return The notHandled.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.NotHandled getNotHandled();
+
+  /**
+   * <code>.hassmic.WyomingEvent.TimerStarted timer_started = 31;</code>
+   * @return Whether the timerStarted field is set.
+   */
+  boolean hasTimerStarted();
+  /**
+   * <code>.hassmic.WyomingEvent.TimerStarted timer_started = 31;</code>
+   * @return The timerStarted.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.TimerStarted getTimerStarted();
+
+  /**
+   * <code>.hassmic.WyomingEvent.TimerUpdated timer_updated = 32;</code>
+   * @return Whether the timerUpdated field is set.
+   */
+  boolean hasTimerUpdated();
+  /**
+   * <code>.hassmic.WyomingEvent.TimerUpdated timer_updated = 32;</code>
+   * @return The timerUpdated.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.TimerUpdated getTimerUpdated();
+
+  /**
+   * <code>.hassmic.WyomingEvent.TimerCancelled timer_cancelled = 33;</code>
+   * @return Whether the timerCancelled field is set.
+   */
+  boolean hasTimerCancelled();
+  /**
+   * <code>.hassmic.WyomingEvent.TimerCancelled timer_cancelled = 33;</code>
+   * @return The timerCancelled.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.TimerCancelled getTimerCancelled();
+
+  /**
+   * <code>.hassmic.WyomingEvent.TimerFinished timer_finished = 34;</code>
+   * @return Whether the timerFinished field is set.
+   */
+  boolean hasTimerFinished();
+  /**
+   * <code>.hassmic.WyomingEvent.TimerFinished timer_finished = 34;</code>
+   * @return The timerFinished.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.TimerFinished getTimerFinished();
+
+  /**
+   * <code>.hassmic.WyomingEvent.Error error = 35;</code>
+   * @return Whether the error field is set.
+   */
+  boolean hasError();
+  /**
+   * <code>.hassmic.WyomingEvent.Error error = 35;</code>
+   * @return The error.
+   */
+  com.thejeffcooper.hassmic.proto.WyomingEvent.Error getError();
+
+  /**
+   * <code>.hassmic.WyomingEvent.Other other = 36;</code>
    * @return Whether the other field is set.
    */
   boolean hasOther();
   /**
-   * <code>.hassmic.WyomingEvent.Other other = 17;</code>
+   * <code>.hassmic.WyomingEvent.Other other = 36;</code>
    * @return The other.
    */
   com.thejeffcooper.hassmic.proto.WyomingEvent.Other getOther();

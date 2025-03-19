@@ -167,6 +167,7 @@ class ConnectionManager:
             binmsg = bytes(data)
             b64msg = base64.b64encode(binmsg).decode("ascii")
             self._socket_writer.write((b64msg + "\n").encode())
+            _LOGGER.info(f"Sending message: `{(b64msg + '\n').encode()}`")
             await self._socket_writer.drain()
         else:
             _LOGGER.warning("Tried to write data to dead socket")

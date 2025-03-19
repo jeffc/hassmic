@@ -98,14 +98,18 @@ class WyomingPacket {
       let kind = this.getType().replaceAll(/-([a-z])/g, match =>
         match[1].toUpperCase(),
       );
+      Logger.info(`Sending wyoming packet: ${this.toString()}`);
       let p: WyomingEvent = WyomingEvent.create({
-        raw_json: this.toString(),
+        rawJson: this.toString(),
         payload: this.getPayload(),
         event: {
           oneofKind: kind,
           [kind]: JSON.parse(this.getData()),
         },
       });
+      if (!p.event.oneofKind) {
+        Logger.warning(`Wyoming event type '${kind}' not defined!`);
+      }
       return p;
     } catch (e: any) {
       Logger.error(`Error building proto: ${e}`);

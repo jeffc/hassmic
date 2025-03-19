@@ -198,51 +198,165 @@ export interface WyomingEvent {
          */
         audioStop: WyomingEvent_AudioStop;
     } | {
+        oneofKind: "played";
+        /**
+         * @generated from protobuf field: hassmic.WyomingEvent.Played played = 10;
+         */
+        played: WyomingEvent_Played;
+    } | {
         oneofKind: "detect";
         /**
-         * @generated from protobuf field: hassmic.WyomingEvent.Detect detect = 10;
+         * @generated from protobuf field: hassmic.WyomingEvent.Detect detect = 11;
          */
         detect: WyomingEvent_Detect;
     } | {
         oneofKind: "detection";
         /**
-         * @generated from protobuf field: hassmic.WyomingEvent.Detection detection = 11;
+         * @generated from protobuf field: hassmic.WyomingEvent.Detection detection = 12;
          */
         detection: WyomingEvent_Detection;
     } | {
+        oneofKind: "notDetected";
+        /**
+         * @generated from protobuf field: hassmic.WyomingEvent.NotDetected not_detected = 13;
+         */
+        notDetected: WyomingEvent_NotDetected;
+    } | {
+        oneofKind: "runPipeline";
+        /**
+         * @generated from protobuf field: hassmic.WyomingEvent.RunPipeline run_pipeline = 14;
+         */
+        runPipeline: WyomingEvent_RunPipeline;
+    } | {
         oneofKind: "runSatellite";
         /**
-         * @generated from protobuf field: hassmic.WyomingEvent.RunSatellite run_satellite = 12;
+         * @generated from protobuf field: hassmic.WyomingEvent.RunSatellite run_satellite = 15;
          */
         runSatellite: WyomingEvent_RunSatellite;
     } | {
         oneofKind: "pauseSatellite";
         /**
-         * @generated from protobuf field: hassmic.WyomingEvent.PauseSatellite pause_satellite = 13;
+         * @generated from protobuf field: hassmic.WyomingEvent.PauseSatellite pause_satellite = 16;
          */
         pauseSatellite: WyomingEvent_PauseSatellite;
     } | {
+        oneofKind: "satelliteConnected";
+        /**
+         * @generated from protobuf field: hassmic.WyomingEvent.SatelliteConnected satellite_connected = 17;
+         */
+        satelliteConnected: WyomingEvent_SatelliteConnected;
+    } | {
+        oneofKind: "satelliteDisconnected";
+        /**
+         * @generated from protobuf field: hassmic.WyomingEvent.SatelliteDisconnected satellite_disconnected = 18;
+         */
+        satelliteDisconnected: WyomingEvent_SatelliteDisconnected;
+    } | {
+        oneofKind: "streamingStarted";
+        /**
+         * @generated from protobuf field: hassmic.WyomingEvent.StreamingStarted streaming_started = 19;
+         */
+        streamingStarted: WyomingEvent_StreamingStarted;
+    } | {
+        oneofKind: "streamingStopped";
+        /**
+         * @generated from protobuf field: hassmic.WyomingEvent.StreamingStopped streaming_stopped = 20;
+         */
+        streamingStopped: WyomingEvent_StreamingStopped;
+    } | {
         oneofKind: "transcribe";
         /**
-         * @generated from protobuf field: hassmic.WyomingEvent.Transcribe transcribe = 14;
+         * @generated from protobuf field: hassmic.WyomingEvent.Transcribe transcribe = 21;
          */
         transcribe: WyomingEvent_Transcribe;
     } | {
+        oneofKind: "transcript";
+        /**
+         * @generated from protobuf field: hassmic.WyomingEvent.Transcript transcript = 22;
+         */
+        transcript: WyomingEvent_Transcript;
+    } | {
+        oneofKind: "synthesize";
+        /**
+         * @generated from protobuf field: hassmic.WyomingEvent.Synthesize synthesize = 23;
+         */
+        synthesize: WyomingEvent_Synthesize;
+    } | {
         oneofKind: "voiceStarted";
         /**
-         * @generated from protobuf field: hassmic.WyomingEvent.VoiceStarted voice_started = 15;
+         * @generated from protobuf field: hassmic.WyomingEvent.VoiceStarted voice_started = 24;
          */
         voiceStarted: WyomingEvent_VoiceStarted;
     } | {
         oneofKind: "voiceStopped";
         /**
-         * @generated from protobuf field: hassmic.WyomingEvent.VoiceStopped voice_stopped = 16;
+         * @generated from protobuf field: hassmic.WyomingEvent.VoiceStopped voice_stopped = 25;
          */
         voiceStopped: WyomingEvent_VoiceStopped;
     } | {
+        oneofKind: "intent";
+        /**
+         * @generated from protobuf field: hassmic.WyomingEvent.Intent intent = 26;
+         */
+        intent: WyomingEvent_Intent;
+    } | {
+        oneofKind: "recognize";
+        /**
+         * @generated from protobuf field: hassmic.WyomingEvent.Recognize recognize = 27;
+         */
+        recognize: WyomingEvent_Recognize;
+    } | {
+        oneofKind: "notRecognized";
+        /**
+         * @generated from protobuf field: hassmic.WyomingEvent.NotRecognized not_recognized = 28;
+         */
+        notRecognized: WyomingEvent_NotRecognized;
+    } | {
+        oneofKind: "handled";
+        /**
+         * @generated from protobuf field: hassmic.WyomingEvent.Handled handled = 29;
+         */
+        handled: WyomingEvent_Handled;
+    } | {
+        oneofKind: "notHandled";
+        /**
+         * @generated from protobuf field: hassmic.WyomingEvent.NotHandled not_handled = 30;
+         */
+        notHandled: WyomingEvent_NotHandled;
+    } | {
+        oneofKind: "timerStarted";
+        /**
+         * @generated from protobuf field: hassmic.WyomingEvent.TimerStarted timer_started = 31;
+         */
+        timerStarted: WyomingEvent_TimerStarted;
+    } | {
+        oneofKind: "timerUpdated";
+        /**
+         * @generated from protobuf field: hassmic.WyomingEvent.TimerUpdated timer_updated = 32;
+         */
+        timerUpdated: WyomingEvent_TimerUpdated;
+    } | {
+        oneofKind: "timerCancelled";
+        /**
+         * @generated from protobuf field: hassmic.WyomingEvent.TimerCancelled timer_cancelled = 33;
+         */
+        timerCancelled: WyomingEvent_TimerCancelled;
+    } | {
+        oneofKind: "timerFinished";
+        /**
+         * @generated from protobuf field: hassmic.WyomingEvent.TimerFinished timer_finished = 34;
+         */
+        timerFinished: WyomingEvent_TimerFinished;
+    } | {
+        oneofKind: "error";
+        /**
+         * @generated from protobuf field: hassmic.WyomingEvent.Error error = 35;
+         */
+        error: WyomingEvent_Error;
+    } | {
         oneofKind: "other";
         /**
-         * @generated from protobuf field: hassmic.WyomingEvent.Other other = 17;
+         * @generated from protobuf field: hassmic.WyomingEvent.Other other = 36;
          */
         other: WyomingEvent_Other;
     } | {
@@ -333,6 +447,11 @@ export interface WyomingEvent_Detection {
      * @generated from protobuf field: string speaker = 3;
      */
     speaker: string;
+}
+/**
+ * @generated from protobuf message hassmic.WyomingEvent.NotDetected
+ */
+export interface WyomingEvent_NotDetected {
 }
 /**
  * @generated from protobuf message hassmic.WyomingEvent.Info
@@ -729,9 +848,68 @@ export interface WyomingEvent_Info_Satellite {
     supportsTrigger: boolean;
 }
 /**
+ * @generated from protobuf message hassmic.WyomingEvent.RunPipeline
+ */
+export interface WyomingEvent_RunPipeline {
+    /**
+     * @generated from protobuf field: string start_stage = 1;
+     */
+    startStage: string;
+    /**
+     * @generated from protobuf field: string end_stage = 2;
+     */
+    endStage: string;
+    /**
+     * @generated from protobuf field: string wake_word_name = 3;
+     */
+    wakeWordName: string;
+    /**
+     * @generated from protobuf field: repeated string wake_word_names = 4;
+     */
+    wakeWordNames: string[];
+    /**
+     * @generated from protobuf field: string announce_text = 5;
+     */
+    announceText: string;
+    /**
+     * @generated from protobuf field: bool restart_on_end = 6;
+     */
+    restartOnEnd: boolean;
+}
+/**
+ * @generated from protobuf message hassmic.WyomingEvent.RunSatellite
+ */
+export interface WyomingEvent_RunSatellite {
+}
+/**
  * @generated from protobuf message hassmic.WyomingEvent.PauseSatellite
  */
 export interface WyomingEvent_PauseSatellite {
+}
+/**
+ * @generated from protobuf message hassmic.WyomingEvent.SatelliteConnected
+ */
+export interface WyomingEvent_SatelliteConnected {
+}
+/**
+ * @generated from protobuf message hassmic.WyomingEvent.SatelliteDisconnected
+ */
+export interface WyomingEvent_SatelliteDisconnected {
+}
+/**
+ * @generated from protobuf message hassmic.WyomingEvent.StreamingStarted
+ */
+export interface WyomingEvent_StreamingStarted {
+}
+/**
+ * @generated from protobuf message hassmic.WyomingEvent.StreamingStopped
+ */
+export interface WyomingEvent_StreamingStopped {
+}
+/**
+ * @generated from protobuf message hassmic.WyomingEvent.Played
+ */
+export interface WyomingEvent_Played {
 }
 /**
  * @generated from protobuf message hassmic.WyomingEvent.Ping
@@ -742,11 +920,6 @@ export interface WyomingEvent_Ping {
  * @generated from protobuf message hassmic.WyomingEvent.Pong
  */
 export interface WyomingEvent_Pong {
-}
-/**
- * @generated from protobuf message hassmic.WyomingEvent.RunSatellite
- */
-export interface WyomingEvent_RunSatellite {
 }
 /**
  * @generated from protobuf message hassmic.WyomingEvent.Transcribe
@@ -768,6 +941,51 @@ export interface WyomingEvent_Transcribe {
     };
 }
 /**
+ * @generated from protobuf message hassmic.WyomingEvent.Transcript
+ */
+export interface WyomingEvent_Transcript {
+    /**
+     * @generated from protobuf field: string text = 1;
+     */
+    text: string;
+    /**
+     * @generated from protobuf field: map<string, string> context = 2;
+     */
+    context: {
+        [key: string]: string;
+    };
+}
+/**
+ * @generated from protobuf message hassmic.WyomingEvent.Synthesize
+ */
+export interface WyomingEvent_Synthesize {
+    /**
+     * @generated from protobuf field: string text = 1;
+     */
+    text: string;
+    /**
+     * @generated from protobuf field: hassmic.WyomingEvent.Synthesize.SynthesizeVoice voice = 2;
+     */
+    voice?: WyomingEvent_Synthesize_SynthesizeVoice;
+}
+/**
+ * @generated from protobuf message hassmic.WyomingEvent.Synthesize.SynthesizeVoice
+ */
+export interface WyomingEvent_Synthesize_SynthesizeVoice {
+    /**
+     * @generated from protobuf field: string name = 1;
+     */
+    name: string;
+    /**
+     * @generated from protobuf field: string language = 2;
+     */
+    language: string;
+    /**
+     * @generated from protobuf field: string speaker = 3;
+     */
+    speaker: string;
+}
+/**
  * @generated from protobuf message hassmic.WyomingEvent.VoiceStarted
  */
 export interface WyomingEvent_VoiceStarted {
@@ -784,6 +1002,196 @@ export interface WyomingEvent_VoiceStopped {
      * @generated from protobuf field: int64 timestamp = 1;
      */
     timestamp: bigint;
+}
+/**
+ * @generated from protobuf message hassmic.WyomingEvent.Intent
+ */
+export interface WyomingEvent_Intent {
+    /**
+     * @generated from protobuf field: string name = 1;
+     */
+    name: string;
+    /**
+     * @generated from protobuf field: repeated hassmic.WyomingEvent.Intent.IntentEntity entities = 2;
+     */
+    entities: WyomingEvent_Intent_IntentEntity[];
+    /**
+     * @generated from protobuf field: string text = 3;
+     */
+    text: string;
+    /**
+     * @generated from protobuf field: map<string, string> context = 4;
+     */
+    context: {
+        [key: string]: string;
+    };
+}
+/**
+ * @generated from protobuf message hassmic.WyomingEvent.Intent.IntentEntity
+ */
+export interface WyomingEvent_Intent_IntentEntity {
+    /**
+     * @generated from protobuf field: string name = 1;
+     */
+    name: string;
+    /**
+     * @generated from protobuf field: string value = 2;
+     */
+    value: string;
+}
+/**
+ * @generated from protobuf message hassmic.WyomingEvent.Recognize
+ */
+export interface WyomingEvent_Recognize {
+    /**
+     * @generated from protobuf field: string text = 1;
+     */
+    text: string;
+    /**
+     * @generated from protobuf field: map<string, string> context = 2;
+     */
+    context: {
+        [key: string]: string;
+    };
+}
+/**
+ * @generated from protobuf message hassmic.WyomingEvent.NotRecognized
+ */
+export interface WyomingEvent_NotRecognized {
+    /**
+     * @generated from protobuf field: string text = 1;
+     */
+    text: string;
+    /**
+     * @generated from protobuf field: map<string, string> context = 2;
+     */
+    context: {
+        [key: string]: string;
+    };
+}
+/**
+ * @generated from protobuf message hassmic.WyomingEvent.Handled
+ */
+export interface WyomingEvent_Handled {
+    /**
+     * @generated from protobuf field: string text = 1;
+     */
+    text: string;
+    /**
+     * @generated from protobuf field: map<string, string> context = 2;
+     */
+    context: {
+        [key: string]: string;
+    };
+}
+/**
+ * @generated from protobuf message hassmic.WyomingEvent.NotHandled
+ */
+export interface WyomingEvent_NotHandled {
+    /**
+     * @generated from protobuf field: string text = 1;
+     */
+    text: string;
+    /**
+     * @generated from protobuf field: map<string, string> context = 2;
+     */
+    context: {
+        [key: string]: string;
+    };
+}
+/**
+ * @generated from protobuf message hassmic.WyomingEvent.TimerStarted
+ */
+export interface WyomingEvent_TimerStarted {
+    /**
+     * @generated from protobuf field: string id = 1;
+     */
+    id: string;
+    /**
+     * @generated from protobuf field: int64 total_seconds = 2;
+     */
+    totalSeconds: bigint;
+    /**
+     * @generated from protobuf field: string name = 3;
+     */
+    name: string;
+    /**
+     * @generated from protobuf field: int64 start_hours = 4;
+     */
+    startHours: bigint;
+    /**
+     * @generated from protobuf field: int64 start_minutes = 5;
+     */
+    startMinutes: bigint;
+    /**
+     * @generated from protobuf field: int64 start_seconds = 6;
+     */
+    startSeconds: bigint;
+    /**
+     * @generated from protobuf field: hassmic.WyomingEvent.TimerStarted.TimerCommand command = 7;
+     */
+    command?: WyomingEvent_TimerStarted_TimerCommand;
+}
+/**
+ * @generated from protobuf message hassmic.WyomingEvent.TimerStarted.TimerCommand
+ */
+export interface WyomingEvent_TimerStarted_TimerCommand {
+    /**
+     * @generated from protobuf field: string text = 1;
+     */
+    text: string;
+    /**
+     * @generated from protobuf field: string language = 2;
+     */
+    language: string;
+}
+/**
+ * @generated from protobuf message hassmic.WyomingEvent.TimerUpdated
+ */
+export interface WyomingEvent_TimerUpdated {
+    /**
+     * @generated from protobuf field: string id = 1;
+     */
+    id: string;
+    /**
+     * @generated from protobuf field: bool is_active = 2;
+     */
+    isActive: boolean;
+    /**
+     * @generated from protobuf field: int64 total_seconds = 3;
+     */
+    totalSeconds: bigint;
+}
+/**
+ * @generated from protobuf message hassmic.WyomingEvent.TimerCancelled
+ */
+export interface WyomingEvent_TimerCancelled {
+    /**
+     * @generated from protobuf field: string id = 1;
+     */
+    id: string;
+}
+/**
+ * @generated from protobuf message hassmic.WyomingEvent.TimerFinished
+ */
+export interface WyomingEvent_TimerFinished {
+    /**
+     * @generated from protobuf field: string id = 1;
+     */
+    id: string;
+}
+/**
+ * @generated from protobuf message hassmic.WyomingEvent.Error
+ */
+export interface WyomingEvent_Error {
+    /**
+     * @generated from protobuf field: string text = 1;
+     */
+    text: string;
+    /**
+     * @generated from protobuf field: string code = 2;
+     */
+    code: string;
 }
 /**
  * @generated from protobuf message hassmic.WyomingEvent.Other
@@ -1485,14 +1893,33 @@ class WyomingEvent$Type extends MessageType<WyomingEvent> {
             { no: 7, name: "audio_chunk", kind: "message", oneof: "event", T: () => WyomingEvent_AudioChunk },
             { no: 8, name: "audio_start", kind: "message", oneof: "event", T: () => WyomingEvent_AudioStart },
             { no: 9, name: "audio_stop", kind: "message", oneof: "event", T: () => WyomingEvent_AudioStop },
-            { no: 10, name: "detect", kind: "message", oneof: "event", T: () => WyomingEvent_Detect },
-            { no: 11, name: "detection", kind: "message", oneof: "event", T: () => WyomingEvent_Detection },
-            { no: 12, name: "run_satellite", kind: "message", oneof: "event", T: () => WyomingEvent_RunSatellite },
-            { no: 13, name: "pause_satellite", kind: "message", oneof: "event", T: () => WyomingEvent_PauseSatellite },
-            { no: 14, name: "transcribe", kind: "message", oneof: "event", T: () => WyomingEvent_Transcribe },
-            { no: 15, name: "voice_started", kind: "message", oneof: "event", T: () => WyomingEvent_VoiceStarted },
-            { no: 16, name: "voice_stopped", kind: "message", oneof: "event", T: () => WyomingEvent_VoiceStopped },
-            { no: 17, name: "other", kind: "message", oneof: "event", T: () => WyomingEvent_Other }
+            { no: 10, name: "played", kind: "message", oneof: "event", T: () => WyomingEvent_Played },
+            { no: 11, name: "detect", kind: "message", oneof: "event", T: () => WyomingEvent_Detect },
+            { no: 12, name: "detection", kind: "message", oneof: "event", T: () => WyomingEvent_Detection },
+            { no: 13, name: "not_detected", kind: "message", oneof: "event", T: () => WyomingEvent_NotDetected },
+            { no: 14, name: "run_pipeline", kind: "message", oneof: "event", T: () => WyomingEvent_RunPipeline },
+            { no: 15, name: "run_satellite", kind: "message", oneof: "event", T: () => WyomingEvent_RunSatellite },
+            { no: 16, name: "pause_satellite", kind: "message", oneof: "event", T: () => WyomingEvent_PauseSatellite },
+            { no: 17, name: "satellite_connected", kind: "message", oneof: "event", T: () => WyomingEvent_SatelliteConnected },
+            { no: 18, name: "satellite_disconnected", kind: "message", oneof: "event", T: () => WyomingEvent_SatelliteDisconnected },
+            { no: 19, name: "streaming_started", kind: "message", oneof: "event", T: () => WyomingEvent_StreamingStarted },
+            { no: 20, name: "streaming_stopped", kind: "message", oneof: "event", T: () => WyomingEvent_StreamingStopped },
+            { no: 21, name: "transcribe", kind: "message", oneof: "event", T: () => WyomingEvent_Transcribe },
+            { no: 22, name: "transcript", kind: "message", oneof: "event", T: () => WyomingEvent_Transcript },
+            { no: 23, name: "synthesize", kind: "message", oneof: "event", T: () => WyomingEvent_Synthesize },
+            { no: 24, name: "voice_started", kind: "message", oneof: "event", T: () => WyomingEvent_VoiceStarted },
+            { no: 25, name: "voice_stopped", kind: "message", oneof: "event", T: () => WyomingEvent_VoiceStopped },
+            { no: 26, name: "intent", kind: "message", oneof: "event", T: () => WyomingEvent_Intent },
+            { no: 27, name: "recognize", kind: "message", oneof: "event", T: () => WyomingEvent_Recognize },
+            { no: 28, name: "not_recognized", kind: "message", oneof: "event", T: () => WyomingEvent_NotRecognized },
+            { no: 29, name: "handled", kind: "message", oneof: "event", T: () => WyomingEvent_Handled },
+            { no: 30, name: "not_handled", kind: "message", oneof: "event", T: () => WyomingEvent_NotHandled },
+            { no: 31, name: "timer_started", kind: "message", oneof: "event", T: () => WyomingEvent_TimerStarted },
+            { no: 32, name: "timer_updated", kind: "message", oneof: "event", T: () => WyomingEvent_TimerUpdated },
+            { no: 33, name: "timer_cancelled", kind: "message", oneof: "event", T: () => WyomingEvent_TimerCancelled },
+            { no: 34, name: "timer_finished", kind: "message", oneof: "event", T: () => WyomingEvent_TimerFinished },
+            { no: 35, name: "error", kind: "message", oneof: "event", T: () => WyomingEvent_Error },
+            { no: 36, name: "other", kind: "message", oneof: "event", T: () => WyomingEvent_Other }
         ]);
     }
     create(value?: PartialMessage<WyomingEvent>): WyomingEvent {
@@ -1557,49 +1984,163 @@ class WyomingEvent$Type extends MessageType<WyomingEvent> {
                         audioStop: WyomingEvent_AudioStop.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).audioStop)
                     };
                     break;
-                case /* hassmic.WyomingEvent.Detect detect */ 10:
+                case /* hassmic.WyomingEvent.Played played */ 10:
+                    message.event = {
+                        oneofKind: "played",
+                        played: WyomingEvent_Played.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).played)
+                    };
+                    break;
+                case /* hassmic.WyomingEvent.Detect detect */ 11:
                     message.event = {
                         oneofKind: "detect",
                         detect: WyomingEvent_Detect.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).detect)
                     };
                     break;
-                case /* hassmic.WyomingEvent.Detection detection */ 11:
+                case /* hassmic.WyomingEvent.Detection detection */ 12:
                     message.event = {
                         oneofKind: "detection",
                         detection: WyomingEvent_Detection.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).detection)
                     };
                     break;
-                case /* hassmic.WyomingEvent.RunSatellite run_satellite */ 12:
+                case /* hassmic.WyomingEvent.NotDetected not_detected */ 13:
+                    message.event = {
+                        oneofKind: "notDetected",
+                        notDetected: WyomingEvent_NotDetected.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).notDetected)
+                    };
+                    break;
+                case /* hassmic.WyomingEvent.RunPipeline run_pipeline */ 14:
+                    message.event = {
+                        oneofKind: "runPipeline",
+                        runPipeline: WyomingEvent_RunPipeline.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).runPipeline)
+                    };
+                    break;
+                case /* hassmic.WyomingEvent.RunSatellite run_satellite */ 15:
                     message.event = {
                         oneofKind: "runSatellite",
                         runSatellite: WyomingEvent_RunSatellite.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).runSatellite)
                     };
                     break;
-                case /* hassmic.WyomingEvent.PauseSatellite pause_satellite */ 13:
+                case /* hassmic.WyomingEvent.PauseSatellite pause_satellite */ 16:
                     message.event = {
                         oneofKind: "pauseSatellite",
                         pauseSatellite: WyomingEvent_PauseSatellite.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).pauseSatellite)
                     };
                     break;
-                case /* hassmic.WyomingEvent.Transcribe transcribe */ 14:
+                case /* hassmic.WyomingEvent.SatelliteConnected satellite_connected */ 17:
+                    message.event = {
+                        oneofKind: "satelliteConnected",
+                        satelliteConnected: WyomingEvent_SatelliteConnected.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).satelliteConnected)
+                    };
+                    break;
+                case /* hassmic.WyomingEvent.SatelliteDisconnected satellite_disconnected */ 18:
+                    message.event = {
+                        oneofKind: "satelliteDisconnected",
+                        satelliteDisconnected: WyomingEvent_SatelliteDisconnected.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).satelliteDisconnected)
+                    };
+                    break;
+                case /* hassmic.WyomingEvent.StreamingStarted streaming_started */ 19:
+                    message.event = {
+                        oneofKind: "streamingStarted",
+                        streamingStarted: WyomingEvent_StreamingStarted.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).streamingStarted)
+                    };
+                    break;
+                case /* hassmic.WyomingEvent.StreamingStopped streaming_stopped */ 20:
+                    message.event = {
+                        oneofKind: "streamingStopped",
+                        streamingStopped: WyomingEvent_StreamingStopped.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).streamingStopped)
+                    };
+                    break;
+                case /* hassmic.WyomingEvent.Transcribe transcribe */ 21:
                     message.event = {
                         oneofKind: "transcribe",
                         transcribe: WyomingEvent_Transcribe.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).transcribe)
                     };
                     break;
-                case /* hassmic.WyomingEvent.VoiceStarted voice_started */ 15:
+                case /* hassmic.WyomingEvent.Transcript transcript */ 22:
+                    message.event = {
+                        oneofKind: "transcript",
+                        transcript: WyomingEvent_Transcript.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).transcript)
+                    };
+                    break;
+                case /* hassmic.WyomingEvent.Synthesize synthesize */ 23:
+                    message.event = {
+                        oneofKind: "synthesize",
+                        synthesize: WyomingEvent_Synthesize.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).synthesize)
+                    };
+                    break;
+                case /* hassmic.WyomingEvent.VoiceStarted voice_started */ 24:
                     message.event = {
                         oneofKind: "voiceStarted",
                         voiceStarted: WyomingEvent_VoiceStarted.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).voiceStarted)
                     };
                     break;
-                case /* hassmic.WyomingEvent.VoiceStopped voice_stopped */ 16:
+                case /* hassmic.WyomingEvent.VoiceStopped voice_stopped */ 25:
                     message.event = {
                         oneofKind: "voiceStopped",
                         voiceStopped: WyomingEvent_VoiceStopped.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).voiceStopped)
                     };
                     break;
-                case /* hassmic.WyomingEvent.Other other */ 17:
+                case /* hassmic.WyomingEvent.Intent intent */ 26:
+                    message.event = {
+                        oneofKind: "intent",
+                        intent: WyomingEvent_Intent.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).intent)
+                    };
+                    break;
+                case /* hassmic.WyomingEvent.Recognize recognize */ 27:
+                    message.event = {
+                        oneofKind: "recognize",
+                        recognize: WyomingEvent_Recognize.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).recognize)
+                    };
+                    break;
+                case /* hassmic.WyomingEvent.NotRecognized not_recognized */ 28:
+                    message.event = {
+                        oneofKind: "notRecognized",
+                        notRecognized: WyomingEvent_NotRecognized.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).notRecognized)
+                    };
+                    break;
+                case /* hassmic.WyomingEvent.Handled handled */ 29:
+                    message.event = {
+                        oneofKind: "handled",
+                        handled: WyomingEvent_Handled.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).handled)
+                    };
+                    break;
+                case /* hassmic.WyomingEvent.NotHandled not_handled */ 30:
+                    message.event = {
+                        oneofKind: "notHandled",
+                        notHandled: WyomingEvent_NotHandled.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).notHandled)
+                    };
+                    break;
+                case /* hassmic.WyomingEvent.TimerStarted timer_started */ 31:
+                    message.event = {
+                        oneofKind: "timerStarted",
+                        timerStarted: WyomingEvent_TimerStarted.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).timerStarted)
+                    };
+                    break;
+                case /* hassmic.WyomingEvent.TimerUpdated timer_updated */ 32:
+                    message.event = {
+                        oneofKind: "timerUpdated",
+                        timerUpdated: WyomingEvent_TimerUpdated.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).timerUpdated)
+                    };
+                    break;
+                case /* hassmic.WyomingEvent.TimerCancelled timer_cancelled */ 33:
+                    message.event = {
+                        oneofKind: "timerCancelled",
+                        timerCancelled: WyomingEvent_TimerCancelled.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).timerCancelled)
+                    };
+                    break;
+                case /* hassmic.WyomingEvent.TimerFinished timer_finished */ 34:
+                    message.event = {
+                        oneofKind: "timerFinished",
+                        timerFinished: WyomingEvent_TimerFinished.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).timerFinished)
+                    };
+                    break;
+                case /* hassmic.WyomingEvent.Error error */ 35:
+                    message.event = {
+                        oneofKind: "error",
+                        error: WyomingEvent_Error.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).error)
+                    };
+                    break;
+                case /* hassmic.WyomingEvent.Other other */ 36:
                     message.event = {
                         oneofKind: "other",
                         other: WyomingEvent_Other.internalBinaryRead(reader, reader.uint32(), options, (message.event as any).other)
@@ -1644,30 +2185,87 @@ class WyomingEvent$Type extends MessageType<WyomingEvent> {
         /* hassmic.WyomingEvent.AudioStop audio_stop = 9; */
         if (message.event.oneofKind === "audioStop")
             WyomingEvent_AudioStop.internalBinaryWrite(message.event.audioStop, writer.tag(9, WireType.LengthDelimited).fork(), options).join();
-        /* hassmic.WyomingEvent.Detect detect = 10; */
+        /* hassmic.WyomingEvent.Played played = 10; */
+        if (message.event.oneofKind === "played")
+            WyomingEvent_Played.internalBinaryWrite(message.event.played, writer.tag(10, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.Detect detect = 11; */
         if (message.event.oneofKind === "detect")
-            WyomingEvent_Detect.internalBinaryWrite(message.event.detect, writer.tag(10, WireType.LengthDelimited).fork(), options).join();
-        /* hassmic.WyomingEvent.Detection detection = 11; */
+            WyomingEvent_Detect.internalBinaryWrite(message.event.detect, writer.tag(11, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.Detection detection = 12; */
         if (message.event.oneofKind === "detection")
-            WyomingEvent_Detection.internalBinaryWrite(message.event.detection, writer.tag(11, WireType.LengthDelimited).fork(), options).join();
-        /* hassmic.WyomingEvent.RunSatellite run_satellite = 12; */
+            WyomingEvent_Detection.internalBinaryWrite(message.event.detection, writer.tag(12, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.NotDetected not_detected = 13; */
+        if (message.event.oneofKind === "notDetected")
+            WyomingEvent_NotDetected.internalBinaryWrite(message.event.notDetected, writer.tag(13, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.RunPipeline run_pipeline = 14; */
+        if (message.event.oneofKind === "runPipeline")
+            WyomingEvent_RunPipeline.internalBinaryWrite(message.event.runPipeline, writer.tag(14, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.RunSatellite run_satellite = 15; */
         if (message.event.oneofKind === "runSatellite")
-            WyomingEvent_RunSatellite.internalBinaryWrite(message.event.runSatellite, writer.tag(12, WireType.LengthDelimited).fork(), options).join();
-        /* hassmic.WyomingEvent.PauseSatellite pause_satellite = 13; */
+            WyomingEvent_RunSatellite.internalBinaryWrite(message.event.runSatellite, writer.tag(15, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.PauseSatellite pause_satellite = 16; */
         if (message.event.oneofKind === "pauseSatellite")
-            WyomingEvent_PauseSatellite.internalBinaryWrite(message.event.pauseSatellite, writer.tag(13, WireType.LengthDelimited).fork(), options).join();
-        /* hassmic.WyomingEvent.Transcribe transcribe = 14; */
+            WyomingEvent_PauseSatellite.internalBinaryWrite(message.event.pauseSatellite, writer.tag(16, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.SatelliteConnected satellite_connected = 17; */
+        if (message.event.oneofKind === "satelliteConnected")
+            WyomingEvent_SatelliteConnected.internalBinaryWrite(message.event.satelliteConnected, writer.tag(17, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.SatelliteDisconnected satellite_disconnected = 18; */
+        if (message.event.oneofKind === "satelliteDisconnected")
+            WyomingEvent_SatelliteDisconnected.internalBinaryWrite(message.event.satelliteDisconnected, writer.tag(18, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.StreamingStarted streaming_started = 19; */
+        if (message.event.oneofKind === "streamingStarted")
+            WyomingEvent_StreamingStarted.internalBinaryWrite(message.event.streamingStarted, writer.tag(19, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.StreamingStopped streaming_stopped = 20; */
+        if (message.event.oneofKind === "streamingStopped")
+            WyomingEvent_StreamingStopped.internalBinaryWrite(message.event.streamingStopped, writer.tag(20, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.Transcribe transcribe = 21; */
         if (message.event.oneofKind === "transcribe")
-            WyomingEvent_Transcribe.internalBinaryWrite(message.event.transcribe, writer.tag(14, WireType.LengthDelimited).fork(), options).join();
-        /* hassmic.WyomingEvent.VoiceStarted voice_started = 15; */
+            WyomingEvent_Transcribe.internalBinaryWrite(message.event.transcribe, writer.tag(21, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.Transcript transcript = 22; */
+        if (message.event.oneofKind === "transcript")
+            WyomingEvent_Transcript.internalBinaryWrite(message.event.transcript, writer.tag(22, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.Synthesize synthesize = 23; */
+        if (message.event.oneofKind === "synthesize")
+            WyomingEvent_Synthesize.internalBinaryWrite(message.event.synthesize, writer.tag(23, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.VoiceStarted voice_started = 24; */
         if (message.event.oneofKind === "voiceStarted")
-            WyomingEvent_VoiceStarted.internalBinaryWrite(message.event.voiceStarted, writer.tag(15, WireType.LengthDelimited).fork(), options).join();
-        /* hassmic.WyomingEvent.VoiceStopped voice_stopped = 16; */
+            WyomingEvent_VoiceStarted.internalBinaryWrite(message.event.voiceStarted, writer.tag(24, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.VoiceStopped voice_stopped = 25; */
         if (message.event.oneofKind === "voiceStopped")
-            WyomingEvent_VoiceStopped.internalBinaryWrite(message.event.voiceStopped, writer.tag(16, WireType.LengthDelimited).fork(), options).join();
-        /* hassmic.WyomingEvent.Other other = 17; */
+            WyomingEvent_VoiceStopped.internalBinaryWrite(message.event.voiceStopped, writer.tag(25, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.Intent intent = 26; */
+        if (message.event.oneofKind === "intent")
+            WyomingEvent_Intent.internalBinaryWrite(message.event.intent, writer.tag(26, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.Recognize recognize = 27; */
+        if (message.event.oneofKind === "recognize")
+            WyomingEvent_Recognize.internalBinaryWrite(message.event.recognize, writer.tag(27, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.NotRecognized not_recognized = 28; */
+        if (message.event.oneofKind === "notRecognized")
+            WyomingEvent_NotRecognized.internalBinaryWrite(message.event.notRecognized, writer.tag(28, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.Handled handled = 29; */
+        if (message.event.oneofKind === "handled")
+            WyomingEvent_Handled.internalBinaryWrite(message.event.handled, writer.tag(29, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.NotHandled not_handled = 30; */
+        if (message.event.oneofKind === "notHandled")
+            WyomingEvent_NotHandled.internalBinaryWrite(message.event.notHandled, writer.tag(30, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.TimerStarted timer_started = 31; */
+        if (message.event.oneofKind === "timerStarted")
+            WyomingEvent_TimerStarted.internalBinaryWrite(message.event.timerStarted, writer.tag(31, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.TimerUpdated timer_updated = 32; */
+        if (message.event.oneofKind === "timerUpdated")
+            WyomingEvent_TimerUpdated.internalBinaryWrite(message.event.timerUpdated, writer.tag(32, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.TimerCancelled timer_cancelled = 33; */
+        if (message.event.oneofKind === "timerCancelled")
+            WyomingEvent_TimerCancelled.internalBinaryWrite(message.event.timerCancelled, writer.tag(33, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.TimerFinished timer_finished = 34; */
+        if (message.event.oneofKind === "timerFinished")
+            WyomingEvent_TimerFinished.internalBinaryWrite(message.event.timerFinished, writer.tag(34, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.Error error = 35; */
+        if (message.event.oneofKind === "error")
+            WyomingEvent_Error.internalBinaryWrite(message.event.error, writer.tag(35, WireType.LengthDelimited).fork(), options).join();
+        /* hassmic.WyomingEvent.Other other = 36; */
         if (message.event.oneofKind === "other")
-            WyomingEvent_Other.internalBinaryWrite(message.event.other, writer.tag(17, WireType.LengthDelimited).fork(), options).join();
+            WyomingEvent_Other.internalBinaryWrite(message.event.other, writer.tag(36, WireType.LengthDelimited).fork(), options).join();
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
@@ -2019,6 +2617,31 @@ class WyomingEvent_Detection$Type extends MessageType<WyomingEvent_Detection> {
  * @generated MessageType for protobuf message hassmic.WyomingEvent.Detection
  */
 export const WyomingEvent_Detection = new WyomingEvent_Detection$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class WyomingEvent_NotDetected$Type extends MessageType<WyomingEvent_NotDetected> {
+    constructor() {
+        super("hassmic.WyomingEvent.NotDetected", []);
+    }
+    create(value?: PartialMessage<WyomingEvent_NotDetected>): WyomingEvent_NotDetected {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        if (value !== undefined)
+            reflectionMergePartial<WyomingEvent_NotDetected>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent_NotDetected): WyomingEvent_NotDetected {
+        return target ?? this.create();
+    }
+    internalBinaryWrite(message: WyomingEvent_NotDetected, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hassmic.WyomingEvent.NotDetected
+ */
+export const WyomingEvent_NotDetected = new WyomingEvent_NotDetected$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class WyomingEvent_Info$Type extends MessageType<WyomingEvent_Info> {
     constructor() {
@@ -3319,6 +3942,118 @@ class WyomingEvent_Info_Satellite$Type extends MessageType<WyomingEvent_Info_Sat
  */
 export const WyomingEvent_Info_Satellite = new WyomingEvent_Info_Satellite$Type();
 // @generated message type with reflection information, may provide speed optimized methods
+class WyomingEvent_RunPipeline$Type extends MessageType<WyomingEvent_RunPipeline> {
+    constructor() {
+        super("hassmic.WyomingEvent.RunPipeline", [
+            { no: 1, name: "start_stage", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "end_stage", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 3, name: "wake_word_name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 4, name: "wake_word_names", kind: "scalar", repeat: 2 /*RepeatType.UNPACKED*/, T: 9 /*ScalarType.STRING*/ },
+            { no: 5, name: "announce_text", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 6, name: "restart_on_end", kind: "scalar", T: 8 /*ScalarType.BOOL*/ }
+        ]);
+    }
+    create(value?: PartialMessage<WyomingEvent_RunPipeline>): WyomingEvent_RunPipeline {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.startStage = "";
+        message.endStage = "";
+        message.wakeWordName = "";
+        message.wakeWordNames = [];
+        message.announceText = "";
+        message.restartOnEnd = false;
+        if (value !== undefined)
+            reflectionMergePartial<WyomingEvent_RunPipeline>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent_RunPipeline): WyomingEvent_RunPipeline {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string start_stage */ 1:
+                    message.startStage = reader.string();
+                    break;
+                case /* string end_stage */ 2:
+                    message.endStage = reader.string();
+                    break;
+                case /* string wake_word_name */ 3:
+                    message.wakeWordName = reader.string();
+                    break;
+                case /* repeated string wake_word_names */ 4:
+                    message.wakeWordNames.push(reader.string());
+                    break;
+                case /* string announce_text */ 5:
+                    message.announceText = reader.string();
+                    break;
+                case /* bool restart_on_end */ 6:
+                    message.restartOnEnd = reader.bool();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: WyomingEvent_RunPipeline, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string start_stage = 1; */
+        if (message.startStage !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.startStage);
+        /* string end_stage = 2; */
+        if (message.endStage !== "")
+            writer.tag(2, WireType.LengthDelimited).string(message.endStage);
+        /* string wake_word_name = 3; */
+        if (message.wakeWordName !== "")
+            writer.tag(3, WireType.LengthDelimited).string(message.wakeWordName);
+        /* repeated string wake_word_names = 4; */
+        for (let i = 0; i < message.wakeWordNames.length; i++)
+            writer.tag(4, WireType.LengthDelimited).string(message.wakeWordNames[i]);
+        /* string announce_text = 5; */
+        if (message.announceText !== "")
+            writer.tag(5, WireType.LengthDelimited).string(message.announceText);
+        /* bool restart_on_end = 6; */
+        if (message.restartOnEnd !== false)
+            writer.tag(6, WireType.Varint).bool(message.restartOnEnd);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hassmic.WyomingEvent.RunPipeline
+ */
+export const WyomingEvent_RunPipeline = new WyomingEvent_RunPipeline$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class WyomingEvent_RunSatellite$Type extends MessageType<WyomingEvent_RunSatellite> {
+    constructor() {
+        super("hassmic.WyomingEvent.RunSatellite", []);
+    }
+    create(value?: PartialMessage<WyomingEvent_RunSatellite>): WyomingEvent_RunSatellite {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        if (value !== undefined)
+            reflectionMergePartial<WyomingEvent_RunSatellite>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent_RunSatellite): WyomingEvent_RunSatellite {
+        return target ?? this.create();
+    }
+    internalBinaryWrite(message: WyomingEvent_RunSatellite, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hassmic.WyomingEvent.RunSatellite
+ */
+export const WyomingEvent_RunSatellite = new WyomingEvent_RunSatellite$Type();
+// @generated message type with reflection information, may provide speed optimized methods
 class WyomingEvent_PauseSatellite$Type extends MessageType<WyomingEvent_PauseSatellite> {
     constructor() {
         super("hassmic.WyomingEvent.PauseSatellite", []);
@@ -3343,6 +4078,131 @@ class WyomingEvent_PauseSatellite$Type extends MessageType<WyomingEvent_PauseSat
  * @generated MessageType for protobuf message hassmic.WyomingEvent.PauseSatellite
  */
 export const WyomingEvent_PauseSatellite = new WyomingEvent_PauseSatellite$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class WyomingEvent_SatelliteConnected$Type extends MessageType<WyomingEvent_SatelliteConnected> {
+    constructor() {
+        super("hassmic.WyomingEvent.SatelliteConnected", []);
+    }
+    create(value?: PartialMessage<WyomingEvent_SatelliteConnected>): WyomingEvent_SatelliteConnected {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        if (value !== undefined)
+            reflectionMergePartial<WyomingEvent_SatelliteConnected>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent_SatelliteConnected): WyomingEvent_SatelliteConnected {
+        return target ?? this.create();
+    }
+    internalBinaryWrite(message: WyomingEvent_SatelliteConnected, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hassmic.WyomingEvent.SatelliteConnected
+ */
+export const WyomingEvent_SatelliteConnected = new WyomingEvent_SatelliteConnected$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class WyomingEvent_SatelliteDisconnected$Type extends MessageType<WyomingEvent_SatelliteDisconnected> {
+    constructor() {
+        super("hassmic.WyomingEvent.SatelliteDisconnected", []);
+    }
+    create(value?: PartialMessage<WyomingEvent_SatelliteDisconnected>): WyomingEvent_SatelliteDisconnected {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        if (value !== undefined)
+            reflectionMergePartial<WyomingEvent_SatelliteDisconnected>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent_SatelliteDisconnected): WyomingEvent_SatelliteDisconnected {
+        return target ?? this.create();
+    }
+    internalBinaryWrite(message: WyomingEvent_SatelliteDisconnected, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hassmic.WyomingEvent.SatelliteDisconnected
+ */
+export const WyomingEvent_SatelliteDisconnected = new WyomingEvent_SatelliteDisconnected$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class WyomingEvent_StreamingStarted$Type extends MessageType<WyomingEvent_StreamingStarted> {
+    constructor() {
+        super("hassmic.WyomingEvent.StreamingStarted", []);
+    }
+    create(value?: PartialMessage<WyomingEvent_StreamingStarted>): WyomingEvent_StreamingStarted {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        if (value !== undefined)
+            reflectionMergePartial<WyomingEvent_StreamingStarted>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent_StreamingStarted): WyomingEvent_StreamingStarted {
+        return target ?? this.create();
+    }
+    internalBinaryWrite(message: WyomingEvent_StreamingStarted, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hassmic.WyomingEvent.StreamingStarted
+ */
+export const WyomingEvent_StreamingStarted = new WyomingEvent_StreamingStarted$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class WyomingEvent_StreamingStopped$Type extends MessageType<WyomingEvent_StreamingStopped> {
+    constructor() {
+        super("hassmic.WyomingEvent.StreamingStopped", []);
+    }
+    create(value?: PartialMessage<WyomingEvent_StreamingStopped>): WyomingEvent_StreamingStopped {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        if (value !== undefined)
+            reflectionMergePartial<WyomingEvent_StreamingStopped>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent_StreamingStopped): WyomingEvent_StreamingStopped {
+        return target ?? this.create();
+    }
+    internalBinaryWrite(message: WyomingEvent_StreamingStopped, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hassmic.WyomingEvent.StreamingStopped
+ */
+export const WyomingEvent_StreamingStopped = new WyomingEvent_StreamingStopped$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class WyomingEvent_Played$Type extends MessageType<WyomingEvent_Played> {
+    constructor() {
+        super("hassmic.WyomingEvent.Played", []);
+    }
+    create(value?: PartialMessage<WyomingEvent_Played>): WyomingEvent_Played {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        if (value !== undefined)
+            reflectionMergePartial<WyomingEvent_Played>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent_Played): WyomingEvent_Played {
+        return target ?? this.create();
+    }
+    internalBinaryWrite(message: WyomingEvent_Played, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hassmic.WyomingEvent.Played
+ */
+export const WyomingEvent_Played = new WyomingEvent_Played$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class WyomingEvent_Ping$Type extends MessageType<WyomingEvent_Ping> {
     constructor() {
@@ -3393,31 +4253,6 @@ class WyomingEvent_Pong$Type extends MessageType<WyomingEvent_Pong> {
  * @generated MessageType for protobuf message hassmic.WyomingEvent.Pong
  */
 export const WyomingEvent_Pong = new WyomingEvent_Pong$Type();
-// @generated message type with reflection information, may provide speed optimized methods
-class WyomingEvent_RunSatellite$Type extends MessageType<WyomingEvent_RunSatellite> {
-    constructor() {
-        super("hassmic.WyomingEvent.RunSatellite", []);
-    }
-    create(value?: PartialMessage<WyomingEvent_RunSatellite>): WyomingEvent_RunSatellite {
-        const message = globalThis.Object.create((this.messagePrototype!));
-        if (value !== undefined)
-            reflectionMergePartial<WyomingEvent_RunSatellite>(this, message, value);
-        return message;
-    }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent_RunSatellite): WyomingEvent_RunSatellite {
-        return target ?? this.create();
-    }
-    internalBinaryWrite(message: WyomingEvent_RunSatellite, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
-        let u = options.writeUnknownFields;
-        if (u !== false)
-            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
-        return writer;
-    }
-}
-/**
- * @generated MessageType for protobuf message hassmic.WyomingEvent.RunSatellite
- */
-export const WyomingEvent_RunSatellite = new WyomingEvent_RunSatellite$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class WyomingEvent_Transcribe$Type extends MessageType<WyomingEvent_Transcribe> {
     constructor() {
@@ -3497,6 +4332,194 @@ class WyomingEvent_Transcribe$Type extends MessageType<WyomingEvent_Transcribe> 
  * @generated MessageType for protobuf message hassmic.WyomingEvent.Transcribe
  */
 export const WyomingEvent_Transcribe = new WyomingEvent_Transcribe$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class WyomingEvent_Transcript$Type extends MessageType<WyomingEvent_Transcript> {
+    constructor() {
+        super("hassmic.WyomingEvent.Transcript", [
+            { no: 1, name: "text", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "context", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } }
+        ]);
+    }
+    create(value?: PartialMessage<WyomingEvent_Transcript>): WyomingEvent_Transcript {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.text = "";
+        message.context = {};
+        if (value !== undefined)
+            reflectionMergePartial<WyomingEvent_Transcript>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent_Transcript): WyomingEvent_Transcript {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string text */ 1:
+                    message.text = reader.string();
+                    break;
+                case /* map<string, string> context */ 2:
+                    this.binaryReadMap2(message.context, reader, options);
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    private binaryReadMap2(map: WyomingEvent_Transcript["context"], reader: IBinaryReader, options: BinaryReadOptions): void {
+        let len = reader.uint32(), end = reader.pos + len, key: keyof WyomingEvent_Transcript["context"] | undefined, val: WyomingEvent_Transcript["context"][any] | undefined;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case 1:
+                    key = reader.string();
+                    break;
+                case 2:
+                    val = reader.string();
+                    break;
+                default: throw new globalThis.Error("unknown map entry field for field hassmic.WyomingEvent.Transcript.context");
+            }
+        }
+        map[key ?? ""] = val ?? "";
+    }
+    internalBinaryWrite(message: WyomingEvent_Transcript, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string text = 1; */
+        if (message.text !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.text);
+        /* map<string, string> context = 2; */
+        for (let k of globalThis.Object.keys(message.context))
+            writer.tag(2, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.context[k]).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hassmic.WyomingEvent.Transcript
+ */
+export const WyomingEvent_Transcript = new WyomingEvent_Transcript$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class WyomingEvent_Synthesize$Type extends MessageType<WyomingEvent_Synthesize> {
+    constructor() {
+        super("hassmic.WyomingEvent.Synthesize", [
+            { no: 1, name: "text", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "voice", kind: "message", T: () => WyomingEvent_Synthesize_SynthesizeVoice }
+        ]);
+    }
+    create(value?: PartialMessage<WyomingEvent_Synthesize>): WyomingEvent_Synthesize {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.text = "";
+        if (value !== undefined)
+            reflectionMergePartial<WyomingEvent_Synthesize>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent_Synthesize): WyomingEvent_Synthesize {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string text */ 1:
+                    message.text = reader.string();
+                    break;
+                case /* hassmic.WyomingEvent.Synthesize.SynthesizeVoice voice */ 2:
+                    message.voice = WyomingEvent_Synthesize_SynthesizeVoice.internalBinaryRead(reader, reader.uint32(), options, message.voice);
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: WyomingEvent_Synthesize, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string text = 1; */
+        if (message.text !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.text);
+        /* hassmic.WyomingEvent.Synthesize.SynthesizeVoice voice = 2; */
+        if (message.voice)
+            WyomingEvent_Synthesize_SynthesizeVoice.internalBinaryWrite(message.voice, writer.tag(2, WireType.LengthDelimited).fork(), options).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hassmic.WyomingEvent.Synthesize
+ */
+export const WyomingEvent_Synthesize = new WyomingEvent_Synthesize$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class WyomingEvent_Synthesize_SynthesizeVoice$Type extends MessageType<WyomingEvent_Synthesize_SynthesizeVoice> {
+    constructor() {
+        super("hassmic.WyomingEvent.Synthesize.SynthesizeVoice", [
+            { no: 1, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "language", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 3, name: "speaker", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+        ]);
+    }
+    create(value?: PartialMessage<WyomingEvent_Synthesize_SynthesizeVoice>): WyomingEvent_Synthesize_SynthesizeVoice {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.name = "";
+        message.language = "";
+        message.speaker = "";
+        if (value !== undefined)
+            reflectionMergePartial<WyomingEvent_Synthesize_SynthesizeVoice>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent_Synthesize_SynthesizeVoice): WyomingEvent_Synthesize_SynthesizeVoice {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string name */ 1:
+                    message.name = reader.string();
+                    break;
+                case /* string language */ 2:
+                    message.language = reader.string();
+                    break;
+                case /* string speaker */ 3:
+                    message.speaker = reader.string();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: WyomingEvent_Synthesize_SynthesizeVoice, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string name = 1; */
+        if (message.name !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.name);
+        /* string language = 2; */
+        if (message.language !== "")
+            writer.tag(2, WireType.LengthDelimited).string(message.language);
+        /* string speaker = 3; */
+        if (message.speaker !== "")
+            writer.tag(3, WireType.LengthDelimited).string(message.speaker);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hassmic.WyomingEvent.Synthesize.SynthesizeVoice
+ */
+export const WyomingEvent_Synthesize_SynthesizeVoice = new WyomingEvent_Synthesize_SynthesizeVoice$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class WyomingEvent_VoiceStarted$Type extends MessageType<WyomingEvent_VoiceStarted> {
     constructor() {
@@ -3591,6 +4614,793 @@ class WyomingEvent_VoiceStopped$Type extends MessageType<WyomingEvent_VoiceStopp
  * @generated MessageType for protobuf message hassmic.WyomingEvent.VoiceStopped
  */
 export const WyomingEvent_VoiceStopped = new WyomingEvent_VoiceStopped$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class WyomingEvent_Intent$Type extends MessageType<WyomingEvent_Intent> {
+    constructor() {
+        super("hassmic.WyomingEvent.Intent", [
+            { no: 1, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "entities", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => WyomingEvent_Intent_IntentEntity },
+            { no: 3, name: "text", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 4, name: "context", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } }
+        ]);
+    }
+    create(value?: PartialMessage<WyomingEvent_Intent>): WyomingEvent_Intent {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.name = "";
+        message.entities = [];
+        message.text = "";
+        message.context = {};
+        if (value !== undefined)
+            reflectionMergePartial<WyomingEvent_Intent>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent_Intent): WyomingEvent_Intent {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string name */ 1:
+                    message.name = reader.string();
+                    break;
+                case /* repeated hassmic.WyomingEvent.Intent.IntentEntity entities */ 2:
+                    message.entities.push(WyomingEvent_Intent_IntentEntity.internalBinaryRead(reader, reader.uint32(), options));
+                    break;
+                case /* string text */ 3:
+                    message.text = reader.string();
+                    break;
+                case /* map<string, string> context */ 4:
+                    this.binaryReadMap4(message.context, reader, options);
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    private binaryReadMap4(map: WyomingEvent_Intent["context"], reader: IBinaryReader, options: BinaryReadOptions): void {
+        let len = reader.uint32(), end = reader.pos + len, key: keyof WyomingEvent_Intent["context"] | undefined, val: WyomingEvent_Intent["context"][any] | undefined;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case 1:
+                    key = reader.string();
+                    break;
+                case 2:
+                    val = reader.string();
+                    break;
+                default: throw new globalThis.Error("unknown map entry field for field hassmic.WyomingEvent.Intent.context");
+            }
+        }
+        map[key ?? ""] = val ?? "";
+    }
+    internalBinaryWrite(message: WyomingEvent_Intent, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string name = 1; */
+        if (message.name !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.name);
+        /* repeated hassmic.WyomingEvent.Intent.IntentEntity entities = 2; */
+        for (let i = 0; i < message.entities.length; i++)
+            WyomingEvent_Intent_IntentEntity.internalBinaryWrite(message.entities[i], writer.tag(2, WireType.LengthDelimited).fork(), options).join();
+        /* string text = 3; */
+        if (message.text !== "")
+            writer.tag(3, WireType.LengthDelimited).string(message.text);
+        /* map<string, string> context = 4; */
+        for (let k of globalThis.Object.keys(message.context))
+            writer.tag(4, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.context[k]).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hassmic.WyomingEvent.Intent
+ */
+export const WyomingEvent_Intent = new WyomingEvent_Intent$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class WyomingEvent_Intent_IntentEntity$Type extends MessageType<WyomingEvent_Intent_IntentEntity> {
+    constructor() {
+        super("hassmic.WyomingEvent.Intent.IntentEntity", [
+            { no: 1, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "value", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+        ]);
+    }
+    create(value?: PartialMessage<WyomingEvent_Intent_IntentEntity>): WyomingEvent_Intent_IntentEntity {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.name = "";
+        message.value = "";
+        if (value !== undefined)
+            reflectionMergePartial<WyomingEvent_Intent_IntentEntity>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent_Intent_IntentEntity): WyomingEvent_Intent_IntentEntity {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string name */ 1:
+                    message.name = reader.string();
+                    break;
+                case /* string value */ 2:
+                    message.value = reader.string();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: WyomingEvent_Intent_IntentEntity, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string name = 1; */
+        if (message.name !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.name);
+        /* string value = 2; */
+        if (message.value !== "")
+            writer.tag(2, WireType.LengthDelimited).string(message.value);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hassmic.WyomingEvent.Intent.IntentEntity
+ */
+export const WyomingEvent_Intent_IntentEntity = new WyomingEvent_Intent_IntentEntity$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class WyomingEvent_Recognize$Type extends MessageType<WyomingEvent_Recognize> {
+    constructor() {
+        super("hassmic.WyomingEvent.Recognize", [
+            { no: 1, name: "text", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "context", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } }
+        ]);
+    }
+    create(value?: PartialMessage<WyomingEvent_Recognize>): WyomingEvent_Recognize {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.text = "";
+        message.context = {};
+        if (value !== undefined)
+            reflectionMergePartial<WyomingEvent_Recognize>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent_Recognize): WyomingEvent_Recognize {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string text */ 1:
+                    message.text = reader.string();
+                    break;
+                case /* map<string, string> context */ 2:
+                    this.binaryReadMap2(message.context, reader, options);
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    private binaryReadMap2(map: WyomingEvent_Recognize["context"], reader: IBinaryReader, options: BinaryReadOptions): void {
+        let len = reader.uint32(), end = reader.pos + len, key: keyof WyomingEvent_Recognize["context"] | undefined, val: WyomingEvent_Recognize["context"][any] | undefined;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case 1:
+                    key = reader.string();
+                    break;
+                case 2:
+                    val = reader.string();
+                    break;
+                default: throw new globalThis.Error("unknown map entry field for field hassmic.WyomingEvent.Recognize.context");
+            }
+        }
+        map[key ?? ""] = val ?? "";
+    }
+    internalBinaryWrite(message: WyomingEvent_Recognize, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string text = 1; */
+        if (message.text !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.text);
+        /* map<string, string> context = 2; */
+        for (let k of globalThis.Object.keys(message.context))
+            writer.tag(2, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.context[k]).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hassmic.WyomingEvent.Recognize
+ */
+export const WyomingEvent_Recognize = new WyomingEvent_Recognize$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class WyomingEvent_NotRecognized$Type extends MessageType<WyomingEvent_NotRecognized> {
+    constructor() {
+        super("hassmic.WyomingEvent.NotRecognized", [
+            { no: 1, name: "text", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "context", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } }
+        ]);
+    }
+    create(value?: PartialMessage<WyomingEvent_NotRecognized>): WyomingEvent_NotRecognized {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.text = "";
+        message.context = {};
+        if (value !== undefined)
+            reflectionMergePartial<WyomingEvent_NotRecognized>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent_NotRecognized): WyomingEvent_NotRecognized {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string text */ 1:
+                    message.text = reader.string();
+                    break;
+                case /* map<string, string> context */ 2:
+                    this.binaryReadMap2(message.context, reader, options);
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    private binaryReadMap2(map: WyomingEvent_NotRecognized["context"], reader: IBinaryReader, options: BinaryReadOptions): void {
+        let len = reader.uint32(), end = reader.pos + len, key: keyof WyomingEvent_NotRecognized["context"] | undefined, val: WyomingEvent_NotRecognized["context"][any] | undefined;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case 1:
+                    key = reader.string();
+                    break;
+                case 2:
+                    val = reader.string();
+                    break;
+                default: throw new globalThis.Error("unknown map entry field for field hassmic.WyomingEvent.NotRecognized.context");
+            }
+        }
+        map[key ?? ""] = val ?? "";
+    }
+    internalBinaryWrite(message: WyomingEvent_NotRecognized, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string text = 1; */
+        if (message.text !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.text);
+        /* map<string, string> context = 2; */
+        for (let k of globalThis.Object.keys(message.context))
+            writer.tag(2, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.context[k]).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hassmic.WyomingEvent.NotRecognized
+ */
+export const WyomingEvent_NotRecognized = new WyomingEvent_NotRecognized$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class WyomingEvent_Handled$Type extends MessageType<WyomingEvent_Handled> {
+    constructor() {
+        super("hassmic.WyomingEvent.Handled", [
+            { no: 1, name: "text", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "context", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } }
+        ]);
+    }
+    create(value?: PartialMessage<WyomingEvent_Handled>): WyomingEvent_Handled {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.text = "";
+        message.context = {};
+        if (value !== undefined)
+            reflectionMergePartial<WyomingEvent_Handled>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent_Handled): WyomingEvent_Handled {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string text */ 1:
+                    message.text = reader.string();
+                    break;
+                case /* map<string, string> context */ 2:
+                    this.binaryReadMap2(message.context, reader, options);
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    private binaryReadMap2(map: WyomingEvent_Handled["context"], reader: IBinaryReader, options: BinaryReadOptions): void {
+        let len = reader.uint32(), end = reader.pos + len, key: keyof WyomingEvent_Handled["context"] | undefined, val: WyomingEvent_Handled["context"][any] | undefined;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case 1:
+                    key = reader.string();
+                    break;
+                case 2:
+                    val = reader.string();
+                    break;
+                default: throw new globalThis.Error("unknown map entry field for field hassmic.WyomingEvent.Handled.context");
+            }
+        }
+        map[key ?? ""] = val ?? "";
+    }
+    internalBinaryWrite(message: WyomingEvent_Handled, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string text = 1; */
+        if (message.text !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.text);
+        /* map<string, string> context = 2; */
+        for (let k of globalThis.Object.keys(message.context))
+            writer.tag(2, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.context[k]).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hassmic.WyomingEvent.Handled
+ */
+export const WyomingEvent_Handled = new WyomingEvent_Handled$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class WyomingEvent_NotHandled$Type extends MessageType<WyomingEvent_NotHandled> {
+    constructor() {
+        super("hassmic.WyomingEvent.NotHandled", [
+            { no: 1, name: "text", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "context", kind: "map", K: 9 /*ScalarType.STRING*/, V: { kind: "scalar", T: 9 /*ScalarType.STRING*/ } }
+        ]);
+    }
+    create(value?: PartialMessage<WyomingEvent_NotHandled>): WyomingEvent_NotHandled {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.text = "";
+        message.context = {};
+        if (value !== undefined)
+            reflectionMergePartial<WyomingEvent_NotHandled>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent_NotHandled): WyomingEvent_NotHandled {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string text */ 1:
+                    message.text = reader.string();
+                    break;
+                case /* map<string, string> context */ 2:
+                    this.binaryReadMap2(message.context, reader, options);
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    private binaryReadMap2(map: WyomingEvent_NotHandled["context"], reader: IBinaryReader, options: BinaryReadOptions): void {
+        let len = reader.uint32(), end = reader.pos + len, key: keyof WyomingEvent_NotHandled["context"] | undefined, val: WyomingEvent_NotHandled["context"][any] | undefined;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case 1:
+                    key = reader.string();
+                    break;
+                case 2:
+                    val = reader.string();
+                    break;
+                default: throw new globalThis.Error("unknown map entry field for field hassmic.WyomingEvent.NotHandled.context");
+            }
+        }
+        map[key ?? ""] = val ?? "";
+    }
+    internalBinaryWrite(message: WyomingEvent_NotHandled, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string text = 1; */
+        if (message.text !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.text);
+        /* map<string, string> context = 2; */
+        for (let k of globalThis.Object.keys(message.context))
+            writer.tag(2, WireType.LengthDelimited).fork().tag(1, WireType.LengthDelimited).string(k).tag(2, WireType.LengthDelimited).string(message.context[k]).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hassmic.WyomingEvent.NotHandled
+ */
+export const WyomingEvent_NotHandled = new WyomingEvent_NotHandled$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class WyomingEvent_TimerStarted$Type extends MessageType<WyomingEvent_TimerStarted> {
+    constructor() {
+        super("hassmic.WyomingEvent.TimerStarted", [
+            { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "total_seconds", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 3, name: "name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 4, name: "start_hours", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 5, name: "start_minutes", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 6, name: "start_seconds", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ },
+            { no: 7, name: "command", kind: "message", T: () => WyomingEvent_TimerStarted_TimerCommand }
+        ]);
+    }
+    create(value?: PartialMessage<WyomingEvent_TimerStarted>): WyomingEvent_TimerStarted {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.id = "";
+        message.totalSeconds = 0n;
+        message.name = "";
+        message.startHours = 0n;
+        message.startMinutes = 0n;
+        message.startSeconds = 0n;
+        if (value !== undefined)
+            reflectionMergePartial<WyomingEvent_TimerStarted>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent_TimerStarted): WyomingEvent_TimerStarted {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string id */ 1:
+                    message.id = reader.string();
+                    break;
+                case /* int64 total_seconds */ 2:
+                    message.totalSeconds = reader.int64().toBigInt();
+                    break;
+                case /* string name */ 3:
+                    message.name = reader.string();
+                    break;
+                case /* int64 start_hours */ 4:
+                    message.startHours = reader.int64().toBigInt();
+                    break;
+                case /* int64 start_minutes */ 5:
+                    message.startMinutes = reader.int64().toBigInt();
+                    break;
+                case /* int64 start_seconds */ 6:
+                    message.startSeconds = reader.int64().toBigInt();
+                    break;
+                case /* hassmic.WyomingEvent.TimerStarted.TimerCommand command */ 7:
+                    message.command = WyomingEvent_TimerStarted_TimerCommand.internalBinaryRead(reader, reader.uint32(), options, message.command);
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: WyomingEvent_TimerStarted, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string id = 1; */
+        if (message.id !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.id);
+        /* int64 total_seconds = 2; */
+        if (message.totalSeconds !== 0n)
+            writer.tag(2, WireType.Varint).int64(message.totalSeconds);
+        /* string name = 3; */
+        if (message.name !== "")
+            writer.tag(3, WireType.LengthDelimited).string(message.name);
+        /* int64 start_hours = 4; */
+        if (message.startHours !== 0n)
+            writer.tag(4, WireType.Varint).int64(message.startHours);
+        /* int64 start_minutes = 5; */
+        if (message.startMinutes !== 0n)
+            writer.tag(5, WireType.Varint).int64(message.startMinutes);
+        /* int64 start_seconds = 6; */
+        if (message.startSeconds !== 0n)
+            writer.tag(6, WireType.Varint).int64(message.startSeconds);
+        /* hassmic.WyomingEvent.TimerStarted.TimerCommand command = 7; */
+        if (message.command)
+            WyomingEvent_TimerStarted_TimerCommand.internalBinaryWrite(message.command, writer.tag(7, WireType.LengthDelimited).fork(), options).join();
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hassmic.WyomingEvent.TimerStarted
+ */
+export const WyomingEvent_TimerStarted = new WyomingEvent_TimerStarted$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class WyomingEvent_TimerStarted_TimerCommand$Type extends MessageType<WyomingEvent_TimerStarted_TimerCommand> {
+    constructor() {
+        super("hassmic.WyomingEvent.TimerStarted.TimerCommand", [
+            { no: 1, name: "text", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "language", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+        ]);
+    }
+    create(value?: PartialMessage<WyomingEvent_TimerStarted_TimerCommand>): WyomingEvent_TimerStarted_TimerCommand {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.text = "";
+        message.language = "";
+        if (value !== undefined)
+            reflectionMergePartial<WyomingEvent_TimerStarted_TimerCommand>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent_TimerStarted_TimerCommand): WyomingEvent_TimerStarted_TimerCommand {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string text */ 1:
+                    message.text = reader.string();
+                    break;
+                case /* string language */ 2:
+                    message.language = reader.string();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: WyomingEvent_TimerStarted_TimerCommand, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string text = 1; */
+        if (message.text !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.text);
+        /* string language = 2; */
+        if (message.language !== "")
+            writer.tag(2, WireType.LengthDelimited).string(message.language);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hassmic.WyomingEvent.TimerStarted.TimerCommand
+ */
+export const WyomingEvent_TimerStarted_TimerCommand = new WyomingEvent_TimerStarted_TimerCommand$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class WyomingEvent_TimerUpdated$Type extends MessageType<WyomingEvent_TimerUpdated> {
+    constructor() {
+        super("hassmic.WyomingEvent.TimerUpdated", [
+            { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "is_active", kind: "scalar", T: 8 /*ScalarType.BOOL*/ },
+            { no: 3, name: "total_seconds", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 0 /*LongType.BIGINT*/ }
+        ]);
+    }
+    create(value?: PartialMessage<WyomingEvent_TimerUpdated>): WyomingEvent_TimerUpdated {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.id = "";
+        message.isActive = false;
+        message.totalSeconds = 0n;
+        if (value !== undefined)
+            reflectionMergePartial<WyomingEvent_TimerUpdated>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent_TimerUpdated): WyomingEvent_TimerUpdated {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string id */ 1:
+                    message.id = reader.string();
+                    break;
+                case /* bool is_active */ 2:
+                    message.isActive = reader.bool();
+                    break;
+                case /* int64 total_seconds */ 3:
+                    message.totalSeconds = reader.int64().toBigInt();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: WyomingEvent_TimerUpdated, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string id = 1; */
+        if (message.id !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.id);
+        /* bool is_active = 2; */
+        if (message.isActive !== false)
+            writer.tag(2, WireType.Varint).bool(message.isActive);
+        /* int64 total_seconds = 3; */
+        if (message.totalSeconds !== 0n)
+            writer.tag(3, WireType.Varint).int64(message.totalSeconds);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hassmic.WyomingEvent.TimerUpdated
+ */
+export const WyomingEvent_TimerUpdated = new WyomingEvent_TimerUpdated$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class WyomingEvent_TimerCancelled$Type extends MessageType<WyomingEvent_TimerCancelled> {
+    constructor() {
+        super("hassmic.WyomingEvent.TimerCancelled", [
+            { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+        ]);
+    }
+    create(value?: PartialMessage<WyomingEvent_TimerCancelled>): WyomingEvent_TimerCancelled {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.id = "";
+        if (value !== undefined)
+            reflectionMergePartial<WyomingEvent_TimerCancelled>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent_TimerCancelled): WyomingEvent_TimerCancelled {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string id */ 1:
+                    message.id = reader.string();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: WyomingEvent_TimerCancelled, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string id = 1; */
+        if (message.id !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.id);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hassmic.WyomingEvent.TimerCancelled
+ */
+export const WyomingEvent_TimerCancelled = new WyomingEvent_TimerCancelled$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class WyomingEvent_TimerFinished$Type extends MessageType<WyomingEvent_TimerFinished> {
+    constructor() {
+        super("hassmic.WyomingEvent.TimerFinished", [
+            { no: 1, name: "id", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+        ]);
+    }
+    create(value?: PartialMessage<WyomingEvent_TimerFinished>): WyomingEvent_TimerFinished {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.id = "";
+        if (value !== undefined)
+            reflectionMergePartial<WyomingEvent_TimerFinished>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent_TimerFinished): WyomingEvent_TimerFinished {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string id */ 1:
+                    message.id = reader.string();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: WyomingEvent_TimerFinished, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string id = 1; */
+        if (message.id !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.id);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hassmic.WyomingEvent.TimerFinished
+ */
+export const WyomingEvent_TimerFinished = new WyomingEvent_TimerFinished$Type();
+// @generated message type with reflection information, may provide speed optimized methods
+class WyomingEvent_Error$Type extends MessageType<WyomingEvent_Error> {
+    constructor() {
+        super("hassmic.WyomingEvent.Error", [
+            { no: 1, name: "text", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 2, name: "code", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+        ]);
+    }
+    create(value?: PartialMessage<WyomingEvent_Error>): WyomingEvent_Error {
+        const message = globalThis.Object.create((this.messagePrototype!));
+        message.text = "";
+        message.code = "";
+        if (value !== undefined)
+            reflectionMergePartial<WyomingEvent_Error>(this, message, value);
+        return message;
+    }
+    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: WyomingEvent_Error): WyomingEvent_Error {
+        let message = target ?? this.create(), end = reader.pos + length;
+        while (reader.pos < end) {
+            let [fieldNo, wireType] = reader.tag();
+            switch (fieldNo) {
+                case /* string text */ 1:
+                    message.text = reader.string();
+                    break;
+                case /* string code */ 2:
+                    message.code = reader.string();
+                    break;
+                default:
+                    let u = options.readUnknownField;
+                    if (u === "throw")
+                        throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
+                    let d = reader.skip(wireType);
+                    if (u !== false)
+                        (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
+            }
+        }
+        return message;
+    }
+    internalBinaryWrite(message: WyomingEvent_Error, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
+        /* string text = 1; */
+        if (message.text !== "")
+            writer.tag(1, WireType.LengthDelimited).string(message.text);
+        /* string code = 2; */
+        if (message.code !== "")
+            writer.tag(2, WireType.LengthDelimited).string(message.code);
+        let u = options.writeUnknownFields;
+        if (u !== false)
+            (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);
+        return writer;
+    }
+}
+/**
+ * @generated MessageType for protobuf message hassmic.WyomingEvent.Error
+ */
+export const WyomingEvent_Error = new WyomingEvent_Error$Type();
 // @generated message type with reflection information, may provide speed optimized methods
 class WyomingEvent_Other$Type extends MessageType<WyomingEvent_Other> {
     constructor() {

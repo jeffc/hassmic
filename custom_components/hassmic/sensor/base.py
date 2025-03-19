@@ -6,8 +6,8 @@ import logging
 
 from homeassistant.components.assist_pipeline.pipeline import (
     PipelineEvent,
-    PipelineEventType,
 )
+from ..proto.hassmic import *
 from homeassistant.components.sensor import ENTITY_ID_FORMAT, SensorEntity
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import STATE_IDLE
@@ -48,28 +48,13 @@ class SensorBase(SensorEntity):
         self.available = new_state
         self.schedule_update_ha_state()
 
-    def on_pipeline_event(self, event: PipelineEvent):
-        """This method gets overridden to handle pipeline events for sensors."""
-
     def handle_pipeline_event(self, event: PipelineEvent):
-        """Handle a `PipelineEvent` by calling on_pipeline_event()."""
+        """Deprecated."""
+        pass
 
-        # if we're not connected (sensor is unavailable), ignore pipeline state
-        # updates
-        if not self.available:
-            return
-
-        # If we encountered an error, set all sensors to error
-        if event.type == PipelineEventType.ERROR:
-            if event.data.get("code", None) != "wake-word-timeout":
-                self._attr_native_value = STATE_ERROR
-
-        # TODO - figure out what the best thing to do with run_start and
-        # run_end is.
-
-        self.on_pipeline_event(event)
-        self.schedule_update_ha_state()
-        return
+    def handle_client_event(self, event: ClientEvent):
+        """Handle a ClientEvent."""
+        pass
 
 
 # vim: set ts=4 sw=4:

@@ -5,11 +5,12 @@ import logging
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from .stt import STT
 
 _LOGGER = logging.getLogger(__name__)
 
 # All of the sensor types in hassmic
-ALL_SENSOR_TYPES = []
+ALL_SENSOR_TYPES = [STT]
 
 
 async def async_setup_entry(

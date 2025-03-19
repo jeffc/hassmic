@@ -121,6 +121,8 @@ message WyomingEvent {
     string speaker = 3;
   };
 
+  message NotDetected {}
+
   message Info {
     message AsrProgram {
       message AsrModel {
@@ -240,18 +242,109 @@ message WyomingEvent {
     Satellite satellite = 8;
   };
 
-  message PauseSatellite {};
-  message Ping {};
-  message Pong {};
-  message RunSatellite {};
+  message RunPipeline {
+    string start_stage = 1;
+    string end_stage = 2;
+    string wake_word_name = 3;
+    repeated string wake_word_names = 4;
+    string announce_text = 5;
+    bool restart_on_end = 6;
+  }
+
+  message RunSatellite {}
+  message PauseSatellite {}
+  message SatelliteConnected {}
+  message SatelliteDisconnected {}
+  message StreamingStarted {}
+  message StreamingStopped {}
+  message Played {}
+  message Ping {}
+  message Pong {}
 
   message Transcribe {
     string name = 1;
     string language = 2;
     map<string, string> context = 3;
   };
+
+  message Transcript {
+    string text = 1;
+    map<string, string> context = 2;
+  }
+
+  message Synthesize {
+    string text = 1;
+    message SynthesizeVoice {
+      string name = 1;
+      string language = 2;
+      string speaker = 3;
+    }
+    SynthesizeVoice voice = 2;
+  }
+
   message VoiceStarted { int64 timestamp = 1; };
   message VoiceStopped { int64 timestamp = 1; };
+
+  message Intent {
+    string name = 1;
+    message IntentEntity {
+      string name = 1;
+      string value = 2;
+    }
+    repeated IntentEntity entities = 2;
+    string text = 3;
+    map<string, string> context = 4;
+  }
+
+  message Recognize {
+    string text = 1;
+    map<string, string> context = 2;
+  }
+
+  message NotRecognized {
+    string text = 1;
+    map<string, string> context = 2;
+  }
+
+  message Handled {
+    string text = 1;
+    map<string, string> context = 2;
+  }
+
+  message NotHandled {
+    string text = 1;
+    map<string, string> context = 2;
+  }
+
+  message TimerStarted {
+    string id = 1;
+    int64 total_seconds = 2;
+    string name = 3;
+    int64 start_hours = 4;
+    int64 start_minutes = 5;
+    int64 start_seconds = 6;
+    message TimerCommand {
+      string text = 1;
+      string language = 2;
+    }
+    TimerCommand command = 7;
+  }
+
+  message TimerUpdated {
+    string id = 1;
+    bool is_active = 2;
+    int64 total_seconds = 3;
+  }
+
+  message TimerCancelled { string id = 1; }
+
+  message TimerFinished { string id = 1; }
+
+  message Error {
+    string text = 1;
+    string code = 2;
+  }
+
   message Other {};
 
   oneof event {
@@ -263,17 +356,39 @@ message WyomingEvent {
     AudioChunk audio_chunk = 7;
     AudioStart audio_start = 8;
     AudioStop audio_stop = 9;
-    Detect detect = 10;
-    Detection detection = 11;
+    Played played = 10;
+    Detect detect = 11;
+    Detection detection = 12;
+    NotDetected not_detected = 13;
 
-    RunSatellite run_satellite = 12;
-    PauseSatellite pause_satellite = 13;
+    RunPipeline run_pipeline = 14;
+    RunSatellite run_satellite = 15;
+    PauseSatellite pause_satellite = 16;
+    SatelliteConnected satellite_connected = 17;
+    SatelliteDisconnected satellite_disconnected = 18;
+    StreamingStarted streaming_started = 19;
+    StreamingStopped streaming_stopped = 20;
 
-    Transcribe transcribe = 14;
-    VoiceStarted voice_started = 15;
-    VoiceStopped voice_stopped = 16;
+    Transcribe transcribe = 21;
+    Transcript transcript = 22;
+    Synthesize synthesize = 23;
+    VoiceStarted voice_started = 24;
+    VoiceStopped voice_stopped = 25;
 
-    Other other = 17;
+    Intent intent = 26;
+    Recognize recognize = 27;
+    NotRecognized not_recognized = 28;
+
+    Handled handled = 29;
+    NotHandled not_handled = 30;
+
+    TimerStarted timer_started = 31;
+    TimerUpdated timer_updated = 32;
+    TimerCancelled timer_cancelled = 33;
+    TimerFinished timer_finished = 34;
+
+    Error error = 35;
+    Other other = 36;
   }
 }
 
