@@ -471,6 +471,15 @@ class WyomingServer_ {
           if (this._activePCMStream) {
             await PCMPlayer.stopAudioStream(this._activePCMStream);
             this._activePCMStream = null;
+            try {
+              this._wyomingWrite(
+                new WyomingPacket({
+                  type: 'played',
+                }),
+              );
+            } catch (e) {
+              Logger.error(`Error sending audio played message`);
+            }
           } else {
             Logger.error('No active PCM Stream!');
           }
