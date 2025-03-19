@@ -1,20 +1,40 @@
 # HassMic
 
-Hassmic is an Android application and [Home
+Hassmic (HM) is an Android application and [Home
 Assistant](https://home-assistant.io) designed to run on devices acting as Home
-Assistant voice assistant satellites.
+Assistant voice assistant satellites. It does this with two parts:
 
-It is currently in active development and probably has lots of bugs. Some
-highlights:
+- The HassMic App runs a [Wyoming](https://github.com/rhasspy/wyoming)
+  satellite, which can be auto-detected and set up by Home Assistant. This can
+  be used entirely independently of the HassMic Integration if you want.
+- The HassMic App also listens for a connection from the HassMic integration,
+  which can be installed by adding this repository in [HACS](https://hacs.xyz)
+  (or by copying the `custom_components/hassmic` directory into the appropriate
+  place in your configuration directory). This provides a few advantages:
+    - Using the integration, you can control the volume of the text-to-speech
+      responses.
+    - The integration also provides a `media_player` with its own independent
+      volume control, which will automatically pause and resume when the voice
+      assist is activated
+    - The integration provides more sensors about the state of the client,
+      including instrumentation that can help with debugging or deeper
+      integration of a HM device.
 
--   Automatically starting on Android 12+ fails in an annoying way: the service
-    auto-starts, but can't access the microphone. This is a security feature
-    added to Android that I don't have a great solution for (no auto-start
-    services can access the microphone unless they also start a UI).
--   There's not really a "UI" to speak of. Opening the app gives some diagnostic
-    information and a single toggle switch. You **must** enable running in the
-    background, since that's where all the work happens. If running in the
-    background isn't enabled, the app does nothing.
+The following features are planned, but **not currently implemented**:
+
+- Timer support
+- Local wakeword support
+
+Some caveats to using the app include:
+
+- Automatically starting on Android 12+ fails in an annoying way: the service
+  auto-starts, but can't access the microphone. This is a security feature
+  added to Android that I don't have a great solution for (no auto-start
+  services can access the microphone unless they also start a UI).
+- There's not really a "UI" to speak of. Opening the app gives some diagnostic
+  information and a single toggle switch. You **must** enable running in the
+  background, since that's where all the work happens. If running in the
+  background isn't enabled, the app does nothing.
 
 ## License
 
@@ -46,7 +66,7 @@ The built APK will be at `android/app/build/outputs/apk/release/app-release.apk`
 You can also use `installRelease` instead of `assembleRelease` to install the
 built package to a device connected via adb.
 
-## Protocol Notes
+## HM Protocol Notes
 
 The HassMic client and server communicate using a slightly strange paradigm
 based on protocol buffers (defined in the `proto/` directory). The server sends
@@ -59,7 +79,8 @@ server messages are handled by separate threads on both ends. The client also
 sends a periodic `ping` to let the server know it's still connected, even if
 it's not sending audio data.
 
-The protocol name `Cheyenne` is an outdated pun -- in early versions of Hassmic,
-the protocol was based around the core of the Wyoming protocol. It has since
-been rewritten and no longer resembles Wyoming, but for the moment the name
-persists.
+If you're reading the code and come across the name `Cheyenne`, you've found the
+HassMic integration protocol. That name is an outdated pun -- in early versions
+of Hassmic, the protocol was based around the core of the Wyoming protocol. It
+has since been rewritten and no longer resembles Wyoming, but for the moment the
+name persists.
