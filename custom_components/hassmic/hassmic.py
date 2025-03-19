@@ -8,13 +8,17 @@ import enum
 import json
 import logging
 
+from packaging.version import Version
+
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.device_registry import DeviceEntry
 from homeassistant.helpers.entity import Entity
+from homeassistant.helpers import issue_registry as ir
 
 from .connection_manager import ConnectionManager
 from .exceptions import BadHassMicClientInfoException, BadMessageException
+from .const import DOMAIN
 
 from .proto.hassmic import *
 
@@ -158,6 +162,21 @@ class HassMic:
                 _LOGGER.warning("Got audio_data, which is no longer supported!")
 
             case "client_info":
+                # Throw an error if the detected app version is too old
+                if Version(val.version) < Version("0.9.3"):
+                    _LOGGER.error(f"Version {val.version} is too low!")
+                    ir.async_create_issue(
+                        self._hass,
+                        DOMAIN,
+                        "too_old",
+                        is_fixable=False,
+                        severity=ir.IssueSeverity.ERROR,
+                        translation_key="too_old",
+                        translation_placeholders={
+                            "required_version": "0.9.3",
+                            "detected_version": val.version,
+                        },
+                    )
                 _LOGGER.debug("Got client info: %s", repr(val))
 
             case "client_event":

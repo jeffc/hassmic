@@ -1,0 +1,8 @@
+{
+  "issues": {
+    "too_old": {
+      "title": "HassMic Version is too old! Need at least version {required_version}",
+      "description": "The HassMic version detected was {detected_version}, but this version of the integration requires at least {required_version}. You should get the latest version from https://github.com/jeffc/hassmic."
+    }
+  }
+}
