@@ -7,7 +7,7 @@ import logging
 from homeassistant.components.assist_pipeline.pipeline import (
     PipelineEvent,
 )
-from ..proto.hassmic import *
+from ..proto.hassmic import ClientEvent, betterproto
 from homeassistant.components.sensor import ENTITY_ID_FORMAT, SensorEntity
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import STATE_IDLE
