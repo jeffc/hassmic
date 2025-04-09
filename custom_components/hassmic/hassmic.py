@@ -20,7 +20,7 @@ from .connection_manager import ConnectionManager
 from .exceptions import BadHassMicClientInfoException, BadMessageException
 from .const import DOMAIN
 
-from .proto.hassmic import *
+from .proto.hassmic import ClientEvent, ClientInfo, ClientMessage, LogSeverity, SavedSettings, betterproto
 
 MAX_CHUNK_SIZE = 8192
 MAX_JSON_SIZE = 1024
