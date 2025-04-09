@@ -6,7 +6,16 @@ import logging
 import betterproto
 
 from homeassistant.components import media_source
-from homeassistant.components.media_player import *
+
+from homeassistant.components.media_player import (
+    ENTITY_ID_FORMAT,
+    MediaPlayerEnqueue,
+    MediaPlayerEntity,
+    MediaPlayerEntityDescription,
+    MediaPlayerDeviceClass,
+    MediaPlayerEntityFeature,
+    MediaPlayerState,
+)
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.network import NoURLAvailableError, get_url
