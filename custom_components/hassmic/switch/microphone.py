@@ -5,7 +5,7 @@ import logging
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 
-from ..proto.hassmic import *
+from ..proto.hassmic import HassmicCommand
 from . import base
 
 _LOGGER = logging.getLogger(__name__)

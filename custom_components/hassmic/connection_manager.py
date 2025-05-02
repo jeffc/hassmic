@@ -11,7 +11,7 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 
 from .exceptions import BadMessageException
-from .proto.hassmic import *
+from .proto.hassmic import ClientEvent, HassmicCommand, betterproto
 
 _LOGGER = logging.getLogger(__name__)
 
