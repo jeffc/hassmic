@@ -132,9 +132,11 @@ class WyomingPacket {
   // Check that this packet is valid, then write it to a given socket.
   writeToSocket = (s: TcpSocket.Socket | null) => {
     if (!s) {
+      Logger.error('Tried to write to null socket');
       throw new Error("Can't write to null socket");
     }
     if (!this.validate()) {
+      Logger.error('Tried to write invalid wyoming packet');
       throw new Error('Not writing invalid wyoming packet');
     }
     try {
@@ -144,6 +146,9 @@ class WyomingPacket {
         payload_length: pl,
         data: this._data,
       });
+      if (this._type != 'audio-chunk') {
+        Logger.info(jsonstr);
+      }
       let outBytes = new Uint8Array(jsonstr.length + this._payload.length + 1);
       let j = 0;
       for (let i = 0; i < jsonstr.length; i++) {
@@ -377,8 +382,52 @@ class WyomingServer_ {
               version: APP_VERSION,
               asr: [],
               tts: [],
-              handle: [],
-              intent: [],
+              handle: [
+                {
+                  name: 'Hassmic Wyoming Handle',
+                  attribution: {
+                    name: '',
+                    url: '',
+                  },
+                  installed: true,
+                  description: 'HM wyoming handle',
+                  models: [
+                    {
+                      name: 'Hassmic Wyoming Handle',
+                      attribution: {
+                        name: '',
+                        url: '',
+                      },
+                      installed: true,
+                      description: 'HM wyoming handle',
+                      languages: ['en'],
+                    },
+                  ],
+                },
+              ],
+              intent: [
+                {
+                  name: 'Hassmic Wyoming Intent',
+                  attribution: {
+                    name: '',
+                    url: '',
+                  },
+                  installed: true,
+                  description: 'HM wyoming intent',
+                  models: [
+                    {
+                      name: 'Hassmic Wyoming Intent',
+                      attribution: {
+                        name: '',
+                        url: '',
+                      },
+                      installed: true,
+                      description: 'HM wyoming intent',
+                      languages: ['en'],
+                    },
+                  ],
+                },
+              ],
               wake: [],
               satellite: {
                 name: 'Hassmic Wyoming',
@@ -539,6 +588,7 @@ class WyomingServer_ {
       type: 'run-pipeline',
       data: {
         start_stage: 'wake',
+        //end_stage: 'handle',
         end_stage: 'tts',
         restart_on_end: true,
         snd_format: {

@@ -206,6 +206,7 @@ class HassMic:
             recv = await reader.readline()
 
         if recv == b"":
+            _LOGGER.debug("Got empty msg (EOF); closing socket")
             return None
 
         try:
