@@ -15,4 +15,3 @@ export const AUDIO_INFO = {
   // audio source
   source: 6,
 };
-export const MIC_GAIN = 1.0; // Default gain for the microphone input

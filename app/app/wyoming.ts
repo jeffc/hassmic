@@ -718,9 +718,8 @@ class WyomingServer_ {
       this._pipelineSocketId &&
       this._clients.hasOwnProperty(this._pipelineSocketId)
     ) {
-      const gainchunk = data.map((v: number) => v * MIC_GAIN); // Increase volume by mic gain factor
       if (this._clients[this._pipelineSocketId].streamAudio) {
-        this._clients[this._pipelineSocketId].sendAudioData(gainchunk);
+        this._clients[this._pipelineSocketId].sendAudioData(data);
       }
     }
   };
