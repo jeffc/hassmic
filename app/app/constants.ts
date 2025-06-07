@@ -1,10 +1,10 @@
 export const HASSMIC_PORT = 11700;
 export const WYOMING_PORT = 10700;
-export const STORAGE_KEY_UUID = "zeroconfuuid";
-export const STORAGE_KEY_RUN_BACKGROUND_TASK = "bgtaskshouldrun";
-export const STORAGE_KEY_SAVED_SETTINGS_PROTO = "savedsettingsproto";
-export const APP_VERSION = "0.9.3";
-export const CLIENT_EVENT_KEY = "HassMic.ProtoValuedEvent";
+export const STORAGE_KEY_UUID = 'zeroconfuuid';
+export const STORAGE_KEY_RUN_BACKGROUND_TASK = 'bgtaskshouldrun';
+export const STORAGE_KEY_SAVED_SETTINGS_PROTO = 'savedsettingsproto';
+export const APP_VERSION = '0.9.4';
+export const CLIENT_EVENT_KEY = 'HassMic.ProtoValuedEvent';
 export const AUDIO_INFO = {
   // samples per second
   rate: 16000,
@@ -12,4 +12,6 @@ export const AUDIO_INFO = {
   channels: 1,
   // bytes per channel
   width: 2,
+  // audio source
+  source: 6,
 };
