@@ -408,6 +408,8 @@ class ClientHandler {
     }
   };
 
+  socket_id = this._socket?._id || 0;
+
   writePkt = (p: WyomingPacket) => {
     if (this._socket) {
       this._writeBuffer.push(p);
@@ -509,10 +511,12 @@ class ClientHandler {
           break;
 
         case 'run-satellite':
+          zcuuid = await Settings.getHMUUID();
           Logger.info('Starting satellite at server request');
           resp = new WyomingPacket({
             type: 'run-pipeline',
             data: {
+              name: 'Hassmic Wyoming ' + zcuuid.slice(0, 8),
               start_stage: 'wake',
               end_stage: 'tts',
               restart_on_end: true,
@@ -576,6 +580,7 @@ class ClientHandler {
             mode: 'streaming',
             gain: 1,
           });
+          this.setMicAudioStreaming(false);
           Logger.info(`Audio stream id: ${this._activePCMStream}`);
           break;
 
@@ -626,6 +631,7 @@ class ClientHandler {
             );
             this.writePkt(resp);
             this._audioStartTimestamp = 0;
+            this.setMicAudioStreaming(true);
           }, waitTime);
           break;
 
@@ -774,7 +780,9 @@ class WyomingServer_ {
               this._clients[socket._id].end();
               delete this._clients[socket._id];
             }
-            this._setConnectionState(false);
+            if (Object.keys(this._clients).length == 0) {
+              this._setConnectionState(false);
+            }
           });
         }).listen({port: WYOMING_PORT, host: '0.0.0.0'});
       } catch (e: any) {
