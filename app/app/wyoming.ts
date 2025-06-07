@@ -140,34 +140,43 @@ class WyomingPacket {
     }
   }
 
+  toBytes = () => {
+    let pl = this._payload.length;
+    let jsonstr = JSON.stringify({
+      type: this._type,
+      payload_length: pl,
+      data: this._data,
+    });
+    let outBytes = new Uint8Array(jsonstr.length + this._payload.length + 1);
+    let j = 0;
+    for (let i = 0; i < jsonstr.length; i++) {
+      outBytes[j] = jsonstr[i].codePointAt(0) || 0;
+      j++;
+    }
+    outBytes[j] = '\n'.codePointAt(0) || 0;
+    j++;
+    for (let i = 0; i < this._payload.length; i++) {
+      outBytes[j] = this._payload[i];
+      j++;
+    }
+    return outBytes;
+  };
+
   // Check that this packet is valid, then write it to a given socket.
-  writeToSocket = (s: TcpSocket.Socket | null) => {
+  _writeToSocket = (s: TcpSocket.Socket | null) => {
     if (!s) {
       throw new Error("Can't write to null socket");
     }
     if (!this.validate()) {
       throw new Error('Not writing invalid wyoming packet');
     }
+
     try {
-      let pl = this._payload.length;
-      let jsonstr = JSON.stringify({
-        type: this._type,
-        payload_length: pl,
-        data: this._data,
-      });
-      let outBytes = new Uint8Array(jsonstr.length + this._payload.length + 1);
-      let j = 0;
-      for (let i = 0; i < jsonstr.length; i++) {
-        outBytes[j] = jsonstr[i].codePointAt(0) || 0;
-        j++;
+      if (!s.write(this.toBytes())) {
+        Logger.error(
+          `Error writing wyoming packet to socket ${s.remotePort}: ${this._type}`,
+        );
       }
-      outBytes[j] = '\n'.codePointAt(0) || 0;
-      j++;
-      for (let i = 0; i < this._payload.length; i++) {
-        outBytes[j] = this._payload[i];
-        j++;
-      }
-      s.write(outBytes);
     } catch (e: any) {
       Logger.error(`Error writing packet: ${e}`);
     }
@@ -316,9 +325,10 @@ class ClientHandler {
   private _packetBuilder = new ReceiveStateMachine(
     async (p: WyomingPacket) => await this._handleEvent(p),
   );
+  private _writeBuffer: any = [];
   private _activePCMStream: number | null = null;
   private _pipelineRunning: boolean = false;
-  private _audioStartTimestamp: number | null = null;
+  private _audioStartTimestamp: number = 0;
   private _pingEvent: number = 0;
   streamAudio: boolean = false;
 
@@ -336,22 +346,72 @@ class ClientHandler {
         this._handleIncomingData(Uint8Array.from(d));
       }
     });
-  }
 
-  // Write to socket
-  private write = (data: Uint8Array) => {
-    if (this._socket) {
-      this._socket.write(data);
-    }
-  };
+    // Handle socket buffer drain event so continue to send data
+    socket.on('drain', () => {
+      Logger.info(
+        `Socket ${socket.remoteAddress}:${socket.remotePort} drained`,
+      );
+      this._byteWriterHandler.next();
+    });
+  }
 
   private _handleIncomingData = async (d: Uint8Array) => {
     await this._packetBuilder.handleBytes(d);
   };
 
+  private _byteWriterHandler = (async function* (ethis) {
+    while (true) {
+      // Loop buffer and send over socket
+      if (ethis._writeBuffer.length > 0) {
+        let p = ethis._writeBuffer.shift();
+        if (p && ethis._socket && ethis._socket.readyState === 'open') {
+          try {
+            // If the write failed, we need to wait for the socket to drain
+            let repeatTry = false;
+            while (!ethis._socket.write(p.toBytes())) {
+              Logger.debug(
+                `Socket ${
+                  ethis._socket.remotePort
+                } write failed [${p.getType()}]`,
+              );
+              yield;
+              if (['audio-chunk', 'ping', 'pong'].indexOf(p.getType()) != -1) {
+                p = ethis._writeBuffer.shift();
+              } else {
+                repeatTry = true;
+              }
+            }
+            if (repeatTry) {
+              Logger.debug(
+                `Socket ${
+                  ethis._socket.remotePort
+                } write succeeded after retry: [${p.getType()}]`,
+              );
+            }
+          } catch (e: any) {
+            Logger.error(
+              `Error writing to socket ${ethis._socket.remotePort}: ${e}`,
+            );
+          }
+        } else {
+          Logger.error('No socket to write to or socket not open');
+        }
+      }
+      yield;
+    }
+  })(this);
+
   socket_port = () => {
     if (this._socket) {
       return this._socket.remotePort;
+    }
+  };
+
+  writePkt = (p: WyomingPacket) => {
+    if (this._socket) {
+      this._writeBuffer.push(p);
+      this._byteWriterHandler.next();
     }
   };
 
@@ -377,21 +437,9 @@ class ClientHandler {
     }
   };
 
-  private _start_pipeline = () => {
-    const resp = new WyomingPacket({
-      type: 'run-pipeline',
-      data: {
-        start_stage: 'wake',
-        end_stage: 'tts',
-        restart_on_end: true,
-        snd_format: {
-          rate: AUDIO_INFO.rate,
-          width: AUDIO_INFO.width,
-          channels: AUDIO_INFO.channels,
-        },
-      },
-    });
-    resp.writeToSocket(this._socket);
+  setMicAudioStreaming = (enable: boolean) => {
+    Logger.info(`${enable ? 'Enabling' : 'Disabling'} audio streaming`);
+    this.streamAudio = enable;
   };
 
   private _handleEvent = async (p: WyomingPacket) => {
@@ -457,12 +505,25 @@ class ClientHandler {
               this._socket?.remotePort
             }: ${resp.toString()}`,
           );
-          resp.writeToSocket(this._socket);
+          this.writePkt(resp);
           break;
 
         case 'run-satellite':
           Logger.info('Starting satellite at server request');
-          this._start_pipeline();
+          resp = new WyomingPacket({
+            type: 'run-pipeline',
+            data: {
+              start_stage: 'wake',
+              end_stage: 'tts',
+              restart_on_end: true,
+              snd_format: {
+                rate: AUDIO_INFO.rate,
+                width: AUDIO_INFO.width,
+                channels: AUDIO_INFO.channels,
+              },
+            },
+          });
+          this.writePkt(resp);
           this._pipelineRunning = true;
           break;
 
@@ -470,7 +531,7 @@ class ClientHandler {
           Logger.info('Stopping satellite at server request');
           //this.stopAudio();
           this._pipelineRunning = false;
-          this.streamAudio = false;
+          this.setMicAudioStreaming(false);
           break;
 
         case 'detect':
@@ -479,14 +540,14 @@ class ClientHandler {
             socket_id: this._socket?._id,
           });
           // Start streaming audio
-          setInterval(() => {
-            this.streamAudio = true;
-          }, 2000);
+          setTimeout(() => {
+            this.setMicAudioStreaming(true);
+          }, 1000);
           break;
 
         case 'error':
           Logger.debug(`Error from server: ${p.getProp('text')}`);
-          this.streamAudio = false;
+          this.setMicAudioStreaming(false);
           break;
 
         case 'detection':
@@ -497,12 +558,12 @@ class ClientHandler {
 
         case 'voice-started':
           // Voice detection stopped, stop stremaing audio
-          this.streamAudio = true;
+          this.setMicAudioStreaming(true);
           break;
 
         case 'voice-stopped':
           // Voice detection stopped, stop stremaing audio
-          this.streamAudio = false;
+          this.setMicAudioStreaming(false);
           break;
 
         case 'audio-start':
@@ -543,29 +604,37 @@ class ClientHandler {
             this._activePCMStream = null;
           }
 
+          // If we have a timestamp, wait for the audio to finish playing before
+          // sending the played message. Otherwise, just send it after 2 secs.
+          // KNOWN ISSUE: Wyoming in HA does not send timestamp for annoucements.
+          let waitTime = 500;
           if (audioDuration) {
-            const waitTime = Date.now() - (this._audioStartTimestamp || 0);
-            setTimeout(() => {
-              Logger.info(
-                `Waited for ${audioDuration} seconds before sending audio played message`,
-              );
-              resp = new WyomingPacket({
-                type: 'played',
-              });
-              Logger.debug(
-                `Sending audio played message to socket ${this._socket?.remotePort}`,
-              );
-              resp.writeToSocket(this._socket);
-              this._audioStartTimestamp = null;
-            }, waitTime);
+            waitTime =
+              audioDuration * 1000 - (Date.now() - this._audioStartTimestamp);
           }
+          setTimeout(() => {
+            Logger.info(
+              `Waited for ${Math.round(
+                waitTime / 1000,
+              )} seconds before sending audio played message`,
+            );
+            resp = new WyomingPacket({
+              type: 'played',
+            });
+            Logger.debug(
+              `Sending audio played message to socket ${this._socket?.remotePort}`,
+            );
+            this.writePkt(resp);
+            this._audioStartTimestamp = 0;
+          }, waitTime);
           break;
+
         case 'ping':
           // don't log ping/pong responses because they spam the console.
           (resp = new WyomingPacket({
             type: 'pong',
           })),
-            resp.writeToSocket(this._socket);
+            this.writePkt(resp);
           break;
       }
     } catch (e: any) {
@@ -596,7 +665,7 @@ class ClientHandler {
     resp.setPayload(data);
     try {
       //Logger.debug(`Sending audio packet to socket ${this._socket?.remotePort}: ${resp.msgId}`);
-      resp.writeToSocket(this._socket);
+      this.writePkt(resp);
     } catch (e: any) {
       Logger.error(
         `Error writing audio packet: ${this._socket?.remotePort}: ${e}`,
