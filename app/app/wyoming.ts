@@ -1,7 +1,7 @@
 // exposes the microphone as a wyoming satellite
 import TcpSocket from 'react-native-tcp-socket';
 import {HMLogger} from './logger';
-import {APP_VERSION, AUDIO_INFO, WYOMING_PORT} from './constants';
+import {APP_VERSION, AUDIO_INFO, MIC_GAIN, WYOMING_PORT} from './constants';
 import {Settings} from './settings';
 import {PCMPlayer} from './pcm';
 import {
@@ -11,6 +11,8 @@ import {
   WyomingEvent,
 } from './proto/hassmic';
 import {CheyenneSocket} from './cheyenne';
+import {DeviceEventEmitter} from 'react-native';
+import {UUIDManager} from './util';
 
 const Logger = new HMLogger('wyoming.ts');
 type CallbackType<T> = ((s: T) => void) | null;
@@ -73,6 +75,15 @@ class WyomingPacket {
     return JSON.stringify(this._data);
   };
 
+  setData = (data: {[key: string]: any}) => {
+    if (data && typeof data === 'object') {
+      this._data = data;
+    } else {
+      Logger.error('Invalid data for WyomingPacket, must be an object');
+      this._data = {};
+    }
+  };
+
   getDataLength = () => {
     return JSON.stringify(this._data).length;
   };
@@ -95,7 +106,7 @@ class WyomingPacket {
   toProto = () => {
     try {
       // replace audio-chunk with audioChunk and similar to match compiler
-      let kind = this.getType().replaceAll(/-([a-z])/g, match =>
+      let kind = this.getType().replaceAll(/-([a-z])/g, (match) =>
         match[1].toUpperCase(),
       );
       Logger.info(`Sending wyoming packet: ${this.toString()}`);
@@ -165,9 +176,11 @@ class WyomingPacket {
 
 // state machine that handles bytes as they come in from the stream and emits
 // complete wyoming packets as they're ready.
-class RecvStateMachine {
+class ReceiveStateMachine {
   // incoming data queue
-  private _handleCompletePacket: (p: WyomingPacket) => void = p => {};
+  private _handleCompletePacket: (p: WyomingPacket) => void = (p) => {};
+  private _dataQueue: any = [];
+  private start = 0;
 
   // construct with a callback for what to do when a packet is formed.
   constructor(cb: (p: WyomingPacket) => void) {
@@ -179,32 +192,49 @@ class RecvStateMachine {
 
   // This is the main point of interaction. Feeds bytes to the state machine.
   handleBytes = async (b: Uint8Array) => {
-    await this._byteHandler.next(b);
+    // Ensure Uint8Array is constructed with ArrayBuffer
+    this._dataQueue.push(...b);
+    // If we're waiting for data, we can just continue processing}
+    await this._byteHandler.next();
   };
+
+  dataQueueShift() {
+    if (this.start >= this._dataQueue.length) {
+      return undefined;
+    }
+    const result = this._dataQueue[this.start++];
+    if (this.start >= this._dataQueue.length - this.start) {
+      //move all the elements into the free space at beginning
+      let d = 0;
+      for (let i = this.start; i < this._dataQueue.length; ++i) {
+        this._dataQueue[d++] = this._dataQueue[i];
+      }
+      this.start = 0;
+      this._dataQueue.length = d;
+    }
+    return result;
+  }
 
   // State machine, implemented as a generator function. The function consumes
   // bytes (fed in by next()) and emits Wyoming packets using the callback
   // passed in the constructor.
   private _byteHandler = (async function* (ethis) {
-    let idx = 0;
-    let data = new Uint8Array();
     while (true) {
+      let jsonBytes: string[] = [];
       let pktout: WyomingPacket = new WyomingPacket({});
-      let jsonBytes = [];
-      let b = 0;
+      let d: number | undefined = 0;
 
-      // get JSON until a newline
       do {
-        if (idx == data.length) {
-          idx = 0;
-          do {
-            data = yield;
-          } while (data.length == 0);
+        d = ethis.dataQueueShift();
+        if (d === undefined) {
+          // If we run out of data, we need to wait for more
+          yield;
+          // If we were waiting for data, we can continue processing
+          continue;
+        } else {
+          jsonBytes.push(String.fromCharCode(d || 0));
         }
-        b = data[idx];
-        idx++;
-        jsonBytes.push(String.fromCharCode(b));
-      } while (b != '\n'.charCodeAt(0));
+      } while (d != '\n'.charCodeAt(0));
 
       // if we only got a newline, ignore it and start over.
       if (jsonBytes.length == 1) {
@@ -218,37 +248,37 @@ class RecvStateMachine {
         pktout = new WyomingPacket(pktobj);
         jsonBytes = [];
       } catch (e) {
-        Logger.error('Error parsing wyoming json message: ' + e);
+        Logger.debug(
+          `Error parsing wyoming json message: ${jsonBytes.join('')}`,
+        );
         continue;
       }
 
       // If there's data, we have to read it.
-      let data_bytes_remaining = pktobj['data_length'] || 0;
+      //TODO: Need to manage index of data if end of buffer is reached
+      let data_bytes = pktobj['data_length'] || 0;
+      if (data_bytes > 0) {
+        let objData = [];
 
-      while (data_bytes_remaining > 0) {
-        if (idx == data.length) {
-          idx = 0;
-          do {
-            data = yield;
-          } while (data.length == 0);
-        }
-        b = data[idx];
-        idx++;
-        jsonBytes.push(String.fromCharCode(b));
-        data_bytes_remaining--;
-      }
-
-      // And then parse it, if there was any.
-      if (jsonBytes.length > 0) {
-        try {
-          let data = JSON.parse(jsonBytes.join(''));
-          for (let [k, v] of Object.entries(data)) {
-            pktout.setProp(k, v);
+        do {
+          d = ethis.dataQueueShift();
+          if (d === undefined) {
+            // If we run out of data, we need to wait for more
+            yield;
+            continue;
           }
-          jsonBytes = [];
-        } catch (e) {
-          Logger.error('Error parsing wyoming json data: ' + e);
-          continue;
+          objData.push(String.fromCharCode(d));
+        } while (objData.length < pktobj['data_length']);
+
+        if (objData.length > 0) {
+          try {
+            pktout.setData(JSON.parse(objData.join('')));
+          } catch (e) {
+            Logger.debug(
+              'Error parsing wyoming json data: ' + objData.join(''),
+            );
+            continue;
+          }
         }
       }
 
@@ -257,22 +287,22 @@ class RecvStateMachine {
       // hold it and not worry about converting to/from codepoints or JSON.
       let payload_bytes = pktobj['payload_length'] || 0;
       let payload_idx = 0;
-      let payload = new Uint8Array(payload_bytes);
+      if (payload_bytes > 0) {
+        let objPayload = new Uint8Array(payload_bytes);
+        do {
+          d = ethis.dataQueueShift();
+          if (d === undefined) {
+            // If we run out of data, we need to wait for more
+            yield;
+            continue;
+          }
+          objPayload[payload_idx] = d;
+          payload_idx++;
+        } while (payload_idx < payload_bytes);
 
-      while (payload_idx < payload_bytes) {
-        if (idx == data.length) {
-          idx = 0;
-          do {
-            data = yield;
-          } while (data.length == 0);
-        }
-        b = data[idx];
-        idx++;
-        payload[payload_idx] = b;
-        payload_idx++;
+        // If we got here, we have enough data to read the payload
+        pktout.setPayload(objPayload);
       }
-
-      pktout.setPayload(payload);
 
       // Finally, emit the packet. ethis is bound to the RecvStateMachine
       // instance.
@@ -281,14 +311,308 @@ class RecvStateMachine {
   })(this);
 }
 
+class ClientHandler {
+  private _socket: TcpSocket.Socket | null = null;
+  private _packetBuilder = new ReceiveStateMachine(
+    async (p: WyomingPacket) => await this._handleEvent(p),
+  );
+  private _activePCMStream: number | null = null;
+  private _pipelineRunning: boolean = false;
+  private _audioStartTimestamp: number | null = null;
+  private _pingEvent: number = 0;
+  streamAudio: boolean = false;
+
+  constructor(socket: TcpSocket.Socket) {
+    this._socket = socket;
+    this._socket.setTimeout(60e3);
+
+    // Handles incomming data from the socket
+    socket.on('data', async (d: Buffer | string) => {
+      if (typeof d == 'string') {
+        await this._handleIncomingData(
+          Uint8Array.from(Array.from(d).map((l) => l.charCodeAt(0) || 0)),
+        );
+      } else {
+        this._handleIncomingData(Uint8Array.from(d));
+      }
+    });
+  }
+
+  // Write to socket
+  private write = (data: Uint8Array) => {
+    if (this._socket) {
+      this._socket.write(data);
+    }
+  };
+
+  private _handleIncomingData = async (d: Uint8Array) => {
+    await this._packetBuilder.handleBytes(d);
+  };
+
+  socket_port = () => {
+    if (this._socket) {
+      return this._socket.remotePort;
+    }
+  };
+
+  end = () => {
+    clearInterval(this._pingEvent);
+    if (this._socket) {
+      Logger.debug(
+        `Closing socket ${this._socket.remoteAddress}:${this._socket.remotePort}`,
+      );
+      this._socket.end();
+      this._socket = null;
+    }
+  };
+
+  destroy = () => {
+    clearInterval(this._pingEvent);
+    if (this._socket) {
+      Logger.debug(
+        `Destroying socket ${this._socket.remoteAddress}:${this._socket.remotePort}`,
+      );
+      this._socket.destroy();
+      this._socket = null;
+    }
+  };
+
+  private _start_pipeline = () => {
+    const resp = new WyomingPacket({
+      type: 'run-pipeline',
+      data: {
+        start_stage: 'wake',
+        end_stage: 'tts',
+        restart_on_end: true,
+        snd_format: {
+          rate: AUDIO_INFO.rate,
+          width: AUDIO_INFO.width,
+          channels: AUDIO_INFO.channels,
+        },
+      },
+    });
+    resp.writeToSocket(this._socket);
+  };
+
+  private _handleEvent = async (p: WyomingPacket) => {
+    let ptype = p.getType();
+
+    if (['audio-chunk', 'ping', 'pong'].indexOf(ptype) == -1) {
+      Logger.debug(`Received event [${this._socket?.remotePort}]: ${p}`);
+      try {
+        CheyenneSocket.sendMessage(
+          ClientMessage.create({
+            msg: {
+              oneofKind: 'clientEvent',
+              clientEvent: ClientEvent.create({
+                event: {
+                  oneofKind: 'wyomingEvent',
+                  wyomingEvent: p.toProto(),
+                },
+              }),
+            },
+          }),
+        );
+      } catch (e) {
+        Logger.error(
+          `Error forwarding wyoming event to hassmic integration: ${e}`,
+        );
+      }
+    }
+
+    try {
+      switch (ptype) {
+        case 'describe':
+          let zcuuid: string = await Settings.getHMUUID();
+          Logger.info('Got wyoming `describe` request, responding with info');
+          let resp = new WyomingPacket({
+            type: 'info',
+            data: {
+              version: APP_VERSION,
+              asr: [],
+              tts: [],
+              handle: [],
+              intent: [],
+              wake: [],
+              satellite: {
+                name: 'Hassmic Wyoming ' + zcuuid.slice(0, 8),
+                attribution: {
+                  name: '',
+                  url: '',
+                },
+                installed: true,
+                description: 'Hassmic Wyoming ' + zcuuid.slice(0, 8),
+                version: APP_VERSION,
+                area: null,
+                snd_format: {
+                  channels: 1,
+                  rate: 16000,
+                  width: 2,
+                },
+              },
+            },
+          });
+          Logger.debug(
+            `Sending info response to socket ${
+              this._socket?.remotePort
+            }: ${resp.toString()}`,
+          );
+          resp.writeToSocket(this._socket);
+          break;
+
+        case 'run-satellite':
+          Logger.info('Starting satellite at server request');
+          this._start_pipeline();
+          this._pipelineRunning = true;
+          break;
+
+        case 'pause-satellite':
+          Logger.info('Stopping satellite at server request');
+          //this.stopAudio();
+          this._pipelineRunning = false;
+          this.streamAudio = false;
+          break;
+
+        case 'detect':
+          Logger.info('Starting (on-server) wakeword detection...');
+          DeviceEventEmitter.emit('wyoming-pipeline-start', {
+            socket_id: this._socket?._id,
+          });
+          // Start streaming audio
+          setInterval(() => {
+            this.streamAudio = true;
+          }, 2000);
+          break;
+
+        case 'error':
+          Logger.debug(`Error from server: ${p.getProp('text')}`);
+          this.streamAudio = false;
+          break;
+
+        case 'detection':
+          break;
+
+        case 'transcribe':
+          break;
+
+        case 'voice-started':
+          // Voice detection stopped, stop stremaing audio
+          this.streamAudio = true;
+          break;
+
+        case 'voice-stopped':
+          // Voice detection stopped, stop stremaing audio
+          this.streamAudio = false;
+          break;
+
+        case 'audio-start':
+          Logger.info('Starting audio stream...');
+          this._activePCMStream = await PCMPlayer.startAudioStream({
+            encoding: '16bit',
+            usage: 'announce',
+            sampleRate: p.getProp('rate') || 16000,
+            channels: 1,
+            mode: 'streaming',
+            gain: 1,
+          });
+          Logger.info(`Audio stream id: ${this._activePCMStream}`);
+          break;
+
+        case 'audio-chunk':
+          Logger.info(`Playing audio chunk...[${p.getPayload().length} bytes]`);
+          // Set timestamp of first chunk
+          if (!this._audioStartTimestamp) {
+            this._audioStartTimestamp = Date.now();
+          }
+
+          if (this._activePCMStream) {
+            await PCMPlayer.writeAudioStream(
+              this._activePCMStream,
+              p.getPayload(),
+            );
+          } else {
+            Logger.info('No active PCM stream!');
+          }
+          break;
+
+        case 'audio-stop':
+          Logger.info('Audio done.');
+          const audioDuration = p.getProp('timestamp');
+          if (this._activePCMStream) {
+            await PCMPlayer.stopAudioStream(this._activePCMStream);
+            this._activePCMStream = null;
+          }
+
+          if (audioDuration) {
+            const waitTime = Date.now() - (this._audioStartTimestamp || 0);
+            setTimeout(() => {
+              Logger.info(
+                `Waited for ${audioDuration} seconds before sending audio played message`,
+              );
+              resp = new WyomingPacket({
+                type: 'played',
+              });
+              Logger.debug(
+                `Sending audio played message to socket ${this._socket?.remotePort}`,
+              );
+              resp.writeToSocket(this._socket);
+              this._audioStartTimestamp = null;
+            }, waitTime);
+          }
+          break;
+        case 'ping':
+          // don't log ping/pong responses because they spam the console.
+          (resp = new WyomingPacket({
+            type: 'pong',
+          })),
+            resp.writeToSocket(this._socket);
+          break;
+      }
+    } catch (e: any) {
+      Logger.error(`Error processing incoming packet: ${e}`);
+    }
+  };
+
+  sendAudioData = (data: Uint8Array) => {
+    if (!this.streamAudio) {
+      return;
+    }
+    if (!data || data.length == 0) {
+      Logger.warning('Not sending empty audio data');
+      return;
+    }
+    if (!this._pipelineRunning) {
+      //Logger.warning('Pipeline not running; not sending audio chunk');
+      return;
+    }
+    let resp = new WyomingPacket({
+      type: 'audio-chunk',
+      data: {
+        rate: 16000,
+        width: 2,
+        channels: 1,
+      },
+    });
+    resp.setPayload(data);
+    try {
+      //Logger.debug(`Sending audio packet to socket ${this._socket?.remotePort}: ${resp.msgId}`);
+      resp.writeToSocket(this._socket);
+    } catch (e: any) {
+      Logger.error(
+        `Error writing audio packet: ${this._socket?.remotePort}: ${e}`,
+      );
+    }
+  };
+}
+
 // Class that actually defines a Wyoming protocol server. A single instance of
 // this class is constructed on startup and exported from this file.
 class WyomingServer_ {
   private _server: TcpSocket.Server | null = null;
-  private _sock: TcpSocket.Socket | null = null;
-  private _packetBuilder = new RecvStateMachine(
-    async (p: WyomingPacket) => await this._onCompletePacket(p),
-  );
+  private _clients: Record<string, ClientHandler> = {};
+  private _pipelineSocketId: string | null = null;
+  private _pipelineStartEventListender: any = null;
+  private _activePCMStream: number | null = null;
 
   constructor() {
     Settings.registerSettingsChangedCallback(async (s: SavedSettings) => {
@@ -313,312 +637,98 @@ class WyomingServer_ {
     this._connectionStateCallback?.(s);
   };
 
-  private _activePCMStream: number | null = null;
-
-  // Whether or not we've sent an audio-start command to the server
-  private _pipelineRunning: boolean = false;
-
-  private _handleIncomingData = async (d: Uint8Array) => {
-    await this._packetBuilder.handleBytes(d);
-  };
-
-  private _wyomingWrite(p: WyomingPacket) {
-    if (!p.validate()) {
-      Logger.error("can't write invalid wyoming packet");
-      return;
-    }
-    if (this._sock) {
-      try {
-        p.writeToSocket(this._sock);
-      } catch (e) {
-        Logger.error(`Error writing to wyoming socket: ${e}`);
-        return;
-      }
-    } else {
-      Logger.warning('Not writing wyomingpacket to closed socket');
-    }
-  }
-
-  private _onCompletePacket = async (p: WyomingPacket) => {
-    if (!p) {
-      Logger.error('Wyoming got null packet');
-      return;
-    }
-
-    let ptype = p.getType();
-    if (['audio-chunk', 'ping', 'pong'].indexOf(ptype) == -1) {
-      try {
-        CheyenneSocket.sendMessage(
-          ClientMessage.create({
-            msg: {
-              oneofKind: 'clientEvent',
-              clientEvent: ClientEvent.create({
-                event: {
-                  oneofKind: 'wyomingEvent',
-                  wyomingEvent: p.toProto(),
-                },
-              }),
-            },
-          }),
-        );
-      } catch (e) {
-        Logger.error(
-          `Error forwarding wyoming event to hassmic integration: ${e}`,
-        );
-      }
-    }
-    try {
-      switch (ptype) {
-        case 'describe':
-          Logger.info('Got wyoming `describe` request, responding with info');
-          let resp = new WyomingPacket({
-            type: 'info',
-            data: {
-              version: APP_VERSION,
-              asr: [],
-              tts: [],
-              handle: [],
-              intent: [],
-              wake: [],
-              satellite: {
-                name: 'Hassmic Wyoming',
-                attribution: {
-                  name: '',
-                  url: '',
-                },
-                installed: true,
-                description: 'Hassmic Wyoming',
-                version: APP_VERSION,
-                area: null,
-                snd_format: {
-                  channels: 1,
-                  rate: 16000,
-                  width: 2,
-                },
-              },
-            },
-          });
-          this._wyomingWrite(resp);
-          break;
-
-        case 'run-satellite':
-          Logger.info('Starting satellite at server request');
-          this.runPipeline();
-          break;
-
-        case 'pause-satellite':
-          Logger.info('Stopping satellite at server request');
-          this.stopPipeline();
-          break;
-
-        case 'detect':
-          Logger.info('Starting (on-server) wakeword detection...');
-          break;
-
-        case 'detection':
-          Logger.info(
-            `Got on-server wakeword detection: "${p.getProp('name')}"`,
-          );
-          break;
-
-        case 'transcribe':
-          Logger.info('Starting transcription...');
-          break;
-
-        case 'voice-started':
-          Logger.info('Starting voice processing...');
-          break;
-
-        case 'voice-stopped':
-          Logger.info('Voice processing complete');
-          break;
-
-        case 'transcript':
-          Logger.info(`Got transcript: "${p.getProp('text')}"`);
-          break;
-
-        case 'synthesize':
-          Logger.info(`Synthesizing text "${p.getProp('text')}"`);
-          break;
-
-        case 'audio-start':
-          Logger.info('Starting audio stream...');
-          this._activePCMStream = await PCMPlayer.startAudioStream({
-            encoding: '16bit',
-            usage: 'announce',
-            sampleRate: p.getProp('rate') || 16000,
-            channels: 1,
-            mode: 'streaming',
-            gain: await Settings.getAnnounceVolume(),
-          });
-          Logger.info(`Audio stream id: ${this._activePCMStream}`);
-          break;
-
-        case 'audio-chunk':
-          Logger.info('Playing audio chunk...');
-          if (this._activePCMStream) {
-            await PCMPlayer.writeAudioStream(
-              this._activePCMStream,
-              p.getPayload(),
-            );
-          } else {
-            Logger.error('No active PCM stream!');
-          }
-          break;
-
-        case 'audio-stop':
-          Logger.info('Audio done.');
-          if (this._activePCMStream) {
-            await PCMPlayer.stopAudioStream(this._activePCMStream);
-            this._activePCMStream = null;
-            try {
-              this._wyomingWrite(
-                new WyomingPacket({
-                  type: 'played',
-                }),
-              );
-            } catch (e) {
-              Logger.error(`Error sending audio played message`);
-            }
-          } else {
-            Logger.error('No active PCM Stream!');
-          }
-          break;
-
-        case 'ping':
-          // don't log ping/pong responses because they spam the console.
-          this._wyomingWrite(
-            new WyomingPacket({
-              type: 'pong',
-            }),
-          );
-          break;
-        default:
-          Logger.warning(`Unknown packet type: "${ptype}:"`);
-          JSON.stringify(JSON.parse(p.toString()), null, 2)
-            .split('\n')
-            .forEach(l => {
-              Logger.warning(`\t${l}`);
-            });
-          break;
-      }
-    } catch (e: any) {
-      Logger.error(`Error processing incoming packet: ${e}`);
-    }
-  };
-
   // Send a chunk of pcm audio
   sendAudioData = (data: Uint8Array) => {
-    if (!data || data.length == 0) {
-      Logger.warning('Not sending empty audio data');
-      return;
+    if (
+      this._pipelineSocketId &&
+      this._clients.hasOwnProperty(this._pipelineSocketId)
+    ) {
+      const gainchunk = data.map((v: number) => v * MIC_GAIN); // Increase volume by mic gain factor
+      if (this._clients[this._pipelineSocketId].streamAudio) {
+        this._clients[this._pipelineSocketId].sendAudioData(gainchunk);
+      }
     }
-    if (!this._pipelineRunning) {
-      Logger.warning('Pipeline not running; not sending audio chunk');
-      return;
-    }
-    let pkt = new WyomingPacket({
-      type: 'audio-chunk',
-      data: {
-        rate: 16000,
-        width: 2,
-        channels: 1,
-      },
-    });
-    pkt.setPayload(data);
-    try {
-      this._wyomingWrite(pkt);
-    } catch (e: any) {
-      Logger.error(`Error writing audio packet: ${e}`);
-    }
-  };
-
-  // start a pipeline
-  runPipeline = () => {
-    let pkt = new WyomingPacket({
-      type: 'run-pipeline',
-      data: {
-        start_stage: 'wake',
-        end_stage: 'tts',
-        restart_on_end: true,
-        snd_format: {
-          rate: AUDIO_INFO.rate,
-          width: AUDIO_INFO.width,
-          channels: AUDIO_INFO.channels,
-        },
-      },
-    });
-    try {
-      this._wyomingWrite(pkt);
-    } catch (e: any) {
-      Logger.error(`Error writing run-pipeline packet: ${e}`);
-      this._pipelineRunning = false;
-    }
-    this._pipelineRunning = true;
-  };
-
-  stopPipeline = () => {
-    this._pipelineRunning = false;
   };
 
   startServer = async () => {
-    if (this._server) {
-      Logger.error('Error: wyoming startserver() called twice');
-      return;
-    }
+    this._pipelineStartEventListender = DeviceEventEmitter.addListener(
+      'wyoming-pipeline-start',
+      (data: any) => {
+        this._pipelineSocketId = data.socket_id;
+      },
+    );
 
-    this._server = TcpSocket.createServer((socket: TcpSocket.Socket) => {
-      Logger.info(`Wyoming Got connection`);
-      if (!this._sock) {
-        this._sock = socket;
-        this._sock.setTimeout(60e3);
-        this._setConnectionState(true);
-        Logger.info('Wyoming all set up -- waiting');
-      } else {
-        Logger.warn('Wyoming already has a socket, dropping new connection');
-        socket.destroy();
-      }
-
-      socket.on('error', (err: Error) => {
-        Logger.info(`Socket error: ${err}`);
-      });
-
-      socket.on('close', (had_error: boolean) => {
-        Logger.info(`Closed connection (${had_error ? 'had' : 'no'} errors)`);
-        if (this._sock == socket) {
-          this._sock = null;
-        }
-        this._setConnectionState(false);
-      });
-
-      socket.on('timeout', () => {
-        Logger.info('Socket timed out');
-        if (this._sock) {
-          Logger.warning('Socket timed out; closing connection');
-          this._sock.destroy();
-          this._sock = null;
-        }
-      });
-
-      socket.on('data', (d: Buffer | string) => {
-        if (typeof d == 'string') {
-          this._handleIncomingData(
-            Uint8Array.from(Array.from(d).map(l => l.charCodeAt(0) || 0)),
+    if (!this._server) {
+      Logger.debug('Starting TCP server');
+      // Here you would start your TCP server
+      try {
+        this._server = TcpSocket.createServer((socket: TcpSocket.Socket) => {
+          Logger.info(
+            `Wyoming Got connection from ${socket.remoteAddress}:${socket.remotePort}`,
           );
-        } else {
-          this._handleIncomingData(Uint8Array.from(d));
-        }
-      });
-    }).listen({port: WYOMING_PORT, host: '0.0.0.0'});
+          if (!this._clients.hasOwnProperty(socket._id)) {
+            this._clients[socket._id] = new ClientHandler(socket);
+            this._setConnectionState(true);
+            Logger.info('Wyoming all set up -- waiting');
+          } else {
+            Logger.warn(
+              'Wyoming already has this socket, dropping new connection',
+            );
+            socket.destroy();
+          }
+
+          socket.on('error', (err: Error) => {
+            Logger.info(`Socket error: ${err}`);
+          });
+
+          socket.on('timeout', () => {
+            Logger.info(
+              `Socket timed out on ${socket.remoteAddress}:${socket.remotePort}`,
+            );
+            if (this._clients[socket._id]) {
+              try {
+                this._clients[socket._id].destroy();
+              } catch (e: any) {
+                Logger.error(`Error destroying socket: ${e}`);
+              }
+              delete this._clients[socket._id];
+            }
+          });
+
+          socket.on('close', (had_error: boolean) => {
+            Logger.info(
+              `Closed connection to ${socket.remoteAddress}:${
+                socket.remotePort
+              } (${had_error ? 'had' : 'no'} errors)`,
+            );
+            if (this._clients[socket._id]) {
+              this._clients[socket._id].end();
+              delete this._clients[socket._id];
+            }
+            this._setConnectionState(false);
+          });
+        }).listen({port: WYOMING_PORT, host: '0.0.0.0'});
+      } catch (e: any) {
+        Logger.error(`Error starting TCP server: ${e}`);
+        throw e; // Re-throw the error to handle it upstream
+      }
+    }
   };
 
   stopServer = async () => {
     Logger.info('stopping server...');
-    const p = new Promise<void>(resolve => {
+    this._pipelineStartEventListender?.remove();
+
+    const p = new Promise<void>((resolve) => {
       this._server?.close(() => resolve());
     });
-    this._sock?.destroy();
+    Object.entries(this._clients).map(([id, s]) => {
+      Logger.info(`Closing socket ${id}`);
+      s.destroy();
+    });
+    this._clients = {};
     await p;
+    this._server = null;
     Logger.info('Server stopped');
   };
 }

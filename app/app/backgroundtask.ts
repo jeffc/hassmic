@@ -17,7 +17,7 @@ import LiveAudioStream from 'react-native-live-audio-stream';
 const Logger = new HMLogger('backgroundtask.ts');
 
 const sleep = (delay: number) =>
-  new Promise(resolve => setTimeout(resolve, delay));
+  new Promise((resolve) => setTimeout(resolve, delay));
 
 // Convenience type for a generic callback
 type CallbackType<T> = (s: T) => void;
@@ -113,7 +113,7 @@ class BackgroundTaskManager_ {
       } catch (e) {
         Logger.error(`Error saving enable state: ${e}`);
       }
-      this.isEnabled = new Promise<boolean>(resolve => resolve(enable));
+      this.isEnabled = new Promise<boolean>((resolve) => resolve(enable));
       this.enableStateCallback(enable);
     })().then(() => {});
   };
@@ -138,14 +138,14 @@ class BackgroundTaskManager_ {
     }
 
     Logger.info('Started background task');
-    const shouldStop = new Promise<void>(resolve => {
+    const shouldStop = new Promise<void>((resolve) => {
       this.stop_fn = resolve;
     });
     // native event listeners
-    CheyenneSocket.startServer();
+    await CheyenneSocket.startServer();
     Logger.info('Started cheyenne server');
 
-    WyomingServer.startServer();
+    await WyomingServer.startServer();
     Logger.info('Started wyoming server');
 
     await ZeroconfManager.StartZeroconf();
@@ -162,12 +162,12 @@ class BackgroundTaskManager_ {
       sampleRate: AUDIO_INFO.rate,
       channels: AUDIO_INFO.channels,
       bitsPerSample: AUDIO_INFO.width * 8,
-      audioSource: 6,
+      audioSource: AUDIO_INFO.source,
       wavFile: '', // to make tsc happy; this isn't used anywhere
     });
 
     // @ts-ignore: This error is some weird interaction between TS and Java
-    LiveAudioStream.on('RNLiveAudioStream.data', data => {
+    LiveAudioStream.on('RNLiveAudioStream.data', (data) => {
       if (typeof data == 'object') {
         Logger.warning(`Can't process: ${JSON.stringify(data)}`);
         return;
@@ -183,10 +183,10 @@ class BackgroundTaskManager_ {
     await shouldStop;
     Logger.info('Background task got stop signal, stopping');
     LiveAudioStream.stop();
-    WyomingServer.stopServer();
-    CheyenneSocket.stopServer();
+    await ZeroconfManager.StopZeroconf();
+    await WyomingServer.stopServer();
+    await CheyenneSocket.stopServer();
     NativeManager.killService();
-    ZeroconfManager.StopZeroconf();
     this.setState(TaskState.STOPPED);
   };
 

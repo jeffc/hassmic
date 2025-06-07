@@ -116,7 +116,7 @@ class CheyenneServer {
         } catch (e: any) {
           Logger.info(e.toString());
         }
-        await new Promise(resolve => setTimeout(resolve, 10 * 1e3));
+        await new Promise((resolve) => setTimeout(resolve, 10 * 1e3));
       }
       Logger.debug('done ping');
     })().then(() => {});
@@ -125,12 +125,17 @@ class CheyenneServer {
   startServer = async () => {
     this._uuid = await UUIDManager.getUUID();
 
-    this._server = TcpSocket.createServer(socket => {
-      socket.on('error', err => {
+    if (this._server) {
+      Logger.info('Cheyenne server already running');
+      return;
+    }
+
+    this._server = TcpSocket.createServer((socket) => {
+      socket.on('error', (err) => {
         Logger.info(`Socket error: ${err}`);
       });
 
-      socket.on('close', err => {
+      socket.on('close', (err) => {
         Logger.info(`Closed connection`);
         if (this._sock == socket) {
           this._sock = null;
@@ -147,7 +152,7 @@ class CheyenneServer {
       socket.on('data', (d: string | Buffer) => {
         if (typeof d == 'string') {
           this._handleIncomingData(
-            Uint8Array.from(Array.from(d).map(l => l.charCodeAt(0) || 0)),
+            Uint8Array.from(Array.from(d).map((l) => l.charCodeAt(0) || 0)),
           );
         } else {
           this._handleIncomingData(Uint8Array.from(d));
@@ -171,11 +176,12 @@ class CheyenneServer {
 
   stopServer = async () => {
     Logger.info('stopping server...');
-    const p = new Promise<void>(resolve => {
+    const p = new Promise<void>((resolve) => {
       this._server?.close(() => resolve());
     });
     this._sock?.destroy();
     await p;
+    this._server = null;
     Logger.info('Server stopped');
   };
 
