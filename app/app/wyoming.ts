@@ -106,7 +106,7 @@ class WyomingPacket {
   toProto = () => {
     try {
       // replace audio-chunk with audioChunk and similar to match compiler
-      let kind = this.getType().replaceAll(/-([a-z])/g, (match) =>
+      let kind = this.getType().replaceAll(/-([a-z])/g, match =>
         match[1].toUpperCase(),
       );
       Logger.info(`Sending wyoming packet: ${this.toString()}`);
@@ -187,7 +187,7 @@ class WyomingPacket {
 // complete wyoming packets as they're ready.
 class ReceiveStateMachine {
   // incoming data queue
-  private _handleCompletePacket: (p: WyomingPacket) => void = (p) => {};
+  private _handleCompletePacket: (p: WyomingPacket) => void = p => {};
   private _dataQueue: any = [];
   private start = 0;
 
@@ -203,7 +203,7 @@ class ReceiveStateMachine {
   handleBytes = async (b: Uint8Array) => {
     // Ensure Uint8Array is constructed with ArrayBuffer
     this._dataQueue.push(...b);
-    // If we're waiting for data, we can just continue processing}
+    // If we're waiting for data, we can just continue processing
     await this._byteHandler.next();
   };
 
@@ -340,7 +340,7 @@ class ClientHandler {
     socket.on('data', async (d: Buffer | string) => {
       if (typeof d == 'string') {
         await this._handleIncomingData(
-          Uint8Array.from(Array.from(d).map((l) => l.charCodeAt(0) || 0)),
+          Uint8Array.from(Array.from(d).map(l => l.charCodeAt(0) || 0)),
         );
       } else {
         this._handleIncomingData(Uint8Array.from(d));
@@ -610,7 +610,7 @@ class ClientHandler {
           }
 
           // If we have a timestamp, wait for the audio to finish playing before
-          // sending the played message. Otherwise, just send it after 2 secs.
+          // sending the played message. Otherwise, just send it after 0.5s.
           // KNOWN ISSUE: Wyoming in HA does not send timestamp for annoucements.
           let waitTime = 500;
           if (audioDuration) {
@@ -795,7 +795,7 @@ class WyomingServer_ {
     Logger.info('stopping server...');
     this._pipelineStartEventListender?.remove();
 
-    const p = new Promise<void>((resolve) => {
+    const p = new Promise<void>(resolve => {
       this._server?.close(() => resolve());
     });
     Object.entries(this._clients).map(([id, s]) => {
