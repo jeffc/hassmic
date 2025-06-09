@@ -1,7 +1,12 @@
 // exposes the microphone as a wyoming satellite
 import TcpSocket from 'react-native-tcp-socket';
 import {HMLogger} from './logger';
-import {APP_VERSION, AUDIO_INFO, MIC_GAIN, WYOMING_PORT} from './constants';
+import {
+  APP_VERSION,
+  AUDIO_INFO,
+  STORAGE_MIC_GAIN,
+  WYOMING_PORT,
+} from './constants';
 import {Settings} from './settings';
 import {PCMPlayer} from './pcm';
 import {
@@ -12,7 +17,7 @@ import {
 } from './proto/hassmic';
 import {CheyenneSocket} from './cheyenne';
 import {DeviceEventEmitter} from 'react-native';
-import {UUIDManager} from './util';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Logger = new HMLogger('wyoming.ts');
 type CallbackType<T> = ((s: T) => void) | null;
@@ -712,6 +717,70 @@ class WyomingServer_ {
     this._connectionStateCallback?.(s);
   };
 
+  micGain: number = 1; // default mic gain
+
+  loadMicGain = async () => {
+    let m: string | null = await AsyncStorage.getItem(STORAGE_MIC_GAIN);
+    if (m) {
+      // If value is stored, set mic gain
+      this.micGain = parseFloat(m);
+    }
+    return this.micGain;
+  };
+
+  setMicGain = async (gain: number) => {
+    if (gain < 1 || gain > 11) {
+      Logger.error(`Mic gain out of range: ${gain}`);
+      return;
+    }
+    this.micGain = gain;
+    await AsyncStorage.setItem(STORAGE_MIC_GAIN, gain.toString());
+    Logger.info(`Mic gain set to ${gain}`);
+  };
+
+  _increaseVolume16BitPCM(data: Uint8Array, gain: number) {
+    if (!(data instanceof Uint8Array)) {
+      throw new Error('Input must be a Uint8Array.');
+    }
+    if (data.byteLength % 2 !== 0) {
+      throw new Error('Uint8Array byteLength must be even for 16-bit samples.');
+    }
+    if (typeof gain !== 'number' || gain < 0) {
+      throw new Error('Gain must be a non-negative number.');
+    }
+
+    // Create a DataView to read and write 16-bit integers
+    const dataView = new DataView(data.buffer);
+    const numSamples = data.byteLength / 2;
+
+    // Create a new Uint8Array for the output
+    const outputUint8Array = new Uint8Array(data.byteLength);
+    const outputDataView = new DataView(outputUint8Array.buffer);
+
+    const MAX_16_BIT = 32767;
+    const MIN_16_BIT = -32768;
+
+    for (let i = 0; i < numSamples; i++) {
+      // Read the original 16-bit sample (little-endian)
+      const sample = dataView.getInt16(i * 2, true); // true for little-endian
+
+      // Apply gain
+      let newSample = Math.round(sample * gain * (gain * 0.6)); // roughly increasing curve from 0 to 92x
+
+      // Clip the sample to 16-bit limits
+      if (newSample > MAX_16_BIT) {
+        newSample = MAX_16_BIT;
+      } else if (newSample < MIN_16_BIT) {
+        newSample = MIN_16_BIT;
+      }
+
+      // Write the modified 16-bit sample back (little-endian)
+      outputDataView.setInt16(i * 2, newSample, true); // true for little-endian
+    }
+
+    return outputUint8Array;
+  }
+
   // Send a chunk of pcm audio
   sendAudioData = (data: Uint8Array) => {
     if (
@@ -719,6 +788,9 @@ class WyomingServer_ {
       this._clients.hasOwnProperty(this._pipelineSocketId)
     ) {
       if (this._clients[this._pipelineSocketId].streamAudio) {
+        if (this.micGain > 1) {
+          data = this._increaseVolume16BitPCM(data, this.micGain);
+        }
         this._clients[this._pipelineSocketId].sendAudioData(data);
       }
     }
