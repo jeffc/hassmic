@@ -203,7 +203,7 @@ class ReceiveStateMachine {
   handleBytes = async (b: Uint8Array) => {
     // Ensure Uint8Array is constructed with ArrayBuffer
     this._dataQueue.push(...b);
-    // If we're waiting for data, we can just continue processing}
+    // If we're waiting for data, we can just continue processing
     await this._byteHandler.next();
   };
 
@@ -610,7 +610,7 @@ class ClientHandler {
           }
 
           // If we have a timestamp, wait for the audio to finish playing before
-          // sending the played message. Otherwise, just send it after 2 secs.
+          // sending the played message. Otherwise, just send it after 0.5s.
           // KNOWN ISSUE: Wyoming in HA does not send timestamp for annoucements.
           let waitTime = 500;
           if (audioDuration) {
