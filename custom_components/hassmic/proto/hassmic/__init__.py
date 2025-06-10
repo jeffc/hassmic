@@ -67,6 +67,9 @@ class SavedSettings(betterproto.Message):
     device_name: str = betterproto.string_field(4)
     """Device name"""
 
+    mic_gain: Optional[float] = betterproto.float_field(5, optional=True)
+    """MicGain"""
+
 
 @dataclass(eq=False, repr=False)
 class ClientInfo(betterproto.Message):

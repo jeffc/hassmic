@@ -254,6 +254,56 @@ public  final class SavedSettings extends
 
   }
 
+  public static final int MICGAIN_FIELD_NUMBER = 5;
+  private float micGain_;
+  /**
+   * <pre>
+   * MicGain
+   * </pre>
+   *
+   * <code>optional float micGain = 5;</code>
+   * @return Whether the micGain field is set.
+   */
+  @java.lang.Override
+  public boolean hasMicGain() {
+    return ((bitField0_ & 0x00000004) != 0);
+  }
+  /**
+   * <pre>
+   * MicGain
+   * </pre>
+   *
+   * <code>optional float micGain = 5;</code>
+   * @return The micGain.
+   */
+  @java.lang.Override
+  public float getMicGain() {
+    return micGain_;
+  }
+  /**
+   * <pre>
+   * MicGain
+   * </pre>
+   *
+   * <code>optional float micGain = 5;</code>
+   * @param value The micGain to set.
+   */
+  private void setMicGain(float value) {
+    bitField0_ |= 0x00000004;
+    micGain_ = value;
+  }
+  /**
+   * <pre>
+   * MicGain
+   * </pre>
+   *
+   * <code>optional float micGain = 5;</code>
+   */
+  private void clearMicGain() {
+    bitField0_ = (bitField0_ & ~0x00000004);
+    micGain_ = 0F;
+  }
+
   public static com.thejeffcooper.hassmic.proto.SavedSettings parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -595,6 +645,58 @@ public  final class SavedSettings extends
       return this;
     }
 
+    /**
+     * <pre>
+     * MicGain
+     * </pre>
+     *
+     * <code>optional float micGain = 5;</code>
+     * @return Whether the micGain field is set.
+     */
+    @java.lang.Override
+    public boolean hasMicGain() {
+      return instance.hasMicGain();
+    }
+    /**
+     * <pre>
+     * MicGain
+     * </pre>
+     *
+     * <code>optional float micGain = 5;</code>
+     * @return The micGain.
+     */
+    @java.lang.Override
+    public float getMicGain() {
+      return instance.getMicGain();
+    }
+    /**
+     * <pre>
+     * MicGain
+     * </pre>
+     *
+     * <code>optional float micGain = 5;</code>
+     * @param value The micGain to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMicGain(float value) {
+      copyOnWrite();
+      instance.setMicGain(value);
+      return this;
+    }
+    /**
+     * <pre>
+     * MicGain
+     * </pre>
+     *
+     * <code>optional float micGain = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMicGain() {
+      copyOnWrite();
+      instance.clearMicGain();
+      return this;
+    }
+
     // @@protoc_insertion_point(builder_scope:hassmic.SavedSettings)
   }
   @java.lang.Override
@@ -616,10 +718,11 @@ public  final class SavedSettings extends
             "playbackVolume_",
             "hassmicUuid_",
             "deviceName_",
+            "micGain_",
           };
           java.lang.String info =
-              "\u0000\u0004\u0000\u0001\u0001\u0004\u0004\u0000\u0000\u0000\u0001\u1001\u0000\u0002" +
-              "\u1001\u0001\u0003\u0208\u0004\u0208";
+              "\u0000\u0005\u0000\u0001\u0001\u0005\u0005\u0000\u0000\u0000\u0001\u1001\u0000\u0002" +
+              "\u1001\u0001\u0003\u0208\u0004\u0208\u0005\u1001\u0002";
           return newMessageInfo(DEFAULT_INSTANCE, info, objects);
       }
       // fall through

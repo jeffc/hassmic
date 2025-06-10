@@ -40,6 +40,12 @@ export interface SavedSettings {
      * @generated from protobuf field: string device_name = 4;
      */
     deviceName: string;
+    /**
+     * MicGain
+     *
+     * @generated from protobuf field: optional float micGain = 5;
+     */
+    micGain?: number;
 }
 /**
  * Information that the client sends about itself
@@ -1479,7 +1485,8 @@ class SavedSettings$Type extends MessageType<SavedSettings> {
             { no: 1, name: "announce_volume", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
             { no: 2, name: "playback_volume", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
             { no: 3, name: "hassmic_uuid", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 4, name: "device_name", kind: "scalar", T: 9 /*ScalarType.STRING*/ }
+            { no: 4, name: "device_name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
+            { no: 5, name: "micGain", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ }
         ]);
     }
     create(value?: PartialMessage<SavedSettings>): SavedSettings {
@@ -1507,6 +1514,9 @@ class SavedSettings$Type extends MessageType<SavedSettings> {
                 case /* string device_name */ 4:
                     message.deviceName = reader.string();
                     break;
+                case /* optional float micGain */ 5:
+                    message.micGain = reader.float();
+                    break;
                 default:
                     let u = options.readUnknownField;
                     if (u === "throw")
@@ -1531,6 +1541,9 @@ class SavedSettings$Type extends MessageType<SavedSettings> {
         /* string device_name = 4; */
         if (message.deviceName !== "")
             writer.tag(4, WireType.LengthDelimited).string(message.deviceName);
+        /* optional float micGain = 5; */
+        if (message.micGain !== undefined)
+            writer.tag(5, WireType.Bit32).float(message.micGain);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

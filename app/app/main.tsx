@@ -118,12 +118,6 @@ export default function Index() {
   // useEffect(..., []) means this code will be called once on component mount
   // (or twice in dev mode, maybe?). Do the setup stuff here.
   useEffect(() => {
-    const m = async () => {
-      const m = await WyomingServer.loadMicGain();
-      setMicGain(m);
-    };
-    m();
-
     CheyenneSocket.setConnectionStateCallback(setIsCheyenneConnected);
     WyomingServer.setConnectionStateCallback(setIsWyomingConnected);
     NetworkInfo.getIPV4Address().then(setLocalIP);
@@ -146,13 +140,16 @@ export default function Index() {
     checkNotificationPermission().then((ok) => {
       setHasNotificationPermission(ok);
     });
+
+    // Set mic gain to the saved value, or default to 1
+    WyomingServer.loadMicGain().then((gain) => {
+      setMicGain(gain || 1);
+    });
   }, []);
 
+  // when micGain is changed, save it to the server.
   useEffect(() => {
-    const m = async () => {
-      await WyomingServer.setMicGain(micGain);
-    };
-    m();
+    WyomingServer.setMicGain(micGain)
   }, [micGain]);
 
   // when background task is toggled on or off, start or stop it accordingly.

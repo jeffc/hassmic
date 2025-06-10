@@ -17,7 +17,6 @@ import {
 } from './proto/hassmic';
 import {CheyenneSocket} from './cheyenne';
 import {DeviceEventEmitter} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Logger = new HMLogger('wyoming.ts');
 type CallbackType<T> = ((s: T) => void) | null;
@@ -706,6 +705,9 @@ class WyomingServer_ {
         );
       }
     });
+    this.loadMicGain().then(() => {
+      Logger.info(`Wyoming server initialized with mic gain: ${this.micGain}`);
+    });
   }
 
   // settable callback for connection state
@@ -720,22 +722,16 @@ class WyomingServer_ {
   micGain: number = 1; // default mic gain
 
   loadMicGain = async () => {
-    let m: string | null = await AsyncStorage.getItem(STORAGE_MIC_GAIN);
-    if (m) {
-      // If value is stored, set mic gain
-      this.micGain = parseFloat(m);
+    return await Settings.getMicGain().then(gain => {
+      this.micGain = gain;
+      Logger.info(`Loaded mic gain: ${this.micGain}`);
+      return this.micGain;
     }
-    return this.micGain;
-  };
+  )};
 
   setMicGain = async (gain: number) => {
-    if (gain < 1 || gain > 11) {
-      Logger.error(`Mic gain out of range: ${gain}`);
-      return;
-    }
     this.micGain = gain;
-    await AsyncStorage.setItem(STORAGE_MIC_GAIN, gain.toString());
-    Logger.info(`Mic gain set to ${gain}`);
+    await Settings.setMicGain(gain);
   };
 
   _increaseVolume16BitPCM(data: Uint8Array, gain: number) {

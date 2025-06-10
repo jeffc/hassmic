@@ -18,6 +18,9 @@ message SavedSettings {
 
   // Device name
   string device_name = 4;
+
+  // MicGain
+  optional float micGain = 5;
 }
 
 // Information that the client sends about itself

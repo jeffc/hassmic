@@ -84,4 +84,23 @@ public interface SavedSettingsOrBuilder extends
    */
   com.google.protobuf.ByteString
       getDeviceNameBytes();
+
+  /**
+   * <pre>
+   * MicGain
+   * </pre>
+   *
+   * <code>optional float micGain = 5;</code>
+   * @return Whether the micGain field is set.
+   */
+  boolean hasMicGain();
+  /**
+   * <pre>
+   * MicGain
+   * </pre>
+   *
+   * <code>optional float micGain = 5;</code>
+   * @return The micGain.
+   */
+  float getMicGain();
 }
