@@ -231,9 +231,3 @@ export default function Index() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  slider: {
-    width: "60%",
-  },
-});
