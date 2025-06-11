@@ -90,7 +90,7 @@ public interface SavedSettingsOrBuilder extends
    * MicGain
    * </pre>
    *
-   * <code>optional float micGain = 5;</code>
+   * <code>optional float mic_gain = 5;</code>
    * @return Whether the micGain field is set.
    */
   boolean hasMicGain();
@@ -99,7 +99,7 @@ public interface SavedSettingsOrBuilder extends
    * MicGain
    * </pre>
    *
-   * <code>optional float micGain = 5;</code>
+   * <code>optional float mic_gain = 5;</code>
    * @return The micGain.
    */
   float getMicGain();

@@ -254,14 +254,14 @@ public  final class SavedSettings extends
 
   }
 
-  public static final int MICGAIN_FIELD_NUMBER = 5;
+  public static final int MIC_GAIN_FIELD_NUMBER = 5;
   private float micGain_;
   /**
    * <pre>
    * MicGain
    * </pre>
    *
-   * <code>optional float micGain = 5;</code>
+   * <code>optional float mic_gain = 5;</code>
    * @return Whether the micGain field is set.
    */
   @java.lang.Override
@@ -273,7 +273,7 @@ public  final class SavedSettings extends
    * MicGain
    * </pre>
    *
-   * <code>optional float micGain = 5;</code>
+   * <code>optional float mic_gain = 5;</code>
    * @return The micGain.
    */
   @java.lang.Override
@@ -285,7 +285,7 @@ public  final class SavedSettings extends
    * MicGain
    * </pre>
    *
-   * <code>optional float micGain = 5;</code>
+   * <code>optional float mic_gain = 5;</code>
    * @param value The micGain to set.
    */
   private void setMicGain(float value) {
@@ -297,7 +297,7 @@ public  final class SavedSettings extends
    * MicGain
    * </pre>
    *
-   * <code>optional float micGain = 5;</code>
+   * <code>optional float mic_gain = 5;</code>
    */
   private void clearMicGain() {
     bitField0_ = (bitField0_ & ~0x00000004);
@@ -650,7 +650,7 @@ public  final class SavedSettings extends
      * MicGain
      * </pre>
      *
-     * <code>optional float micGain = 5;</code>
+     * <code>optional float mic_gain = 5;</code>
      * @return Whether the micGain field is set.
      */
     @java.lang.Override
@@ -662,7 +662,7 @@ public  final class SavedSettings extends
      * MicGain
      * </pre>
      *
-     * <code>optional float micGain = 5;</code>
+     * <code>optional float mic_gain = 5;</code>
      * @return The micGain.
      */
     @java.lang.Override
@@ -674,7 +674,7 @@ public  final class SavedSettings extends
      * MicGain
      * </pre>
      *
-     * <code>optional float micGain = 5;</code>
+     * <code>optional float mic_gain = 5;</code>
      * @param value The micGain to set.
      * @return This builder for chaining.
      */
@@ -688,7 +688,7 @@ public  final class SavedSettings extends
      * MicGain
      * </pre>
      *
-     * <code>optional float micGain = 5;</code>
+     * <code>optional float mic_gain = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearMicGain() {

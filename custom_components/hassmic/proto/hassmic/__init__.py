@@ -663,4 +663,7 @@ class HassmicCommand(betterproto.Message):
     command: "MediaPlayerCommand" = betterproto.message_field(5, group="msg")
     """Play, pause, stop, etc"""
 
-    internal: bool = betterproto.bool_field(6)
+    set_mic_gain: float = betterproto.float_field(6, group="msg")
+    """Set the microphone gain"""
+
+    internal: bool = betterproto.bool_field(7)

@@ -205,6 +205,10 @@ class CheyenneServer {
           Logger.info(`Setting mic mute to ${shouldMute}`);
           this._mic_muted = shouldMute;
           break;
+        case 'setMicGain':
+          Logger.info(`Got set_mic_gain message: ${m.msg.setMicGain}`);
+          Settings.setMicGain(m.msg.setMicGain);
+          break;
         // Actions that need to be handled by native code
         case 'playAudio':
         case 'setPlayerVolume':

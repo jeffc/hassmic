@@ -26,6 +26,7 @@ public  final class HassmicCommand extends
     SET_DEVICE_VOLUME(3),
     SET_PLAYER_VOLUME(4),
     COMMAND(5),
+    SET_MIC_GAIN(6),
     MSG_NOT_SET(0);
     private final int value;
     private MsgCase(int value) {
@@ -46,6 +47,7 @@ public  final class HassmicCommand extends
         case 3: return SET_DEVICE_VOLUME;
         case 4: return SET_PLAYER_VOLUME;
         case 5: return COMMAND;
+        case 6: return SET_MIC_GAIN;
         case 0: return MSG_NOT_SET;
         default: return null;
       }
@@ -401,10 +403,64 @@ public  final class HassmicCommand extends
     }
   }
 
-  public static final int INTERNAL_FIELD_NUMBER = 6;
+  public static final int SET_MIC_GAIN_FIELD_NUMBER = 6;
+  /**
+   * <pre>
+   * Set the microphone gain
+   * </pre>
+   *
+   * <code>float set_mic_gain = 6;</code>
+   * @return Whether the setMicGain field is set.
+   */
+  @java.lang.Override
+  public boolean hasSetMicGain() {
+    return msgCase_ == 6;
+  }
+  /**
+   * <pre>
+   * Set the microphone gain
+   * </pre>
+   *
+   * <code>float set_mic_gain = 6;</code>
+   * @return The setMicGain.
+   */
+  @java.lang.Override
+  public float getSetMicGain() {
+    if (msgCase_ == 6) {
+      return (java.lang.Float) msg_;
+    }
+    return 0F;
+  }
+  /**
+   * <pre>
+   * Set the microphone gain
+   * </pre>
+   *
+   * <code>float set_mic_gain = 6;</code>
+   * @param value The setMicGain to set.
+   */
+  private void setSetMicGain(float value) {
+    msgCase_ = 6;
+    msg_ = value;
+  }
+  /**
+   * <pre>
+   * Set the microphone gain
+   * </pre>
+   *
+   * <code>float set_mic_gain = 6;</code>
+   */
+  private void clearSetMicGain() {
+    if (msgCase_ == 6) {
+      msgCase_ = 0;
+      msg_ = null;
+    }
+  }
+
+  public static final int INTERNAL_FIELD_NUMBER = 7;
   private boolean internal_;
   /**
-   * <code>bool internal = 6;</code>
+   * <code>bool internal = 7;</code>
    * @return The internal.
    */
   @java.lang.Override
@@ -412,7 +468,7 @@ public  final class HassmicCommand extends
     return internal_;
   }
   /**
-   * <code>bool internal = 6;</code>
+   * <code>bool internal = 7;</code>
    * @param value The internal to set.
    */
   private void setInternal(boolean value) {
@@ -420,7 +476,7 @@ public  final class HassmicCommand extends
     internal_ = value;
   }
   /**
-   * <code>bool internal = 6;</code>
+   * <code>bool internal = 7;</code>
    */
   private void clearInternal() {
 
@@ -880,7 +936,59 @@ public  final class HassmicCommand extends
     }
 
     /**
-     * <code>bool internal = 6;</code>
+     * <pre>
+     * Set the microphone gain
+     * </pre>
+     *
+     * <code>float set_mic_gain = 6;</code>
+     * @return Whether the setMicGain field is set.
+     */
+    @java.lang.Override
+    public boolean hasSetMicGain() {
+      return instance.hasSetMicGain();
+    }
+    /**
+     * <pre>
+     * Set the microphone gain
+     * </pre>
+     *
+     * <code>float set_mic_gain = 6;</code>
+     * @return The setMicGain.
+     */
+    @java.lang.Override
+    public float getSetMicGain() {
+      return instance.getSetMicGain();
+    }
+    /**
+     * <pre>
+     * Set the microphone gain
+     * </pre>
+     *
+     * <code>float set_mic_gain = 6;</code>
+     * @param value The setMicGain to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSetMicGain(float value) {
+      copyOnWrite();
+      instance.setSetMicGain(value);
+      return this;
+    }
+    /**
+     * <pre>
+     * Set the microphone gain
+     * </pre>
+     *
+     * <code>float set_mic_gain = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSetMicGain() {
+      copyOnWrite();
+      instance.clearSetMicGain();
+      return this;
+    }
+
+    /**
+     * <code>bool internal = 7;</code>
      * @return The internal.
      */
     @java.lang.Override
@@ -888,7 +996,7 @@ public  final class HassmicCommand extends
       return instance.getInternal();
     }
     /**
-     * <code>bool internal = 6;</code>
+     * <code>bool internal = 7;</code>
      * @param value The internal to set.
      * @return This builder for chaining.
      */
@@ -898,7 +1006,7 @@ public  final class HassmicCommand extends
       return this;
     }
     /**
-     * <code>bool internal = 6;</code>
+     * <code>bool internal = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearInternal() {
@@ -932,8 +1040,8 @@ public  final class HassmicCommand extends
             "internal_",
           };
           java.lang.String info =
-              "\u0000\u0006\u0001\u0000\u0001\u0006\u0006\u0000\u0000\u0000\u0001<\u0000\u0002:" +
-              "\u0000\u0003<\u0000\u0004<\u0000\u0005<\u0000\u0006\u0007";
+              "\u0000\u0007\u0001\u0000\u0001\u0007\u0007\u0000\u0000\u0000\u0001<\u0000\u0002:" +
+              "\u0000\u0003<\u0000\u0004<\u0000\u0005<\u0000\u00064\u0000\u0007\u0007";
           return newMessageInfo(DEFAULT_INSTANCE, info, objects);
       }
       // fall through

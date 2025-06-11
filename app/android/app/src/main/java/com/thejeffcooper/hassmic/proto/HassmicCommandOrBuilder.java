@@ -103,7 +103,26 @@ public interface HassmicCommandOrBuilder extends
   com.thejeffcooper.hassmic.proto.MediaPlayerCommand getCommand();
 
   /**
-   * <code>bool internal = 6;</code>
+   * <pre>
+   * Set the microphone gain
+   * </pre>
+   *
+   * <code>float set_mic_gain = 6;</code>
+   * @return Whether the setMicGain field is set.
+   */
+  boolean hasSetMicGain();
+  /**
+   * <pre>
+   * Set the microphone gain
+   * </pre>
+   *
+   * <code>float set_mic_gain = 6;</code>
+   * @return The setMicGain.
+   */
+  float getSetMicGain();
+
+  /**
+   * <code>bool internal = 7;</code>
    * @return The internal.
    */
   boolean getInternal();

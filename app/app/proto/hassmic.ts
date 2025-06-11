@@ -43,7 +43,7 @@ export interface SavedSettings {
     /**
      * MicGain
      *
-     * @generated from protobuf field: optional float micGain = 5;
+     * @generated from protobuf field: optional float mic_gain = 5;
      */
     micGain?: number;
 }
@@ -1400,10 +1400,18 @@ export interface HassmicCommand {
          */
         command: MediaPlayerCommand;
     } | {
+        oneofKind: "setMicGain";
+        /**
+         * Set the microphone gain
+         *
+         * @generated from protobuf field: float set_mic_gain = 6;
+         */
+        setMicGain: number;
+    } | {
         oneofKind: undefined;
     };
     /**
-     * @generated from protobuf field: bool internal = 6;
+     * @generated from protobuf field: bool internal = 7;
      */
     internal: boolean;
 }
@@ -1486,7 +1494,7 @@ class SavedSettings$Type extends MessageType<SavedSettings> {
             { no: 2, name: "playback_volume", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ },
             { no: 3, name: "hassmic_uuid", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
             { no: 4, name: "device_name", kind: "scalar", T: 9 /*ScalarType.STRING*/ },
-            { no: 5, name: "micGain", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ }
+            { no: 5, name: "mic_gain", kind: "scalar", opt: true, T: 2 /*ScalarType.FLOAT*/ }
         ]);
     }
     create(value?: PartialMessage<SavedSettings>): SavedSettings {
@@ -1514,7 +1522,7 @@ class SavedSettings$Type extends MessageType<SavedSettings> {
                 case /* string device_name */ 4:
                     message.deviceName = reader.string();
                     break;
-                case /* optional float micGain */ 5:
+                case /* optional float mic_gain */ 5:
                     message.micGain = reader.float();
                     break;
                 default:
@@ -1541,7 +1549,7 @@ class SavedSettings$Type extends MessageType<SavedSettings> {
         /* string device_name = 4; */
         if (message.deviceName !== "")
             writer.tag(4, WireType.LengthDelimited).string(message.deviceName);
-        /* optional float micGain = 5; */
+        /* optional float mic_gain = 5; */
         if (message.micGain !== undefined)
             writer.tag(5, WireType.Bit32).float(message.micGain);
         let u = options.writeUnknownFields;
@@ -5738,7 +5746,8 @@ class HassmicCommand$Type extends MessageType<HassmicCommand> {
             { no: 3, name: "set_device_volume", kind: "message", oneof: "msg", T: () => DeviceVolume },
             { no: 4, name: "set_player_volume", kind: "message", oneof: "msg", T: () => MediaPlayerVolume },
             { no: 5, name: "command", kind: "message", oneof: "msg", T: () => MediaPlayerCommand },
-            { no: 6, name: "internal", kind: "scalar", T: 8 /*ScalarType.BOOL*/ }
+            { no: 6, name: "set_mic_gain", kind: "scalar", oneof: "msg", T: 2 /*ScalarType.FLOAT*/ },
+            { no: 7, name: "internal", kind: "scalar", T: 8 /*ScalarType.BOOL*/ }
         ]);
     }
     create(value?: PartialMessage<HassmicCommand>): HassmicCommand {
@@ -5784,7 +5793,13 @@ class HassmicCommand$Type extends MessageType<HassmicCommand> {
                         command: MediaPlayerCommand.internalBinaryRead(reader, reader.uint32(), options, (message.msg as any).command)
                     };
                     break;
-                case /* bool internal */ 6:
+                case /* float set_mic_gain */ 6:
+                    message.msg = {
+                        oneofKind: "setMicGain",
+                        setMicGain: reader.float()
+                    };
+                    break;
+                case /* bool internal */ 7:
                     message.internal = reader.bool();
                     break;
                 default:
@@ -5814,9 +5829,12 @@ class HassmicCommand$Type extends MessageType<HassmicCommand> {
         /* hassmic.MediaPlayerCommand command = 5; */
         if (message.msg.oneofKind === "command")
             MediaPlayerCommand.internalBinaryWrite(message.msg.command, writer.tag(5, WireType.LengthDelimited).fork(), options).join();
-        /* bool internal = 6; */
+        /* float set_mic_gain = 6; */
+        if (message.msg.oneofKind === "setMicGain")
+            writer.tag(6, WireType.Bit32).float(message.msg.setMicGain);
+        /* bool internal = 7; */
         if (message.internal !== false)
-            writer.tag(6, WireType.Varint).bool(message.internal);
+            writer.tag(7, WireType.Varint).bool(message.internal);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

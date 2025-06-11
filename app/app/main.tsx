@@ -9,7 +9,6 @@ import {
   Text,
   View,
 } from "react-native";
-import Slider from "@react-native-community/slider";
 import { APP_VERSION } from "./constants";
 import { BackgroundTaskManager, TaskState } from "./backgroundtask";
 import { CheyenneSocket } from "./cheyenne";
@@ -113,6 +112,7 @@ export default function Index() {
 
   const settingsUpdated = async (newSettings: SavedSettings) => {
     setUUID(newSettings.hassmicUuid);
+    setMicGain(newSettings.micGain || 1);
   };
 
   // useEffect(..., []) means this code will be called once on component mount
@@ -141,16 +141,7 @@ export default function Index() {
       setHasNotificationPermission(ok);
     });
 
-    // Set mic gain to the saved value, or default to 1
-    WyomingServer.loadMicGain().then((gain) => {
-      setMicGain(gain || 1);
-    });
   }, []);
-
-  // when micGain is changed, save it to the server.
-  useEffect(() => {
-    WyomingServer.setMicGain(micGain)
-  }, [micGain]);
 
   // when background task is toggled on or off, start or stop it accordingly.
   useEffect(() => {
@@ -235,18 +226,6 @@ export default function Index() {
           <Text>Version {APP_VERSION}</Text>
           <Separator />
           <Text>Microphone Gain: {micGain}</Text>
-          <Slider
-            style={styles.slider}
-            step={0.5}
-            minimumValue={1}
-            maximumValue={11}
-            minimumTrackTintColor="#46BD42"
-            maximumTrackTintColor="#000000"
-            onValueChange={(value) => {
-              setMicGain(value);
-            }}
-            value={micGain}
-          />
         </>
       </View>
     </SafeAreaView>

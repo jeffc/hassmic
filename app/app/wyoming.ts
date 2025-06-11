@@ -692,6 +692,7 @@ class WyomingServer_ {
   private _pipelineSocketId: string | null = null;
   private _pipelineStartEventListender: any = null;
   private _activePCMStream: number | null = null;
+  private _micGain: number = 1.0;
 
   constructor() {
     Settings.registerSettingsChangedCallback(async (s: SavedSettings) => {
@@ -704,9 +705,11 @@ class WyomingServer_ {
           `Not setting gain: ${s.announceVolume} ${this._activePCMStream}`,
         );
       }
-    });
-    this.loadMicGain().then(() => {
-      Logger.info(`Wyoming server initialized with mic gain: ${this.micGain}`);
+
+      if (s.micGain !== undefined) {
+        Logger.info(`Setting mic gain to ${s.micGain}`);
+        this._micGain = s.micGain;
+      }
     });
   }
 
@@ -717,21 +720,6 @@ class WyomingServer_ {
   };
   private _setConnectionState = (s: boolean) => {
     this._connectionStateCallback?.(s);
-  };
-
-  micGain: number = 1; // default mic gain
-
-  loadMicGain = async () => {
-    return await Settings.getMicGain().then(gain => {
-      this.micGain = gain;
-      Logger.info(`Loaded mic gain: ${this.micGain}`);
-      return this.micGain;
-    }
-  )};
-
-  setMicGain = async (gain: number) => {
-    this.micGain = gain;
-    await Settings.setMicGain(gain);
   };
 
   _increaseVolume16BitPCM(data: Uint8Array, gain: number) {
@@ -784,8 +772,8 @@ class WyomingServer_ {
       this._clients.hasOwnProperty(this._pipelineSocketId)
     ) {
       if (this._clients[this._pipelineSocketId].streamAudio) {
-        if (this.micGain > 0) {
-          data = this._increaseVolume16BitPCM(data, this.micGain);
+        if (this._micGain > 0) {
+          data = this._increaseVolume16BitPCM(data, this._micGain);
         }
         this._clients[this._pipelineSocketId].sendAudioData(data);
       }
