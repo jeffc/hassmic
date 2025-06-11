@@ -4,7 +4,6 @@ import {HMLogger} from './logger';
 import {
   APP_VERSION,
   AUDIO_INFO,
-  STORAGE_MIC_GAIN,
   WYOMING_PORT,
 } from './constants';
 import {Settings} from './settings';
