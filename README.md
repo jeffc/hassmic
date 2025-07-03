@@ -5,9 +5,9 @@ Assistant](https://home-assistant.io) designed to run on devices acting as Home
 Assistant voice assistant satellites. It does this with two parts:
 
 - The HassMic App runs a [Wyoming](https://github.com/rhasspy/wyoming)
-  satellite, which can be auto-detected and set up by Home Assistant. This can
+  satellite (port 10700), which can be auto-detected and set up by Home Assistant. This can
   be used entirely independently of the HassMic Integration if you want.
-- The HassMic App also listens for a connection from the HassMic integration,
+- The HassMic App also listens for a connection from the HassMic integration (port 11700),
   which can be installed by adding this repository in [HACS](https://hacs.xyz)
   (or by copying the `custom_components/hassmic` directory into the appropriate
   place in your configuration directory). This provides a few advantages:
