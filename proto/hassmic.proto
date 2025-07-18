@@ -18,6 +18,9 @@ message SavedSettings {
 
   // Device name
   string device_name = 4;
+
+  // MicGain
+  optional float mic_gain = 5;
 }
 
 // Information that the client sends about itself
@@ -455,6 +458,9 @@ message HassmicCommand {
 
     // Play, pause, stop, etc
     MediaPlayerCommand command = 5;
+
+    // Set the microphone gain
+    float set_mic_gain = 6;
   }
-  bool internal = 6;
+  bool internal = 7;
 }

@@ -7,6 +7,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 from .announce_volume import AnnounceVolume
+from .microphone_gain import MicrophoneGain
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -18,7 +19,12 @@ async def async_setup_entry(
 ) -> None:
     """Initialize hassmic config entry for media players."""
 
-    async_add_entities([AnnounceVolume(hass, config_entry)])
+    async_add_entities(
+        [
+            AnnounceVolume(hass, config_entry),
+            MicrophoneGain(hass, config_entry),
+        ]
+    )
 
 
 # vim: set ts=4 sw=4:

@@ -226,6 +226,25 @@ class SavedSettingsManager_ {
     }
     return out;
   };
+
+  getMicGain = async (): Promise<number> => {
+    await this.waitForReady();
+    let out = this.settings.micGain;
+    if (out === undefined) {
+      throw new Error('No mic gain set in settings!');
+    }
+    return out;
+  }
+
+  setMicGain = async (newGain: number) => {
+    await this.waitForReady();
+    if (newGain < 0 || newGain > 11) {
+      Logger.warning(`New mic gain out of range; not saving it: ${newGain}`);
+      return;
+    }
+    this.settings.micGain = newGain;
+    await this.write();
+  }
 }
 
 export const Settings = new SavedSettingsManager_();

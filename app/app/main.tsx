@@ -49,6 +49,7 @@ export default function Index() {
     TaskState.UNKNOWN
   );
   const [uuid, setUUID] = useState("");
+  const [micGain, setMicGain] = useState(1);
 
   // check audio permission silently
   const checkAudioPermission = async (): Promise<boolean> => {
@@ -111,6 +112,7 @@ export default function Index() {
 
   const settingsUpdated = async (newSettings: SavedSettings) => {
     setUUID(newSettings.hassmicUuid);
+    setMicGain(newSettings.micGain || 1);
   };
 
   // useEffect(..., []) means this code will be called once on component mount
@@ -138,6 +140,7 @@ export default function Index() {
     checkNotificationPermission().then((ok) => {
       setHasNotificationPermission(ok);
     });
+
   }, []);
 
   // when background task is toggled on or off, start or stop it accordingly.
@@ -217,10 +220,12 @@ export default function Index() {
             {hasNotificationPermission === null
               ? "not required"
               : hasNotificationPermission
-                ? "yes"
-                : "no"}
+              ? "yes"
+              : "no"}
           </Text>
           <Text>Version {APP_VERSION}</Text>
+          <Separator />
+          <Text>Microphone Gain: {micGain}</Text>
         </>
       </View>
     </SafeAreaView>
