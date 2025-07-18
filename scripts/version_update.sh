@@ -15,7 +15,7 @@ echo "Ensuring required packages are present"
 npm install
 
 # update the app constants file
-sed -e "s/APP_VERSION = \"[^\"]*\"/APP_VERSION = \"$VERSION\"/" -i app/app/constants.ts
+sed -e "s/APP_VERSION = [\"'][^\"']*[\"']/APP_VERSION = \"$VERSION\"/" -i app/app/constants.ts
 
 # update the package and package-lock files using jq
 TEMPFILE=`mktemp`
