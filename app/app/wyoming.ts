@@ -117,7 +117,7 @@ class WyomingPacket {
         rawJson: this.toString(),
         payload: this.getPayload(),
         event: {
-          oneofKind: kind,
+          oneofKind: kind as any,
           [kind]: JSON.parse(this.getData()),
         },
       });
@@ -333,6 +333,7 @@ class ClientHandler {
   private _pipelineRunning: boolean = false;
   private _audioStartTimestamp: number = 0;
   private _pingEvent: number = 0;
+  private _streamEnableTimer: ReturnType<typeof setTimeout> | null = null;
   streamAudio: boolean = false;
 
   constructor(socket: TcpSocket.Socket) {
@@ -422,6 +423,9 @@ class ClientHandler {
 
   end = () => {
     clearInterval(this._pingEvent);
+    this._cancelStreamEnable();
+    this._pipelineRunning = false;
+    this.setMicAudioStreaming(false);
     if (this._socket) {
       Logger.debug(
         `Closing socket ${this._socket.remoteAddress}:${this._socket.remotePort}`,
@@ -433,6 +437,9 @@ class ClientHandler {
 
   destroy = () => {
     clearInterval(this._pingEvent);
+    this._cancelStreamEnable();
+    this._pipelineRunning = false;
+    this.setMicAudioStreaming(false);
     if (this._socket) {
       Logger.debug(
         `Destroying socket ${this._socket.remoteAddress}:${this._socket.remotePort}`,
@@ -443,8 +450,18 @@ class ClientHandler {
   };
 
   setMicAudioStreaming = (enable: boolean) => {
+    if (enable) {
+      this._streamEnableTimer = null;
+    }
     Logger.info(`${enable ? 'Enabling' : 'Disabling'} audio streaming`);
     this.streamAudio = enable;
+  };
+
+  private _cancelStreamEnable = () => {
+    if (this._streamEnableTimer !== null) {
+      clearTimeout(this._streamEnableTimer);
+      this._streamEnableTimer = null;
+    }
   };
 
   private _handleEvent = async (p: WyomingPacket) => {
@@ -514,6 +531,8 @@ class ClientHandler {
           break;
 
         case 'run-satellite':
+          this._cancelStreamEnable();
+          this.setMicAudioStreaming(false);
           zcuuid = await Settings.getHMUUID();
           Logger.info('Starting satellite at server request');
           resp = new WyomingPacket({
@@ -536,24 +555,31 @@ class ClientHandler {
 
         case 'pause-satellite':
           Logger.info('Stopping satellite at server request');
-          //this.stopAudio();
+          this._cancelStreamEnable();
           this._pipelineRunning = false;
           this.setMicAudioStreaming(false);
           break;
 
         case 'detect':
           Logger.info('Starting (on-server) wakeword detection...');
+          this._cancelStreamEnable();
           DeviceEventEmitter.emit('wyoming-pipeline-start', {
             socket_id: this._socket?._id,
           });
           // Start streaming audio
-          setTimeout(() => {
+          this._streamEnableTimer = setTimeout(() => {
+            this._streamEnableTimer = null;
+            if (!this._pipelineRunning || !this._socket) {
+              return;
+            }
             this.setMicAudioStreaming(true);
           }, 1000);
           break;
 
         case 'error':
           Logger.debug(`Error from server: ${p.getProp('text')}`);
+          this._cancelStreamEnable();
+          this._pipelineRunning = false;
           this.setMicAudioStreaming(false);
           break;
 
@@ -575,6 +601,8 @@ class ClientHandler {
 
         case 'audio-start':
           Logger.info('Starting audio stream...');
+          this._cancelStreamEnable();
+          this.setMicAudioStreaming(false);
           this._activePCMStream = await PCMPlayer.startAudioStream({
             encoding: '16bit',
             usage: 'announce',
