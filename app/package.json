@@ -16,7 +16,6 @@
     "buffer": "^6.0.3",
     "react": "19.0.0",
     "react-native": "0.78.0",
-    "react-native-fast-encoder": "^0.1.12",
     "react-native-fetch-api": "^3.0.0",
     "react-native-live-audio-stream": "github:jeffc/react-native-live-audio-stream",
     "react-native-microphone-stream": "^1.0.3",
@@ -25,6 +24,7 @@
     "react-native-tcp-socket": "^6.2.0",
     "react-native-uuid": "^2.0.3",
     "react-native-zeroconf": "^0.13.8",
+    "text-encoding": "^0.7.0",
     "web-streams-polyfill": "^4.1.0"
   },
   "devDependencies": {

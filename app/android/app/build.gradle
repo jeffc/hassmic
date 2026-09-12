@@ -96,6 +96,11 @@ android {
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
+            packagingOptions {
+                jniLibs {
+                    keepDebugSymbols += ["**/*.so"]
+                }
+            }
             matchingFallbacks = ['release', 'debug']
         }
         release {

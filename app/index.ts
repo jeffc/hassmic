@@ -5,7 +5,7 @@ import {BackgroundTaskManager} from './app/backgroundtask';
 import {NativeManager} from './app/nativemgr';
 import {name as appName} from './app.json';
 
-import TextEncoder from 'react-native-fast-encoder';
+import {TextEncoder} from 'text-encoding';
 
 // ---- begin textencoder polyfills ----
 // from https://gist.github.com/aretrace/bcb0777c2cfd2b0b1d9dcfb805fe2838
